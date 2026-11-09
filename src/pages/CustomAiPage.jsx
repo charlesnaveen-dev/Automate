@@ -5,13 +5,14 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 import CtaBanner from '../components/CtaBanner';
+import CustomAiConsole from '../components/CustomAiConsole';
 import './CapabilityDetailPage.css';
 
 export default function CustomAiPage() {
   usePageMetadata({
     title: 'Custom AI Solutions — Purpose-Built Engineering & Architectures',
     description: 'Bespoke AI pipelines, proprietary knowledge synthesis, and internal tools engineered for operational challenges that off-the-shelf software cannot solve.',
-    path: '/capabilities/custom-ai',
+    path: '/capabilities/custom-ai-solutions',
   });
 
   useScrollReveal();
@@ -68,28 +69,43 @@ export default function CustomAiPage() {
   return (
     <div className="capability-detail-page">
       <PageHeader
-        eyebrow="CUSTOM AI SOLUTIONS"
+        eyebrow="CAPABILITIES · BESPOKE ENGINEERING"
         badgeText="Purpose-Built Engineering"
         badgeType="purple"
-        title="Bespoke AI systems for operational requirements that off-the-shelf software cannot solve."
+        title="Purpose-built intelligence for complex business needs."
         description="When commercial SaaS platforms and generic AI chatbots fall short of your business constraints, Hutomate designs custom AI pipelines, internal tools, and intelligent data architectures tailored to your exact workflows."
       >
-        <Button variant="primary" size="md" arrow href="/start-project">
-          Scope a Custom System
+        <Button variant="primary" size="md" arrow href="/contact">
+          Discuss Your Project
         </Button>
         <Button variant="secondary" size="md" href="/process">
           How We Work
         </Button>
       </PageHeader>
 
+      {/* Interactive Custom AI Product Console */}
+      <section className="section detail-section" style={{ paddingTop: '20px' }}>
+        <div className="container">
+          <div className="section-header text-center">
+            <span className="section-label">Bespoke Architecture</span>
+            <h2 className="section-heading">Inspect our multi-model processing console</h2>
+            <p className="section-body section-body-center">
+              Explore how raw operational documents are indexed into isolated vector stores, parsed by specialized models, and transformed into deterministic schemas and executive intelligence.
+            </p>
+          </div>
+
+          <CustomAiConsole />
+        </div>
+      </section>
+
       {/* Applications Section */}
-      <section className="section detail-section">
+      <section className="section detail-section bg-secondary-section">
         <div className="container">
           <div className="section-header">
-            <span className="section-label">Tailored Solutions</span>
-            <h2 className="section-heading">Custom AI architectures built around your business</h2>
+            <span className="section-label">Custom Applications</span>
+            <h2 className="section-heading">Engineered for unique operational complexities</h2>
             <p className="section-body">
-              Targeted solutions engineered to solve specific operational bottlenecks that generic pre-packaged software cannot handle.
+              From specialized RAG knowledge engines to legacy database wrapping, we build software where off-the-shelf products cannot deliver.
             </p>
           </div>
 
@@ -98,7 +114,7 @@ export default function CustomAiPage() {
               const IconComp = uc.icon;
               return (
                 <div key={i} className="detail-card card">
-                  <div className="detail-card-icon-wrap">
+                  <div className="detail-card-icon-wrap" style={{ color: '#8B5CF6' }}>
                     <IconComp size={20} />
                   </div>
                   <h3 className="detail-card-title">{uc.title}</h3>
@@ -110,21 +126,23 @@ export default function CustomAiPage() {
         </div>
       </section>
 
-      {/* Engineering Lifecycle */}
-      <section className="section detail-section bg-secondary-section">
+      {/* 6-Step Implementation Lifecycle */}
+      <section className="section detail-section">
         <div className="container">
           <div className="section-header text-center">
-            <span className="section-label section-label-green">Engineering Roadmap</span>
-            <h2 className="section-heading">From initial architecture to production deployment</h2>
+            <span className="section-label section-label-green">Lifecycle Architecture</span>
+            <h2 className="section-heading">How custom systems are engineered and deployed</h2>
             <p className="section-body section-body-center">
-              Our engineering lifecycle prioritizes rigorous verification, clean system boundaries, and continuous cost oversight.
+              A disciplined, phased engineering framework that establishes feasibility, security guardrails, and unit testing before production rollout.
             </p>
           </div>
 
           <div className="timeline-steps-grid">
             {customAiSteps.map((st) => (
               <div key={st.step} className="timeline-step-card card">
-                <span className="timeline-step-number">{st.step}</span>
+                <span className="timeline-step-number" style={{ color: '#8B5CF6', backgroundColor: 'rgba(139, 92, 246, 0.08)' }}>
+                  {st.step}
+                </span>
                 <h3 className="timeline-step-title">{st.title}</h3>
                 <p className="timeline-step-desc">{st.desc}</p>
               </div>
@@ -134,74 +152,35 @@ export default function CustomAiPage() {
       </section>
 
       {/* Engineering Principles */}
-      <section className="section detail-section">
+      <section className="section detail-section bg-secondary-section">
         <div className="container">
           <div className="section-header">
-            <span className="section-label section-label-blue">Design Standards</span>
-            <h2 className="section-heading">Engineering principles we stand by</h2>
+            <span className="section-label section-label-blue">Enterprise Security &amp; Standards</span>
+            <h2 className="section-heading">Architectural integrity built for production</h2>
             <p className="section-body">
-              We design custom AI systems with the same architectural discipline as mission-critical enterprise software.
+              Enterprise sovereignty over your data and code. We build maintainable software that gives you full ownership and zero cloud vendor lock-in.
             </p>
           </div>
 
           <div className="boundaries-grid">
-            {engineeringPrinciples.map((p, i) => (
+            {engineeringPrinciples.map((b, i) => (
               <div key={i} className="boundary-card card">
-                <ShieldCheck size={20} className="boundary-icon" />
-                <h3 className="boundary-title">{p.title}</h3>
-                <p className="boundary-desc">{p.desc}</p>
+                <ShieldCheck size={20} className="boundary-icon" style={{ color: '#8B5CF6' }} />
+                <h3 className="boundary-title">{b.title}</h3>
+                <p className="boundary-desc">{b.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process Strip */}
-      <section className="section detail-section bg-secondary-section">
-        <div className="container">
-          <div className="section-header text-center">
-            <span className="section-label">Engagement Model</span>
-            <h2 className="section-heading">How custom development projects proceed</h2>
-            <p className="section-body section-body-center">
-              Clear milestones, fixed sprint cadences, and continuous demonstrations ensure you always know what is being built.
-            </p>
-          </div>
-
-          <div className="process-mini-strip">
-            <div className="mini-step">
-              <span className="mini-step-num">01</span>
-              <span className="mini-step-name">Architecture Design</span>
-              <span className="mini-step-sub">Deliver complete technical spec &amp; data model</span>
-            </div>
-            <div className="mini-arrow">→</div>
-            <div className="mini-step">
-              <span className="mini-step-num">02</span>
-              <span className="mini-step-name">Core Engine Prototype</span>
-              <span className="mini-step-sub">Validate accuracy on real business sample data</span>
-            </div>
-            <div className="mini-arrow">→</div>
-            <div className="mini-step">
-              <span className="mini-step-num">03</span>
-              <span className="mini-step-name">Full Integration</span>
-              <span className="mini-step-sub">Connect to databases, APIs, and auth layers</span>
-            </div>
-            <div className="mini-arrow">→</div>
-            <div className="mini-step">
-              <span className="mini-step-num">04</span>
-              <span className="mini-step-name">Team Handover</span>
-              <span className="mini-step-sub">Documentation, code delivery &amp; operator training</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <CtaBanner
-        title="Have a technical challenge that standard software can’t solve?"
-        description="Share your requirements and technical architecture with our engineering team for an honest feasibility assessment."
-        buttonText="Scope Custom AI"
-        buttonHref="/start-project"
-        secondaryButtonText="View Engagement Models"
-        secondaryButtonHref="/engagement"
+        title="Have a complex operational challenge?"
+        description="Let’s review your data formats, internal software, and workflow constraints to evaluate whether a custom AI pipeline is the right path."
+        buttonText="Discuss Your Project"
+        buttonHref="/contact"
+        secondaryButtonText="Explore Process"
+        secondaryButtonHref="/process"
       />
     </div>
   );

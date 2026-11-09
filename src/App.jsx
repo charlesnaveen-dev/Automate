@@ -74,6 +74,7 @@ function RouteSwitcher() {
     case '/capabilities/voice-ai':
       PageComponent = VoiceAiPage;
       break;
+    case '/capabilities/custom-ai-solutions':
     case '/capabilities/custom-ai':
       PageComponent = CustomAiPage;
       break;

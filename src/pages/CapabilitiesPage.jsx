@@ -82,7 +82,13 @@ export default function CapabilitiesPage() {
       {/* Main Interactive Capabilities Showcase (Exact reference layout: header + cards + details) */}
       <section className="cap-interactive-section">
         <div className="container">
-          <InteractiveCapabilitiesShowcase defaultActiveId="ai-agents" showHeader={true} />
+          <InteractiveCapabilitiesShowcase
+            defaultActiveId="ai-agents"
+            showHeader={true}
+            eyebrow="CAPABILITIES"
+            heading="Intelligent capabilities. Practical outcomes."
+            supportText="From autonomous AI agents to connected workflows and custom intelligent systems, we build technology around the way businesses operate."
+          />
         </div>
       </section>
 
@@ -164,7 +170,7 @@ export default function CapabilitiesPage() {
         title="Ready to evaluate your team's automation opportunities?"
         description="Share your current operational workflows with our engineering team. We assess technical feasibility, software compatibility, and projected ROI."
         buttonText="Discuss Your Project"
-        buttonHref="/start-project"
+        buttonHref="/contact"
         secondaryButtonText="Explore Use Cases"
         secondaryButtonHref="/use-cases"
       />

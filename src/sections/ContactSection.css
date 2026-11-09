@@ -5,14 +5,14 @@
 .contact-section {
   position: relative;
   width: 100%;
-  background-color: #111111;
+  background-color: var(--color-dark-navy, #071923);
   color: #FFFFFF;
   padding-top: clamp(80px, 9vw, 130px);
   padding-bottom: clamp(80px, 9vw, 130px);
   font-family: var(--font-family-primary, 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif);
   overflow: hidden;
   box-sizing: border-box;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(131, 221, 226, 0.12);
 }
 
 /* Background Atmospheric Glows */
@@ -20,10 +20,10 @@
   position: absolute;
   top: -150px;
   right: -100px;
-  width: 600px;
-  height: 600px;
+  width: 650px;
+  height: 650px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(118, 87, 232, 0.18) 0%, rgba(118, 87, 232, 0) 70%);
+  background: radial-gradient(circle, rgba(131, 221, 226, 0.14) 0%, rgba(8, 44, 54, 0.05) 50%, transparent 70%);
   pointer-events: none;
   filter: blur(50px);
 }
@@ -32,10 +32,10 @@
   position: absolute;
   bottom: -150px;
   left: -100px;
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  height: 550px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 168, 106, 0.12) 0%, rgba(37, 168, 106, 0) 70%);
+  background: radial-gradient(circle, rgba(185, 165, 245, 0.1) 0%, transparent 70%);
   pointer-events: none;
   filter: blur(50px);
 }

@@ -560,10 +560,17 @@ function VisualCustomAi() {
  * - Full touch-swiping, arrows, and keyboard support
  * - Rich two-column detail section with laptop/telephony/pipeline interfaces
  */
-export default function InteractiveCapabilitiesShowcase({ defaultActiveId = 'ai-agents', showHeader = true }) {
+export default function InteractiveCapabilitiesShowcase({
+  defaultActiveId = 'ai-agents',
+  showHeader = true,
+  heading,
+  supportText,
+  eyebrow = 'CAPABILITIES',
+}) {
   const [activeId, setActiveId] = useState(defaultActiveId);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(() => (typeof window !== 'undefined' ? window.innerWidth >= 1024 : true));
   const carouselTrackRef = useRef(null);
+  const isFirstMountRef = useRef(true);
 
   // Active Index
   const activeIdx = CAPABILITIES_DATA.findIndex((c) => c.id === activeId) !== -1
@@ -682,15 +689,22 @@ export default function InteractiveCapabilitiesShowcase({ defaultActiveId = 'ai-
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [goToNext, goToPrev]);
 
-  // Scroll into view on mobile cards container when active card changes
+  // Scroll carousel container horizontally when active card changes (without jumping page vertically)
   useEffect(() => {
+    if (isFirstMountRef.current) {
+      isFirstMountRef.current = false;
+      return;
+    }
     if (!isDesktop && carouselTrackRef.current) {
       const activeCardEl = carouselTrackRef.current.children[activeIdx];
       if (activeCardEl) {
-        activeCardEl.scrollIntoView({
+        const track = carouselTrackRef.current;
+        const cardLeft = activeCardEl.offsetLeft;
+        const cardWidth = activeCardEl.offsetWidth;
+        const trackWidth = track.offsetWidth;
+        track.scrollTo({
+          left: cardLeft - trackWidth / 2 + cardWidth / 2,
           behavior: 'smooth',
-          inline: 'center',
-          block: 'nearest',
         });
       }
     }
@@ -723,16 +737,16 @@ export default function InteractiveCapabilitiesShowcase({ defaultActiveId = 'ai-
             <div className="cap-top-header-left">
               <div className="cap-eyebrow-pill">
                 <span className="cap-eyebrow-dot"></span>
-                <span>CAPABILITIES</span>
+                <span>{eyebrow}</span>
               </div>
               <h2 className="cap-main-heading">
-                Intelligence that works with your business.
+                {heading || 'Intelligence that works with your business.'}
               </h2>
             </div>
 
             <div className="cap-top-header-right">
               <p className="cap-header-support-text">
-                Explore our core capabilities. Select a capability to discover how Hutomate can help your business operate smarter.
+                {supportText || 'Explore our core capabilities. Select a capability to discover how Hutomate can help your business operate smarter.'}
               </p>
             </div>
           </div>

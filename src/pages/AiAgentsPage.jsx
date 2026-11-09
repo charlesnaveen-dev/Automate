@@ -5,6 +5,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 import CtaBanner from '../components/CtaBanner';
+import AiAgentSimulator from '../components/AiAgentSimulator';
 import './CapabilityDetailPage.css';
 
 export default function AiAgentsPage() {
@@ -68,22 +69,37 @@ export default function AiAgentsPage() {
   return (
     <div className="capability-detail-page">
       <PageHeader
-        eyebrow="AI AGENTS"
-        badgeText="Autonomous Reasoning &amp; Execution"
+        eyebrow="CAPABILITIES · AUTONOMOUS AGENTS"
+        badgeText="Scoped Reasoning &amp; Execution"
         badgeType="purple"
-        title="AI agents designed to handle defined business tasks."
-        description="AI agents can help businesses process requests, retrieve relevant information and perform specific tasks within clearly defined boundaries. Hutomate assesses where an agent may be useful and designs a solution around your workflow, data and existing systems."
+        title="AI agents that move work forward."
+        description="Autonomous AI agents designed to handle defined operational tasks, query company knowledge bases with verified citations, and execute multi-step tools within strictly enforced human-in-the-loop guardrails."
       >
-        <Button variant="primary" size="md" arrow href="/start-project">
-          Plan an AI Agent
+        <Button variant="primary" size="md" arrow href="/contact">
+          Discuss Your Project
         </Button>
-        <Button variant="secondary" size="md" href="/blueprints">
-          View Agent Blueprints
+        <Button variant="secondary" size="md" href="/use-cases">
+          Explore Use Cases
         </Button>
       </PageHeader>
 
+      {/* Interactive Execution Simulator Section */}
+      <section className="section detail-section" style={{ paddingTop: '20px' }}>
+        <div className="container">
+          <div className="section-header text-center">
+            <span className="section-label">Interactive Demonstration</span>
+            <h2 className="section-heading">Inspect an AI agent execution loop in action</h2>
+            <p className="section-body section-body-center">
+              Watch how a bounded Hutomate agent receives an inbound task, retrieves contextual memory, applies deterministic business rules, calls authorized APIs, and records an auditable resolution.
+            </p>
+          </div>
+
+          <AiAgentSimulator />
+        </div>
+      </section>
+
       {/* Applications Section */}
-      <section className="section detail-section">
+      <section className="section detail-section bg-secondary-section">
         <div className="container">
           <div className="section-header">
             <span className="section-label">Potential Applications</span>
@@ -111,7 +127,7 @@ export default function AiAgentsPage() {
       </section>
 
       {/* 6-Step Workflow Lifecycle */}
-      <section className="section detail-section bg-secondary-section">
+      <section className="section detail-section">
         <div className="container">
           <div className="section-header text-center">
             <span className="section-label section-label-green">Lifecycle Architecture</span>
@@ -134,7 +150,7 @@ export default function AiAgentsPage() {
       </section>
 
       {/* Designed with Boundaries */}
-      <section className="section detail-section">
+      <section className="section detail-section bg-secondary-section">
         <div className="container">
           <div className="section-header">
             <span className="section-label section-label-blue">Safety &amp; Reliability</span>
@@ -157,13 +173,13 @@ export default function AiAgentsPage() {
       </section>
 
       {/* Implementation Process Summary */}
-      <section className="section detail-section bg-secondary-section">
+      <section className="section detail-section">
         <div className="container">
           <div className="section-header text-center">
             <span className="section-label">Delivery Framework</span>
             <h2 className="section-heading">Our AI Agent implementation approach</h2>
             <p className="section-body section-body-center">
-              From initial data assessment to monitored production cutover, here is how we build custom agents for client teams.
+              From initial task assessment to monitored production cutover, here is how we build custom agents for client teams.
             </p>
           </div>
 
@@ -204,8 +220,8 @@ export default function AiAgentsPage() {
       <CtaBanner
         title="Ready to explore an AI agent for your business?"
         description="Let’s review the specific tasks your team spends time on and evaluate whether an autonomous agent is the right technical and commercial fit."
-        buttonText="Plan an AI Agent"
-        buttonHref="/start-project"
+        buttonText="Discuss Your Project"
+        buttonHref="/contact"
         secondaryButtonText="Explore Use Cases"
         secondaryButtonHref="/use-cases"
       />

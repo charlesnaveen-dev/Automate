@@ -11,17 +11,28 @@
 
 :root {
   /* ===========================================================================
-   * COLOR PALETTE
+   * COLOR PALETTE — CINEMATIC TECHNOLOGY & EDITORIAL SYSTEM
    * =========================================================================== */
 
+  /* Primary Cinematic Theme Colors */
+  --color-dark-navy: #071923;
+  --color-deep-teal: #082C36;
+  --color-accent-cyan: #83DDE2;
+  --color-accent-lavender: #B9A5F5;
+  --color-warm-white: #FAF8F5;
+  --color-charcoal: #171717;
+  --color-muted-grey: #737373;
+
   /* Neutral Backgrounds */
-  --color-bg-main: #F7F5F0;
+  --color-bg-main: #FAF8F5;
   --color-bg-secondary: #F0EEE8;
   --color-bg-tertiary: #E8E5DD;
+  --color-bg-dark: #071923;
+  --color-bg-dark-surface: #082C36;
 
   /* Text & Inks */
-  --color-text-primary: #111111;
-  --color-text-secondary: #66645F;
+  --color-text-primary: #171717;
+  --color-text-secondary: #737373;
   --color-text-muted: #8E8B83;
   --color-text-inverse: #FFFFFF;
 

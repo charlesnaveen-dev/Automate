@@ -93,7 +93,7 @@ export default function UseCasesPage() {
       categoryLabel: 'Inbound & Voice',
       title: 'Never miss an inquiry',
       subtitle: 'Inbound call, voicemail & form triage 24/7/365',
-      problem: '67% of inbound callers hang up without leaving a voicemail when directed to an answering machine or placed on hold. High-intent prospects immediately call a competitor.',
+      problem: 'Inbound callers rarely leave voicemails when directed to an answering machine or placed on indefinite hold. High-intent prospects quickly look elsewhere.',
       solution: 'Our Voice AI receptionists and multi-channel bots pick up inbound calls within seconds. They understand natural speech, qualify caller intent, answer specific FAQs, and record structured details directly into your CRM.',
       stages: [
         {
@@ -118,13 +118,13 @@ export default function UseCasesPage() {
         },
       ],
       impacts: [
-        '0 missed client inquiries — 24/7/365 operational availability',
-        '< 15-second response time across phone, form, and chat channels',
+        'Zero missed client inquiries with 24/7/365 operational availability',
+        'Sub-15-second response time across phone, form, and chat channels',
         'Immediate SMS confirmations and calendar invitations dispatched',
       ],
       stack: ['Voice AI Telephony', 'Twilio', 'HubSpot CRM', 'Google Calendar', 'Webhooks'],
-      ctaText: 'Deploy Inbound Automation',
-      ctaHref: '/start-project?service=ai-receptionists',
+      ctaText: 'Discuss Inbound Automation',
+      ctaHref: '/contact',
     },
     {
       id: 'uc-qualification',
@@ -133,8 +133,8 @@ export default function UseCasesPage() {
       categoryLabel: 'Sales & Qualification',
       title: 'Qualify leads automatically',
       subtitle: 'Automated lead research, ICP scoring & dynamic routing',
-      problem: 'Sales teams spend over 30% of their workday manually vetting inbound inquiries, checking employee counts, and chasing dead ends instead of having high-value discovery conversations.',
-      solution: 'Intelligent screening agents evaluate incoming submissions against your Ideal Customer Profile (ICP). They enrich contact records using firmographic databases and assign instant priority tiers so high-value opportunities receive white-glove treatment.',
+      problem: 'Sales teams lose critical time manually vetting inbound inquiries, checking company details, and chasing dead ends instead of having high-value discovery conversations.',
+      solution: 'Intelligent screening agents evaluate incoming submissions against your Ideal Customer Profile (ICP). They enrich contact records using firmographic databases and assign instant priority tiers so high-value opportunities receive immediate attention.',
       stages: [
         {
           name: 'Inbound Submission',
@@ -158,13 +158,13 @@ export default function UseCasesPage() {
         },
       ],
       impacts: [
-        '+45% sales rep capacity for closing revenue',
-        '< 2-minute qualification turnaround time',
-        '100% CRM data consistency and scoring hygiene',
+        'Substantially increased sales rep capacity for closing revenue',
+        'Rapid qualification turnaround time on inbound inquiries',
+        'Consistent CRM data hygiene and reliable lead scoring',
       ],
       stack: ['AI Agents', 'Clearbit API', 'HubSpot', 'Salesforce', 'Slack'],
-      ctaText: 'Automate Lead Qualification',
-      ctaHref: '/start-project?service=ai-agents',
+      ctaText: 'Discuss Lead Qualification',
+      ctaHref: '/contact',
     },
     {
       id: 'uc-booking',
@@ -173,7 +173,7 @@ export default function UseCasesPage() {
       categoryLabel: 'Inbound & Voice',
       title: 'Book appointments seamlessly',
       subtitle: 'Real-time calendar negotiation & no-show reduction',
-      problem: 'Back-and-forth scheduling emails cause significant deal drop-off, with over 40% of warm prospects abandoning inquiries before a meeting time is ever finalized.',
+      problem: 'Back-and-forth scheduling emails cause significant deal drop-off, with many warm prospects abandoning inquiries before a meeting time is ever finalized.',
       solution: 'Voice and chat agents query real-time calendar availability directly during the conversation. They present available slots, confirm bookings in Google Calendar or Outlook, and dispatch automated SMS/email reminders to eliminate no-shows.',
       stages: [
         {
@@ -198,13 +198,13 @@ export default function UseCasesPage() {
         },
       ],
       impacts: [
-        '85% drop in appointment scheduling friction',
-        '40% reduction in meeting no-shows via automated SMS confirmation',
+        'Eliminate manual back-and-forth appointment scheduling',
+        'Prevent forgotten bookings via automated multi-channel SMS confirmations',
         'Instant timezone translation and two-way calendar sync',
       ],
       stack: ['AI Receptionists', 'Google Calendar', 'Outlook 365', 'Twilio SMS', 'Calendly'],
-      ctaText: 'Set Up Automated Scheduling',
-      ctaHref: '/start-project?service=ai-receptionists',
+      ctaText: 'Discuss Automated Scheduling',
+      ctaHref: '/contact',
     },
     {
       id: 'uc-sync',
@@ -244,7 +244,7 @@ export default function UseCasesPage() {
       ],
       stack: ['Workflow Automation', 'PostgreSQL', 'HubSpot', 'Salesforce', 'Airtable'],
       ctaText: 'Connect Your Stack',
-      ctaHref: '/start-project?service=workflow-automation',
+      ctaHref: '/contact',
     },
     {
       id: 'uc-followup',
@@ -278,13 +278,13 @@ export default function UseCasesPage() {
         },
       ],
       impacts: [
-        '3.2x higher response rate compared to static template drips',
+        'High-conversion personalized messaging based on real conversation points',
         'Zero delay in post-meeting summary and next-step delivery',
         'Optional human-in-the-loop review before dispatch',
       ],
       stack: ['AI Agents', 'Custom AI Models', 'Gmail API', 'Outlook', 'HubSpot CRM'],
-      ctaText: 'Deploy Contextual Follow-ups',
-      ctaHref: '/start-project?service=ai-agents',
+      ctaText: 'Discuss Contextual Follow-ups',
+      ctaHref: '/contact',
     },
     {
       id: 'uc-triage',
@@ -318,13 +318,13 @@ export default function UseCasesPage() {
         },
       ],
       impacts: [
-        '70% reduction in internal ticket triage time',
-        'Sub-1-minute routing for Tier-1 emergencies',
+        'Sub-minute intelligent triage for incoming priority requests',
+        'Rapid routing for urgent operational issues',
         'Zero misrouted inquiries across departments',
       ],
       stack: ['AI Agents', 'Zendesk', 'Slack', 'Linear', 'PagerDuty'],
-      ctaText: 'Implement Intelligent Triage',
-      ctaHref: '/start-project?service=ai-agents',
+      ctaText: 'Discuss Intelligent Triage',
+      ctaHref: '/contact',
     },
   ];
 
@@ -338,14 +338,14 @@ export default function UseCasesPage() {
         eyebrow="PRACTICAL USE CASES"
         badgeText="Operational Applications"
         badgeType="purple"
-        title="Where AI automation creates tangible operational value."
+        title="Where intelligent automation meets everyday business."
         description="Explore concrete examples of how scoped AI agents, voice receptionists, and workflow pipelines eliminate everyday bottlenecks across sales, support, and operations."
       >
-        <Button variant="primary" size="md" arrow href="/start-project">
-          Discuss Your Use Case
+        <Button variant="primary" size="md" arrow href="/contact">
+          Discuss Your Project
         </Button>
-        <Button variant="secondary" size="md" href="/blueprints">
-          Explore Blueprints
+        <Button variant="secondary" size="md" href="/capabilities">
+          Explore Capabilities
         </Button>
       </PageHeader>
 
@@ -451,7 +451,7 @@ export default function UseCasesPage() {
         title="Don’t see your exact operational challenge?"
         description="Every organization operates with specialized constraints. We assess your exact manual bottlenecks during our initial scoping consultation."
         buttonText="Discuss Your Process"
-        buttonHref="/start-project"
+        buttonHref="/contact"
         secondaryButtonText="Explore How We Work"
         secondaryButtonHref="/process"
       />

@@ -23,26 +23,45 @@ export default function Footer() {
           {/* Column 1: Brand & Bio */}
           <div className="footer-col footer-col--brand">
             <Link to="/" className="footer-brand" aria-label="Hutomate home">
-              <HutomateLogo color="#FFFFFF" symbolSize={30} />
+              <HutomateLogo variant="light" symbolSize={30} />
             </Link>
 
             <p className="footer-description">
-              AI automation and implementation partner helping businesses identify repetitive work, connect existing tools, and deploy custom intelligent systems.
+              An intelligent systems partner helping businesses operate smarter through AI, automation and connected technology.
             </p>
 
             <div className="footer-region-badge">
               <Globe size={14} className="footer-badge-icon" aria-hidden="true" />
-              <span>Global Client Delivery (USA, UK, Australia, India)</span>
+              <span>Serving USA, UK, Australia &amp; Worldwide</span>
             </div>
           </div>
 
-          {/* Column 2: EXPLORE */}
-          <nav className="footer-col" aria-label="Explore Links">
-            <h4 className="footer-col-title">Explore</h4>
+          {/* Column 2: CAPABILITIES */}
+          <nav className="footer-col" aria-label="Capabilities Links">
+            <h4 className="footer-col-title">Capabilities</h4>
             <ul className="footer-links-list">
               <li>
-                <Link to="/capabilities" className="footer-link">Capabilities</Link>
+                <Link to="/capabilities/ai-agents" className="footer-link">AI Agents</Link>
               </li>
+              <li>
+                <Link to="/capabilities/workflow-automation" className="footer-link">Workflow Automation</Link>
+              </li>
+              <li>
+                <Link to="/capabilities/voice-ai" className="footer-link">Voice AI</Link>
+              </li>
+              <li>
+                <Link to="/capabilities/custom-ai-solutions" className="footer-link">Custom AI Solutions</Link>
+              </li>
+              <li>
+                <Link to="/capabilities" className="footer-link">All Capabilities Overview →</Link>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Column 3: SOLUTIONS & COMPANY */}
+          <div className="footer-col" aria-label="Company Links">
+            <h4 className="footer-col-title">Solutions</h4>
+            <ul className="footer-links-list">
               <li>
                 <Link to="/use-cases" className="footer-link">Use Cases</Link>
               </li>
@@ -50,32 +69,10 @@ export default function Footer() {
                 <Link to="/industries" className="footer-link">Industries</Link>
               </li>
               <li>
-                <Link to="/blueprints" className="footer-link">Automation Blueprints</Link>
+                <Link to="/process" className="footer-link">Our 5-Phase Process</Link>
               </li>
-            </ul>
-          </nav>
-
-          {/* Column 3: COMPANY */}
-          <div className="footer-col" aria-label="Company Links">
-            <h4 className="footer-col-title">Company</h4>
-            <ul className="footer-links-list">
               <li>
                 <Link to="/about" className="footer-link">About Hutomate</Link>
-              </li>
-              <li>
-                <Link to="/process" className="footer-link">How We Work</Link>
-              </li>
-              <li>
-                <Link to="/integrations" className="footer-link">Integrations</Link>
-              </li>
-              <li>
-                <Link to="/engagement" className="footer-link">Engagement &amp; Pricing</Link>
-              </li>
-              <li>
-                <Link to="/security" className="footer-link">Security &amp; Responsible AI</Link>
-              </li>
-              <li>
-                <Link to="/faq" className="footer-link">FAQ</Link>
               </li>
             </ul>
           </div>
@@ -85,10 +82,10 @@ export default function Footer() {
             <h4 className="footer-col-title">Get In Touch</h4>
             <ul className="footer-links-list">
               <li>
-                <Link to="/start-project" className="footer-link">Start a Project →</Link>
+                <Link to="/contact" className="footer-link">Discuss Your Project →</Link>
               </li>
               <li>
-                <Link to="/contact" className="footer-link">Contact</Link>
+                <Link to="/contact" className="footer-link">Contact Us</Link>
               </li>
             </ul>
 

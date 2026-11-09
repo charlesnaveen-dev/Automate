@@ -1,0 +1,470 @@
+/* ==========================================================================
+   Voice Telephony Simulator Styles
+   ========================================================================== */
+
+.voice-sim-card {
+  width: 100%;
+  background: #091720;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.4), 0 0 40px rgba(56, 189, 248, 0.08);
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+.voice-sim-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.voice-sim-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.voice-sim-pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 10px #38BDF8;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.voice-sim-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94A3B8;
+}
+
+.voice-sim-demo-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(56, 189, 248, 0.15);
+  color: #7DD3FC;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.voice-sim-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.voice-sim-telephony-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.voice-sim-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #F8FAFC;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.voice-sim-reset-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Layout */
+.voice-sim-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  min-height: 440px;
+}
+
+/* Left Phone Pane */
+.voice-sim-phone-pane {
+  padding: 28px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.voice-call-status-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.voice-call-caller-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.voice-caller-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voice-caller-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.voice-caller-num {
+  font-size: 0.75rem;
+  color: #64748B;
+}
+
+.voice-call-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  color: #E2E8F0;
+}
+
+.voice-call-badge-live {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #34D399;
+  background: rgba(52, 211, 153, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Waveform */
+.voice-waveform-container {
+  background: #050E14;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.voice-waveform-bars {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  gap: 3px;
+}
+
+.voice-waveform-bar {
+  flex: 1;
+  background: #38BDF8;
+  border-radius: 2px;
+  transition: height 0.2s ease;
+  min-height: 4px;
+}
+
+.voice-waveform-bar.is-animating {
+  animation: wavePulse 1s infinite alternate ease-in-out;
+}
+
+@keyframes wavePulse {
+  0% { transform: scaleY(0.4); opacity: 0.6; }
+  100% { transform: scaleY(1.1); opacity: 1; }
+}
+
+.voice-audio-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  color: #64748B;
+}
+
+.voice-audio-status {
+  color: #38BDF8;
+}
+
+/* Intent & Action Cards */
+.voice-intent-card {
+  background: rgba(118, 87, 232, 0.08);
+  border: 1px solid rgba(118, 87, 232, 0.25);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.voice-intent-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #A78BFA;
+  margin-bottom: 4px;
+}
+
+.voice-intent-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.voice-intent-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #94A3B8;
+  margin-top: 4px;
+}
+
+.voice-intent-sep {
+  color: #475569;
+}
+
+.voice-action-trigger-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.voice-action-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: #64748B;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.voice-action-val {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.76rem;
+  color: #E2E8F0;
+}
+
+/* Call Controls */
+.voice-call-controls {
+  margin-top: auto;
+}
+
+.voice-ctrl-btn--escalate {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #FCA5A5;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.voice-ctrl-btn--escalate:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #FFFFFF;
+}
+
+.voice-escalated-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  border-radius: 8px;
+  color: #A7F3D0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+/* Right Transcript Pane */
+.voice-sim-transcript-pane {
+  background: #050C12;
+  display: flex;
+  flex-direction: column;
+}
+
+.voice-transcript-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.voice-trans-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  color: #94A3B8;
+}
+
+.voice-trans-hint {
+  font-size: 0.7rem;
+  color: #64748B;
+}
+
+.voice-transcript-scroll {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  max-height: 380px;
+}
+
+.voice-turn-bubble {
+  padding: 12px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.voice-turn-bubble.is-pending {
+  opacity: 0.35;
+}
+
+.voice-turn-bubble.is-agent {
+  background: rgba(118, 87, 232, 0.1);
+  border-color: rgba(118, 87, 232, 0.2);
+  align-self: flex-start;
+  max-width: 90%;
+}
+
+.voice-turn-bubble.is-caller {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  align-self: flex-end;
+  max-width: 90%;
+}
+
+.voice-turn-bubble.is-active-turn {
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.2);
+  border-color: #38BDF8;
+}
+
+.voice-turn-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.voice-turn-speaker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.voice-turn-bubble.is-agent .voice-turn-speaker {
+  color: #C4B5FD;
+}
+
+.voice-turn-bubble.is-caller .voice-turn-speaker {
+  color: #94A3B8;
+}
+
+.voice-turn-time {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  color: #64748B;
+}
+
+.voice-turn-text {
+  font-size: 0.88rem;
+  color: #E2E8F0;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.voice-transcript-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  flex-wrap: wrap;
+}
+
+.voice-footer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  color: #E2E8F0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.voice-footer-pill--ok {
+  color: #34D399;
+  background: rgba(52, 211, 153, 0.1);
+  border-color: rgba(52, 211, 153, 0.25);
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+  .voice-sim-layout {
+    grid-template-columns: 1fr;
+  }
+  .voice-sim-phone-pane {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}

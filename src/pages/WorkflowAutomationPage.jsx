@@ -5,11 +5,12 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 import CtaBanner from '../components/CtaBanner';
+import WorkflowPipelineSimulator from '../components/WorkflowPipelineSimulator';
 import './CapabilityDetailPage.css';
 
 export default function WorkflowAutomationPage() {
   usePageMetadata({
-    title: 'Workflow Automation — System Integrations & Automated Handoffs',
+    title: 'Workflow Automation — Connected Operations & System Pipelines',
     description: 'Connect existing business tools and eliminate manual operational bottlenecks with robust, event-driven workflow automation.',
     path: '/capabilities/workflow-automation',
   });
@@ -68,69 +69,43 @@ export default function WorkflowAutomationPage() {
   return (
     <div className="capability-detail-page">
       <PageHeader
-        eyebrow="WORKFLOW AUTOMATION"
+        eyebrow="CAPABILITIES · WORKFLOW AUTOMATION"
         badgeText="Event-Driven Operations"
         badgeType="green"
-        title="Connect existing tools and eliminate manual handoffs."
+        title="Less repetitive work. Better-connected operations."
         description="Automate repetitive multi-step processes across systems so your team spends less time copying data, chasing updates, and running manual operational routines. Hutomate connects modern and legacy tools into resilient, automated pipelines."
       >
-        <Button variant="primary" size="md" arrow href="/start-project">
-          Plan an Automation
+        <Button variant="primary" size="md" arrow href="/contact">
+          Discuss Your Project
         </Button>
-        <Button variant="secondary" size="md" href="/integrations">
-          Explore Integrations
+        <Button variant="secondary" size="md" href="/capabilities">
+          Explore Capabilities
         </Button>
       </PageHeader>
 
-      {/* Editorial System Showcase */}
-      <section className="editorial-showcase-section">
+      {/* Interactive Visual Pipeline Section */}
+      <section className="section detail-section" style={{ paddingTop: '20px' }}>
         <div className="container">
-          <div className="editorial-showcase-split reveal-on-scroll">
-            <div className="editorial-showcase-image-wrap reveal-image-mask">
-              <img
-                src="/images/workflow-light-structures.webp"
-                alt="Luminous vertical data conduits illustrating fast, interconnected business workflows"
-                className="editorial-showcase-img"
-                width={800}
-                height={500}
-                loading="eager"
-              />
-            </div>
-            <div className="editorial-showcase-content">
-              <span className="editorial-showcase-tag">Connected Architecture</span>
-              <h2 className="editorial-showcase-title">
-                Operational velocity across your complete software stack.
-              </h2>
-              <p className="editorial-showcase-p">
-                When business data is trapped in disconnected tools, everyday operations slow down and manual errors accumulate. We engineer resilient event-driven conduits that synchronize state continuously across your systems, moving information with zero friction.
-              </p>
-              <div className="editorial-showcase-pillars">
-                <div className="editorial-pillar-item">
-                  <span className="editorial-pillar-dot" aria-hidden="true" />
-                  <span><strong>Zero-latency triggers:</strong> Instantaneous event handling via webhooks and streaming APIs.</span>
-                </div>
-                <div className="editorial-pillar-item">
-                  <span className="editorial-pillar-dot" aria-hidden="true" />
-                  <span><strong>Idempotent safety:</strong> Guaranteed delivery mechanisms preventing duplicated records or lost payloads.</span>
-                </div>
-                <div className="editorial-pillar-item">
-                  <span className="editorial-pillar-dot" aria-hidden="true" />
-                  <span><strong>Defensive error handling:</strong> Exponential backoff retry queues with instant Slack alerting.</span>
-                </div>
-              </div>
-            </div>
+          <div className="section-header text-center">
+            <span className="section-label section-label-green">Interactive Demonstration</span>
+            <h2 className="section-heading">Inspect an automated lead-to-fulfillment pipeline</h2>
+            <p className="section-body section-body-center">
+              Click through the 5 connected stages below to observe data transformations, schema validation, and multi-system API dispatch in real time.
+            </p>
           </div>
+
+          <WorkflowPipelineSimulator />
         </div>
       </section>
 
       {/* Applications Section */}
-      <section className="section detail-section">
+      <section className="section detail-section bg-secondary-section">
         <div className="container">
           <div className="section-header">
-            <span className="section-label">Operational Workflows</span>
-            <h2 className="section-heading">High-impact automation opportunities</h2>
+            <span className="section-label">Core Integration Scenarios</span>
+            <h2 className="section-heading">Everyday workflows ripe for automated execution</h2>
             <p className="section-body">
-              Eliminate operational friction where human teams are stuck acting as manual middleware between disconnected business tools.
+              Eliminate manual data handoffs between your operational tools. We architect resilient background pipelines that sync data with millisecond reliability.
             </p>
           </div>
 
@@ -139,7 +114,7 @@ export default function WorkflowAutomationPage() {
               const IconComp = uc.icon;
               return (
                 <div key={i} className="detail-card card">
-                  <div className="detail-card-icon-wrap">
+                  <div className="detail-card-icon-wrap" style={{ color: '#10B981' }}>
                     <IconComp size={20} />
                   </div>
                   <h3 className="detail-card-title">{uc.title}</h3>
@@ -152,20 +127,22 @@ export default function WorkflowAutomationPage() {
       </section>
 
       {/* 6-Step Workflow Lifecycle */}
-      <section className="section detail-section bg-secondary-section">
+      <section className="section detail-section">
         <div className="container">
           <div className="section-header text-center">
-            <span className="section-label section-label-green">System Architecture</span>
-            <h2 className="section-heading">How our automation pipelines execute</h2>
+            <span className="section-label section-label-green">Technical Architecture</span>
+            <h2 className="section-heading">How our automated pipelines execute</h2>
             <p className="section-body section-body-center">
-              Predictable, fault-tolerant execution ensures business workflows complete reliably without manual oversight.
+              Built on battle-tested architectural principles that prioritize zero data loss, idempotent retries, and comprehensive auditability.
             </p>
           </div>
 
           <div className="timeline-steps-grid">
             {workflowSteps.map((st) => (
               <div key={st.step} className="timeline-step-card card">
-                <span className="timeline-step-number">{st.step}</span>
+                <span className="timeline-step-number" style={{ color: '#10B981', backgroundColor: 'rgba(16, 185, 129, 0.08)' }}>
+                  {st.step}
+                </span>
                 <h3 className="timeline-step-title">{st.title}</h3>
                 <p className="timeline-step-desc">{st.desc}</p>
               </div>
@@ -174,81 +151,36 @@ export default function WorkflowAutomationPage() {
         </div>
       </section>
 
-      {/* Architectural Reliability */}
-      <section className="section detail-section">
+      {/* Engineering Pillars */}
+      <section className="section detail-section bg-secondary-section">
         <div className="container">
           <div className="section-header">
-            <span className="section-label section-label-blue">System Engineering</span>
-            <h2 className="section-heading">Built for fault tolerance and data integrity</h2>
+            <span className="section-label section-label-blue">Enterprise Resilience</span>
+            <h2 className="section-heading">Engineering standards built into every pipeline</h2>
             <p className="section-body">
-              Fragile automation scripts cause silent business failure. We build production-grade workflows with comprehensive error mitigation.
+              Automations shouldn’t fail silently when an external API hiccups. We implement defensive patterns that guarantee operational stability.
             </p>
           </div>
 
           <div className="boundaries-grid">
-            {architecturalPillars.map((p, i) => (
+            {architecturalPillars.map((b, i) => (
               <div key={i} className="boundary-card card">
                 <ShieldCheck size={20} className="boundary-icon" />
-                <h3 className="boundary-title">{p.title}</h3>
-                <p className="boundary-desc">{p.desc}</p>
+                <h3 className="boundary-title">{b.title}</h3>
+                <p className="boundary-desc">{b.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process Strip */}
-      <section className="section detail-section bg-secondary-section">
-        <div className="container">
-          <div className="section-header text-center">
-            <span className="section-label">Implementation Flow</span>
-            <h2 className="section-heading">How we implement workflow automation</h2>
-            <p className="section-body section-body-center">
-              A structured delivery framework designed to guarantee zero downtime and zero data loss during cutover.
-            </p>
-          </div>
-
-          <div className="process-mini-strip">
-            <div className="mini-step">
-              <span className="mini-step-num">01</span>
-              <span className="mini-step-name">Process Audit</span>
-              <span className="mini-step-sub">Map data schemas &amp; handoff points</span>
-            </div>
-            <div className="mini-arrow">→</div>
-            <div className="mini-step">
-              <span className="mini-step-num">02</span>
-              <span className="mini-step-name">API Verification</span>
-              <span className="mini-step-sub">Inspect rate limits, webhooks &amp; auth</span>
-            </div>
-            <div className="mini-arrow">→</div>
-            <div className="mini-step">
-              <span className="mini-step-num">03</span>
-              <span className="mini-step-name">Pipeline Build</span>
-              <span className="mini-step-sub">Implement logic, retries &amp; validation</span>
-            </div>
-            <div className="mini-arrow">→</div>
-            <div className="mini-step">
-              <span className="mini-step-num">04</span>
-              <span className="mini-step-name">Sandbox Testing</span>
-              <span className="mini-step-sub">Simulate network breaks &amp; edge cases</span>
-            </div>
-            <div className="mini-arrow">→</div>
-            <div className="mini-step">
-              <span className="mini-step-num">05</span>
-              <span className="mini-step-name">Production Cutover</span>
-              <span className="mini-step-sub">Parallel run followed by full activation</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <CtaBanner
-        title="Ready to automate repetitive operational handoffs?"
-        description="Schedule a technical consultation to map out your current software stack and calculate the high-value integration opportunities."
-        buttonText="Discuss Your Systems"
-        buttonHref="/start-project"
-        secondaryButtonText="Browse Blueprints"
-        secondaryButtonHref="/blueprints"
+        title="Ready to automate repetitive system handoffs?"
+        description="Let’s map out your tool stack and identify the manual copy-pasting tasks that can be permanently replaced by resilient automated pipelines."
+        buttonText="Discuss Your Project"
+        buttonHref="/contact"
+        secondaryButtonText="Explore Capabilities"
+        secondaryButtonHref="/capabilities"
       />
     </div>
   );

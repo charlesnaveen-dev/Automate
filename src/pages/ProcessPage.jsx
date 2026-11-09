@@ -21,15 +21,15 @@ export default function ProcessPage() {
   const steps = [
     {
       num: '01',
-      phase: 'Phase 1',
-      title: 'Discovery & Operational Process Audit',
+      phase: 'Discover',
+      title: 'Operational Process Audit & Feasibility',
       desc: 'We map your existing manual workflows, pinpoint specific operational bottlenecks, inspect tool integrations, and evaluate data hygiene to determine exact automation feasibility.',
       deliverables: 'Process workflow diagram, technical feasibility scorecard, and prioritized implementation backlog.',
       timeCommitment: '2 to 3 hours of interviews with team leads and frontline operators.',
     },
     {
       num: '02',
-      phase: 'Phase 2',
+      phase: 'Strategise',
       title: 'Technical Architecture & Solution Design',
       desc: 'We architect the end-to-end technical system: specifying API endpoints, webhook schemas, model routing strategies, data sanitization rules, and human-in-the-loop checkpoints.',
       deliverables: 'Formal technical specification document, system architecture blueprint, and data security review.',
@@ -37,33 +37,25 @@ export default function ProcessPage() {
     },
     {
       num: '03',
-      phase: 'Phase 3',
-      title: 'Rapid Sandbox Prototyping',
-      desc: 'We build and benchmark a functional prototype in an isolated staging environment using sanitized, real-world historical sample data to prove real-world accuracy.',
-      deliverables: 'Interactive prototype demonstration, benchmark accuracy report, and documented edge-case matrix.',
+      phase: 'Build',
+      title: 'Production Engineering & Sandbox Prototyping',
+      desc: 'We build and benchmark functional prototypes in an isolated staging environment using sanitized sample data, then construct production code with exponential retries and schema validation.',
+      deliverables: 'Production codebase, encrypted credential handling, operational dashboards, and test suites.',
       timeCommitment: 'Hands-on review and feedback session on prototype performance.',
     },
     {
       num: '04',
-      phase: 'Phase 4',
-      title: 'Production System Build & Integration',
-      desc: 'We construct production-ready code: integrating your live software tools, implementing exponential retry mechanisms, logging every event, and enforcing zero-retention security policies.',
-      deliverables: 'Production codebase, encrypted credential handling, operational dashboards, and test suites.',
-      timeCommitment: 'Providing authorized API credentials and coordinating access permissions.',
-    },
-    {
-      num: '05',
-      phase: 'Phase 5',
-      title: 'User Acceptance Testing & Team Training',
-      desc: 'We run the automation in parallel with your human staff, validating edge-case outcomes, tuning confidence thresholds, and training operators on oversight procedures.',
+      phase: 'Deploy',
+      title: 'User Acceptance Testing & Controlled Rollout',
+      desc: 'We run the automation in parallel with your human staff, validating edge-case outcomes, tuning confidence thresholds, and training operators on oversight procedures before live cutover.',
       deliverables: 'Standard Operating Procedures (SOP), staff training sessions, and formal UAT sign-off.',
       timeCommitment: '1 to 2 weeks of parallel verification by designated internal operators.',
     },
     {
-      num: '06',
-      phase: 'Phase 6',
-      title: 'Monitored Deployment & Ongoing Support',
-      desc: 'We manage the live cutover with continuous telemetry. We monitor system latency, model drift, API status, and provide ongoing prompt and schema maintenance.',
+      num: '05',
+      phase: 'Improve',
+      title: 'Continuous Telemetry & System Optimization',
+      desc: 'We manage the live cutover with continuous telemetry. We monitor system latency, model drift, API status, and provide ongoing prompt, connector, and schema maintenance.',
       deliverables: 'Live telemetry monitoring, monthly operational health summaries, and SLA-backed support.',
       timeCommitment: 'Bi-weekly or monthly operational check-ins.',
     },
@@ -97,17 +89,17 @@ export default function ProcessPage() {
   return (
     <div className="process-page">
       <PageHeader
-        eyebrow="HOW WE WORK"
+        eyebrow="ENGINEERING PROCESS"
         badgeText="Disciplined Delivery"
         badgeType="purple"
-        title="A disciplined, step-by-step engineering delivery process."
-        description="We do not believe in speculative AI demos or rushed deployments. We follow a proven six-step implementation framework that ensures technical feasibility, operational fit, and clear accountability before any code is committed."
+        title="From business challenge to intelligent execution."
+        description="We do not believe in speculative AI demos or rushed deployments. We follow a proven five-phase implementation framework that ensures technical feasibility, operational fit, and clear accountability before any code is committed."
       >
-        <Button variant="primary" size="md" arrow href="/start-project">
-          Start Phase 1 Discovery
+        <Button variant="primary" size="md" arrow href="/contact">
+          Discuss Your Project
         </Button>
-        <Button variant="secondary" size="md" href="/engagement">
-          View Engagement Models
+        <Button variant="secondary" size="md" href="/capabilities">
+          Explore Capabilities
         </Button>
       </PageHeader>
 
@@ -175,10 +167,10 @@ export default function ProcessPage() {
       </section>
 
       <CtaBanner
-        title="Ready to begin with Phase 1 Discovery?"
+        title="Ready to begin with Discovery?"
         description="Our initial operational audit evaluates your processes, data structures, and tool compatibility to confirm feasibility before any commitment."
-        buttonText="Schedule Discovery Audit"
-        buttonHref="/start-project"
+        buttonText="Discuss Your Project"
+        buttonHref="/contact"
         secondaryButtonText="Explore Capabilities"
         secondaryButtonHref="/capabilities"
       />

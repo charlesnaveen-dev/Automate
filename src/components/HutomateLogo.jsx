@@ -39,16 +39,19 @@ export default function HutomateLogo({
   symbolOnly = false,
   symbolSize = 28,
   color = '#111111',
+  variant = 'default',
   className = '',
 }) {
   if (symbolOnly) {
-    return <HutomateSymbol size={symbolSize} color={color} className={className} />;
+    return <HutomateSymbol size={symbolSize} color={variant === 'light' ? '#FFFFFF' : color} className={className} />;
   }
 
+  const logoSrc = variant === 'light' ? '/hutomate_logo_white.png' : '/hutomate_logo.png';
+
   return (
-    <div className={`hutomate-brand-lockup ${className}`}>
+    <div className={`hutomate-brand-lockup ${variant === 'light' ? 'is-light' : ''} ${className}`}>
       <img
-        src="/hutomate_logo.png"
+        src={logoSrc}
         alt="Hutomate"
         className="hutomate-brand-img"
         height={32}

@@ -1,0 +1,200 @@
+/* =============================================================================
+   UseCasesPreviewSection Styles — Section 04
+   Editorial 3-column grid for practical operational automation scenarios
+   ============================================================================= */
+
+.uc-preview-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-warm-white, #FAF8F5);
+  padding: clamp(80px, 9vw, 120px) 0;
+  box-sizing: border-box;
+  border-top: 1px solid var(--color-border, #DFDCD4);
+}
+
+.uc-preview-header {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: flex-end;
+  margin-bottom: clamp(40px, 5.5vw, 64px);
+}
+
+.uc-preview-eyebrow {
+  font-family: var(--font-family-primary, 'Manrope', sans-serif);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  color: var(--color-deep-teal, #082C36);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.uc-preview-headline {
+  font-family: var(--font-family-primary, 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--color-charcoal, #171717);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.uc-headline-accent {
+  color: var(--color-deep-teal, #082C36);
+}
+
+.uc-preview-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.uc-preview-body {
+  font-family: var(--font-family-primary, 'Manrope', sans-serif);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--color-muted-grey, #737373);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.uc-header-cta {
+  display: flex;
+  align-items: center;
+}
+
+/* 6-Card Grid */
+.uc-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.5vw, 30px);
+}
+
+.uc-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border, #DFDCD4);
+  border-radius: 22px;
+  padding: clamp(24px, 2.5vw, 32px);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 18px rgba(17, 17, 17, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.uc-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-deep-teal, #082C36);
+  box-shadow: 0 12px 32px rgba(17, 17, 17, 0.08);
+}
+
+.uc-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.uc-card-category {
+  font-family: var(--font-family-primary, 'Manrope', sans-serif);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-deep-teal, #082C36);
+  padding: 4px 10px;
+  background-color: rgba(8, 44, 54, 0.06);
+  border-radius: 9999px;
+}
+
+.uc-card-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: rgba(8, 44, 54, 0.06);
+  color: var(--color-deep-teal, #082C36);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uc-card-title {
+  font-family: var(--font-family-primary, 'Manrope', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: var(--color-charcoal, #171717);
+  line-height: 1.35;
+  margin: 0 0 18px;
+}
+
+.uc-card-block {
+  margin-bottom: 14px;
+}
+
+.uc-block-label {
+  font-family: var(--font-family-primary, 'Manrope', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted-grey, #737373);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.uc-block-text {
+  font-family: var(--font-family-primary, 'Manrope', sans-serif);
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: var(--color-charcoal, #171717);
+  margin: 0;
+}
+
+.uc-card-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border-subtle, #EBE8E0);
+}
+
+.uc-impact-badge {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.impact-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent-green, #25A86A);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.impact-text {
+  font-family: var(--font-family-primary, 'Manrope', sans-serif);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-deep-teal, #082C36);
+  line-height: 1.4;
+}
+
+@media (max-width: 1040px) {
+  .uc-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .uc-preview-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .uc-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

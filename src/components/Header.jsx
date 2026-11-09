@@ -75,7 +75,7 @@ export default function Header() {
     { label: 'AI Agents', href: '/capabilities/ai-agents', desc: 'Autonomous tasks & decision support', icon: Bot },
     { label: 'Workflow Automation', href: '/capabilities/workflow-automation', desc: 'End-to-end tool integration', icon: GitBranch },
     { label: 'Voice AI', href: '/capabilities/voice-ai', desc: 'Inbound customer communication', icon: Mic },
-    { label: 'Custom AI Solutions', href: '/capabilities/custom-ai', desc: 'Bespoke systems & data processing', icon: Cpu },
+    { label: 'Custom AI Solutions', href: '/capabilities/custom-ai-solutions', desc: 'Bespoke systems & data processing', icon: Cpu },
   ];
 
   const handleLinkClick = () => {
@@ -84,13 +84,14 @@ export default function Header() {
   };
 
   const isCapabilitiesActive = currentPath === '/capabilities' || currentPath.startsWith('/capabilities/');
+  const isDarkHero = currentPath === '/';
 
   return (
-    <header className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}>
+    <header className={`site-header ${isDarkHero ? 'site-header--cinematic' : ''} ${isScrolled ? 'is-scrolled' : ''}`}>
       <div className="header-container">
-        {/* Left: Exact Hutomate Brand Logo */}
+        {/* Left: Exact Hutomate Brand Logo (White variant on cinematic home hero, dark variant on light internal pages) */}
         <Link to="/" className="header-brand" aria-label="Hutomate home" onClick={handleLinkClick}>
-          <HutomateLogo symbolSize={28} />
+          <HutomateLogo symbolSize={28} variant={isDarkHero ? 'light' : 'dark'} />
         </Link>
 
         {/* Center: Desktop Navigation */}
@@ -198,7 +199,7 @@ export default function Header() {
         {/* Right: CTA & Mobile Toggle */}
         <div className="header-actions">
           <div className="desktop-cta-wrap">
-            <Button variant="primary" size="sm" arrow href="/start-project">
+            <Button variant="primary" size="sm" arrow href="/contact">
               Discuss Your Project
             </Button>
           </div>
@@ -311,24 +312,6 @@ export default function Header() {
                   About
                 </Link>
               </li>
-
-              <li className="mobile-link-item">
-                <Link to="/blueprints" className="mobile-nav-link" onClick={handleLinkClick}>
-                  Blueprints
-                </Link>
-              </li>
-
-              <li className="mobile-link-item">
-                <Link to="/integrations" className="mobile-nav-link" onClick={handleLinkClick}>
-                  Integrations
-                </Link>
-              </li>
-
-              <li className="mobile-link-item">
-                <Link to="/faq" className="mobile-nav-link" onClick={handleLinkClick}>
-                  FAQ
-                </Link>
-              </li>
             </ul>
           </nav>
 
@@ -337,11 +320,11 @@ export default function Header() {
               variant="primary"
               size="md"
               arrow
-              href="/start-project"
+              href="/contact"
               className="mobile-cta-btn"
               onClick={handleLinkClick}
             >
-              Start a Project
+              Discuss Your Project
             </Button>
             <p className="mobile-nav-caption">
               AI automation for global businesses

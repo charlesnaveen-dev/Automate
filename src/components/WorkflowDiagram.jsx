@@ -12,7 +12,6 @@ const INCOMING_CHANNELS = [
     Icon: Mail,
     color: '#4389F5',
     lightBg: 'rgba(67, 137, 245, 0.1)',
-    yDesktop: 34,
   },
   {
     id: 'whatsapp',
@@ -22,27 +21,24 @@ const INCOMING_CHANNELS = [
     Icon: MessageSquare,
     color: '#25A86A',
     lightBg: 'rgba(37, 168, 106, 0.1)',
-    yDesktop: 118,
   },
   {
     id: 'phone',
     label: 'Phone Calls',
-    sublabel: 'Inbound voice streams',
+    sublabel: 'Voice streams',
     pill: 'Live Audio',
     Icon: Phone,
     color: '#E89A42',
     lightBg: 'rgba(232, 154, 66, 0.1)',
-    yDesktop: 202,
   },
   {
     id: 'website',
     label: 'Website Leads',
-    sublabel: 'Forms & interactions',
+    sublabel: 'Forms & enquiries',
     pill: 'Instant Capture',
     Icon: Globe,
     color: '#7657E8',
     lightBg: 'rgba(118, 87, 232, 0.1)',
-    yDesktop: 286,
   },
 ];
 
@@ -55,7 +51,6 @@ const CORE_SERVICES = [
     Icon: Bot,
     color: '#7657E8',
     lightBg: 'rgba(118, 87, 232, 0.1)',
-    yDesktop: 34,
   },
   {
     id: 'workflow-auto',
@@ -65,7 +60,6 @@ const CORE_SERVICES = [
     Icon: GitBranch,
     color: '#25A86A',
     lightBg: 'rgba(37, 168, 106, 0.1)',
-    yDesktop: 118,
   },
   {
     id: 'voice-ai',
@@ -75,7 +69,6 @@ const CORE_SERVICES = [
     Icon: Mic,
     color: '#4389F5',
     lightBg: 'rgba(67, 137, 245, 0.1)',
-    yDesktop: 202,
   },
   {
     id: 'custom-ai',
@@ -85,7 +78,6 @@ const CORE_SERVICES = [
     Icon: Cpu,
     color: '#E89A42',
     lightBg: 'rgba(232, 154, 66, 0.1)',
-    yDesktop: 286,
   },
 ];
 
@@ -97,7 +89,9 @@ export default function WorkflowDiagram() {
       className="workflow-diagram"
       aria-label="Connected workflow architecture diagram showing incoming business channels transforming through Hutomate into autonomous intelligent capabilities"
     >
-      {/* DESKTOP CONNECTED FLOW */}
+      {/* =======================================================================
+          DESKTOP CONNECTED FLOW (>= 1024px)
+          ======================================================================= */}
       <div className="diagram-desktop-stage">
         {/* Left Column: 4 Incoming Business Channels */}
         <div className="diagram-col diagram-col-left">
@@ -124,7 +118,7 @@ export default function WorkflowDiagram() {
                     className="wf-icon-box"
                     style={{ backgroundColor: channel.lightBg, color: channel.color }}
                   >
-                    <Icon size={18} strokeWidth={2.2} />
+                    <Icon size={17} strokeWidth={2.2} />
                   </div>
                   <div className="wf-node-meta">
                     <div className="wf-title-row">
@@ -133,53 +127,53 @@ export default function WorkflowDiagram() {
                     </div>
                     <span className="wf-node-desc">{channel.sublabel}</span>
                   </div>
+                  {/* Docking connection port */}
                   <span
                     className="wf-anchor-port port-right"
                     style={{
                       borderColor: channel.color,
                       backgroundColor: isHovered ? channel.color : '#FFFFFF',
                     }}
-                  />
+                  >
+                    <span
+                      className="wf-port-radar"
+                      style={{ borderColor: channel.color }}
+                      aria-hidden="true"
+                    />
+                  </span>
                 </div>
               );
             })}
           </div>
         </div>
 
-        {/* Central SVG Connection Conduits with Animated Energy Beacons */}
-        <div className="diagram-conduit-space" aria-hidden="true">
+        {/* Left SVG Conduits: Left Channels -> Engine Ingress */}
+        <div className="diagram-conduit-left" aria-hidden="true">
           <svg
             className="wf-conduit-svg"
-            viewBox="0 0 540 330"
+            viewBox="0 0 160 280"
             fill="none"
             preserveAspectRatio="none"
           >
             <defs>
-              <linearGradient id="inboundGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#DFDCD4" stopOpacity="0.8" />
-                <stop offset="60%" stopColor="#DFDCD4" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#7657E8" stopOpacity="1" />
+              <linearGradient id="inGrad0" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#4389F5" stopOpacity="0.75" />
+                <stop offset="100%" stopColor="#7657E8" stopOpacity="0.9" />
+              </linearGradient>
+              <linearGradient id="inGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#25A86A" stopOpacity="0.75" />
+                <stop offset="100%" stopColor="#7657E8" stopOpacity="0.9" />
+              </linearGradient>
+              <linearGradient id="inGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#E89A42" stopOpacity="0.75" />
+                <stop offset="100%" stopColor="#7657E8" stopOpacity="0.9" />
+              </linearGradient>
+              <linearGradient id="inGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.75" />
+                <stop offset="100%" stopColor="#7657E8" stopOpacity="0.9" />
               </linearGradient>
 
-              <linearGradient id="outboundPurple" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#7657E8" stopOpacity="1" />
-              </linearGradient>
-              <linearGradient id="outboundGreen" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#25A86A" stopOpacity="1" />
-              </linearGradient>
-              <linearGradient id="outboundBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#4389F5" stopOpacity="1" />
-              </linearGradient>
-              <linearGradient id="outboundOrange" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#E89A42" stopOpacity="1" />
-              </linearGradient>
-
-              {/* Glow filter for energy pulses */}
-              <filter id="energyGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <filter id="energyGlowLeft" x="-40%" y="-40%" width="180%" height="180%">
                 <feGaussianBlur stdDeviation="2.5" result="blur" />
                 <feMerge>
                   <feMergeNode in="blur" />
@@ -188,130 +182,66 @@ export default function WorkflowDiagram() {
               </filter>
             </defs>
 
-            {/* Left to Center Inbound Paths (Center intake target is at X: 215, Y: 165) */}
+            {/* Inbound Rail Paths */}
             <path
-              id="path-in-0"
-              d="M 0 34 C 110 34, 140 165, 215 165"
-              className={`conduit-wire conduit-in ${activeHoverNode === 'emails' ? 'is-active-wire' : ''}`}
-              stroke={activeHoverNode === 'emails' ? '#4389F5' : 'url(#inboundGrad)'}
+              d="M 0 50 C 70 50, 100 140, 160 140"
+              className={`conduit-wire ${activeHoverNode === 'emails' ? 'is-active-wire' : ''}`}
+              stroke={activeHoverNode === 'emails' ? '#4389F5' : 'url(#inGrad0)'}
               strokeWidth={activeHoverNode === 'emails' ? '2.5' : '1.5'}
+              strokeOpacity={activeHoverNode && activeHoverNode !== 'emails' ? '0.25' : '0.7'}
             />
             <path
-              id="path-in-1"
-              d="M 0 118 C 90 118, 145 165, 215 165"
-              className={`conduit-wire conduit-in ${activeHoverNode === 'whatsapp' ? 'is-active-wire' : ''}`}
-              stroke={activeHoverNode === 'whatsapp' ? '#25A86A' : 'url(#inboundGrad)'}
+              d="M 0 110 C 60 110, 110 140, 160 140"
+              className={`conduit-wire ${activeHoverNode === 'whatsapp' ? 'is-active-wire' : ''}`}
+              stroke={activeHoverNode === 'whatsapp' ? '#25A86A' : 'url(#inGrad1)'}
               strokeWidth={activeHoverNode === 'whatsapp' ? '2.5' : '1.5'}
+              strokeOpacity={activeHoverNode && activeHoverNode !== 'whatsapp' ? '0.25' : '0.7'}
             />
             <path
-              id="path-in-2"
-              d="M 0 202 C 90 202, 145 165, 215 165"
-              className={`conduit-wire conduit-in ${activeHoverNode === 'phone' ? 'is-active-wire' : ''}`}
-              stroke={activeHoverNode === 'phone' ? '#E89A42' : 'url(#inboundGrad)'}
+              d="M 0 170 C 60 170, 110 140, 160 140"
+              className={`conduit-wire ${activeHoverNode === 'phone' ? 'is-active-wire' : ''}`}
+              stroke={activeHoverNode === 'phone' ? '#E89A42' : 'url(#inGrad2)'}
               strokeWidth={activeHoverNode === 'phone' ? '2.5' : '1.5'}
+              strokeOpacity={activeHoverNode && activeHoverNode !== 'phone' ? '0.25' : '0.7'}
             />
             <path
-              id="path-in-3"
-              d="M 0 286 C 110 286, 140 165, 215 165"
-              className={`conduit-wire conduit-in ${activeHoverNode === 'website' ? 'is-active-wire' : ''}`}
-              stroke={activeHoverNode === 'website' ? '#7657E8' : 'url(#inboundGrad)'}
+              d="M 0 230 C 70 230, 100 140, 160 140"
+              className={`conduit-wire ${activeHoverNode === 'website' ? 'is-active-wire' : ''}`}
+              stroke={activeHoverNode === 'website' ? '#7657E8' : 'url(#inGrad3)'}
               strokeWidth={activeHoverNode === 'website' ? '2.5' : '1.5'}
+              strokeOpacity={activeHoverNode && activeHoverNode !== 'website' ? '0.25' : '0.7'}
             />
 
-            {/* Flowing animated light pulses (Left to Center) */}
-            <circle r="3.5" fill="#4389F5" filter="url(#energyGlow)">
+            {/* Inbound Traveling Photon Energy Beacons */}
+            <circle r="3" fill="#4389F5" filter="url(#energyGlowLeft)">
               <animateMotion
                 dur="2.4s"
                 repeatCount="indefinite"
-                path="M 0 34 C 110 34, 140 165, 215 165"
+                path="M 0 50 C 70 50, 100 140, 160 140"
               />
             </circle>
-            <circle r="3.5" fill="#25A86A" filter="url(#energyGlow)">
+            <circle r="3" fill="#25A86A" filter="url(#energyGlowLeft)">
               <animateMotion
                 dur="2.8s"
                 begin="0.6s"
                 repeatCount="indefinite"
-                path="M 0 118 C 90 118, 145 165, 215 165"
+                path="M 0 110 C 60 110, 110 140, 160 140"
               />
             </circle>
-            <circle r="3.5" fill="#E89A42" filter="url(#energyGlow)">
+            <circle r="3" fill="#E89A42" filter="url(#energyGlowLeft)">
               <animateMotion
                 dur="2.6s"
                 begin="1.2s"
                 repeatCount="indefinite"
-                path="M 0 202 C 90 202, 145 165, 215 165"
+                path="M 0 170 C 60 170, 110 140, 160 140"
               />
             </circle>
-            <circle r="3.5" fill="#7657E8" filter="url(#energyGlow)">
+            <circle r="3" fill="#7657E8" filter="url(#energyGlowLeft)">
               <animateMotion
                 dur="2.7s"
                 begin="1.8s"
                 repeatCount="indefinite"
-                path="M 0 286 C 110 286, 140 165, 215 165"
-              />
-            </circle>
-
-            {/* Center to Right Outbound Paths (Center output origin is at X: 325, Y: 165) */}
-            <path
-              id="path-out-0"
-              d="M 325 165 C 400 165, 430 34, 540 34"
-              className={`conduit-wire conduit-out ${activeHoverNode === 'ai-agents' ? 'is-active-wire' : ''}`}
-              stroke="url(#outboundPurple)"
-              strokeWidth={activeHoverNode === 'ai-agents' ? '2.5' : '1.75'}
-            />
-            <path
-              id="path-out-1"
-              d="M 325 165 C 395 165, 450 118, 540 118"
-              className={`conduit-wire conduit-out ${activeHoverNode === 'workflow-auto' ? 'is-active-wire' : ''}`}
-              stroke="url(#outboundGreen)"
-              strokeWidth={activeHoverNode === 'workflow-auto' ? '2.5' : '1.75'}
-            />
-            <path
-              id="path-out-2"
-              d="M 325 165 C 395 165, 450 202, 540 202"
-              className={`conduit-wire conduit-out ${activeHoverNode === 'voice-ai' ? 'is-active-wire' : ''}`}
-              stroke="url(#outboundBlue)"
-              strokeWidth={activeHoverNode === 'voice-ai' ? '2.5' : '1.75'}
-            />
-            <path
-              id="path-out-3"
-              d="M 325 165 C 400 165, 430 286, 540 286"
-              className={`conduit-wire conduit-out ${activeHoverNode === 'custom-ai' ? 'is-active-wire' : ''}`}
-              stroke="url(#outboundOrange)"
-              strokeWidth={activeHoverNode === 'custom-ai' ? '2.5' : '1.75'}
-            />
-
-            {/* Flowing animated light pulses (Center to Right) */}
-            <circle r="3.5" fill="#7657E8" filter="url(#energyGlow)">
-              <animateMotion
-                dur="2.4s"
-                begin="0.3s"
-                repeatCount="indefinite"
-                path="M 325 165 C 400 165, 430 34, 540 34"
-              />
-            </circle>
-            <circle r="3.5" fill="#25A86A" filter="url(#energyGlow)">
-              <animateMotion
-                dur="2.5s"
-                begin="0.9s"
-                repeatCount="indefinite"
-                path="M 325 165 C 395 165, 450 118, 540 118"
-              />
-            </circle>
-            <circle r="3.5" fill="#4389F5" filter="url(#energyGlow)">
-              <animateMotion
-                dur="2.6s"
-                begin="1.5s"
-                repeatCount="indefinite"
-                path="M 325 165 C 395 165, 450 202, 540 202"
-              />
-            </circle>
-            <circle r="3.5" fill="#E89A42" filter="url(#energyGlow)">
-              <animateMotion
-                dur="2.7s"
-                begin="2.1s"
-                repeatCount="indefinite"
-                path="M 325 165 C 400 165, 430 286, 540 286"
+                path="M 0 230 C 70 230, 100 140, 160 140"
               />
             </circle>
           </svg>
@@ -320,45 +250,167 @@ export default function WorkflowDiagram() {
         {/* Central Core: Commanding Hutomate Engine */}
         <div className="diagram-col diagram-col-center">
           <div className="core-engine-module">
-            {/* Ambient telemetry orbital rings */}
-            <div className="core-orbit-ring ring-1" aria-hidden="true" />
-            <div className="core-orbit-ring ring-2" aria-hidden="true" />
+            {/* Concentric Telemetry Orbit Rings */}
+            <div className="core-orbit-ring ring-outer-dashed" aria-hidden="true">
+              <span className="orbit-satellite sat-1" />
+              <span className="orbit-satellite sat-2" />
+              <span className="orbit-satellite sat-3" />
+            </div>
+            <div className="core-orbit-ring ring-mid-precision" aria-hidden="true">
+              <span className="radar-crosshair crosshair-n" />
+              <span className="radar-crosshair crosshair-e" />
+              <span className="radar-crosshair crosshair-s" />
+              <span className="radar-crosshair crosshair-w" />
+            </div>
+            <div className="core-ambient-aura" aria-hidden="true" />
 
+            {/* Core Card Body */}
             <div className="core-card-body">
-              {/* Left & Right connection anchor points */}
-              <span className="core-anchor core-anchor-in" aria-hidden="true" />
-              <span className="core-anchor core-anchor-out" aria-hidden="true" />
+              {/* Ingress & Egress Precision Ports */}
+              <div className="core-dock-port port-ingress" aria-hidden="true">
+                <span className="dock-blip-pulse" />
+                <span className="dock-blip-core" />
+              </div>
+              <div className="core-dock-port port-egress" aria-hidden="true">
+                <span className="dock-blip-pulse" />
+                <span className="dock-blip-core" />
+              </div>
 
+              {/* Status Pill */}
               <div className="core-status-pill">
                 <span className="core-status-beacon" />
                 <span className="core-status-text">Autonomous Core</span>
               </div>
 
+              {/* Brand Symbol inside illuminated lens */}
               <div className="core-symbol-frame">
                 <div className="core-symbol-glow" />
-                <BrandSymbol size={36} />
+                <BrandSymbol size={32} />
               </div>
 
+              {/* Title & Tagline */}
               <div className="core-title-block">
                 <span className="core-engine-brand">Hutomate Engine</span>
                 <span className="core-engine-tagline">Real-Time Autonomous Sync</span>
               </div>
 
+              {/* 3-Step Live Processing Pipeline */}
               <div className="core-pipeline-tags">
-                <span className="tag-step">
+                <span className="tag-step step-1">
                   <span className="step-num">1</span> Intake
                 </span>
                 <span className="step-arrow">→</span>
-                <span className="tag-step">
+                <span className="tag-step step-2">
                   <span className="step-num">2</span> Reason
                 </span>
                 <span className="step-arrow">→</span>
-                <span className="tag-step">
+                <span className="tag-step step-3">
                   <span className="step-num">3</span> Orchestrate
                 </span>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Right SVG Conduits: Engine Egress -> Right Capabilities */}
+        <div className="diagram-conduit-right" aria-hidden="true">
+          <svg
+            className="wf-conduit-svg"
+            viewBox="0 0 160 280"
+            fill="none"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="outGrad0" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#7657E8" stopOpacity="0.8" />
+              </linearGradient>
+              <linearGradient id="outGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#25A86A" stopOpacity="0.8" />
+              </linearGradient>
+              <linearGradient id="outGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#4389F5" stopOpacity="0.8" />
+              </linearGradient>
+              <linearGradient id="outGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#E89A42" stopOpacity="0.8" />
+              </linearGradient>
+
+              <filter id="energyGlowRight" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="2.5" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            {/* Outbound Rail Paths */}
+            <path
+              d="M 0 140 C 60 140, 90 50, 160 50"
+              className={`conduit-wire ${activeHoverNode === 'ai-agents' ? 'is-active-wire' : ''}`}
+              stroke={activeHoverNode === 'ai-agents' ? '#7657E8' : 'url(#outGrad0)'}
+              strokeWidth={activeHoverNode === 'ai-agents' ? '2.5' : '1.5'}
+              strokeOpacity={activeHoverNode && activeHoverNode !== 'ai-agents' ? '0.25' : '0.7'}
+            />
+            <path
+              d="M 0 140 C 50 140, 100 110, 160 110"
+              className={`conduit-wire ${activeHoverNode === 'workflow-auto' ? 'is-active-wire' : ''}`}
+              stroke={activeHoverNode === 'workflow-auto' ? '#25A86A' : 'url(#outGrad1)'}
+              strokeWidth={activeHoverNode === 'workflow-auto' ? '2.5' : '1.5'}
+              strokeOpacity={activeHoverNode && activeHoverNode !== 'workflow-auto' ? '0.25' : '0.7'}
+            />
+            <path
+              d="M 0 140 C 50 140, 100 170, 160 170"
+              className={`conduit-wire ${activeHoverNode === 'voice-ai' ? 'is-active-wire' : ''}`}
+              stroke={activeHoverNode === 'voice-ai' ? '#4389F5' : 'url(#outGrad2)'}
+              strokeWidth={activeHoverNode === 'voice-ai' ? '2.5' : '1.5'}
+              strokeOpacity={activeHoverNode && activeHoverNode !== 'voice-ai' ? '0.25' : '0.7'}
+            />
+            <path
+              d="M 0 140 C 60 140, 90 230, 160 230"
+              className={`conduit-wire ${activeHoverNode === 'custom-ai' ? 'is-active-wire' : ''}`}
+              stroke={activeHoverNode === 'custom-ai' ? '#E89A42' : 'url(#outGrad3)'}
+              strokeWidth={activeHoverNode === 'custom-ai' ? '2.5' : '1.5'}
+              strokeOpacity={activeHoverNode && activeHoverNode !== 'custom-ai' ? '0.25' : '0.7'}
+            />
+
+            {/* Outbound Traveling Photon Energy Beacons */}
+            <circle r="3" fill="#7657E8" filter="url(#energyGlowRight)">
+              <animateMotion
+                dur="2.4s"
+                begin="0.3s"
+                repeatCount="indefinite"
+                path="M 0 140 C 60 140, 90 50, 160 50"
+              />
+            </circle>
+            <circle r="3" fill="#25A86A" filter="url(#energyGlowRight)">
+              <animateMotion
+                dur="2.5s"
+                begin="0.9s"
+                repeatCount="indefinite"
+                path="M 0 140 C 50 140, 100 110, 160 110"
+              />
+            </circle>
+            <circle r="3" fill="#4389F5" filter="url(#energyGlowRight)">
+              <animateMotion
+                dur="2.6s"
+                begin="1.5s"
+                repeatCount="indefinite"
+                path="M 0 140 C 50 140, 100 170, 160 170"
+              />
+            </circle>
+            <circle r="3" fill="#E89A42" filter="url(#energyGlowRight)">
+              <animateMotion
+                dur="2.7s"
+                begin="2.1s"
+                repeatCount="indefinite"
+                path="M 0 140 C 60 140, 90 230, 160 230"
+              />
+            </circle>
+          </svg>
         </div>
 
         {/* Right Column: 4 Autonomous Hutomate Capabilities */}
@@ -383,18 +435,25 @@ export default function WorkflowDiagram() {
                   onMouseLeave={() => setActiveHoverNode(null)}
                   data-node-id={service.id}
                 >
+                  {/* Docking connection port */}
                   <span
                     className="wf-anchor-port port-left"
                     style={{
                       borderColor: service.color,
                       backgroundColor: isHovered ? service.color : '#FFFFFF',
                     }}
-                  />
+                  >
+                    <span
+                      className="wf-port-radar"
+                      style={{ borderColor: service.color }}
+                      aria-hidden="true"
+                    />
+                  </span>
                   <div
                     className="wf-icon-box"
                     style={{ backgroundColor: service.lightBg, color: service.color }}
                   >
-                    <Icon size={18} strokeWidth={2.2} />
+                    <Icon size={17} strokeWidth={2.2} />
                   </div>
                   <div className="wf-node-meta">
                     <div className="wf-title-row">
@@ -424,7 +483,9 @@ export default function WorkflowDiagram() {
         </div>
       </div>
 
-      {/* MOBILE RESPONSIVE WORKFLOW (Visible <= 768px) */}
+      {/* =======================================================================
+          MOBILE RESPONSIVE WORKFLOW (<= 1023px)
+          ======================================================================= */}
       <div className="diagram-mobile-stage" aria-label="Mobile workflow structure">
         {/* Step 1: Channels */}
         <div className="mobile-group">
@@ -463,10 +524,12 @@ export default function WorkflowDiagram() {
             <span>Autonomous Intelligence Core</span>
           </div>
           <div className="mobile-core-row">
-            <BrandSymbol size={28} />
+            <div className="mobile-symbol-wrapper">
+              <BrandSymbol size={28} />
+            </div>
             <div className="mobile-core-text">
               <span className="mobile-core-name">Hutomate Engine</span>
-              <span className="mobile-core-sub">Orchestrates workflows across India & USA</span>
+              <span className="mobile-core-sub">Real-Time Autonomous Sync • India & USA</span>
             </div>
           </div>
         </div>

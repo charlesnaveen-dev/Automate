@@ -98,6 +98,42 @@
   background-color: rgba(17, 17, 17, 0.08);
 }
 
+/* Cinematic Hero Variants */
+.btn-cinematic-primary {
+  background-color: #FFFFFF;
+  color: #071923;
+  border-color: #FFFFFF;
+  border-radius: var(--radius-full, 9999px);
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 24px rgba(131, 221, 226, 0.25);
+}
+
+.btn-cinematic-primary:hover:not(:disabled) {
+  background-color: #F0FCFB;
+  border-color: #83DDE2;
+  color: #071923;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45), 0 0 35px rgba(131, 221, 226, 0.45);
+}
+
+.btn-cinematic-secondary {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius-full, 9999px);
+  font-weight: 600;
+}
+
+.btn-cinematic-secondary:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.85);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
 /* Focus State */
 .btn:focus-visible {
   outline: 2px solid var(--accent-purple, #7657E8);

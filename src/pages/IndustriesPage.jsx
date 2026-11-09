@@ -45,12 +45,12 @@ export default function IndustriesPage() {
     <div className="industries-page">
       <PageHeader
         eyebrow="INDUSTRY SECTOR DIRECTORY"
-        badgeText="12 Specialized Sectors"
+        badgeText="Specialized Sectors"
         badgeType="purple"
-        title="AI implementations engineered for your industry's exact workflows."
+        title="Intelligence for the industries that keep business moving."
         description="Every industry operates with specialized software, compliance rules, and client communication patterns. We design bespoke autonomous agents and workflows tailored to the tools you already use."
       >
-        <Button variant="primary" size="md" arrow href="/start-project">
+        <Button variant="primary" size="md" arrow href="/contact">
           Discuss Your Industry
         </Button>
         <Button variant="secondary" size="md" href="/capabilities">
@@ -285,7 +285,7 @@ export default function IndustriesPage() {
               </div>
 
               <Link
-                to={`/start-project?industry=${selectedIndustry.id}`}
+                to="/contact"
                 className="industry-modal-cta"
               >
                 <span>Discuss {selectedIndustry.name} Implementation</span>
@@ -300,7 +300,7 @@ export default function IndustriesPage() {
         title="Operating in a specialized sector not listed here?"
         description="Repetitive communication, intake forms, scheduling, and cross-system sync exist in every business. We map and automate unique client workflows during our technical scoping phase."
         buttonText="Discuss Your Industry"
-        buttonHref="/start-project"
+        buttonHref="/contact"
         secondaryButtonText="Explore Capabilities"
         secondaryButtonHref="/capabilities"
       />

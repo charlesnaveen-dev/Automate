@@ -5,11 +5,12 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 import CtaBanner from '../components/CtaBanner';
+import VoiceTelephonySimulator from '../components/VoiceTelephonySimulator';
 import './CapabilityDetailPage.css';
 
 export default function VoiceAiPage() {
   usePageMetadata({
-    title: 'Voice AI Agents — Conversational Phone & Audio Automation',
+    title: 'Voice AI Agents — Conversational Phone & Telephony Systems',
     description: 'Natural voice AI designed to answer calls, qualify inbound leads, schedule appointments, and route complex inquiries with transparent human fallbacks.',
     path: '/capabilities/voice-ai',
   });
@@ -68,69 +69,43 @@ export default function VoiceAiPage() {
   return (
     <div className="capability-detail-page">
       <PageHeader
-        eyebrow="VOICE AI"
+        eyebrow="CAPABILITIES · VOICE AI"
         badgeText="Conversational Telephony"
         badgeType="blue"
-        title="Intelligent voice agents for structured phone workflows."
-        description="Natural conversational voice AI designed to answer calls, qualify inbound leads, schedule appointments, and route complex inquiries to human staff. Fast, responsive, and engineered with absolute transparency."
+        title="Every conversation can move business forward."
+        description="Natural conversational voice AI designed to answer calls, qualify inbound leads, schedule appointments, and route complex inquiries with transparent human fallbacks."
       >
-        <Button variant="primary" size="md" arrow href="/start-project">
-          Plan a Voice Agent
+        <Button variant="primary" size="md" arrow href="/contact">
+          Discuss Your Project
         </Button>
-        <Button variant="secondary" size="md" href="/security">
-          Voice Ethics &amp; Safety
+        <Button variant="secondary" size="md" href="/capabilities">
+          Explore Capabilities
         </Button>
       </PageHeader>
 
-      {/* Editorial Voice Showcase */}
-      <section className="editorial-showcase-section">
+      {/* Interactive Telephony Simulator Section */}
+      <section className="section detail-section" style={{ paddingTop: '20px' }}>
         <div className="container">
-          <div className="editorial-showcase-split reveal-on-scroll">
-            <div className="editorial-showcase-image-wrap reveal-image-mask">
-              <img
-                src="/images/voice-waveform.webp"
-                alt="Audio waveform and voice interaction interface illustrating natural, low-latency conversational AI"
-                className="editorial-showcase-img"
-                width={800}
-                height={500}
-                loading="eager"
-              />
-            </div>
-            <div className="editorial-showcase-content">
-              <span className="editorial-showcase-tag">Sub-800ms Latency</span>
-              <h2 className="editorial-showcase-title">
-                Natural conversational cadence without awkward pauses.
-              </h2>
-              <p className="editorial-showcase-p">
-                Real-world phone conversations require natural interruption handling and fluid response timing. We architect voice agents with low-latency streaming pipelines that transcribe, evaluate intent, and generate speech in milliseconds.
-              </p>
-              <div className="editorial-showcase-pillars">
-                <div className="editorial-pillar-item">
-                  <span className="editorial-pillar-dot" aria-hidden="true" />
-                  <span><strong>Voice Activity Detection (VAD):</strong> Responds smoothly to human interruptions and natural conversation pauses.</span>
-                </div>
-                <div className="editorial-pillar-item">
-                  <span className="editorial-pillar-dot" aria-hidden="true" />
-                  <span><strong>Deterministic tool calling:</strong> Books calendar appointments and updates CRM records in real time during the call.</span>
-                </div>
-                <div className="editorial-pillar-item">
-                  <span className="editorial-pillar-dot" aria-hidden="true" />
-                  <span><strong>Warm human transfer:</strong> Instantly connects callers to live specialists with a real-time call summary whenever required.</span>
-                </div>
-              </div>
-            </div>
+          <div className="section-header text-center">
+            <span className="section-label section-label-blue">Live Telephony Experience</span>
+            <h2 className="section-heading">Experience natural conversational voice in action</h2>
+            <p className="section-body section-body-center">
+              Inspect how an incoming emergency call is answered in sub-250ms, evaluated against scheduling rules, and confirmed via SMS while preserving immediate warm human escalation.
+            </p>
           </div>
+
+          <VoiceTelephonySimulator />
         </div>
       </section>
 
       {/* Applications Section */}
-      <section className="section detail-section">
+      <section className="section detail-section bg-secondary-section">
         <div className="container">
           <div className="section-header">
             <span className="section-label">Telephony Applications</span>
-            <h2 className="section-heading">Where voice automation creates tangible value</h2>
+            <h2 className="section-heading">Where voice agents solve everyday operational strain</h2>
             <p className="section-body">
-              Eliminate missed calls and long queue wait times with voice systems trained specifically on your company's operational playbook.
+              Never let a high-value customer slip to voicemail. We engineer responsive voice pipelines that handle calls 24/7 with zero hold times.
             </p>
           </div>
 
@@ -139,7 +114,7 @@ export default function VoiceAiPage() {
               const IconComp = uc.icon;
               return (
                 <div key={i} className="detail-card card">
-                  <div className="detail-card-icon-wrap">
+                  <div className="detail-card-icon-wrap" style={{ color: '#0284C7' }}>
                     <IconComp size={20} />
                   </div>
                   <h3 className="detail-card-title">{uc.title}</h3>
@@ -151,21 +126,23 @@ export default function VoiceAiPage() {
         </div>
       </section>
 
-      {/* Latency & Architecture Section */}
-      <section className="section detail-section bg-secondary-section">
+      {/* Audio Pipeline Architecture */}
+      <section className="section detail-section">
         <div className="container">
           <div className="section-header text-center">
-            <span className="section-label section-label-blue">Low-Latency Telephony</span>
-            <h2 className="section-heading">How our real-time voice pipeline functions</h2>
+            <span className="section-label section-label-green">Technical Pipeline</span>
+            <h2 className="section-heading">How our real-time voice pipeline operates</h2>
             <p className="section-body section-body-center">
-              Natural conversation requires sub-800ms total round-trip response times. Here is how our streaming architecture delivers realistic dialog.
+              Achieving conversational fluency requires sub-300ms round-trip latency, low-latency streaming endpoints, and intelligent interruption handling.
             </p>
           </div>
 
           <div className="timeline-steps-grid">
             {pipelineSteps.map((st) => (
               <div key={st.step} className="timeline-step-card card">
-                <span className="timeline-step-number">{st.step}</span>
+                <span className="timeline-step-number" style={{ color: '#0284C7', backgroundColor: 'rgba(2, 132, 199, 0.08)' }}>
+                  {st.step}
+                </span>
                 <h3 className="timeline-step-title">{st.title}</h3>
                 <p className="timeline-step-desc">{st.desc}</p>
               </div>
@@ -174,81 +151,36 @@ export default function VoiceAiPage() {
         </div>
       </section>
 
-      {/* Safety & Ethics */}
-      <section className="section detail-section">
+      {/* Safety & Human Escalation */}
+      <section className="section detail-section bg-secondary-section">
         <div className="container">
           <div className="section-header">
-            <span className="section-label section-label-green">Ethical Telephony</span>
-            <h2 className="section-heading">Engineered for caller trust and regulatory compliance</h2>
+            <span className="section-label section-label-blue">Ethics &amp; Reliability</span>
+            <h2 className="section-heading">Voice engineering built on strict transparency</h2>
             <p className="section-body">
-              We hold our voice implementations to strict standards of transparency, compliance, and user agency.
+              We never deceive callers. Transparent disclosures, deterministic guardrails, and instant warm human transfers protect your brand reputation.
             </p>
           </div>
 
           <div className="boundaries-grid">
-            {safetyPrinciples.map((p, i) => (
+            {safetyPrinciples.map((b, i) => (
               <div key={i} className="boundary-card card">
-                <CheckCircle2 size={20} className="boundary-icon" />
-                <h3 className="boundary-title">{p.title}</h3>
-                <p className="boundary-desc">{p.desc}</p>
+                <CheckCircle2 size={20} className="boundary-icon" style={{ color: '#0284C7' }} />
+                <h3 className="boundary-title">{b.title}</h3>
+                <p className="boundary-desc">{b.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Implementation Flow */}
-      <section className="section detail-section bg-secondary-section">
-        <div className="container">
-          <div className="section-header text-center">
-            <span className="section-label">Rollout Process</span>
-            <h2 className="section-heading">Voice agent development roadmap</h2>
-            <p className="section-body section-body-center">
-              From script definition and voice persona selection to rigorous telephony testing and human-in-the-loop fallback drills.
-            </p>
-          </div>
-
-          <div className="process-mini-strip">
-            <div className="mini-step">
-              <span className="mini-step-num">01</span>
-              <span className="mini-step-name">Call Tree Audit</span>
-              <span className="mini-step-sub">Identify top inbound caller intents</span>
-            </div>
-            <div className="mini-arrow">→</div>
-            <div className="mini-step">
-              <span className="mini-step-num">02</span>
-              <span className="mini-step-name">Script &amp; Voice Design</span>
-              <span className="mini-step-sub">Craft transparent dialog &amp; persona</span>
-            </div>
-            <div className="mini-arrow">→</div>
-            <div className="mini-step">
-              <span className="mini-step-num">03</span>
-              <span className="mini-step-name">API &amp; CRM Wiring</span>
-              <span className="mini-step-sub">Connect calendars &amp; customer databases</span>
-            </div>
-            <div className="mini-arrow">→</div>
-            <div className="mini-step">
-              <span className="mini-step-num">04</span>
-              <span className="mini-step-name">Simulation Testing</span>
-              <span className="mini-step-sub">Test accents, background noise &amp; interruptions</span>
-            </div>
-            <div className="mini-arrow">→</div>
-            <div className="mini-step">
-              <span className="mini-step-num">05</span>
-              <span className="mini-step-name">Soft Launch</span>
-              <span className="mini-step-sub">Reroute overflow calls with live supervision</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <CtaBanner
-        title="Explore how voice AI can handle your inbound volume"
-        description="Let’s assess your phone call volume, common caller queries, and telephone infrastructure to scope an effective pilot."
-        buttonText="Discuss Voice AI"
-        buttonHref="/start-project"
-        secondaryButtonText="Read Telephony Security"
-        secondaryButtonHref="/security"
+        title="Ready to automate inbound calls and scheduling?"
+        description="Let’s review your incoming call volume, common inquiries, and calendar booking workflow to build a tailored conversational voice agent."
+        buttonText="Discuss Your Project"
+        buttonHref="/contact"
+        secondaryButtonText="Explore Capabilities"
+        secondaryButtonHref="/capabilities"
       />
     </div>
   );
