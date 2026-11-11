@@ -176,3 +176,24 @@
     stroke-dashoffset: 0 !important;
   }
 }
+
+/* 8. Print & Document Capture Guarantee */
+@media print {
+  .reveal-on-scroll,
+  .js-scroll-enabled .reveal-on-scroll,
+  .js-scroll-enabled .reveal-on-scroll.is-revealed,
+  .js-scroll-enabled .reveal-group > *,
+  .js-scroll-enabled .reveal-group.is-revealed > *,
+  .js-scroll-enabled .reveal-node,
+  .js-scroll-enabled .is-revealed .reveal-node,
+  .js-scroll-enabled .reveal-svg-draw,
+  .js-scroll-enabled .is-revealed .reveal-svg-draw,
+  .card-hover-lift,
+  .page-fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

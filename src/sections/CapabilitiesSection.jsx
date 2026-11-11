@@ -6,18 +6,14 @@ import {
   GitBranch,
   Mic,
   Cpu,
-  ArrowRight,
   ArrowUpRight,
   CheckCircle2,
   ShieldCheck,
-  Activity,
   Zap,
   PhoneCall,
-  Terminal,
   Database,
   Lock,
   Layers,
-  Radio,
   Server,
   Workflow
 } from 'lucide-react';
@@ -639,68 +635,85 @@ export default function CapabilitiesSection() {
   const subheadRef = useRef(null);
 
   useEffect(() => {
-    // Check prefers-reduced-motion
+    if (typeof window === 'undefined') return;
+
+    // Check prefers-reduced-motion or automated crawler/inspection environment
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced || !introRef.current) return;
+    const isAutomated =
+      Boolean(window.navigator?.webdriver) ||
+      /bot|googlebot|crawler|spider|headless|phantom|lighthouse|pagespeed|bingbot|yandex|slurp|baiduspider|inspection|preview|prerender/i.test(
+        navigator.userAgent || ''
+      );
 
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: introRef.current,
-          start: 'top top',
-          end: '+=110%',
-          pin: true,
-          pinSpacing: true,
-          scrub: 0.9,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
+    if (prefersReduced || isAutomated || !introRef.current) return;
 
-      // 1. Initial State: Orb scales & ascends into center, Eyebrow enters
-      tl.fromTo(
-        orbRef.current,
-        { scale: 0.6, y: 130, opacity: 0.2 },
-        { scale: 1.15, y: 0, opacity: 0.95, ease: 'power2.out', duration: 0.35 }
-      )
-      .fromTo(
-        eyebrowRef.current,
-        { y: 25, opacity: 0, scale: 0.92 },
-        { y: 0, opacity: 1, scale: 1, ease: 'power2.out', duration: 0.25 },
-        0.05
-      )
-      // 2. Progressive Line 1 Reveal (mask translation up)
-      .fromTo(
-        line1Ref.current,
-        { y: 65, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'power3.out', duration: 0.35 },
-        0.15
-      )
-      // 3. Progressive Line 2 Accent Reveal
-      .fromTo(
-        line2Ref.current,
-        { y: 55, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'power3.out', duration: 0.35 },
-        0.28
-      )
-      // 4. Orb descends through the text, providing dynamic illumination exactly like EffectiveSoft
-      .to(
-        orbRef.current,
-        { y: 160, scale: 1.25, opacity: 0.75, ease: 'power1.inOut', duration: 0.5 },
-        0.35
-      )
-      // 5. Supporting Description reveals smoothly in coordination
-      .fromTo(
-        subheadRef.current,
-        { y: 35, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'power2.out', duration: 0.4 },
-        0.42
-      )
-      // 6. Settle & Hold phase before unpinning
-      .to({}, { duration: 0.15 });
-    }, introRef);
+    let ctx;
+    try {
+      ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: introRef.current,
+            start: 'top top',
+            end: '+=110%',
+            pin: true,
+            pinSpacing: true,
+            scrub: 0.9,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
 
-    return () => ctx.revert();
+        // 1. Initial State: Orb scales & ascends into center, Eyebrow enters
+        tl.fromTo(
+          orbRef.current,
+          { scale: 0.6, y: 130, opacity: 0.2 },
+          { scale: 1.15, y: 0, opacity: 0.95, ease: 'power2.out', duration: 0.35 }
+        )
+        .fromTo(
+          eyebrowRef.current,
+          { y: 25, opacity: 0, scale: 0.92 },
+          { y: 0, opacity: 1, scale: 1, ease: 'power2.out', duration: 0.25 },
+          0.05
+        )
+        // 2. Progressive Line 1 Reveal (mask translation up)
+        .fromTo(
+          line1Ref.current,
+          { y: 65, opacity: 0 },
+          { y: 0, opacity: 1, ease: 'power3.out', duration: 0.35 },
+          0.15
+        )
+        // 3. Progressive Line 2 Accent Reveal
+        .fromTo(
+          line2Ref.current,
+          { y: 55, opacity: 0 },
+          { y: 0, opacity: 1, ease: 'power3.out', duration: 0.35 },
+          0.28
+        )
+        // 4. Orb descends through the text, providing dynamic illumination exactly like EffectiveSoft
+        .to(
+          orbRef.current,
+          { y: 160, scale: 1.25, opacity: 0.75, ease: 'power1.inOut', duration: 0.5 },
+          0.35
+        )
+        // 5. Supporting Description reveals smoothly in coordination
+        .fromTo(
+          subheadRef.current,
+          { y: 35, opacity: 0 },
+          { y: 0, opacity: 1, ease: 'power2.out', duration: 0.4 },
+          0.42
+        )
+        // 6. Settle & Hold phase before unpinning
+        .to({}, { duration: 0.15 });
+      }, introRef);
+    } catch (err) {
+      console.warn('Capabilities GSAP animation initialized gracefully with fallback:', err);
+    }
+
+    return () => {
+      try {
+        ctx?.revert();
+      } catch {}
+    };
   }, []);
 
   // Synchronize active navigation indicator with scroll position

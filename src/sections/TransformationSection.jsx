@@ -180,17 +180,25 @@ export default function TransformationSection() {
     if (typeof window === 'undefined') return;
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
+    const isAutomated =
+      Boolean(window.navigator?.webdriver) ||
+      /bot|googlebot|crawler|spider|headless|phantom|lighthouse|pagespeed|bingbot|yandex|slurp|baiduspider|inspection|preview|prerender/i.test(
+        navigator.userAgent || ''
+      );
 
-    const ctx = gsap.context(() => {
-      // Meaningful scroll-driven transformation storytelling
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 72%',
-          once: true,
-        },
-      });
+    if (prefersReduced || isAutomated || !sectionRef.current) return;
+
+    let ctx;
+    try {
+      ctx = gsap.context(() => {
+        // Meaningful scroll-driven transformation storytelling
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 72%',
+            once: true,
+          },
+        });
 
       // Step 1: Scattered cards enter with subtle organic dispersion
       tl.from('.scattered-item', {
@@ -277,8 +285,15 @@ export default function TransformationSection() {
         '-=0.15'
       );
     }, sectionRef);
+    } catch (err) {
+      console.warn('Transformation GSAP animation initialized gracefully with fallback:', err);
+    }
 
-    return () => ctx.revert();
+    return () => {
+      try {
+        ctx?.revert();
+      } catch {}
+    };
   }, []);
 
   return (

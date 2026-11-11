@@ -125,9 +125,9 @@ function RouteSwitcher() {
   return <PageComponent />;
 }
 
-export default function App() {
+export default function App({ initialPath } = {}) {
   return (
-    <RouterProvider>
+    <RouterProvider initialPath={initialPath}>
       <div className="app-container">
         <Header />
         <main id="main-content">

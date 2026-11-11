@@ -10,7 +10,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-import { prefersReducedMotion } from './motionConfig'
+import { prefersReducedMotion, isAutomatedEnvironment } from './motionConfig'
 
 // Use layoutEffect on client to prevent layout shifts, fallback to useEffect on server/SSR
 const useIsomorphicLayoutEffect =
@@ -58,12 +58,17 @@ export function useGsapContext(scopeRef, animationCallback, deps = []) {
       return undefined
     }
 
-    const isReduced = prefersReducedMotion()
+    const isReduced = prefersReducedMotion() || isAutomatedEnvironment();
 
     // Create GSAP context scoped to container
-    const ctx = gsap.context((self) => {
-      animationCallback(self, isReduced)
-    }, scopeElement)
+    let ctx;
+    try {
+      ctx = gsap.context((self) => {
+        animationCallback(self, isReduced)
+      }, scopeElement)
+    } catch (err) {
+      console.warn('GSAP context initialization failed gracefully:', err);
+    }
 
     ctxRef.current = ctx
     setContext(ctx)

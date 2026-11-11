@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { RouterContext, useRouter } from './RouterContext';
 
-export function RouterProvider({ children }) {
+export function RouterProvider({ children, initialPath }) {
   const [currentPath, setCurrentPath] = useState(() => {
+    if (initialPath) {
+      return initialPath.split('?')[0].split('#')[0].replace(/\/+$/, '') || '/';
+    }
     if (typeof window !== 'undefined') {
       const path = window.location.pathname.replace(/\/+$/, '') || '/';
       return path;

@@ -78,6 +78,18 @@ export const prefersReducedMotion = () => {
 }
 
 /**
+ * Detects whether the execution environment is an automated browser, crawler, or headless tool.
+ *
+ * @returns {boolean} True if running under automation or crawler environment
+ */
+export const isAutomatedEnvironment = () => {
+  if (typeof window === 'undefined') return true;
+  if (window.navigator?.webdriver) return true;
+  const ua = window.navigator?.userAgent || '';
+  return /bot|crawler|spider|headless|phantom|lighthouse|pagespeed|bingbot|yandex|slurp|baiduspider|inspection|preview|prerender/i.test(ua);
+}
+
+/**
  * GSAP Animation Presets
  * Each preset provides paired 'from' and 'to' parameters.
  */

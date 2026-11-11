@@ -19,9 +19,12 @@
     <meta name="author" content="Hutomate" />
     <meta name="robots" content="index, follow" />
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://automat-ten.vercel.app/" />
+
     <!-- Theme & Color Scheme -->
-    <meta name="theme-color" content="#F7F5F0" />
-    <meta name="msapplication-TileColor" content="#F7F5F0" />
+    <meta name="theme-color" content="#071923" />
+    <meta name="msapplication-TileColor" content="#071923" />
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website" />
@@ -31,7 +34,7 @@
       property="og:description"
       content="Hutomate empowers modern enterprises with autonomous AI agents, intelligent workflow automation, and voice AI systems that eliminate manual friction and scale operations seamlessly."
     />
-    <meta property="og:url" content="https://hutomate.com" />
+    <meta property="og:url" content="https://automat-ten.vercel.app/" />
     <meta property="og:image" content="/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -52,9 +55,43 @@
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://automat-ten.vercel.app/#organization",
+          "name": "Hutomate",
+          "url": "https://automat-ten.vercel.app/",
+          "logo": "https://automat-ten.vercel.app/hutomate_logo_white.png",
+          "description": "Hutomate engineers autonomous AI agents, workflow automation, voice systems and custom AI solutions for enterprise operations.",
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://automat-ten.vercel.app/#website",
+          "url": "https://automat-ten.vercel.app/",
+          "name": "Hutomate",
+          "publisher": {
+            "@id": "https://automat-ten.vercel.app/#organization"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="padding: 40px 20px; text-align: center; font-family: sans-serif; background: #071923; color: #FFFFFF;">
+        <h2>Hutomate — AI Automation &amp; Intelligent Systems</h2>
+        <p style="margin: 16px 0; color: #94A3B8;">Please enable JavaScript for the full interactive experience. You can browse our core capabilities:</p>
+        <p><a href="/capabilities" style="color: #83DDE2; margin: 0 10px;">Capabilities</a> | <a href="/use-cases" style="color: #83DDE2; margin: 0 10px;">Use Cases</a> | <a href="/contact" style="color: #83DDE2; margin: 0 10px;">Contact Us</a></p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
