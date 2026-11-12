@@ -1,6 +1,8 @@
-/* FAQ Page Styles */
+/* FAQ Page Styles — Rebranded Hutomate Design System */
 .faq-page {
   width: 100%;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  color: var(--color-charcoal, #17252B);
 }
 
 .faq-categories-nav {
@@ -12,26 +14,28 @@
 }
 
 .faq-cat-btn {
-  padding: 10px 20px;
-  font-size: 0.9rem;
+  padding: 10px 22px;
+  font-family: inherit;
+  font-size: 0.88rem;
   font-weight: 600;
   border-radius: 30px;
-  border: 1px solid var(--border-color);
-  background-color: var(--card-bg, #ffffff);
-  color: var(--text-secondary);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  background-color: var(--color-pure-white, #FFFFFF);
+  color: var(--color-slate-grey, #40545C);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .faq-cat-btn:hover {
-  border-color: rgba(0, 0, 0, 0.3);
-  color: var(--text-primary);
+  border-color: var(--color-deep-teal, #167C80);
+  color: var(--color-midnight-navy, #071923);
 }
 
 .faq-cat-btn.active {
-  background-color: var(--text-primary);
-  color: #ffffff;
-  border-color: var(--text-primary);
+  background-color: var(--color-deep-teal, #167C80);
+  color: #FFFFFF;
+  border-color: var(--color-deep-teal, #167C80);
+  box-shadow: 0 4px 14px rgba(22, 124, 128, 0.25);
 }
 
 .faq-list {
@@ -43,15 +47,16 @@
 }
 
 .faq-item {
-  background-color: var(--card-bg, #ffffff);
-  border: 1px solid var(--border-color, #e5e5e5);
-  border-radius: var(--radius-lg, 12px);
+  background-color: var(--color-pure-white, #FFFFFF);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 14px;
   overflow: hidden;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .faq-item:hover {
-  border-color: rgba(0, 0, 0, 0.2);
+  border-color: var(--color-deep-teal, #167C80);
+  box-shadow: 0 4px 16px rgba(7, 25, 35, 0.04);
 }
 
 .faq-question-btn {
@@ -65,14 +70,15 @@
   border: none;
   text-align: left;
   cursor: pointer;
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
   font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-weight: 800;
+  color: var(--color-midnight-navy, #071923);
   line-height: 1.35;
 }
 
 .faq-icon-wrapper {
-  color: var(--accent-purple, #6366f1);
+  color: var(--color-deep-teal, #167C80);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,9 +88,10 @@
 
 .faq-answer-panel {
   padding: 0 28px 24px 28px;
+  font-family: var(--font-family-body, 'Inter', sans-serif);
   font-size: 0.95rem;
   line-height: 1.65;
-  color: var(--text-secondary);
+  color: var(--color-slate-grey, #40545C);
 }
 
 .faq-answer-panel p {

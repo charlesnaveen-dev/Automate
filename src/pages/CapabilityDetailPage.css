@@ -25,7 +25,7 @@
 }
 
 .section-label-green {
-  color: #10b981;
+  color: #167C80;
 }
 
 .section-label-blue {
@@ -108,8 +108,8 @@
   font-family: var(--font-mono, monospace);
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--accent-purple, #6366f1);
-  background-color: rgba(99, 102, 241, 0.08);
+  color: var(--color-deep-teal, #167C80);
+  background-color: rgba(131, 221, 226, 0.15);
   padding: 4px 10px;
   border-radius: 20px;
   margin-bottom: 18px;
@@ -148,7 +148,7 @@
 }
 
 .boundary-icon {
-  color: #10b981;
+  color: #167C80;
   margin-bottom: 16px;
 }
 
@@ -189,7 +189,7 @@
   font-family: var(--font-mono, monospace);
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--accent-purple, #6366f1);
+  color: var(--color-deep-teal, #167C80);
 }
 
 .mini-step-name {
@@ -214,7 +214,7 @@
 .editorial-showcase-section {
   padding: 90px 0;
   border-bottom: 1px solid var(--border-color);
-  background-color: var(--bg-primary, #F7F5F0);
+  background-color: var(--bg-primary, #F5F7F8);
 }
 
 .editorial-showcase-split {
@@ -258,7 +258,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #2563EB;
+  color: var(--color-text-primary, #0A0D12);
   margin-bottom: 12px;
 }
 
@@ -301,7 +301,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #2563EB;
+  background-color: var(--color-black, #071923);
   margin-top: 7px;
   flex-shrink: 0;
 }
@@ -339,5 +339,317 @@
 
   .detail-section {
     padding: 60px 0;
+  }
+}
+
+
+/* -----------------------------------------------------------------------------
+   New Rootstrap-Inspired Sections for Individual Capability Pages
+   ----------------------------------------------------------------------------- */
+.cap-hero-metrics-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.cap-hero-metric-tag {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  background: rgba(8, 44, 54, 0.06);
+  border: 1px solid rgba(8, 44, 54, 0.12);
+  padding: 6px 14px;
+  border-radius: 9999px;
+}
+
+.cap-hero-metric-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 1rem;
+  font-weight: 800;
+  color: #167C80;
+}
+
+.cap-hero-metric-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748B;
+}
+
+/* Problem Cards */
+.problem-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.problem-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 28px 24px;
+  transition: all 0.2s ease;
+}
+
+.problem-card:hover {
+  border-color: #CBD5E1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(7, 25, 35, 0.05);
+}
+
+.problem-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.problem-icon-alert {
+  color: #D97706;
+}
+
+.problem-card-title {
+  font-size: 1.1rem;
+  font-weight: 750;
+  color: #071923;
+  margin: 0;
+}
+
+.problem-card-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #64748B;
+  margin: 0;
+}
+
+/* What We Build Grid */
+.what-we-build-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.what-we-build-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+
+.what-we-build-card:hover {
+  border-color: #167C80;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(8, 44, 54, 0.06);
+}
+
+.what-we-build-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(8, 44, 54, 0.06);
+  color: #167C80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.what-we-build-title {
+  font-size: 1.05rem;
+  font-weight: 750;
+  color: #071923;
+  margin: 0 0 8px 0;
+  line-height: 1.35;
+}
+
+.what-we-build-desc {
+  font-size: 0.885rem;
+  line-height: 1.55;
+  color: #64748B;
+  margin: 0;
+}
+
+/* Benefits Grid */
+.benefits-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.benefit-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-left: 3px solid #167C80;
+  border-radius: 10px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.benefit-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #071923;
+  margin: 0;
+}
+
+.benefit-card-desc {
+  font-size: 0.885rem;
+  line-height: 1.55;
+  color: #64748B;
+  margin: 0;
+}
+
+/* Integrations Strip */
+.cap-integrations-box {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 32px 36px;
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cap-integrations-lead {
+  max-width: 440px;
+}
+
+.cap-integrations-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #071923;
+  margin: 0 0 6px 0;
+}
+
+.cap-integrations-sub {
+  font-size: 0.925rem;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cap-integrations-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cap-integration-pill {
+  font-size: 13px;
+  font-weight: 600;
+  color: #071923;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+
+/* Related Capabilities */
+.related-caps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.related-cap-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.related-cap-card:hover {
+  border-color: #167C80;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(8, 44, 54, 0.08);
+}
+
+.related-cap-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.related-cap-header .related-cap-num {
+  margin-bottom: 0;
+}
+
+.related-cap-icon {
+  color: var(--color-deep-teal, #167C80);
+  opacity: 0.85;
+}
+
+.related-cap-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 750;
+  color: #64748B;
+  margin-bottom: 12px;
+}
+
+.related-cap-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #071923;
+  margin: 0 0 8px 0;
+}
+
+.related-cap-desc {
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: #64748B;
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+.related-cap-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #167C80;
+}
+
+@media (max-width: 1024px) {
+  .what-we-build-grid,
+  .benefits-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .related-caps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .problem-cards-grid,
+  .what-we-build-grid,
+  .benefits-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cap-integrations-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
   }
 }

@@ -1,69 +1,75 @@
+/* =============================================================================
+   PageHeader Styles — Hutomate Brand System
+   - Cloud White (#F4F7F7) background
+   - Mist Grey (#E2EAEC) crisp dividing border
+   - Charcoal (#17252B) and Slate Grey (#40545C) high-contrast editorial typography
+   ============================================================================= */
+
 .page-header-block {
   width: 100%;
-  padding-top: clamp(48px, 8vw, 96px);
-  padding-bottom: clamp(36px, 5vw, 64px);
-  border-bottom: 1px solid var(--border-color, #DFDCD4);
-  background-color: var(--bg-main, #F7F5F0);
+  padding-top: clamp(64px, 9vw, 108px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+  background-color: var(--color-cloud-white, #F4F7F7);
 }
 
 .page-header-content {
-  max-width: 860px;
+  max-width: 880px;
 }
 
 .page-header-eyebrow-row {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: var(--space-4, 16px);
+  margin-bottom: 20px;
   flex-wrap: wrap;
 }
 
 .page-header-badge {
+  font-family: var(--font-family-mono, monospace);
   font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .page-header-title {
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-extrabold);
-  line-height: var(--line-height-heading);
-  letter-spacing: var(--letter-spacing-tighter);
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-4, 16px);
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: var(--color-text-primary, #17252B);
+  margin-bottom: 20px;
   text-wrap: balance;
 }
 
 .page-header-desc {
-  font-size: var(--font-size-lg);
-  line-height: var(--line-height-body);
-  color: var(--color-text-secondary);
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+  line-height: 1.65;
+  color: var(--color-text-secondary, #40545C);
   max-width: 720px;
-  margin-bottom: var(--space-6, 24px);
+  margin-bottom: 28px;
   text-wrap: pretty;
 }
 
 .page-header-actions {
   display: flex;
   align-items: center;
-  gap: var(--space-4, 16px);
+  gap: 16px;
   flex-wrap: wrap;
 }
 
 @media (max-width: 600px) {
   .page-header-block {
-    padding-top: 32px;
-    padding-bottom: 24px;
+    padding-top: 40px;
+    padding-bottom: 28px;
   }
 
   .page-header-actions {
     flex-direction: column;
     width: 100%;
     align-items: stretch;
-    gap: 12px;
-  }
-
-  .page-header-actions .btn {
-    width: 100%;
-    justify-content: center;
   }
 }

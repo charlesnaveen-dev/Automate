@@ -1,0 +1,350 @@
+/* =============================================================================
+   Workflow Automation Page Styles — Bespoke Pipeline Architecture
+   - Cloud White (#F4F7F7) & Pure White (#FFFFFF) Architecture
+   - Event-driven pipeline visualization (Trigger → Process → Execution)
+   - Multi-App Integration Ecosystem Matrix
+   - Operational Comparison (Manual vs. Automated)
+   ============================================================================= */
+
+.workflow-automation-page {
+  width: 100%;
+  background-color: var(--color-cloud-white, #F4F7F7);
+}
+
+/* 1. Dedicated Pipeline Hero */
+.wf-hero-section {
+  position: relative;
+  width: 100%;
+  background: radial-gradient(circle at 40% 10%, rgba(11, 48, 56, 0.95) 0%, rgba(7, 25, 35, 1) 85%);
+  padding: clamp(96px, 12vw, 150px) 0 clamp(64px, 8vw, 96px);
+  box-sizing: border-box;
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(226, 234, 236, 0.1);
+}
+
+.wf-hero-content {
+  max-width: 920px;
+}
+
+.wf-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.wf-tag {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-accent-cyan, #83DDE2);
+  text-transform: uppercase;
+}
+
+.wf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(226, 234, 236, 0.15);
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.wf-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent-cyan, #83DDE2);
+  box-shadow: 0 0 8px rgba(131, 221, 226, 0.8);
+}
+
+.wf-hero-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: #FFFFFF;
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+
+.wf-hero-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--color-mist-grey, #E2EAEC);
+  max-width: 760px;
+  margin: 0 0 36px;
+  text-wrap: pretty;
+}
+
+.wf-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.wf-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 700px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(226, 234, 236, 0.12);
+}
+
+.wf-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.wf-metric-val {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.wf-metric-lbl {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  color: var(--color-mist-grey, #E2EAEC);
+  letter-spacing: 0.02em;
+}
+
+/* 2. Pipeline Diagram Section */
+.wf-pipeline-section {
+  padding: clamp(64px, 8vw, 100px) 0;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+}
+
+/* 3. Integration Ecosystem Grid */
+.wf-ecosystem-section {
+  padding: clamp(64px, 8vw, 100px) 0;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+}
+
+.wf-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.wf-tool-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border, #E2EAEC);
+  border-radius: var(--radius-md, 10px);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.wf-tool-card:hover {
+  border-color: var(--color-deep-teal, #167C80);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(7, 25, 35, 0.06);
+}
+
+.wf-tool-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.wf-tool-name {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.1rem;
+  font-weight: 750;
+  color: var(--color-text-primary, #17252B);
+}
+
+.wf-tool-badge {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 10px;
+  color: var(--color-deep-teal, #167C80);
+  background: rgba(22, 124, 128, 0.08);
+  padding: 3px 8px;
+  border-radius: var(--radius-full, 9999px);
+}
+
+.wf-tool-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--color-text-secondary, #40545C);
+  margin: 0;
+}
+
+/* 4. Resilient Automation Tenets */
+.wf-tenets-section {
+  padding: clamp(64px, 8vw, 100px) 0;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+}
+
+.wf-tenets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.wf-tenet-card {
+  background: var(--color-cloud-white, #F4F7F7);
+  border: 1px solid var(--color-border, #E2EAEC);
+  border-radius: var(--radius-lg, 14px);
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wf-tenet-num {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--color-deep-teal, #167C80);
+  margin-bottom: 12px;
+}
+
+.wf-tenet-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-primary, #17252B);
+  margin: 0 0 10px;
+}
+
+.wf-tenet-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary, #40545C);
+  margin: 0;
+}
+
+/* 5. Before vs. After Matrix */
+.wf-comparison-section {
+  padding: clamp(64px, 8vw, 100px) 0;
+  background-color: var(--color-midnight-navy, #071923);
+  color: #FFFFFF;
+}
+
+.wf-matrix-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.wf-matrix-col {
+  border-radius: var(--radius-lg, 14px);
+  padding: 32px 28px;
+}
+
+.wf-matrix-col--before {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(226, 234, 236, 0.1);
+}
+
+.wf-matrix-col--after {
+  background: var(--color-deep-ocean, #0B3038);
+  border: 1px solid rgba(131, 221, 226, 0.25);
+  box-shadow: 0 0 30px rgba(131, 221, 226, 0.06);
+}
+
+.wf-matrix-label {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.wf-matrix-label--before {
+  color: var(--color-muted-grey, #71838A);
+}
+
+.wf-matrix-label--after {
+  color: var(--color-accent-cyan, #83DDE2);
+}
+
+.wf-matrix-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0 0 20px;
+  color: #FFFFFF;
+}
+
+.wf-matrix-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.wf-matrix-item {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.wf-matrix-col--before .wf-matrix-item {
+  color: var(--color-mist-grey, #E2EAEC);
+}
+
+.wf-matrix-col--after .wf-matrix-item {
+  color: #FFFFFF;
+}
+
+.matrix-check {
+  color: var(--color-accent-cyan, #83DDE2);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.matrix-cross {
+  color: var(--color-muted-grey, #71838A);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+@media (max-width: 960px) {
+  .wf-tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wf-tenets-grid {
+    grid-template-columns: 1fr;
+  }
+  .wf-matrix-grid {
+    grid-template-columns: 1fr;
+  }
+  .wf-metrics-strip {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

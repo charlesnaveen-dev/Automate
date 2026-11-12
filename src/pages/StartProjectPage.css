@@ -1,24 +1,29 @@
-/* Start Project Page Styles */
+/* Start Project Page Styles — Rebranded Hutomate Design System */
 .start-project-page {
   width: 100%;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  color: var(--color-charcoal, #17252B);
 }
 
 .scoping-form-wrapper {
-  max-width: 780px;
+  max-width: 820px;
   margin: 0 auto;
-  background-color: var(--card-bg, #ffffff);
-  border: 1px solid var(--border-color, #e5e5e5);
-  border-radius: var(--radius-lg, 12px);
-  padding: 44px;
+  background-color: var(--color-pure-white, #FFFFFF);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 18px;
+  padding: 48px;
+  box-shadow: 0 12px 36px rgba(7, 25, 35, 0.05);
 }
 
 .form-section-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 20px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border-color);
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-midnight-navy, #071923);
+  margin-bottom: 22px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-mist-grey, #E2EAEC);
+  letter-spacing: -0.01em;
 }
 
 .form-grid-2 {
@@ -36,13 +41,13 @@
 }
 
 .form-label {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-charcoal, #17252B);
 }
 
 .form-label .required {
-  color: #ef4444;
+  color: #DC2626;
 }
 
 .form-input,
@@ -52,19 +57,20 @@
   padding: 12px 16px;
   font-size: 0.95rem;
   border-radius: 8px;
-  border: 1px solid var(--border-color, #d1d5db);
-  background-color: var(--bg-primary, #ffffff);
-  color: var(--text-primary);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  background-color: var(--color-cloud-white, #F4F7F7);
+  color: var(--color-midnight-navy, #071923);
   font-family: inherit;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: var(--text-primary);
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+  background-color: #FFFFFF;
+  border-color: var(--color-deep-teal, #167C80);
+  box-shadow: 0 0 0 3px rgba(131, 221, 226, 0.4);
 }
 
 .form-textarea {
@@ -84,27 +90,30 @@
   align-items: center;
   gap: 10px;
   padding: 12px 16px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
   border-radius: 8px;
   cursor: pointer;
-  background-color: var(--card-bg, #ffffff);
+  background-color: var(--color-cloud-white, #F4F7F7);
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-primary);
+  color: var(--color-charcoal, #17252B);
   transition: all 0.2s ease;
 }
 
 .chip-checkbox-label:hover {
-  border-color: rgba(0, 0, 0, 0.3);
+  border-color: var(--color-deep-teal, #167C80);
+  background-color: #FFFFFF;
 }
 
 .chip-checkbox-label.selected {
-  border-color: var(--accent-purple, #6366f1);
-  background-color: rgba(99, 102, 241, 0.05);
+  border-color: var(--color-deep-teal, #167C80);
+  background-color: rgba(22, 124, 128, 0.08);
+  color: var(--color-deep-teal, #167C80);
+  font-weight: 600;
 }
 
 .chip-checkbox-label input {
-  accent-color: var(--accent-purple, #6366f1);
+  accent-color: var(--color-deep-teal, #167C80);
 }
 
 .form-submit-row {
@@ -113,12 +122,12 @@
   gap: 16px;
   margin-top: 32px;
   padding-top: 24px;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--color-mist-grey, #E2EAEC);
 }
 
 .form-trust-text {
   font-size: 0.825rem;
-  color: var(--text-muted);
+  color: var(--color-muted-grey, #71838A);
   line-height: 1.5;
   text-align: center;
 }
@@ -128,17 +137,18 @@
   margin: 40px auto;
   padding: 48px;
   text-align: center;
-  background-color: var(--card-bg, #ffffff);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg, 12px);
+  background-color: var(--color-pure-white, #FFFFFF);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 18px;
+  box-shadow: 0 12px 36px rgba(7, 25, 35, 0.05);
 }
 
 .success-icon-wrap {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.1);
-  color: #10b981;
+  background-color: rgba(22, 124, 128, 0.1);
+  color: var(--color-deep-teal, #167C80);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,52 +156,42 @@
 }
 
 .success-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
   font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-weight: 800;
+  color: var(--color-midnight-navy, #071923);
   margin-bottom: 12px;
 }
 
 .success-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
   font-size: 1rem;
-  color: var(--text-secondary);
+  color: var(--color-slate-grey, #40545C);
   line-height: 1.6;
   margin-bottom: 32px;
 }
 
 .summary-details-box {
-  background-color: rgba(0, 0, 0, 0.02);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 10px;
   padding: 20px;
   text-align: left;
   margin-bottom: 32px;
   font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: var(--color-charcoal, #17252B);
 }
 
 @media (max-width: 768px) {
   .scoping-form-wrapper {
-    padding: 24px 16px;
-    border-radius: 16px;
+    padding: 28px 20px;
   }
   .form-grid-2,
   .chips-grid {
     grid-template-columns: 1fr;
   }
   .submission-success-card {
-    padding: 32px 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .scoping-form-wrapper {
-    padding: 20px 14px;
-  }
-  .form-input-text,
-  .form-select-input,
-  .form-textarea-input {
-    font-size: 16px !important;
+    padding: 32px 20px;
   }
 }

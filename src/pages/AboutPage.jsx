@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Compass, Target, ShieldCheck, Zap, Layers, Lock } from 'lucide-react';
+import { Globe, Compass, Target, ShieldCheck, Zap, Layers, Lock, Cpu, Server, Check } from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import PageHeader from '../components/PageHeader';
@@ -9,7 +9,7 @@ import './AboutPage.css';
 
 export default function AboutPage() {
   usePageMetadata({
-    title: 'About Hutomate — Building a Smarter Way to Work',
+    title: 'About Hutomate — AI Automation & Engineering Partner',
     description: 'Hutomate is an AI automation and implementation partner helping businesses connect existing tools, automate repetitive operations, and build custom intelligent systems.',
     path: '/about',
   });
@@ -54,9 +54,9 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="ABOUT HUTOMATE"
         badgeText="Our Foundation"
-        badgeType="purple"
+        badgeType="teal"
         title="Building a smarter way to work."
-        description="Hutomate is an AI automation and implementation partner helping businesses connect existing tools, automate repetitive operations, and build custom intelligent systems."
+        description="Hutomate is an AI automation and implementation partner helping forward-looking businesses eliminate friction, automate routine tasks, and deploy production-grade intelligent systems."
       >
         <Button variant="primary" size="md" arrow href="/contact">
           Discuss Your Project
@@ -66,65 +66,92 @@ export default function AboutPage() {
         </Button>
       </PageHeader>
 
-      <section className="section detail-section">
+      {/* Editorial Storytelling Section */}
+      <section className="section about-editorial-section">
         <div className="container">
-          {/* Vision & Mission Cards */}
-          <div className="about-vm-grid reveal-on-scroll">
-            <div className="about-vm-card card">
+          <div className="about-editorial-grid">
+            <div className="about-editorial-content">
+              <span className="about-kicker">Operational Architecture</span>
+              <h2 className="about-editorial-heading">
+                We believe talented teams shouldn’t spend their days copying data between tabs or answering routine emails.
+              </h2>
+              <p className="about-editorial-lead">
+                Every business carries invisible friction: fragmented software, manual approvals, repetitive data entry, and dropped customer inquiries. Frontier AI offers a solution—but off-the-shelf tools rarely fit the complex realities of production workflows.
+              </p>
+              <p className="about-editorial-subtext">
+                That is why Hutomate exists. We bridge the gap between bleeding-edge machine intelligence and everyday business execution. We don’t sell prepackaged subscriptions; we engineer, integrate, and maintain bespoke automated systems that run seamlessly inside your existing toolstack.
+              </p>
+            </div>
+
+            <div className="about-editorial-media">
+              <div className="about-media-card">
+                <img
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+                  alt="Modern architectural workspace"
+                  className="about-editorial-img"
+                  loading="lazy"
+                />
+                <div className="about-media-overlay" />
+                <div className="about-media-caption">
+                  <div className="caption-dot" />
+                  <span>San Francisco & London Engineering Operations</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision & Mission Cards */}
+      <section className="section about-vm-section">
+        <div className="container">
+          <div className="about-vm-grid">
+            <div className="about-vm-card">
               <div className="about-vm-icon-box">
-                <Compass size={22} color="#7657E8" />
+                <Compass size={22} color="#167C80" />
               </div>
               <span className="about-vm-label">Our Vision</span>
               <h3 className="about-vm-title">Liberating human talent from mechanical routines.</h3>
               <p className="about-vm-desc">
-                We believe talented teams shouldn’t spend their days copying data between tabs, answering repetitive phone FAQs, or manually dispatching internal reminders. We envision a future where business operations flow seamlessly in the background, freeing professionals to focus on high-judgment, creative, and relationship-driven work.
+                We envision organizations where operational execution flows quietly and deterministically in the background, freeing people to focus on high-judgment, creative, and relationship-driven work.
               </p>
             </div>
 
-            <div className="about-vm-card card">
+            <div className="about-vm-card">
               <div className="about-vm-icon-box">
-                <Target size={22} color="#10B981" />
+                <Target size={22} color="#167C80" />
               </div>
-              <span className="about-vm-label" style={{ color: '#10B981' }}>Our Mission</span>
+              <span className="about-vm-label">Our Mission</span>
               <h3 className="about-vm-title">Engineering practical, resilient intelligence.</h3>
               <p className="about-vm-desc">
-                Our mission is to bridge the gap between frontier artificial intelligence and everyday business execution. We do this by designing, engineering, and deploying custom AI agents, voice telephony systems, and connected workflow pipelines that deliver measurable operational efficiency without disrupting existing workflows.
+                Our mission is to translate AI breakthroughs into practical, secure, and production-tested workflows that yield immediate, measurable return on investment without requiring staff to change how they work.
               </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Hybrid Approach Section */}
-          <div className="about-intro-grid reveal-on-scroll" style={{ marginTop: '60px' }}>
-            <h2 className="about-intro-title reveal-on-scroll reveal-delay-1">
-              A hybrid delivery model: tailored consulting meets disciplined software engineering.
-            </h2>
-            <div className="about-intro-text reveal-on-scroll reveal-delay-2">
-              <p>
-                Hutomate is an early-stage AI automation and implementation partner. We work directly with founders, operations leaders, and department heads to analyze manual bottlenecks and engineer production-grade AI pipelines.
-              </p>
-              <p>
-                Our approach blends deep operational consulting with senior software engineering. We don’t just recommend tools; we write the code, configure the API integrations, test the edge cases, and maintain the live pipelines so your team achieves effortless execution.
-              </p>
-            </div>
-          </div>
-
-          {/* Philosophy Section */}
-          <div className="section-header reveal-on-scroll" style={{ marginTop: '60px' }}>
-            <span className="section-label reveal-on-scroll reveal-delay-1">Core Philosophy</span>
-            <h2 className="section-heading reveal-on-scroll reveal-delay-2">The 5 pillars that guide our engineering</h2>
-            <p className="section-body reveal-on-scroll reveal-delay-3">
+      {/* The 5 Pillars Section */}
+      <section className="section about-pillars-section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-label">Core Philosophy</span>
+            <h2 className="section-heading">The 5 pillars that guide our engineering</h2>
+            <p className="section-body">
               How we evaluate every client opportunity, architecture decision, and system integration.
             </p>
           </div>
 
           <div className="principles-grid">
-            {philosophyPillars.map((pr, idx) => {
+            {philosophyPillars.map((pr) => {
               const IconComp = pr.icon;
               return (
-                <div key={pr.num} className={`principle-card card reveal-on-scroll reveal-delay-${(idx % 3) + 1}`}>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+                <div key={pr.num} className="principle-card">
+                  <div className="principle-top">
                     <span className="principle-num">{pr.num}</span>
-                    <IconComp size={18} color="#7657E8" />
+                    <div className="principle-icon-wrap">
+                      <IconComp size={18} color="#167C80" />
+                    </div>
                   </div>
                   <h3 className="principle-title">{pr.title}</h3>
                   <p className="principle-desc">{pr.desc}</p>
@@ -132,13 +159,59 @@ export default function AboutPage() {
               );
             })}
           </div>
+        </div>
+      </section>
 
-          {/* Global Reach */}
-          <div className="global-reach-box reveal-on-scroll">
+      {/* Data Sovereignty & Standards Section */}
+      <section className="section about-standards-section">
+        <div className="container">
+          <div className="about-standards-box">
+            <div className="standards-left">
+              <span className="standards-badge">ENTERPRISE ASSURANCE</span>
+              <h2 className="standards-title">Built on strict security and privacy standards</h2>
+              <p className="standards-desc">
+                We engineer all AI pipelines to adhere to strict regulatory compliance and enterprise cybersecurity frameworks. You maintain complete sovereignty over your data and code.
+              </p>
+              <div className="standards-checklist">
+                <div className="checklist-item">
+                  <Check size={16} color="#83DDE2" />
+                  <span>Zero public LLM training on client inputs or proprietary logs</span>
+                </div>
+                <div className="checklist-item">
+                  <Check size={16} color="#83DDE2" />
+                  <span>End-to-end encryption in transit (TLS 1.3) and at rest (AES-256)</span>
+                </div>
+                <div className="checklist-item">
+                  <Check size={16} color="#83DDE2" />
+                  <span>Isolated VPC / on-premises deployment options available</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="standards-right">
+              <div className="standards-metric-card">
+                <Server size={28} color="#83DDE2" />
+                <span className="metric-title">Private VPC Deployment</span>
+                <span className="metric-sub">Dedicated isolated instances across AWS, GCP, or Azure</span>
+              </div>
+              <div className="standards-metric-card">
+                <Cpu size={28} color="#83DDE2" />
+                <span className="metric-title">Granular RBAC</span>
+                <span className="metric-sub">Role-based access control with detailed audit logs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Global Operational Delivery */}
+      <section className="section about-global-section">
+        <div className="container">
+          <div className="global-reach-box">
             <div className="global-reach-text">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                <Globe size={20} className="section-label-blue" />
-                <h3 style={{ margin: 0 }}>Global Operational Delivery</h3>
+              <div className="global-reach-header">
+                <Globe size={22} color="#83DDE2" />
+                <h3>Global Operational Delivery</h3>
               </div>
               <p>
                 Hutomate partners with forward-thinking organizations across international markets, aligning with regional compliance standards, timezones, and communication cadences.
@@ -149,7 +222,7 @@ export default function AboutPage() {
               <span className="region-tag">United States</span>
               <span className="region-tag">United Kingdom</span>
               <span className="region-tag">Australia</span>
-              <span className="region-tag">India</span>
+              <span className="region-tag">Singapore</span>
               <span className="region-tag">Worldwide Remote</span>
             </div>
           </div>

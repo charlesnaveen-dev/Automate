@@ -95,7 +95,7 @@ export default function PrivacyPage() {
               </p>
               <p>
                 <strong>Hutomate Data Protection</strong><br />
-                Email: <a href="mailto:hello@hutomate.com" style={{ color: 'var(--accent-purple, #6366f1)' }}>hello@hutomate.com</a>
+                Email: <a href="mailto:hello@hutomate.com" style={{ color: 'var(--color-deep-teal, #167C80)', fontWeight: 600 }}>hello@hutomate.com</a>
               </p>
             </div>
           </div>

@@ -1,0 +1,248 @@
+/* =============================================================================
+   Custom AI Solutions Page Styles — Bespoke Enterprise Architecture
+   - Cloud White (#F4F7F7) & Pure White (#FFFFFF) Foundations
+   - Enterprise VPC Deployment & Zero Data Retention
+   - Custom Internal Copilots & Document Intelligence
+   - Midnight Navy (#071923) Security Matrix
+   ============================================================================= */
+
+.custom-ai-page {
+  width: 100%;
+  background-color: var(--color-cloud-white, #F4F7F7);
+}
+
+/* 1. Custom Hero */
+.custom-hero-section {
+  position: relative;
+  width: 100%;
+  background: radial-gradient(circle at 60% 15%, rgba(11, 48, 56, 0.95) 0%, rgba(7, 25, 35, 1) 85%);
+  padding: clamp(96px, 12vw, 150px) 0 clamp(64px, 8vw, 96px);
+  box-sizing: border-box;
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(226, 234, 236, 0.1);
+}
+
+.custom-hero-content {
+  max-width: 920px;
+}
+
+.custom-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.custom-tag {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-accent-cyan, #83DDE2);
+  text-transform: uppercase;
+}
+
+.custom-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(226, 234, 236, 0.15);
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.custom-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent-cyan, #83DDE2);
+  box-shadow: 0 0 8px rgba(131, 221, 226, 0.8);
+}
+
+.custom-hero-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: #FFFFFF;
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+
+.custom-hero-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--color-mist-grey, #E2EAEC);
+  max-width: 760px;
+  margin: 0 0 36px;
+  text-wrap: pretty;
+}
+
+.custom-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.custom-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 700px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(226, 234, 236, 0.12);
+}
+
+.custom-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-metric-val {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.custom-metric-lbl {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  color: var(--color-mist-grey, #E2EAEC);
+  letter-spacing: 0.02em;
+}
+
+/* 2. Custom Architecture Section */
+.custom-arch-section {
+  padding: clamp(64px, 8vw, 100px) 0;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+}
+
+/* 3. Bespoke Solutions Grid */
+.custom-solutions-section {
+  padding: clamp(64px, 8vw, 100px) 0;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+}
+
+.custom-solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.custom-solution-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border, #E2EAEC);
+  border-radius: var(--radius-lg, 14px);
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.custom-solution-card:hover {
+  border-color: var(--color-deep-teal, #167C80);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(7, 25, 35, 0.06);
+}
+
+.solution-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm, 6px);
+  background: rgba(22, 124, 128, 0.08);
+  color: var(--color-deep-teal, #167C80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.solution-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 750;
+  color: var(--color-text-primary, #17252B);
+  margin: 0 0 10px;
+}
+
+.solution-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary, #40545C);
+  margin: 0;
+}
+
+/* 4. Data Sovereignty Matrix */
+.custom-security-section {
+  padding: clamp(64px, 8vw, 100px) 0;
+  background-color: var(--color-midnight-navy, #071923);
+  color: #FFFFFF;
+}
+
+.custom-security-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.custom-sec-card {
+  background: var(--color-deep-ocean, #0B3038);
+  border: 1px solid rgba(226, 234, 236, 0.12);
+  border-radius: var(--radius-md, 10px);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sec-card-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.1rem;
+  font-weight: 750;
+  color: #FFFFFF;
+  margin: 0 0 8px;
+}
+
+.sec-card-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.885rem;
+  line-height: 1.55;
+  color: var(--color-mist-grey, #E2EAEC);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .custom-solutions-grid {
+    grid-template-columns: 1fr;
+  }
+  .custom-security-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .custom-security-grid {
+    grid-template-columns: 1fr;
+  }
+  .custom-metrics-strip {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

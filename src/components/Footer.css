@@ -1,33 +1,33 @@
 /* =============================================================================
-   Footer Component - Hutomate Design System (Dark Background)
+   Footer Component — Hutomate Brand System
+   - Midnight Navy (#071923) Architectural Foundation
+   - Pure White (#FFFFFF) & Mist Grey (#E2EAEC) Inks
+   - Electric Cyan (#83DDE2) Precision Signals
    ============================================================================= */
 
 .site-footer {
   position: relative;
   width: 100%;
-  background-color: #0E0E0D;
+  background-color: var(--color-midnight-navy, #071923);
   color: #FFFFFF;
-  padding-top: clamp(64px, 7vw, 96px);
+  padding-top: clamp(64px, 8vw, 100px);
   padding-bottom: clamp(32px, 4vw, 48px);
-  font-family: var(--font-family-primary, 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  border-top: 1px solid rgba(226, 234, 236, 0.1);
   box-sizing: border-box;
 }
 
 .footer-container {
   width: 100%;
-  max-width: var(--max-content-width, 1320px);
+  max-width: var(--container-max-width, 1240px);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--container-padding, clamp(20px, 4vw, 48px));
-  padding-right: var(--container-padding, clamp(20px, 4vw, 48px));
+  padding-left: var(--container-padding, clamp(20px, 4vw, 40px));
+  padding-right: var(--container-padding, clamp(20px, 4vw, 40px));
   box-sizing: border-box;
 }
 
-/* =============================================================================
-   4-Column Grid on Desktop
-   ============================================================================= */
-
+/* 4-Column Grid on Desktop */
 .footer-grid {
   display: grid;
   grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
@@ -50,36 +50,18 @@
   color: #FFFFFF;
   margin-bottom: 20px;
   outline: none;
-  transition: transform 200ms ease;
+  transition: opacity var(--transition-fast, 150ms ease);
 }
 
 .footer-brand:hover {
-  transform: translateY(-1px);
-}
-
-.footer-brand:focus-visible {
-  outline: 2px solid var(--color-accent-purple, #7657E8);
-  outline-offset: 4px;
-  border-radius: 4px;
-}
-
-.footer-symbol-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-wordmark {
-  font-size: 21px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #FFFFFF;
+  opacity: 0.9;
 }
 
 .footer-description {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
   font-size: 14.5px;
-  line-height: 1.6;
-  color: #9E9A92;
+  line-height: 1.65;
+  color: var(--color-mist-grey, #E2EAEC);
   margin: 0 0 24px 0;
   max-width: 340px;
 }
@@ -88,240 +70,144 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #B5B1A8;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-mist-grey, #E2EAEC);
   padding: 6px 14px;
   background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 9999px;
+  border: 1px solid rgba(226, 234, 236, 0.12);
+  border-radius: var(--radius-full, 9999px);
   line-height: 1;
 }
 
 .footer-badge-icon {
-  color: var(--color-accent-purple, #7657E8);
+  color: var(--color-accent-cyan, #83DDE2);
 }
 
-/* Columns 2, 3, 4: Titles & Links */
+/* Columns 2, 3, 4: Navigation Links */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
 .footer-col-title {
-  font-size: 12.5px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #FFFFFF;
   margin: 0 0 20px 0;
 }
 
 .footer-col-title--sub {
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 .footer-links-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .footer-link {
-  display: inline-block;
-  font-size: 14.5px;
-  line-height: 1.5;
-  color: #9E9A92;
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 14px;
+  color: var(--color-mist-grey, #E2EAEC);
   text-decoration: none;
-  transition: color 200ms ease, transform 200ms ease;
-  outline: none;
+  transition: color var(--transition-fast, 150ms ease), transform var(--transition-fast, 150ms ease);
+  display: inline-block;
 }
 
 .footer-link:hover {
-  color: #FFFFFF;
+  color: var(--color-accent-cyan, #83DDE2);
   transform: translateX(2px);
 }
 
-.footer-link:focus-visible {
-  outline: 2px solid var(--color-accent-purple, #7657E8);
-  outline-offset: 3px;
-  border-radius: 3px;
-}
-
 /* =============================================================================
-   Placeholder Links & Info Items (Identifiable styling)
-   ============================================================================= */
-
-.footer-link--placeholder,
-.footer-link[data-placeholder="true"] {
-  opacity: 0.65;
-  font-style: italic;
-  position: relative;
-  cursor: default;
-}
-
-.footer-link--placeholder:hover {
-  opacity: 0.9;
-  color: #DFDCD4;
-  transform: none;
-}
-
-.footer-info-item {
-  margin-top: 4px;
-}
-
-.footer-placeholder-note {
-  display: inline-block;
-  font-size: 13.5px;
-  font-style: italic;
-  color: #7A766F;
-  opacity: 0.8;
-  line-height: 1.45;
-}
-
-/* =============================================================================
-   Bottom Bar: Copyright & Actions
+   Footer Bottom (Copyright, Status, Back to top)
    ============================================================================= */
 
 .footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
   padding-top: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(226, 234, 236, 0.1);
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .footer-copyright {
-  font-size: 13.5px;
-  color: #7A766F;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11.5px;
+  color: var(--color-muted-grey, #71838A);
   margin: 0;
 }
 
 .footer-bottom-actions {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }
 
 .footer-status-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #A8A49C;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.04);
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  color: var(--color-mist-grey, #E2EAEC);
 }
 
 .footer-status-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--color-accent-green, #25A86A);
-  box-shadow: 0 0 8px rgba(37, 168, 106, 0.8);
+  background-color: var(--color-accent-cyan, #83DDE2);
+  box-shadow: 0 0 6px rgba(131, 221, 226, 0.8);
 }
 
 .footer-back-to-top {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  color: #9E9A92;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 9999px;
-  padding: 6px 14px;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  color: var(--color-mist-grey, #E2EAEC);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(226, 234, 236, 0.15);
+  border-radius: var(--radius-sm, 6px);
+  padding: 6px 12px;
   cursor: pointer;
-  transition: all 200ms ease;
-  outline: none;
+  transition: all var(--transition-fast, 150ms ease);
 }
 
 .footer-back-to-top:hover {
+  background-color: rgba(255, 255, 255, 0.1);
   color: #FFFFFF;
-  border-color: rgba(255, 255, 255, 0.3);
-  background-color: rgba(255, 255, 255, 0.06);
-  transform: translateY(-1.5px);
+  border-color: var(--color-accent-cyan, #83DDE2);
 }
 
-.footer-back-to-top:focus-visible {
-  outline: 2px solid var(--color-accent-purple, #7657E8);
-  outline-offset: 3px;
-}
-
-/* =============================================================================
-   RESPONSIVE BREAKPOINTS
-   ============================================================================= */
-
-/* 1024px: Tablet - 2x2 Grid */
-@media (max-width: 1024px) {
+@media (max-width: 960px) {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
   }
-
-  .footer-col--brand {
-    grid-column: span 2;
-  }
-
-  .footer-description {
-    max-width: 480px;
-  }
 }
 
-/* 768px: Mobile Portrait - Stacked */
-@media (max-width: 768px) {
-  .site-footer {
-    padding-top: 56px;
-    padding-bottom: 36px;
-  }
-
+@media (max-width: 640px) {
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 36px;
-    margin-bottom: 40px;
-  }
-
-  .footer-col--brand {
-    grid-column: auto;
+    gap: 32px;
   }
 
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
-  }
-
-  .footer-bottom-actions {
-    width: 100%;
-    justify-content: space-between;
-  }
-}
-
-@media (max-width: 480px) {
-  .site-footer {
-    padding-top: 44px;
-    padding-bottom: 28px;
-  }
-
-  .footer-bottom-actions {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-}
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  .footer-brand,
-  .footer-link,
-  .footer-back-to-top {
-    transition: none !important;
-  }
-
-  .footer-back-to-top:hover,
-  .footer-brand:hover {
-    transform: none !important;
   }
 }

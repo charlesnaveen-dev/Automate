@@ -10,8 +10,9 @@ import AiAgentsPage from './pages/AiAgentsPage';
 import WorkflowAutomationPage from './pages/WorkflowAutomationPage';
 import VoiceAiPage from './pages/VoiceAiPage';
 import CustomAiPage from './pages/CustomAiPage';
-import UseCasesPage from './pages/UseCasesPage';
 import IndustriesPage from './pages/IndustriesPage';
+import IndustryDetailPage from './pages/IndustryDetailPage';
+import { INDUSTRIES_DATA } from './data/industriesData';
 import ProcessPage from './pages/ProcessPage';
 import AboutPage from './pages/AboutPage';
 import BlueprintsPage from './pages/BlueprintsPage';
@@ -30,7 +31,7 @@ function NotFoundPage() {
   return (
     <div className="not-found-page" style={{ padding: '120px 24px', textAlign: 'center' }}>
       <div className="container" style={{ maxWidth: '640px', margin: '0 auto' }}>
-        <span style={{ fontFamily: 'monospace', fontSize: '1rem', color: 'var(--accent-purple, #6366f1)', fontWeight: 700 }}>
+        <span style={{ fontFamily: 'monospace', fontSize: '1rem', color: 'var(--color-deep-teal, #167C80)', fontWeight: 700 }}>
           ERROR 404
         </span>
         <h1 style={{ fontSize: '2.5rem', fontWeight: 800, margin: '16px 0 12px 0', color: 'var(--text-primary)' }}>
@@ -56,6 +57,14 @@ function RouteSwitcher() {
   const { currentPath } = useRouter();
   useScrollReveal(currentPath);
 
+  if (currentPath.startsWith('/industries/')) {
+    const slug = currentPath.replace(/^\/industries\//, '').replace(/\/$/, '');
+    const exists = INDUSTRIES_DATA.some((ind) => ind.id === slug);
+    if (exists) {
+      return <IndustryDetailPage industryId={slug} />;
+    }
+  }
+
   let PageComponent = null;
 
   switch (currentPath) {
@@ -77,9 +86,6 @@ function RouteSwitcher() {
     case '/capabilities/custom-ai-solutions':
     case '/capabilities/custom-ai':
       PageComponent = CustomAiPage;
-      break;
-    case '/use-cases':
-      PageComponent = UseCasesPage;
       break;
     case '/industries':
       PageComponent = IndustriesPage;

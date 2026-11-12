@@ -1,182 +1,444 @@
-/* About Page Styles */
+/* =============================================================================
+   About Page Styles — Rebranded Hutomate Design System
+   - Editorial storytelling & professional architectural imagery
+   - 10-Color Brand Palette: Deep Ocean, Midnight Navy, Charcoal, Slate Grey,
+     Cloud White, Pure White, Mist Grey, Electric Cyan, Deep Teal Accent
+   - Manrope headings & Inter body typography
+   ============================================================================= */
+
 .about-page {
   width: 100%;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  color: var(--color-charcoal, #17252B);
 }
 
-/* Vision & Mission Cards */
+/* -----------------------------------------------------------------------------
+   1. Editorial Storytelling Section
+   ----------------------------------------------------------------------------- */
+.about-editorial-section {
+  padding: 60px 0 80px 0;
+}
+
+.about-editorial-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.about-kicker {
+  display: inline-block;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-deep-teal, #167C80);
+  margin-bottom: 16px;
+}
+
+.about-editorial-heading {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--color-midnight-navy, #071923);
+  margin: 0 0 24px 0;
+}
+
+.about-editorial-lead {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-charcoal, #17252B);
+  margin-bottom: 18px;
+}
+
+.about-editorial-subtext {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.98rem;
+  line-height: 1.68;
+  color: var(--color-slate-grey, #40545C);
+  margin: 0;
+}
+
+.about-editorial-media {
+  position: relative;
+}
+
+.about-media-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px -12px rgba(7, 25, 35, 0.18);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  aspect-ratio: 4 / 3.2;
+}
+
+.about-editorial-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 25, 35, 0) 50%, rgba(7, 25, 35, 0.65) 100%);
+  pointer-events: none;
+}
+
+.about-media-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(7, 25, 35, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(131, 221, 226, 0.25);
+  color: var(--color-pure-white, #FFFFFF);
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 9999px;
+}
+
+.caption-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-electric-cyan, #83DDE2);
+  box-shadow: 0 0 6px rgba(131, 221, 226, 0.9);
+}
+
+/* -----------------------------------------------------------------------------
+   2. Vision & Mission Cards
+   ----------------------------------------------------------------------------- */
+.about-vm-section {
+  padding: 40px 0 80px 0;
+}
+
 .about-vm-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  margin-bottom: 40px;
+  gap: 32px;
 }
 
 .about-vm-card {
-  padding: 36px 32px;
-  background-color: var(--card-bg, #ffffff);
-  border: 1px solid var(--border-color, #e5e5e5);
-  border-radius: var(--radius-lg, 16px);
+  padding: 44px 38px;
+  background-color: var(--color-pure-white, #FFFFFF);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(7, 25, 35, 0.03);
 }
 
 .about-vm-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-deep-teal, #167C80);
+  box-shadow: 0 12px 32px rgba(7, 25, 35, 0.08);
 }
 
 .about-vm-icon-box {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 10px;
-  background: rgba(118, 87, 232, 0.08);
+  background: rgba(22, 124, 128, 0.08);
+  color: var(--color-deep-teal, #167C80);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 .about-vm-label {
   font-family: var(--font-mono, monospace);
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 750;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #7657E8;
-  margin-bottom: 10px;
+  letter-spacing: 0.1em;
+  color: var(--color-deep-teal, #167C80);
+  margin-bottom: 12px;
 }
 
 .about-vm-title {
-  font-size: 1.35rem;
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.45rem;
   font-weight: 800;
   line-height: 1.3;
-  color: var(--text-primary);
-  margin-bottom: 14px;
+  color: var(--color-midnight-navy, #071923);
+  margin: 0 0 14px 0;
+  letter-spacing: -0.02em;
 }
 
 .about-vm-desc {
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: var(--text-secondary);
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.98rem;
+  line-height: 1.68;
+  color: var(--color-slate-grey, #40545C);
   margin: 0;
 }
 
-.about-intro-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-  margin-bottom: 64px;
-}
-
-.about-intro-title {
-  font-size: 2rem;
-  font-weight: 800;
-  line-height: 1.25;
-  color: var(--text-primary);
-}
-
-.about-intro-text p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
+/* -----------------------------------------------------------------------------
+   3. The 5 Pillars Section
+   ----------------------------------------------------------------------------- */
+.about-pillars-section {
+  padding: 60px 0 88px 0;
+  background: var(--color-pure-white, #FFFFFF);
+  border-top: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-bottom: 1px solid var(--color-mist-grey, #E2EAEC);
 }
 
 .principles-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  margin-top: 48px;
 }
 
 .principle-card {
-  padding: 32px 28px;
-  background-color: var(--card-bg, #ffffff);
-  border: 1px solid var(--border-color, #e5e5e5);
-  border-radius: var(--radius-lg, 12px);
+  padding: 34px 28px;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.principle-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-deep-teal, #167C80);
+  box-shadow: 0 10px 24px rgba(7, 25, 35, 0.06);
+}
+
+.principle-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
 }
 
 .principle-num {
   font-family: var(--font-mono, monospace);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--accent-purple, #6366f1);
-  margin-bottom: 16px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-deep-teal, #167C80);
+}
+
+.principle-icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(22, 124, 128, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .principle-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
   font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 12px;
+  font-weight: 800;
+  color: var(--color-midnight-navy, #071923);
+  margin: 0 0 10px 0;
+  letter-spacing: -0.02em;
 }
 
 .principle-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
   font-size: 0.925rem;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: var(--color-slate-grey, #40545C);
   margin: 0;
 }
 
+/* -----------------------------------------------------------------------------
+   4. Standards Box
+   ----------------------------------------------------------------------------- */
+.about-standards-section {
+  padding: 80px 0;
+}
+
+.about-standards-box {
+  background: linear-gradient(135deg, var(--color-midnight-navy, #071923) 0%, var(--color-deep-ocean, #0B3038) 100%);
+  border: 1px solid rgba(131, 221, 226, 0.2);
+  border-radius: 20px;
+  padding: 56px 48px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+  box-shadow: 0 24px 48px -12px rgba(7, 25, 35, 0.24);
+}
+
+.standards-badge {
+  display: inline-block;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-electric-cyan, #83DDE2);
+  margin-bottom: 16px;
+}
+
+.standards-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+  font-weight: 800;
+  color: var(--color-pure-white, #FFFFFF);
+  letter-spacing: -0.025em;
+  margin: 0 0 16px 0;
+  line-height: 1.25;
+}
+
+.standards-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-cloud-white, #F4F7F7);
+  opacity: 0.9;
+  margin: 0 0 28px 0;
+}
+
+.standards-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-pure-white, #FFFFFF);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.standards-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.standards-metric-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(131, 221, 226, 0.2);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-pure-white, #FFFFFF);
+  margin-top: 8px;
+}
+
+.metric-sub {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--color-cloud-white, #F4F7F7);
+  opacity: 0.8;
+}
+
+/* -----------------------------------------------------------------------------
+   5. Global Reach Section
+   ----------------------------------------------------------------------------- */
+.about-global-section {
+  padding: 40px 0 88px 0;
+}
+
 .global-reach-box {
-  margin-top: 60px;
-  padding: 40px;
-  background-color: var(--card-bg, #ffffff);
-  border: 1px solid var(--border-color, #e5e5e5);
-  border-radius: var(--radius-lg, 12px);
+  background-color: var(--color-midnight-navy, #071923);
+  border: 1px solid rgba(22, 124, 128, 0.3);
+  border-radius: 16px;
+  padding: 44px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 32px;
+  color: var(--color-pure-white, #FFFFFF);
+}
+
+.global-reach-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .global-reach-text h3 {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 8px;
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-pure-white, #FFFFFF);
+  margin: 0;
+  letter-spacing: -0.02em;
 }
 
 .global-reach-text p {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
   font-size: 0.95rem;
-  color: var(--text-secondary);
+  color: var(--color-cloud-white, #F4F7F7);
+  opacity: 0.85;
   line-height: 1.6;
   margin: 0;
+  max-width: 600px;
 }
 
 .regions-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  max-width: 380px;
+  max-width: 420px;
 }
 
 .region-tag {
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.04);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 7px 16px;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-pure-white, #FFFFFF);
+  border: 1px solid rgba(131, 221, 226, 0.25);
 }
 
-@media (max-width: 900px) {
-  .about-vm-grid {
+/* -----------------------------------------------------------------------------
+   6. Responsive
+   ----------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .about-editorial-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 40px;
   }
 
-  .about-intro-grid {
+  .about-vm-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
   }
 
   .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-standards-box {
     grid-template-columns: 1fr;
+    gap: 36px;
   }
 
   .global-reach-box {
@@ -185,18 +447,20 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-vm-card {
+    padding: 32px 24px;
+  }
+
+  .about-standards-box {
+    padding: 36px 24px;
+  }
+
   .global-reach-box {
-    padding: 24px 16px;
-    border-radius: 16px;
-  }
-
-  .principle-card {
-    padding: 24px 16px;
-    border-radius: 16px;
-  }
-
-  .about-intro-title {
-    font-size: 1.55rem;
+    padding: 32px 24px;
   }
 }

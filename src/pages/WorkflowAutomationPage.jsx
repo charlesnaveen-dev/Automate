@@ -1,186 +1,247 @@
 import React from 'react';
-import { RefreshCw, GitFork, CheckSquare, Zap, AlertOctagon, Layers, ShieldCheck } from 'lucide-react';
+import {
+  Workflow,
+  Zap,
+  CheckCircle2,
+  XCircle,
+  GitBranch,
+  RefreshCw,
+  ShieldCheck,
+  Server,
+  ArrowRight,
+  Database
+} from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 import CtaBanner from '../components/CtaBanner';
-import WorkflowPipelineSimulator from '../components/WorkflowPipelineSimulator';
-import './CapabilityDetailPage.css';
+import WorkflowProcessDiagram from '../components/diagrams/WorkflowProcessDiagram';
+import { CAPABILITIES_DATA } from '../data/capabilitiesData';
+import './WorkflowAutomationPage.css';
 
 export default function WorkflowAutomationPage() {
+  const capData = CAPABILITIES_DATA.find((c) => c.id === 'workflow-automation') || CAPABILITIES_DATA[1];
+
   usePageMetadata({
-    title: 'Workflow Automation — Connected Operations & System Pipelines',
-    description: 'Connect existing business tools and eliminate manual operational bottlenecks with robust, event-driven workflow automation.',
+    title: 'Workflow Automation — Connected Business Systems | Hutomate',
+    description: 'Connect fragmented applications, eliminate manual data handoffs, and deploy deterministic event-driven automation pipelines.',
     path: '/capabilities/workflow-automation',
   });
 
   useScrollReveal();
 
-  const useCases = [
-    {
-      title: 'Cross-Platform Data Synchronisation',
-      desc: 'Synchronise records seamlessly between CRMs, ERPs, accounting software, and billing engines without repetitive manual entry.',
-      icon: RefreshCw,
-    },
-    {
-      title: 'Automated Invoice & Document Routing',
-      desc: 'Ingest incoming financial files, extract key line items, validate vendor IDs, and route directly into accounting ledgers for sign-off.',
-      icon: Layers,
-    },
-    {
-      title: 'Customer Onboarding Sequences',
-      desc: 'Trigger multi-system setup sequences the instant a contract is signed—creating workspaces, provisioning accounts, and dispatching welcome briefs.',
-      icon: GitFork,
-    },
-    {
-      title: 'Multi-Department Approval Flows',
-      desc: 'Coordinate reviews across Slack, Teams, or email with interactive approval buttons that automatically advance status across core systems.',
-      icon: CheckSquare,
-    },
-    {
-      title: 'Inventory & Order Alerting',
-      desc: 'Monitor stock thresholds across e-commerce channels and notify procurement systems automatically before fulfillment bottlenecks occur.',
-      icon: Zap,
-    },
-    {
-      title: 'Incident & Exception Escalation',
-      desc: 'Detect system timeouts, billing failures, or client discrepancies and instantly route alert payloads to on-call operational leads.',
-      icon: AlertOctagon,
-    },
+  const toolCategories = [
+    { name: 'CRM & Client Records', badge: 'HubSpot · Salesforce · Pipedrive', desc: 'Real-time contact creation, deal pipeline updates, and interaction logging.' },
+    { name: 'Messaging & Comms', badge: 'Slack · Gmail · Microsoft 365', desc: 'Automated team alerting, client confirmation emails, and internal escalations.' },
+    { name: 'Financial & Billing', badge: 'Stripe · QuickBooks · Xero', desc: 'Instant invoice creation, payment status reconciliation, and subscription sync.' },
+    { name: 'Database & Operations', badge: 'PostgreSQL · Airtable · Sheets', desc: 'Normalized operational backlogs, audit logging, and automated report staging.' },
   ];
 
-  const workflowSteps = [
-    { step: '01', title: 'Event Trigger Capture', desc: 'A webhook, schedule, or API event triggers the workflow immediately upon an action occurring in an upstream tool.' },
-    { step: '02', title: 'Data Normalisation & Validation', desc: 'Inbound payloads are scrubbed, schema-validated, and mapped into standardized business entities.' },
-    { step: '03', title: 'Rule Evaluation & Branching', desc: 'Configurable logic evaluates conditional paths based on contract value, customer tier, or risk score.' },
-    { step: '04', title: 'Target Execution via APIs', desc: 'Idempotent API calls commit state updates to downstream endpoints, ensuring zero duplicated records.' },
-    { step: '05', title: 'Automated Retry & Fallback', desc: 'Transient third-party API outages trigger exponential backoff retries with graceful alert notifications.' },
-    { step: '06', title: 'Audit Trail & Telemetry', desc: 'Every transaction payload and delivery status is recorded in centralized logs for full operational visibility.' },
-  ];
-
-  const architecturalPillars = [
-    { title: 'Idempotent Operations', desc: 'Workflows are engineered with idempotency keys so that duplicated webhooks or network retries never generate double charges or duplicated records.' },
-    { title: 'Deterministic Retry Strategies', desc: 'When downstream SaaS services experience temporary downtime, automated queuing buffers requests and applies exponential backoff.' },
-    { title: 'Strict Field Validation', desc: 'Data passing between systems is validated against schema definitions to prevent corrupted records from propagating through your pipeline.' },
-    { title: 'Unified Operational Telemetry', desc: 'Real-time alerting and error logs give internal teams rapid diagnosis if an API key expires or a destination schema changes.' },
+  const tenets = [
+    {
+      num: 'TENET 01',
+      title: 'Idempotent Ingestion',
+      desc: 'Workflows never process the same webhook or client transaction twice. Every execution hashes the payload key to guarantee safe duplicate deflection.',
+    },
+    {
+      num: 'TENET 02',
+      title: 'Strict Schema Validation',
+      desc: 'Inbound records are typed and validated before reaching internal software. Malformed requests trigger immediate exception alerts rather than corrupting databases.',
+    },
+    {
+      num: 'TENET 03',
+      title: 'Exponential Retry Shields',
+      desc: 'When third-party SaaS APIs experience downtime, our pipelines automatically queue transactions with progressive backoff until the remote system restores.',
+    },
   ];
 
   return (
-    <div className="capability-detail-page">
-      <PageHeader
-        eyebrow="CAPABILITIES · WORKFLOW AUTOMATION"
-        badgeText="Event-Driven Operations"
-        badgeType="green"
-        title="Less repetitive work. Better-connected operations."
-        description="Automate repetitive multi-step processes across systems so your team spends less time copying data, chasing updates, and running manual operational routines. Hutomate connects modern and legacy tools into resilient, automated pipelines."
-      >
-        <Button variant="primary" size="md" arrow href="/contact">
-          Discuss Your Project
-        </Button>
-        <Button variant="secondary" size="md" href="/capabilities">
-          Explore Capabilities
-        </Button>
-      </PageHeader>
-
-      {/* Interactive Visual Pipeline Section */}
-      <section className="section detail-section" style={{ paddingTop: '20px' }}>
+    <div className="workflow-automation-page">
+      {/* 1. Dedicated Pipeline Hero */}
+      <section className="wf-hero-section" aria-label="Workflow Automation Hero">
         <div className="container">
-          <div className="section-header text-center">
-            <span className="section-label section-label-green">Interactive Demonstration</span>
-            <h2 className="section-heading">Inspect an automated lead-to-fulfillment pipeline</h2>
-            <p className="section-body section-body-center">
-              Click through the 5 connected stages below to observe data transformations, schema validation, and multi-system API dispatch in real time.
+          <div className="wf-hero-content reveal-on-scroll">
+            <div className="wf-eyebrow-row">
+              <span className="wf-tag">EVENT-DRIVEN PIPELINES // 02</span>
+              <div className="wf-badge">
+                <span className="wf-badge-dot" />
+                <span>Deterministic Enterprise Integration</span>
+              </div>
+            </div>
+
+            <h1 className="wf-hero-title">
+              Connect your software stack. Eliminate manual data handoffs.
+            </h1>
+
+            <p className="wf-hero-desc">
+              We engineer resilient, deterministic automation pipelines that move information seamlessly across your CRM, communication tools, and databases with sub-second latency and zero data loss.
             </p>
-          </div>
 
-          <WorkflowPipelineSimulator />
-        </div>
-      </section>
+            <div className="wf-hero-actions">
+              <Button variant="cinematic-primary" size="lg" arrow href="/contact">
+                Discuss Your Integration Pipeline
+              </Button>
+              <Button variant="cinematic-secondary" size="lg" href="/capabilities">
+                Explore All Capabilities
+              </Button>
+            </div>
 
-      {/* Applications Section */}
-      <section className="section detail-section bg-secondary-section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">Core Integration Scenarios</span>
-            <h2 className="section-heading">Everyday workflows ripe for automated execution</h2>
-            <p className="section-body">
-              Eliminate manual data handoffs between your operational tools. We architect resilient background pipelines that sync data with millisecond reliability.
-            </p>
-          </div>
-
-          <div className="detail-cards-grid">
-            {useCases.map((uc, i) => {
-              const IconComp = uc.icon;
-              return (
-                <div key={i} className="detail-card card">
-                  <div className="detail-card-icon-wrap" style={{ color: '#10B981' }}>
-                    <IconComp size={20} />
-                  </div>
-                  <h3 className="detail-card-title">{uc.title}</h3>
-                  <p className="detail-card-desc">{uc.desc}</p>
+            {/* Performance Indicators */}
+            <div className="wf-metrics-strip">
+              {capData.heroMetrics?.map((m, idx) => (
+                <div key={idx} className="wf-metric-item">
+                  <span className="wf-metric-val">{m.value}</span>
+                  <span className="wf-metric-lbl">{m.label}</span>
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 6-Step Workflow Lifecycle */}
-      <section className="section detail-section">
+      {/* 2. Pipeline Process Diagram (Trigger -> Process -> Execution) */}
+      <section className="wf-pipeline-section">
         <div className="container">
-          <div className="section-header text-center">
-            <span className="section-label section-label-green">Technical Architecture</span>
-            <h2 className="section-heading">How our automated pipelines execute</h2>
-            <p className="section-body section-body-center">
-              Built on battle-tested architectural principles that prioritize zero data loss, idempotent retries, and comprehensive auditability.
+          <div className="section-editorial-intro reveal-on-scroll">
+            <span className="section-kicker">DATAFLOW ARCHITECTURE</span>
+            <h2 className="section-main-heading">
+              Trigger → Normalize &amp; Route → System Synchronization
+            </h2>
+            <p className="section-main-body">
+              How events move securely from initial capture to verified multi-system propagation without human intervention.
             </p>
           </div>
 
-          <div className="timeline-steps-grid">
-            {workflowSteps.map((st) => (
-              <div key={st.step} className="timeline-step-card card">
-                <span className="timeline-step-number" style={{ color: '#10B981', backgroundColor: 'rgba(16, 185, 129, 0.08)' }}>
-                  {st.step}
-                </span>
-                <h3 className="timeline-step-title">{st.title}</h3>
-                <p className="timeline-step-desc">{st.desc}</p>
+          <div className="reveal-on-scroll">
+            <WorkflowProcessDiagram />
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Integration Ecosystem Grid */}
+      <section className="wf-ecosystem-section">
+        <div className="container">
+          <div className="section-editorial-intro reveal-on-scroll">
+            <span className="section-kicker">CROSS-PLATFORM INTEGRATION</span>
+            <h2 className="section-main-heading">
+              Unified operational harmony across your existing tools
+            </h2>
+            <p className="section-main-body">
+              We never ask you to migrate away from the software that runs your business. We engineer real-time bridges that synchronize them automatically.
+            </p>
+          </div>
+
+          <div className="wf-tools-grid reveal-on-scroll">
+            {toolCategories.map((cat, idx) => (
+              <div key={idx} className="wf-tool-card">
+                <div className="wf-tool-header">
+                  <h3 className="wf-tool-name">{cat.name}</h3>
+                </div>
+                <span className="wf-tool-badge" style={{ marginBottom: '12px' }}>{cat.badge}</span>
+                <p className="wf-tool-desc">{cat.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Engineering Pillars */}
-      <section className="section detail-section bg-secondary-section">
+      {/* 4. Resilient Automation Tenets */}
+      <section className="wf-tenets-section">
         <div className="container">
-          <div className="section-header">
-            <span className="section-label section-label-blue">Enterprise Resilience</span>
-            <h2 className="section-heading">Engineering standards built into every pipeline</h2>
-            <p className="section-body">
-              Automations shouldn’t fail silently when an external API hiccups. We implement defensive patterns that guarantee operational stability.
+          <div className="section-editorial-intro reveal-on-scroll">
+            <span className="section-kicker">ENGINEERING STANDARDS</span>
+            <h2 className="section-main-heading">
+              The three tenets of production-grade automation
+            </h2>
+            <p className="section-main-body">
+              Brittle scripts fail when external APIs hiccup. Our architectures build in automated recovery from day one.
             </p>
           </div>
 
-          <div className="boundaries-grid">
-            {architecturalPillars.map((b, i) => (
-              <div key={i} className="boundary-card card">
-                <ShieldCheck size={20} className="boundary-icon" />
-                <h3 className="boundary-title">{b.title}</h3>
-                <p className="boundary-desc">{b.desc}</p>
+          <div className="wf-tenets-grid reveal-on-scroll">
+            {tenets.map((t, idx) => (
+              <div key={idx} className="wf-tenet-card">
+                <span className="wf-tenet-num">{t.num}</span>
+                <h3 className="wf-tenet-title">{t.title}</h3>
+                <p className="wf-tenet-desc">{t.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* 5. Before vs. After Operational Matrix */}
+      <section className="wf-comparison-section">
+        <div className="container">
+          <div className="section-editorial-intro reveal-on-scroll">
+            <span className="section-kicker" style={{ color: 'var(--color-accent-cyan, #83DDE2)' }}>
+              OPERATIONAL IMPACT
+            </span>
+            <h2 className="section-main-heading" style={{ color: '#FFFFFF' }}>
+              The measurable difference in day-to-day operations
+            </h2>
+          </div>
+
+          <div className="wf-matrix-grid reveal-on-scroll">
+            {/* Before */}
+            <div className="wf-matrix-col wf-matrix-col--before">
+              <span className="wf-matrix-label wf-matrix-label--before">CURRENT MANUAL FRICTION</span>
+              <h3 className="wf-matrix-title">Disconnected Operations</h3>
+              <ul className="wf-matrix-list">
+                <li className="wf-matrix-item">
+                  <XCircle size={16} className="matrix-cross" />
+                  <span>Manual re-typing of client data across CRM and billing platforms</span>
+                </li>
+                <li className="wf-matrix-item">
+                  <XCircle size={16} className="matrix-cross" />
+                  <span>Leads wait hours in email inboxes before being assigned to staff</span>
+                </li>
+                <li className="wf-matrix-item">
+                  <XCircle size={16} className="matrix-cross" />
+                  <span>Frequent clerical errors in client quotes and accounting records</span>
+                </li>
+                <li className="wf-matrix-item">
+                  <XCircle size={16} className="matrix-cross" />
+                  <span>Zero audit trail when a critical communication is dropped</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* After */}
+            <div className="wf-matrix-col wf-matrix-col--after">
+              <span className="wf-matrix-label wf-matrix-label--after">HUTOMATE AUTOMATED PIPELINE</span>
+              <h3 className="wf-matrix-title">Event-Driven Synchronization</h3>
+              <ul className="wf-matrix-list">
+                <li className="wf-matrix-item">
+                  <CheckCircle2 size={16} className="matrix-check" />
+                  <span>Sub-second bidirectional data synchronization with schema validation</span>
+                </li>
+                <li className="wf-matrix-item">
+                  <CheckCircle2 size={16} className="matrix-check" />
+                  <span>Immediate instant lead intake and routing based on availability rules</span>
+                </li>
+                <li className="wf-matrix-item">
+                  <CheckCircle2 size={16} className="matrix-check" />
+                  <span>100% deterministic accuracy with automated deduplication checks</span>
+                </li>
+                <li className="wf-matrix-item">
+                  <CheckCircle2 size={16} className="matrix-check" />
+                  <span>Complete historical telemetry logs for every business transaction</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Closing Call to Action */}
       <CtaBanner
-        title="Ready to automate repetitive system handoffs?"
-        description="Let’s map out your tool stack and identify the manual copy-pasting tasks that can be permanently replaced by resilient automated pipelines."
-        buttonText="Discuss Your Project"
+        title="Ready to automate your cross-platform workflows?"
+        description="Tell us which software tools run your operations. We'll map the optimal pipeline architecture and provide a fixed-scope implementation plan."
+        buttonText="Discuss Your Pipeline"
         buttonHref="/contact"
-        secondaryButtonText="Explore Capabilities"
-        secondaryButtonHref="/capabilities"
+        secondaryButtonText="Explore Voice AI"
+        secondaryButtonHref="/capabilities/voice-ai"
       />
     </div>
   );

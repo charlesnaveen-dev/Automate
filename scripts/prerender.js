@@ -49,14 +49,69 @@ const ROUTES = [
     description: 'Proprietary AI systems engineered for your domain: specialized LLM fine-tuning, RAG pipelines, and automated intelligence engines.',
   },
   {
-    path: '/use-cases',
-    title: 'AI Automation Use Cases — Enterprise Solutions | Hutomate',
-    description: 'Explore production AI automation use cases across lead qualification, support operations, data reconciliation, document processing, and internal workflows.',
-  },
-  {
     path: '/industries',
     title: 'Industries We Serve — AI Automation by Sector | Hutomate',
     description: 'Discover how Hutomate designs and deploys custom AI automation for financial services, healthcare, logistics, e-commerce, professional services, and SaaS.',
+  },
+  {
+    path: '/industries/legal',
+    title: 'Legal Practices AI & Automation Solutions | Hutomate',
+    description: '24/7 Voice AI receptionists, conflict pre-screening, and automated retainer workflows engineered for modern law firms.',
+  },
+  {
+    path: '/industries/real-estate',
+    title: 'Real Estate & Brokerages AI Automation | Hutomate',
+    description: 'Instant lead qualification, private showing coordination, and CRM synchronization for commercial and residential brokerages.',
+  },
+  {
+    path: '/industries/healthcare',
+    title: 'Healthcare & Clinics AI Scheduling | Hutomate',
+    description: 'HIPAA-conscious phone scheduling, patient intake automation, and no-show reduction workflows for medical practices.',
+  },
+  {
+    path: '/industries/home-services',
+    title: 'Home Services & Trades 24/7 AI Dispatch | Hutomate',
+    description: 'Autonomous emergency dispatch agents and ServiceTitan booking for HVAC, plumbing, and electrical contractors.',
+  },
+  {
+    path: '/industries/financial-services',
+    title: 'Financial Services & Accounting AI Automation | Hutomate',
+    description: 'Intelligent document chasing, Vision OCR invoice parsing, and automated bank reconciliation for CPAs and wealth managers.',
+  },
+  {
+    path: '/industries/insurance',
+    title: 'Insurance Agencies FNOL & Underwriting Automation | Hutomate',
+    description: '24/7 First Notice of Loss logging, quote pre-rating, and proactive renewal pipelines for independent insurance brokers.',
+  },
+  {
+    path: '/industries/construction',
+    title: 'Construction & Contracting AI Automation | Hutomate',
+    description: 'Field-to-office RFI logging, subcontractor compliance tracking, and 3-way delivery slip matching in Procore.',
+  },
+  {
+    path: '/industries/property-management',
+    title: 'Property Management 24/7 Maintenance AI | Hutomate',
+    description: 'Intelligent emergency maintenance triage, vendor dispatch, and automated leasing tour booking in AppFolio.',
+  },
+  {
+    path: '/industries/professional-services',
+    title: 'Professional Services & Consulting AI Automation | Hutomate',
+    description: 'Discovery synthesis, automated SOW generation, and contract-to-project workspace provisioning for consultancies.',
+  },
+  {
+    path: '/industries/automotive',
+    title: 'Automotive & Repair Centers Service AI | Hutomate',
+    description: '24/7 service bay appointment scheduling, SMS status alerts, and DMS integration for dealerships and collision shops.',
+  },
+  {
+    path: '/industries/it-services',
+    title: 'IT & Managed Service Providers Support AI | Hutomate',
+    description: 'Autonomous Tier-1 ticket resolution, user provisioning runbooks, and noise-free alert correlation for MSPs.',
+  },
+  {
+    path: '/industries/ecommerce-logistics',
+    title: 'E-commerce & Logistics Support Automation | Hutomate',
+    description: 'Automated WISMO resolution, multi-warehouse inventory synchronization, and return label generation for D2C brands.',
   },
   {
     path: '/process',

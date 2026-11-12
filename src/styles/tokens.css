@@ -1,211 +1,198 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
-
 /**
- * Hutomate Design System - Design Tokens
- * -----------------------------------------------------------------------------
- * Premium AI Automation aesthetic featuring a sophisticated warm-neutral palette,
- * Manrope typography hierarchy, 4px modular spacing scale, and responsive scaling.
+ * Hutomate Design System — 10-Colour Brand Token Specification
+ * =============================================================================
+ * Primary Dark Colours:
+ * - Midnight Navy:  #071923  (Primary dark surface, cinematic foundations)
+ * - Deep Ocean:     #0B3038  (Secondary dark containers, cards, elevated darks)
+ * - Charcoal:       #17252B  (Deepest text ink, dark interactive surfaces)
  *
- * Breakpoints supported: 1440px, 1280px, 1024px, 768px, 390px, 360px
+ * Supporting Colours:
+ * - Slate Grey:     #40545C  (Secondary body copy, refined subtitles)
+ * - Muted Grey:     #71838A  (Metadata, captions, subtle borders)
+ * - Pure White:     #FFFFFF  (Pure card surfaces, hero highlights, white ink)
+ * - Cloud White:    #F4F7F7  (Primary architectural light background)
+ * - Mist Grey:      #E2EAEC  (Dividers, subtle rules, subtle light surfaces)
+ *
+ * Brand Accent Colours:
+ * - Electric Cyan:  #83DDE2  (Restrained glow, animated nodes, key highlights)
+ * - Deep Teal:      #167C80  (Primary buttons, active states, key interactive links)
+ * =============================================================================
  */
 
 :root {
   /* ===========================================================================
-   * COLOR PALETTE — CINEMATIC TECHNOLOGY & EDITORIAL SYSTEM
+   * 1. 10 CORE BRAND COLOUR PRIMITIVES
    * =========================================================================== */
+  --color-midnight-navy: #071923;
+  --color-deep-ocean: #0B3038;
+  --color-charcoal: #17252B;
 
-  /* Primary Cinematic Theme Colors */
-  --color-dark-navy: #071923;
-  --color-deep-teal: #082C36;
-  --color-accent-cyan: #83DDE2;
-  --color-accent-lavender: #B9A5F5;
-  --color-warm-white: #FAF8F5;
-  --color-charcoal: #171717;
-  --color-muted-grey: #737373;
+  --color-slate-grey: #40545C;
+  --color-muted-grey: #71838A;
+  --color-pure-white: #FFFFFF;
+  --color-cloud-white: #F4F7F7;
+  --color-mist-grey: #E2EAEC;
 
-  /* Neutral Backgrounds */
-  --color-bg-main: #FAF8F5;
-  --color-bg-secondary: #F0EEE8;
-  --color-bg-tertiary: #E8E5DD;
-  --color-bg-dark: #071923;
-  --color-bg-dark-surface: #082C36;
-
-  /* Text & Inks */
-  --color-text-primary: #171717;
-  --color-text-secondary: #737373;
-  --color-text-muted: #8E8B83;
-  --color-text-inverse: #FFFFFF;
-
-  /* Borders & Dividers */
-  --color-border: #DFDCD4;
-  --color-border-subtle: #EBE8E0;
-  --color-border-strong: #C4C0B6;
-  --color-border-focus: #111111;
-
-  /* Surface / Cards */
-  --color-card: #FFFFFF;
-  --color-card-subtle: #FAF9F6;
-  --color-card-dark: #111111;
-
-  /* Brand Accents */
-  --color-accent-purple: #7657E8;
-  --color-accent-green: #25A86A;
-  --color-accent-blue: #4389F5;
-  --color-accent-orange: #E89A42;
-  --color-accent-coral: #F16B75;
-
-  /* Accent Tints & Backgrounds (for pills, badges, soft glow) */
-  --color-accent-purple-tint: rgba(118, 87, 232, 0.08);
-  --color-accent-purple-light: #ECE7FD;
-  --color-accent-purple-glow: rgba(118, 87, 232, 0.25);
-
-  --color-accent-green-tint: rgba(37, 168, 106, 0.08);
-  --color-accent-green-light: #E7F6EE;
-
-  --color-accent-blue-tint: rgba(67, 137, 245, 0.08);
-  --color-accent-blue-light: #EAF2FE;
-
-  --color-accent-orange-tint: rgba(232, 154, 66, 0.08);
-  --color-accent-orange-light: #FDF4E9;
-
-  --color-accent-coral-tint: rgba(241, 107, 117, 0.08);
-  --color-accent-coral-light: #FDEEEE;
-
-  /* Overlays */
-  --color-overlay-dark: rgba(17, 17, 17, 0.6);
-  --color-overlay-light: rgba(247, 245, 240, 0.8);
+  --color-electric-cyan: #83DDE2;
+  --color-deep-teal: #167C80;
 
   /* ===========================================================================
-   * TYPOGRAPHY
+   * 2. SEMANTIC SURFACE ALIASES (LIGHT & DARK THEMES)
    * =========================================================================== */
+  /* Dark Tier */
+  --color-bg-dark: var(--color-midnight-navy);
+  --color-bg-dark-surface: var(--color-deep-ocean);
+  --color-dark-card: var(--color-deep-ocean);
+  --color-dark-card-hover: var(--color-charcoal);
+  --color-dark-navy: var(--color-midnight-navy);
+  --color-black: var(--color-midnight-navy);
 
-  /* Font Families */
-  --font-family-primary: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Light Tier */
+  --color-white: var(--color-pure-white);
+  --color-bg-light: var(--color-cloud-white);
+  --color-bg-main: var(--color-cloud-white);
+  --color-bg-secondary: var(--color-mist-grey);
+  --color-card: var(--color-pure-white);
+  --color-card-subtle: var(--color-cloud-white);
+  --color-card-dark: var(--color-deep-ocean);
+
+  /* Compatibility & Legacy Aliases */
+  --bg-primary: var(--color-cloud-white);
+  --bg-main: var(--color-cloud-white);
+  --bg-secondary: var(--color-mist-grey);
+  --bg-dark: var(--color-midnight-navy);
+  --bg-dark-surface: var(--color-deep-ocean);
+  --bg-card: var(--color-pure-white);
+  --bg-card-dark: var(--color-deep-ocean);
+  --card-bg: var(--color-pure-white);
+  --card-dark: var(--color-deep-ocean);
+
+  /* ===========================================================================
+   * 3. TYPOGRAPHY INKS & CONTRASTS
+   * =========================================================================== */
+  /* Text on light surfaces */
+  --color-text-primary: var(--color-charcoal);
+  --color-text-secondary: var(--color-slate-grey);
+  --color-text-muted: var(--color-muted-grey);
+
+  /* Text on dark surfaces */
+  --color-text-inverse: var(--color-pure-white);
+  --color-text-inverse-muted: var(--color-mist-grey);
+  --color-text-inverse-subtle: var(--color-muted-grey);
+
+  /* Compatibility Aliases */
+  --text-primary: var(--color-charcoal);
+  --text-secondary: var(--color-slate-grey);
+  --text-muted: var(--color-muted-grey);
+  --text-inverse: var(--color-pure-white);
+  --text-inverse-muted: var(--color-mist-grey);
+
+  /* ===========================================================================
+   * 4. ACCENTS & INTERACTION STATES
+   * =========================================================================== */
+  --color-accent-teal: var(--color-deep-teal);
+  --color-accent-teal-hover: #126467;
+  --color-accent-teal-active: #0E4E50;
+  --color-accent-teal-tint: rgba(22, 124, 128, 0.08);
+
+  --color-accent-cyan: var(--color-electric-cyan);
+  --color-accent-cyan-hover: #A5E7EB;
+  --color-accent-cyan-tint: rgba(131, 221, 226, 0.12);
+  --color-accent-cyan-glow: rgba(131, 221, 226, 0.35);
+
+  /* Purple / Lavender elimination: mapped strictly to brand system */
+  --color-accent-purple: var(--color-deep-teal);
+  --color-accent-purple-tint: rgba(22, 124, 128, 0.08);
+  --color-accent-lavender: var(--color-electric-cyan);
+  --accent-cyan: var(--color-electric-cyan);
+  --accent-teal: var(--color-deep-teal);
+  --accent-purple: var(--color-deep-teal);
+  --accent-lavender: var(--color-electric-cyan);
+
+  /* ===========================================================================
+   * 5. ARCHITECTURAL BORDERS & DIVIDERS
+   * =========================================================================== */
+  --color-border: var(--color-mist-grey);
+  --color-border-subtle: rgba(226, 234, 236, 0.7);
+  --color-border-strong: var(--color-muted-grey);
+  --color-border-dark: rgba(226, 234, 236, 0.12);
+  --color-border-dark-strong: rgba(226, 234, 236, 0.22);
+  --color-border-focus: var(--color-deep-teal);
+
+  --border-color: var(--color-mist-grey);
+  --border-subtle: rgba(226, 234, 236, 0.7);
+  --border-strong: var(--color-muted-grey);
+  --border-dark: rgba(226, 234, 236, 0.12);
+
+  /* ===========================================================================
+   * 6. TYPOGRAPHY SYSTEM (MANROPE + INTER + JETBRAINS MONO)
+   * =========================================================================== */
+  --font-family-headings: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Font Weights */
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extrabold: 800;
+  --font-primary: var(--font-family-body);
+  --font-headings: var(--font-family-headings);
+  --font-mono: var(--font-family-mono);
 
-  /* Fluid Responsive Font Scale using clamp()
-   * Scaled from mobile (360px-390px) up to large desktop (1440px+)
-   */
-  --font-size-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);       /* 12px -> 13px */
-  --font-size-sm: clamp(0.8125rem, 0.78rem + 0.2vw, 0.875rem);       /* 13px -> 14px */
-  --font-size-base: clamp(0.9375rem, 0.89rem + 0.25vw, 1rem);        /* 15px -> 16px */
-  --font-size-md: clamp(1.0625rem, 1rem + 0.35vw, 1.125rem);         /* 17px -> 18px */
-  --font-size-lg: clamp(1.125rem, 1.05rem + 0.5vw, 1.25rem);         /* 18px -> 20px */
-  --font-size-xl: clamp(1.25rem, 1.125rem + 0.7vw, 1.5rem);          /* 20px -> 24px */
-  --font-size-2xl: clamp(1.5rem, 1.325rem + 1vw, 1.875rem);          /* 24px -> 30px */
-  --font-size-3xl: clamp(1.75rem, 1.5rem + 1.4vw, 2.25rem);          /* 28px -> 36px */
-  --font-size-4xl: clamp(2.125rem, 1.75rem + 2.2vw, 3rem);           /* 34px -> 48px */
-  --font-size-5xl: clamp(2.5rem, 1.95rem + 3.2vw, 4.25rem);          /* 40px -> 68px */
-  --font-size-hero: clamp(2.875rem, 1.85rem + 4.8vw, 5.5rem);        /* 46px -> 88px */
-  --font-size-display: clamp(3.25rem, 2rem + 6.2vw, 6.75rem);        /* 52px -> 108px */
+  /* Hierarchy Scale */
+  --font-size-display: clamp(2.75rem, 5.2vw, 4.25rem);
+  --font-size-h1: clamp(2.15rem, 3.6vw, 3.1rem);
+  --font-size-h2: clamp(1.65rem, 2.6vw, 2.25rem);
+  --font-size-h3: clamp(1.2rem, 1.8vw, 1.5rem);
+  --font-size-h4: 1.125rem;
+  --font-size-body-lg: clamp(1.05rem, 1.3vw, 1.2rem);
+  --font-size-body: 1rem;
+  --font-size-body-sm: 0.875rem;
+  --font-size-label: 0.75rem;
 
   /* Line Heights */
-  --line-height-none: 1;
-  --line-height-tight: 1.08;
-  --line-height-snug: 1.2;
-  --line-height-heading: 1.25;
-  --line-height-body: 1.6;
+  --line-height-tight: 1.14;
+  --line-height-snug: 1.3;
+  --line-height-normal: 1.6;
   --line-height-relaxed: 1.75;
 
-  /* Letter Spacing */
-  --letter-spacing-tightest: -0.035em;
-  --letter-spacing-tighter: -0.025em;
-  --letter-spacing-tight: -0.015em;
+  /* Tracking / Letter Spacing */
+  --letter-spacing-tight: -0.035em;
+  --letter-spacing-snug: -0.02em;
   --letter-spacing-normal: 0em;
-  --letter-spacing-wide: 0.02em;
-  --letter-spacing-wider: 0.05em;
-  --letter-spacing-uppercase: 0.1em;
+  --letter-spacing-wide: 0.05em;
+  --letter-spacing-wider: 0.1em;
 
   /* ===========================================================================
-   * SPACING (4px Base Scale)
+   * 7. SPACING, CONTAINERS & GEOMETRY
    * =========================================================================== */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-10: 40px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-20: 80px;
-  --space-24: 96px;
-  --space-30: 120px;
-  --space-40: 160px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
 
-  /* Semantic Layout Spacing */
-  --container-padding: clamp(20px, 4vw, 48px);
-  --section-padding-y: clamp(64px, 8vw, 120px);
-  --section-gap: clamp(48px, 6vw, 96px);
+  --container-max-width: 1240px;
+  --container-padding: clamp(20px, 4vw, 40px);
+  --max-content-width: 1240px;
+  --header-height: 80px;
 
-  /* ===========================================================================
-   * BORDER RADIUS
-   * =========================================================================== */
+  /* Architectural radii: crisp, modern, avoiding excessive bubbly rounding */
   --radius-xs: 4px;
   --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --radius-hero: 32px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
   --radius-full: 9999px;
 
-  /* ===========================================================================
-   * SHADOWS
-   * =========================================================================== */
-  --shadow-subtle: 0 1px 3px rgba(17, 17, 17, 0.04), 0 1px 2px rgba(17, 17, 17, 0.02);
-  --shadow-card: 0 4px 20px -2px rgba(17, 17, 17, 0.05), 0 2px 6px -1px rgba(17, 17, 17, 0.03);
-  --shadow-elevated: 0 16px 36px -6px rgba(17, 17, 17, 0.08), 0 6px 16px -2px rgba(17, 17, 17, 0.04);
-  --shadow-hover: 0 20px 40px -8px rgba(17, 17, 17, 0.12), 0 8px 16px -4px rgba(17, 17, 17, 0.05);
-  --shadow-modal: 0 32px 72px -12px rgba(17, 17, 17, 0.2), 0 12px 24px -4px rgba(17, 17, 17, 0.08);
-  --shadow-purple-glow: 0 8px 30px rgba(118, 87, 232, 0.25);
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(7, 25, 35, 0.04);
+  --shadow-md: 0 4px 14px rgba(7, 25, 35, 0.06);
+  --shadow-lg: 0 12px 30px rgba(7, 25, 35, 0.09);
+  --shadow-xl: 0 20px 48px -12px rgba(7, 25, 35, 0.14);
+  --shadow-dark-card: 0 12px 32px -4px rgba(7, 25, 35, 0.5);
 
-  /* ===========================================================================
-   * LAYOUT & BREAKPOINTS
-   * Reference values for media queries:
-   * 1440px: Desktop Large / Max content bound
-   * 1280px: Desktop Standard
-   * 1024px: Tablet Landscape / Small Desktop
-   * 768px:  Tablet Portrait
-   * 390px:  Mobile Large (iPhone 14/15/16)
-   * 360px:  Mobile Small (Compact Android)
-   * =========================================================================== */
-  --max-content-width: 1440px;
-
-  /* ===========================================================================
-   * TRANSITIONS & EASING
-   * =========================================================================== */
-  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-sharp: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
-
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-medium: 350ms;
-  --duration-slow: 600ms;
-  --duration-xslow: 1000ms;
-
-  --transition-fast: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-normal: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-colors: color 200ms ease, background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
-  --transition-transform: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* ===========================================================================
-   * Z-INDEX SCALE
-   * =========================================================================== */
-  --z-base: 1;
-  --z-elevated: 10;
-  --z-sticky: 100;
-  --z-header: 500;
-  --z-overlay: 900;
-  --z-modal: 1000;
-  --z-toast: 1100;
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 350ms cubic-bezier(0.16, 1, 0.3, 1);
 }

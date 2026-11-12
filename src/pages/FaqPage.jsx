@@ -183,7 +183,7 @@ export default function FaqPage() {
       <PageHeader
         eyebrow="FREQUENTLY ASKED QUESTIONS"
         badgeText="Common Inquiries"
-        badgeType="purple"
+        badgeType="teal"
         title="Everything you need to know about working with Hutomate."
         description="Clear, honest answers to common questions about our technical capabilities, implementation methodology, security guardrails, and commercial models."
       >

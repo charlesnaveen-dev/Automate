@@ -1,41 +1,31 @@
 /* =============================================================================
-   TechSystemsSection Styles — Section 06 (Dark Cinematic Theme)
-   Interactive technical architecture console with connected layer selector
+   TechSystemsSection Styles — Section 05 (Technical Architecture)
+   - Midnight Navy (#071923) & Deep Ocean (#0B3038) Foundation
+   - Electric Cyan (#83DDE2) & Deep Teal (#167C80) Precision Accents
+   - Mist Grey (#E2EAEC) and Pure White (#FFFFFF) Inks
    ============================================================================= */
 
 .tech-systems-section {
   position: relative;
   width: 100%;
-  background-color: var(--color-dark-navy, #071923);
+  background: radial-gradient(circle at 60% 20%, rgba(11, 48, 56, 0.95) 0%, rgba(7, 25, 35, 1) 85%);
   color: #FFFFFF;
-  padding: clamp(80px, 9.5vw, 130px) 0;
+  padding: clamp(96px, 10vw, 140px) 0;
   box-sizing: border-box;
   overflow: hidden;
-  border-top: 1px solid rgba(131, 221, 226, 0.15);
+  border-top: 1px solid rgba(226, 234, 236, 0.1);
+  border-bottom: 1px solid rgba(226, 234, 236, 0.1);
 }
 
 .tech-bg-bloom-cyan {
   position: absolute;
-  top: -120px;
-  right: -80px;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(131, 221, 226, 0.12) 0%, transparent 65%);
-  pointer-events: none;
-  filter: blur(50px);
-}
-
-.tech-bg-bloom-lavender {
-  position: absolute;
-  bottom: -100px;
-  left: -80px;
+  top: 10%;
+  right: -5%;
   width: 500px;
   height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(185, 165, 245, 0.08) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(131, 221, 226, 0.08) 0%, transparent 70%);
   pointer-events: none;
-  filter: blur(50px);
+  filter: blur(80px);
 }
 
 .tech-header {
@@ -54,14 +44,14 @@
   align-items: center;
   gap: 8px;
   padding: 5px 14px;
-  background: rgba(8, 44, 54, 0.65);
-  border: 1px solid rgba(131, 221, 226, 0.28);
-  border-radius: 9999px;
-  font-family: var(--font-family-primary, 'Manrope', sans-serif);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(226, 234, 236, 0.14);
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-family-mono, monospace);
   font-size: 11px;
-  font-weight: 750;
+  font-weight: 700;
   letter-spacing: 0.12em;
-  color: var(--color-accent-cyan, #83DDE2);
+  color: #FFFFFF;
   text-transform: uppercase;
   margin-bottom: 14px;
 }
@@ -75,7 +65,7 @@
 }
 
 .tech-headline {
-  font-family: var(--font-family-primary, 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-family: var(--font-family-headings, 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: clamp(2.3rem, 4.4vw, 3.5rem);
   font-weight: 750;
   line-height: 1.15;
@@ -86,17 +76,18 @@
 }
 
 .tech-headline-accent {
-  color: var(--color-accent-cyan, #83DDE2);
-  background: linear-gradient(135deg, #FFFFFF 20%, #83DDE2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent-cyan, #83DDE2);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
 }
 
 .tech-subhead {
-  font-family: var(--font-family-primary, 'Manrope', sans-serif);
+  font-family: var(--font-family-body, 'Inter', sans-serif);
   font-size: clamp(1.02rem, 1.3vw, 1.2rem);
   line-height: 1.6;
-  color: rgba(240, 244, 248, 0.8);
+  color: var(--color-mist-grey, #E2EAEC);
   max-width: 680px;
   margin: 0;
   text-wrap: pretty;
@@ -123,26 +114,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
-  background: rgba(8, 44, 54, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+  padding: 16px 20px;
+  background: var(--color-deep-ocean, #0B3038);
+  border: 1px solid rgba(226, 234, 236, 0.1);
+  border-radius: var(--radius-md, 10px);
   cursor: pointer;
   text-align: left;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast, 150ms ease);
   outline: none;
 }
 
 .tech-layer-card:hover {
-  background: rgba(8, 44, 54, 0.7);
+  background: var(--color-charcoal, #17252B);
   border-color: rgba(131, 221, 226, 0.3);
   transform: translateX(2px);
 }
 
 .tech-layer-card.is-active {
-  background: rgba(8, 44, 54, 0.95);
+  background: var(--color-charcoal, #17252B);
   border-color: var(--color-accent-cyan, #83DDE2);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 16px rgba(131, 221, 226, 0.2);
+  box-shadow: 0 4px 20px rgba(7, 25, 35, 0.4);
 }
 
 .layer-card-left {
@@ -154,18 +145,19 @@
 .layer-icon-box {
   width: 32px;
   height: 32px;
-  border-radius: 8px;
-  background: rgba(131, 221, 226, 0.1);
+  border-radius: var(--radius-sm, 6px);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--color-accent-cyan, #83DDE2);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: all var(--transition-fast, 150ms ease);
 }
 
 .tech-layer-card.is-active .layer-icon-box {
-  background: var(--color-accent-cyan, #83DDE2);
-  color: var(--color-dark-navy, #071923);
+  background: var(--color-deep-teal, #167C80);
+  color: #FFFFFF;
 }
 
 .layer-text-wrap {
@@ -175,16 +167,16 @@
 }
 
 .layer-name {
-  font-family: var(--font-family-primary, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
   font-size: 14px;
   font-weight: 700;
   color: #FFFFFF;
 }
 
 .layer-pill {
-  font-family: var(--font-family-primary, 'Manrope', monospace);
+  font-family: var(--font-family-mono, monospace);
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-mist-grey, #E2EAEC);
 }
 
 .layer-active-indicator {
@@ -197,216 +189,99 @@
 
 /* Right: Technical Console */
 .tech-console-display {
-  background: rgba(8, 44, 54, 0.6);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(131, 221, 226, 0.25);
-  border-radius: 24px;
+  background: var(--color-deep-ocean, #0B3038);
+  border: 1px solid rgba(226, 234, 236, 0.14);
+  border-radius: var(--radius-lg, 14px);
   padding: clamp(24px, 3.5vw, 40px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-dark-card, 0 12px 32px -4px rgba(7, 25, 35, 0.5));
 }
 
 .tech-console-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  gap: 12px;
+  border-bottom: 1px solid rgba(226, 234, 236, 0.1);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
 }
 
-.console-layer-header {
-  display: flex;
+.tech-console-badge {
+  display: inline-flex;
   align-items: center;
-  gap: 14px;
-}
-
-.console-layer-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(131, 221, 226, 0.12);
-  border: 1px solid rgba(131, 221, 226, 0.3);
-  color: var(--color-accent-cyan, #83DDE2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.console-layer-tag {
-  font-family: var(--font-family-primary, 'Manrope', monospace);
+  gap: 8px;
+  font-family: var(--font-family-mono, monospace);
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
   color: var(--color-accent-cyan, #83DDE2);
   text-transform: uppercase;
-  display: block;
+  letter-spacing: 0.08em;
 }
 
-.console-layer-title {
-  font-family: var(--font-family-primary, 'Manrope', sans-serif);
-  font-size: 1.4rem;
+.tech-console-tag {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  color: var(--color-muted-grey, #71838A);
+}
+
+.tech-console-content {
+  flex: 1;
+}
+
+.tech-console-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
   font-weight: 750;
+  color: #FFFFFF;
+  margin: 0 0 12px 0;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
-  margin: 2px 0 0;
 }
 
-.console-status-live {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-family-primary, 'Manrope', monospace);
-  font-size: 10.5px;
-  font-weight: 700;
-  color: var(--color-accent-cyan, #83DDE2);
-  padding: 4px 10px;
-  background: rgba(131, 221, 226, 0.1);
-  border-radius: 9999px;
+.tech-console-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-mist-grey, #E2EAEC);
+  margin: 0 0 20px 0;
 }
 
-.live-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--color-accent-cyan, #83DDE2);
-  box-shadow: 0 0 6px var(--color-accent-cyan, #83DDE2);
-}
-
-.console-layer-desc {
-  font-family: var(--font-family-primary, 'Manrope', sans-serif);
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: #FFFFFF;
-  margin: 0 0 12px;
-  font-weight: 600;
-}
-
-.console-layer-details {
-  font-family: var(--font-family-primary, 'Manrope', sans-serif);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: rgba(240, 244, 248, 0.78);
-  margin: 0 0 24px;
-}
-
-/* Schematic Diagram */
-.architecture-schematic {
-  background: rgba(7, 25, 35, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+.tech-console-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(226, 234, 236, 0.08);
+  border-radius: var(--radius-sm, 6px);
   padding: 16px;
   margin-bottom: 24px;
 }
 
-.schematic-label {
-  font-family: var(--font-family-primary, 'Manrope', monospace);
+.tech-box-label {
+  font-family: var(--font-family-mono, monospace);
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  color: var(--color-muted-grey, #71838A);
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.08em;
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
-.schematic-flow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.schematic-node {
-  padding: 8px 12px;
-  border-radius: 10px;
-  font-family: var(--font-family-primary, 'Manrope', sans-serif);
-  font-size: 12px;
-  font-weight: 650;
-  text-align: center;
-}
-
-.node--input {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.node--core {
-  background: rgba(131, 221, 226, 0.15);
-  border: 1px solid var(--color-accent-cyan, #83DDE2);
+.tech-box-text {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.9rem;
+  line-height: 1.55;
   color: #FFFFFF;
-  box-shadow: 0 0 14px rgba(131, 221, 226, 0.2);
+  margin: 0;
 }
 
-.node--output {
-  background: rgba(37, 168, 106, 0.12);
-  border: 1px solid rgba(37, 168, 106, 0.35);
-  color: #E7F6EE;
-}
-
-.schematic-connector {
-  flex: 1;
-  position: relative;
+.tech-console-actions {
   display: flex;
   align-items: center;
-  height: 2px;
-  background: rgba(131, 221, 226, 0.25);
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(226, 234, 236, 0.1);
 }
 
-.connector-pulse {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-accent-cyan, #83DDE2);
-  box-shadow: 0 0 8px var(--color-accent-cyan, #83DDE2);
-  animation: pulseConduit 2.5s infinite linear;
-}
-
-@keyframes pulseConduit {
-  0% { left: 0%; opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { left: 100%; opacity: 0; }
-}
-
-.console-cta-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-@media (max-width: 960px) {
+@media (max-width: 860px) {
   .tech-canvas-grid {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .schematic-flow {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .schematic-connector {
-    width: 2px;
-    height: 16px;
-  }
-
-  .console-cta-row {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .console-cta-row .btn {
-    width: 100%;
-    justify-content: center;
   }
 }

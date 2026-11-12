@@ -7,7 +7,7 @@
   position: relative;
   width: 100%;
   padding: 120px 0 115px 0;
-  background-color: var(--bg-primary, #F7F5F0);
+  background-color: var(--bg-primary, #F5F7F8);
   border-bottom: 1px solid var(--border-color, #E5E3DC);
   overflow: hidden;
 }

@@ -84,14 +84,13 @@ export default function Header() {
   };
 
   const isCapabilitiesActive = currentPath === '/capabilities' || currentPath.startsWith('/capabilities/');
-  const isDarkHero = currentPath === '/';
 
   return (
-    <header className={`site-header ${isDarkHero ? 'site-header--cinematic' : ''} ${isScrolled ? 'is-scrolled' : ''}`}>
+    <header className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}>
       <div className="header-container">
-        {/* Left: Exact Hutomate Brand Logo (White variant on cinematic home hero, dark variant on light internal pages) */}
+        {/* Left: Exact Hutomate Brand Logo */}
         <Link to="/" className="header-brand" aria-label="Hutomate home" onClick={handleLinkClick}>
-          <HutomateLogo symbolSize={28} variant={isDarkHero ? 'light' : 'dark'} />
+          <HutomateLogo symbolSize={28} variant="light" />
         </Link>
 
         {/* Center: Desktop Navigation */}
@@ -156,15 +155,6 @@ export default function Header() {
                   </ul>
                 </div>
               </div>
-            </li>
-
-            <li className="nav-item">
-              <Link
-                to="/use-cases"
-                className={`nav-link ${currentPath === '/use-cases' ? 'nav-link-active' : ''}`}
-              >
-                Use Cases
-              </Link>
             </li>
 
             <li className="nav-item">
@@ -287,12 +277,6 @@ export default function Header() {
                     ))}
                   </ul>
                 )}
-              </li>
-
-              <li className="mobile-link-item">
-                <Link to="/use-cases" className="mobile-nav-link" onClick={handleLinkClick}>
-                  Use Cases
-                </Link>
               </li>
 
               <li className="mobile-link-item">

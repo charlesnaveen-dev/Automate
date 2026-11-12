@@ -104,7 +104,7 @@ export default function EngagementPage() {
       <PageHeader
         eyebrow="ENGAGEMENT MODELS"
         badgeText="Fair &amp; Transparent"
-        badgeType="purple"
+        badgeType="teal"
         title="Transparent engagement structures built around real project outcomes."
         description="Because every AI automation project involves unique system architectures, data environments, and integration requirements, we provide scoped proposals after our initial discovery audit. Below is our transparent engagement framework."
       >

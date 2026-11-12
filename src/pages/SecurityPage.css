@@ -1,6 +1,8 @@
-/* Security Page Styles */
+/* Security Page Styles — Rebranded Hutomate Design System */
 .security-page {
   width: 100%;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  color: var(--color-charcoal, #17252B);
 }
 
 .security-pillars-grid {
@@ -12,19 +14,26 @@
 
 .security-pillar-card {
   padding: 32px 28px;
-  background-color: var(--card-bg, #ffffff);
-  border: 1px solid var(--border-color, #e5e5e5);
-  border-radius: var(--radius-lg, 12px);
+  background-color: var(--color-pure-white, #FFFFFF);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.security-pillar-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-deep-teal, #167C80);
+  box-shadow: 0 12px 30px -8px rgba(7, 25, 35, 0.08);
 }
 
 .pillar-icon-wrap {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background-color: rgba(99, 102, 241, 0.08);
-  color: var(--accent-purple, #6366f1);
+  background-color: rgba(22, 124, 128, 0.08);
+  color: var(--color-deep-teal, #167C80);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,24 +41,27 @@
 }
 
 .pillar-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
   font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-weight: 800;
+  color: var(--color-midnight-navy, #071923);
   margin-bottom: 12px;
 }
 
 .pillar-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
   font-size: 0.925rem;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: var(--color-slate-grey, #40545C);
   margin: 0;
 }
 
 .hitl-container {
-  background-color: var(--card-bg, #ffffff);
-  border: 1px solid var(--border-color, #e5e5e5);
-  border-radius: var(--radius-lg, 12px);
+  background-color: var(--color-pure-white, #FFFFFF);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 16px;
   padding: 40px;
+  box-shadow: 0 4px 20px rgba(7, 25, 35, 0.03);
 }
 
 .zones-grid {
@@ -61,25 +73,11 @@
 
 .zone-card {
   padding: 24px;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  border: 1px solid;
-}
-
-.zone-green {
-  background-color: rgba(16, 185, 129, 0.03);
-  border-color: rgba(16, 185, 129, 0.3);
-}
-
-.zone-yellow {
-  background-color: rgba(245, 158, 11, 0.03);
-  border-color: rgba(245, 158, 11, 0.3);
-}
-
-.zone-red {
-  background-color: rgba(239, 68, 68, 0.03);
-  border-color: rgba(239, 68, 68, 0.3);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  background-color: var(--color-cloud-white, #F4F7F7);
 }
 
 .zone-header {
@@ -90,46 +88,42 @@
 }
 
 .zone-dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
+  background-color: var(--color-deep-teal, #167C80);
 }
-
-.zone-green .zone-dot { background-color: #10b981; }
-.zone-yellow .zone-dot { background-color: #f59e0b; }
-.zone-red .zone-dot { background-color: #ef4444; }
 
 .zone-name {
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  font-weight: 750;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  color: var(--color-deep-teal, #167C80);
 }
 
-.zone-green .zone-name { color: #059669; }
-.zone-yellow .zone-name { color: #d97706; }
-.zone-red .zone-name { color: #dc2626; }
-
 .zone-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
   font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-weight: 800;
+  color: var(--color-midnight-navy, #071923);
   margin-bottom: 8px;
 }
 
 .zone-desc {
   font-size: 0.875rem;
   line-height: 1.55;
-  color: var(--text-secondary);
+  color: var(--color-slate-grey, #40545C);
   margin-bottom: 16px;
 }
 
 .zone-examples {
   margin-top: auto;
   padding-top: 12px;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid var(--color-mist-grey, #E2EAEC);
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: var(--color-muted-grey, #71838A);
   line-height: 1.5;
 }
 

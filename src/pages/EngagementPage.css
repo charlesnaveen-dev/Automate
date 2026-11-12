@@ -1,6 +1,8 @@
-/* Engagement Page Styles */
+/* Engagement Page Styles — Rebranded Hutomate Design System */
 .engagement-page {
   width: 100%;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  color: var(--color-charcoal, #17252B);
 }
 
 .models-grid {
@@ -12,11 +14,19 @@
 
 .model-card {
   padding: 36px 32px;
-  background-color: var(--card-bg, #ffffff);
-  border: 1px solid var(--border-color, #e5e5e5);
-  border-radius: var(--radius-lg, 12px);
+  background-color: var(--color-pure-white, #FFFFFF);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 16px rgba(7, 25, 35, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.model-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-deep-teal, #167C80);
+  box-shadow: 0 12px 32px rgba(7, 25, 35, 0.08);
 }
 
 .model-header {
@@ -27,31 +37,37 @@
 }
 
 .model-tag {
+  font-family: var(--font-mono, monospace);
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 750;
   text-transform: uppercase;
-  color: var(--accent-purple, #6366f1);
-  letter-spacing: 0.05em;
+  color: var(--color-deep-teal, #167C80);
+  letter-spacing: 0.06em;
 }
 
 .model-structure {
-  font-size: 0.8rem;
-  padding: 4px 10px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  padding: 4px 12px;
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.05);
-  color: var(--text-secondary);
+  background-color: var(--color-cloud-white, #F4F7F7);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  color: var(--color-slate-grey, #40545C);
 }
 
 .model-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
   font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-weight: 800;
+  color: var(--color-midnight-navy, #071923);
   margin-bottom: 12px;
+  letter-spacing: -0.01em;
 }
 
 .model-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
   font-size: 0.95rem;
-  color: var(--text-secondary);
+  color: var(--color-slate-grey, #40545C);
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -66,16 +82,16 @@
 }
 
 .model-inclusions-list li {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
+  font-size: 0.885rem;
+  color: var(--color-charcoal, #17252B);
   display: flex;
   align-items: flex-start;
-  gap: 8px;
-  line-height: 1.45;
+  gap: 10px;
+  line-height: 1.5;
 }
 
 .model-inclusions-list li svg {
-  color: #10b981;
+  color: var(--color-deep-teal, #167C80);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -83,22 +99,23 @@
 .model-ideal-for {
   margin-top: auto;
   padding-top: 16px;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--color-mist-grey, #E2EAEC);
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--color-muted-grey, #71838A);
 }
 
 .cost-factors-box {
-  background-color: var(--card-bg, #ffffff);
-  border: 1px solid var(--border-color, #e5e5e5);
-  border-radius: var(--radius-lg, 12px);
+  background-color: var(--color-pure-white, #FFFFFF);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 16px;
   padding: 40px;
+  box-shadow: 0 4px 20px rgba(7, 25, 35, 0.03);
 }
 
 .factors-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 28px;
   margin-top: 24px;
 }
 
@@ -109,20 +126,23 @@
 }
 
 .factor-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-midnight-navy, #071923);
 }
 
 .factor-desc {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
+  font-size: 0.885rem;
+  color: var(--color-slate-grey, #40545C);
+  line-height: 1.55;
   margin: 0;
 }
 
 @media (max-width: 900px) {
-  .models-grid,
+  .models-grid {
+    grid-template-columns: 1fr;
+  }
   .factors-grid {
     grid-template-columns: 1fr;
   }

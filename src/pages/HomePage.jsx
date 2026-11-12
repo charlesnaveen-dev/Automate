@@ -4,7 +4,6 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import HeroSection from '../sections/HeroSection';
 import BrandIntroSection from '../sections/BrandIntroSection';
 import CapabilitiesSection from '../sections/CapabilitiesSection';
-import UseCasesPreviewSection from '../sections/UseCasesPreviewSection';
 import IndustriesPreviewSection from '../sections/IndustriesPreviewSection';
 import TechSystemsSection from '../sections/TechSystemsSection';
 import ProcessPreviewSection from '../sections/ProcessPreviewSection';
@@ -31,19 +30,16 @@ export default function HomePage() {
       {/* Section 03: Core Capabilities ("Intelligence built around the way you work") */}
       <CapabilitiesSection />
 
-      {/* Section 04: Use Cases Preview ("Real business challenges. Intelligent solutions") */}
-      <UseCasesPreviewSection />
-
-      {/* Section 05: Industries Preview ("Technology that adapts to your industry") */}
+      {/* Section 04: Industries Preview ("Technology that adapts to your industry") */}
       <IndustriesPreviewSection />
 
-      {/* Section 06: Technology & Systems ("Connected systems. Thoughtful engineering") */}
+      {/* Section 05: Technology & Systems ("Connected systems. Thoughtful engineering") */}
       <TechSystemsSection />
 
-      {/* Section 07: Process Preview ("From the first idea to real-world implementation") */}
+      {/* Section 06: Process Preview ("From the first idea to real-world implementation") */}
       <ProcessPreviewSection />
 
-      {/* Section 08: Final Closing CTA ("Let's make your business work smarter") */}
+      {/* Section 07: Final Closing CTA ("Let's make your business work smarter") */}
       <FinalCtaSection />
     </div>
   );

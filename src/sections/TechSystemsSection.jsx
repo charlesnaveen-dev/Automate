@@ -64,7 +64,6 @@ export default function TechSystemsSection() {
     <section className="tech-systems-section" id="technology" aria-label="Technology & Systems">
       {/* Background atmospheric ambient bloom */}
       <div className="tech-bg-bloom-cyan" aria-hidden="true" />
-      <div className="tech-bg-bloom-lavender" aria-hidden="true" />
 
       <div className="container">
         {/* Section Header */}

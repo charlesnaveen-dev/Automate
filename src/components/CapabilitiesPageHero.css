@@ -1,0 +1,142 @@
+/* =============================================================================
+   CapabilitiesPageHero Styles — Hutomate Brand System
+   - Midnight Navy (#071923) Foundation with Deep Ocean (#0B3038) Radial Depth
+   - Architectural Grid Pattern
+   - Pure White (#FFFFFF) & Mist Grey (#E2EAEC) Inks
+   - Electric Cyan (#83DDE2) Accent Signals
+   ============================================================================= */
+
+.cap-hero-section {
+  position: relative;
+  width: 100%;
+  background: radial-gradient(circle at 50% 20%, rgba(11, 48, 56, 0.95) 0%, rgba(7, 25, 35, 1) 85%);
+  padding: clamp(96px, 12vw, 160px) 0 clamp(64px, 8vw, 100px);
+  box-sizing: border-box;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(226, 234, 236, 0.1);
+}
+
+.cap-hero-grid-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(to right, rgba(226, 234, 236, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 234, 236, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, black 20%, transparent 80%);
+}
+
+.cap-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cap-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(226, 234, 236, 0.15);
+  border-radius: var(--radius-full, 9999px);
+  margin-bottom: clamp(20px, 3vh, 28px);
+}
+
+.cap-hero-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent-cyan, #83DDE2);
+  box-shadow: 0 0 8px rgba(131, 221, 226, 0.8);
+}
+
+.cap-hero-badge-text {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.cap-hero-headline {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: #FFFFFF;
+  margin: 0 0 clamp(20px, 3vh, 28px);
+  text-wrap: balance;
+}
+
+.cap-hero-accent {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent-cyan, #83DDE2);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+.cap-hero-subhead {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--color-mist-grey, #E2EAEC);
+  max-width: 740px;
+  margin: 0 0 clamp(40px, 5vh, 56px);
+  text-wrap: pretty;
+}
+
+/* Specs Grid */
+.cap-hero-specs-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(226, 234, 236, 0.12);
+}
+
+.cap-hero-spec-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px 8px;
+}
+
+.cap-hero-spec-val {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.03em;
+  margin-bottom: 4px;
+}
+
+.cap-hero-spec-lbl {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  color: var(--color-muted-grey, #71838A);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .cap-hero-specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}

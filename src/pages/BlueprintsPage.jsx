@@ -76,7 +76,7 @@ export default function BlueprintsPage() {
       <PageHeader
         eyebrow="SYSTEM BLUEPRINTS"
         badgeText="Conceptual System Flows"
-        badgeType="purple"
+        badgeType="teal"
         title="System blueprints: how modern AI workflows are assembled."
         description="Explore conceptual architecture blueprints illustrating data flows, component interactions, model boundaries, and human oversight gates for common operational automations."
       >

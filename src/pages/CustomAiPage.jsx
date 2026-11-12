@@ -1,124 +1,158 @@
 import React from 'react';
-import { Cpu, FileCode2, Database, ShieldCheck, BarChart3, Binary, Terminal } from 'lucide-react';
+import {
+  Cpu,
+  Database,
+  Lock,
+  ShieldCheck,
+  Server,
+  FileText,
+  Key,
+  Terminal,
+  ArrowRight,
+  CheckCircle2
+} from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 import CtaBanner from '../components/CtaBanner';
-import CustomAiConsole from '../components/CustomAiConsole';
-import './CapabilityDetailPage.css';
+import CustomSystemArchitectureDiagram from '../components/diagrams/CustomSystemArchitectureDiagram';
+import { CAPABILITIES_DATA } from '../data/capabilitiesData';
+import './CustomAiPage.css';
 
 export default function CustomAiPage() {
+  const capData = CAPABILITIES_DATA.find((c) => c.id === 'custom-ai-solutions' || c.id === 'custom-ai') || CAPABILITIES_DATA[3];
+
   usePageMetadata({
-    title: 'Custom AI Solutions — Purpose-Built Engineering & Architectures',
-    description: 'Bespoke AI pipelines, proprietary knowledge synthesis, and internal tools engineered for operational challenges that off-the-shelf software cannot solve.',
+    title: 'Custom AI Solutions — Enterprise AI Systems | Hutomate',
+    description: 'Bespoke AI architectures, private VPC model deployments, custom document intelligence pipelines, and proprietary enterprise software copilots.',
     path: '/capabilities/custom-ai-solutions',
   });
 
   useScrollReveal();
 
-  const useCases = [
+  const customSolutions = [
     {
-      title: 'Domain-Specific Retrieval Systems (RAG)',
-      desc: 'Build grounded knowledge engines that index proprietary industry documentation, technical schematics, and internal archives with source citations.',
-      icon: Database,
-    },
-    {
-      title: 'Multi-Model Orchestration Pipelines',
-      desc: 'Route tasks dynamically across specialized models—combining vision models for OCR, fast reasoning models for classification, and frontier models for complex analysis.',
-      icon: Cpu,
-    },
-    {
-      title: 'Internal Operations Copilots',
-      desc: 'Deliver streamlined web tools and internal interfaces that assist staff in querying internal databases, drafting specialized reports, and updating legacy records.',
+      title: 'Proprietary Internal Copilots',
+      desc: 'Bespoke web applications and workflow tools tailored to your frontline operators, combining proprietary data schemas with real-time model reasoning.',
       icon: Terminal,
     },
     {
-      title: 'Automated Executive Report Synthesis',
-      desc: 'Transform scattered metrics across ERPs, spreadsheets, and databases into coherent, structured weekly or monthly executive intelligence briefings.',
-      icon: BarChart3,
+      title: 'Unstructured Document Intelligence',
+      desc: 'End-to-end extraction pipelines for complex multi-page contracts, technical blueprints, and invoices with automatic normalization directly into your ERP.',
+      icon: FileText,
     },
     {
-      title: 'Legacy API & Database Modernisation',
-      desc: 'Wrap older enterprise software in intelligent API layers and natural language interfaces without requiring costly multi-year ERP replacement projects.',
-      icon: Binary,
-    },
-    {
-      title: 'Complex Document Extraction Engines',
-      desc: 'Extract nested data from intricate contracts, customs manifests, and technical blueprints into strictly validated JSON schemas.',
-      icon: FileCode2,
+      title: 'Private Enterprise Vector Engines',
+      desc: 'High-security hybrid search engines combining sparse and dense embeddings over confidential company repositories with granular role-based access control.',
+      icon: Database,
     },
   ];
 
-  const customAiSteps = [
-    { step: '01', title: 'Operational Scoping & Feasibility', desc: 'We dissect your exact data structures, compliance boundaries, and business logic to establish clear technical specifications.' },
-    { step: '02', title: 'Data Pipeline & Indexing', desc: 'Build automated cleaning, chunking, and embedding pipelines to turn raw unstructured business assets into search-ready vector databases.' },
-    { step: '03', title: 'Model Selection & Prompt Schemas', desc: 'Select the optimal combination of commercial or open-weight models, defining strict JSON schemas to eliminate hallucinations.' },
-    { step: '04', title: 'Custom Tool & Interface Build', desc: 'Develop user-friendly internal web interfaces, API endpoints, or Slack/Teams integrations tailored for internal teams.' },
-    { step: '05', title: 'Security Guardrails & RBAC', desc: 'Enforce enterprise Role-Based Access Controls (RBAC), data masking, zero-retention policies, and sandboxed execution.' },
-    { step: '06', title: 'Telemetry & Cost Optimization', desc: 'Deploy continuous observability to monitor token consumption, response latency, and output accuracy over time.' },
-  ];
-
-  const engineeringPrinciples = [
-    { title: 'Model-Agnostic Architecture', desc: 'We do not lock you into a single AI provider. Systems are built with provider abstraction layers so you can swap models as technology improves.' },
-    { title: 'Zero Model Training on Client Data', desc: 'All commercial LLM API agreements are configured with zero-retention and zero-training guarantees. Your proprietary IP stays strictly yours.' },
-    { title: 'Maintainable, Documented Code', desc: 'We deliver clean, modular codebases with full technical documentation, unit tests, and architecture diagrams that your team can own.' },
-    { title: 'Granular Cost & Token Observability', desc: 'Token usage, latency, and cost per execution are measured on every call, preventing unexpected month-end cloud bills.' },
+  const securityPillars = [
+    {
+      title: 'Zero Data Retention',
+      desc: 'All API integrations enforce strict zero-data-retention agreements. Your confidential client data is never used to train public models.',
+    },
+    {
+      title: 'Private VPC Isolation',
+      desc: 'Deploy custom models in your own dedicated AWS, GCP, or Azure Virtual Private Cloud, retaining complete network perimeter control.',
+    },
+    {
+      title: '100% Client Ownership',
+      desc: 'You own all custom schemas, prompts, adapter weights, and pipeline code. Zero restrictive vendor lock-in or proprietary traps.',
+    },
+    {
+      title: 'SOC-2 Aligned Protocols',
+      desc: 'Role-based access control, cryptographic key storage, immutable audit logging, and regular vulnerability scanning baked in.',
+    },
   ];
 
   return (
-    <div className="capability-detail-page">
-      <PageHeader
-        eyebrow="CAPABILITIES · BESPOKE ENGINEERING"
-        badgeText="Purpose-Built Engineering"
-        badgeType="purple"
-        title="Purpose-built intelligence for complex business needs."
-        description="When commercial SaaS platforms and generic AI chatbots fall short of your business constraints, Hutomate designs custom AI pipelines, internal tools, and intelligent data architectures tailored to your exact workflows."
-      >
-        <Button variant="primary" size="md" arrow href="/contact">
-          Discuss Your Project
-        </Button>
-        <Button variant="secondary" size="md" href="/process">
-          How We Work
-        </Button>
-      </PageHeader>
-
-      {/* Interactive Custom AI Product Console */}
-      <section className="section detail-section" style={{ paddingTop: '20px' }}>
+    <div className="custom-ai-page">
+      {/* 1. Custom Hero */}
+      <section className="custom-hero-section" aria-label="Custom AI Overview">
         <div className="container">
-          <div className="section-header text-center">
-            <span className="section-label">Bespoke Architecture</span>
-            <h2 className="section-heading">Inspect our multi-model processing console</h2>
-            <p className="section-body section-body-center">
-              Explore how raw operational documents are indexed into isolated vector stores, parsed by specialized models, and transformed into deterministic schemas and executive intelligence.
-            </p>
-          </div>
+          <div className="custom-hero-content reveal-on-scroll">
+            <div className="custom-eyebrow-row">
+              <span className="custom-tag">PURPOSE-BUILT INTELLIGENCE // 04</span>
+              <div className="custom-badge">
+                <span className="custom-badge-dot" />
+                <span>Private VPC &amp; Data Sovereign Architecture</span>
+              </div>
+            </div>
 
-          <CustomAiConsole />
+            <h1 className="custom-hero-title">
+              Custom AI systems engineered around your exact operations.
+            </h1>
+
+            <p className="custom-hero-desc">
+              When off-the-shelf software falls short, we engineer bespoke AI systems, custom document extraction pipelines, and private copilots deployed inside your security perimeter.
+            </p>
+
+            <div className="custom-hero-actions">
+              <Button variant="cinematic-primary" size="lg" arrow href="/contact">
+                Discuss Your Custom Architecture
+              </Button>
+              <Button variant="cinematic-secondary" size="lg" href="/capabilities">
+                Explore All Capabilities
+              </Button>
+            </div>
+
+            {/* Performance Indicators */}
+            <div className="custom-metrics-strip">
+              {capData.heroMetrics?.map((m, idx) => (
+                <div key={idx} className="custom-metric-item">
+                  <span className="custom-metric-val">{m.value}</span>
+                  <span className="custom-metric-lbl">{m.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Applications Section */}
-      <section className="section detail-section bg-secondary-section">
+      {/* 2. Custom Architecture Diagram (Data -> Systems -> Outputs) */}
+      <section className="custom-arch-section">
         <div className="container">
-          <div className="section-header">
-            <span className="section-label">Custom Applications</span>
-            <h2 className="section-heading">Engineered for unique operational complexities</h2>
-            <p className="section-body">
-              From specialized RAG knowledge engines to legacy database wrapping, we build software where off-the-shelf products cannot deliver.
+          <div className="section-editorial-intro reveal-on-scroll">
+            <span className="section-kicker">ENTERPRISE SYSTEM MAP</span>
+            <h2 className="section-main-heading">
+              Data Assets → Private VPC Boundary → Intelligent Endpoints
+            </h2>
+            <p className="section-main-body">
+              How enterprise databases and unstructured assets interface with specialized models inside isolated VPC security boundaries.
             </p>
           </div>
 
-          <div className="detail-cards-grid">
-            {useCases.map((uc, i) => {
-              const IconComp = uc.icon;
+          <div className="reveal-on-scroll">
+            <CustomSystemArchitectureDiagram />
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Bespoke Solutions Grid */}
+      <section className="custom-solutions-section">
+        <div className="container">
+          <div className="section-editorial-intro reveal-on-scroll">
+            <span className="section-kicker">SPECIALIZED SOLUTIONS</span>
+            <h2 className="section-main-heading">
+              Engineered for problems generic SaaS cannot solve
+            </h2>
+            <p className="section-main-body">
+              Every enterprise has distinct data schemas, compliance restrictions, and specialized team workflows. We build systems to fit your business, not the other way around.
+            </p>
+          </div>
+
+          <div className="custom-solutions-grid reveal-on-scroll">
+            {customSolutions.map((sol, idx) => {
+              const IconComp = sol.icon;
               return (
-                <div key={i} className="detail-card card">
-                  <div className="detail-card-icon-wrap" style={{ color: '#8B5CF6' }}>
-                    <IconComp size={20} />
+                <div key={idx} className="custom-solution-card">
+                  <div className="solution-icon-box">
+                    <IconComp size={22} />
                   </div>
-                  <h3 className="detail-card-title">{uc.title}</h3>
-                  <p className="detail-card-desc">{uc.desc}</p>
+                  <h3 className="solution-title">{sol.title}</h3>
+                  <p className="solution-desc">{sol.desc}</p>
                 </div>
               );
             })}
@@ -126,61 +160,40 @@ export default function CustomAiPage() {
         </div>
       </section>
 
-      {/* 6-Step Implementation Lifecycle */}
-      <section className="section detail-section">
+      {/* 4. Data Sovereignty & Enterprise Security Matrix */}
+      <section className="custom-security-section">
         <div className="container">
-          <div className="section-header text-center">
-            <span className="section-label section-label-green">Lifecycle Architecture</span>
-            <h2 className="section-heading">How custom systems are engineered and deployed</h2>
-            <p className="section-body section-body-center">
-              A disciplined, phased engineering framework that establishes feasibility, security guardrails, and unit testing before production rollout.
+          <div className="section-editorial-intro reveal-on-scroll">
+            <span className="section-kicker" style={{ color: 'var(--color-accent-cyan, #83DDE2)' }}>
+              DATA SOVEREIGNTY
+            </span>
+            <h2 className="section-main-heading" style={{ color: '#FFFFFF' }}>
+              Your data remains completely yours. Always.
+            </h2>
+            <p className="section-main-body" style={{ color: 'var(--color-mist-grey, #E2EAEC)' }}>
+              We enforce strict cryptographic isolation and contractual zero-retention policies across every layer of the software stack.
             </p>
           </div>
 
-          <div className="timeline-steps-grid">
-            {customAiSteps.map((st) => (
-              <div key={st.step} className="timeline-step-card card">
-                <span className="timeline-step-number" style={{ color: '#8B5CF6', backgroundColor: 'rgba(139, 92, 246, 0.08)' }}>
-                  {st.step}
-                </span>
-                <h3 className="timeline-step-title">{st.title}</h3>
-                <p className="timeline-step-desc">{st.desc}</p>
+          <div className="custom-security-grid reveal-on-scroll">
+            {securityPillars.map((sec, idx) => (
+              <div key={idx} className="custom-sec-card">
+                <h3 className="sec-card-title">{sec.title}</h3>
+                <p className="sec-card-desc">{sec.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Engineering Principles */}
-      <section className="section detail-section bg-secondary-section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label section-label-blue">Enterprise Security &amp; Standards</span>
-            <h2 className="section-heading">Architectural integrity built for production</h2>
-            <p className="section-body">
-              Enterprise sovereignty over your data and code. We build maintainable software that gives you full ownership and zero cloud vendor lock-in.
-            </p>
-          </div>
-
-          <div className="boundaries-grid">
-            {engineeringPrinciples.map((b, i) => (
-              <div key={i} className="boundary-card card">
-                <ShieldCheck size={20} className="boundary-icon" style={{ color: '#8B5CF6' }} />
-                <h3 className="boundary-title">{b.title}</h3>
-                <p className="boundary-desc">{b.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      {/* 5. Closing Call to Action */}
       <CtaBanner
-        title="Have a complex operational challenge?"
-        description="Let’s review your data formats, internal software, and workflow constraints to evaluate whether a custom AI pipeline is the right path."
-        buttonText="Discuss Your Project"
+        title="Ready to engineer a custom intelligent system?"
+        description="Schedule a technical consultation with our engineering team to review your data schemas, security requirements, and development roadmap."
+        buttonText="Discuss Custom Engineering"
         buttonHref="/contact"
-        secondaryButtonText="Explore Process"
-        secondaryButtonHref="/process"
+        secondaryButtonText="Explore Industries"
+        secondaryButtonHref="/industries"
       />
     </div>
   );

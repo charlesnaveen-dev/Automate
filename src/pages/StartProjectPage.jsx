@@ -115,7 +115,7 @@ export default function StartProjectPage() {
       <PageHeader
         eyebrow="PROJECT INTAKE"
         badgeText="Discovery &amp; Scoping"
-        badgeType="purple"
+        badgeType="teal"
         title="Tell us about the operational challenge you want to solve."
         description="Complete our scoping questionnaire to give our engineering team context before our first consultation. We review every submission within 1 business day."
       />
@@ -153,14 +153,14 @@ export default function StartProjectPage() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  backgroundColor: 'rgba(118, 87, 232, 0.08)',
-                  border: '1px solid rgba(118, 87, 232, 0.25)',
+                  backgroundColor: 'rgba(22, 124, 128, 0.08)',
+                  border: '1px solid rgba(22, 124, 128, 0.2)',
                   padding: '8px 16px',
                   borderRadius: '8px',
                   marginBottom: '24px',
                   fontSize: '0.9rem',
                   fontWeight: 600,
-                  color: '#7657E8'
+                  color: '#167C80'
                 }}>
                   <Sparkles size={16} />
                   <span>Context pre-selected: <strong>{preselectedContext}</strong></span>

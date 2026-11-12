@@ -1,0 +1,280 @@
+/* =============================================================================
+   Voice AI Page Styles — Bespoke Telephony Architecture
+   - Cloud White (#F4F7F7) & Pure White (#FFFFFF) Architecture
+   - Carrier Telephony & Low-Latency Streaming Waveforms
+   - 3 Real-World Telephony Playbooks
+   - Warm-Transfer Briefing Protocol
+   ============================================================================= */
+
+.voice-ai-page {
+  width: 100%;
+  background-color: var(--color-cloud-white, #F4F7F7);
+}
+
+/* 1. Telephony Hero */
+.voice-hero-section {
+  position: relative;
+  width: 100%;
+  background: radial-gradient(circle at 50% 10%, rgba(11, 48, 56, 0.95) 0%, rgba(7, 25, 35, 1) 85%);
+  padding: clamp(96px, 12vw, 150px) 0 clamp(64px, 8vw, 96px);
+  box-sizing: border-box;
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(226, 234, 236, 0.1);
+}
+
+.voice-hero-content {
+  max-width: 920px;
+}
+
+.voice-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.voice-tag {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-accent-cyan, #83DDE2);
+  text-transform: uppercase;
+}
+
+.voice-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(226, 234, 236, 0.15);
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.voice-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent-cyan, #83DDE2);
+  box-shadow: 0 0 8px rgba(131, 221, 226, 0.8);
+}
+
+.voice-hero-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: #FFFFFF;
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+
+.voice-hero-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--color-mist-grey, #E2EAEC);
+  max-width: 760px;
+  margin: 0 0 36px;
+  text-wrap: pretty;
+}
+
+.voice-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.voice-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 700px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(226, 234, 236, 0.12);
+}
+
+.voice-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.voice-metric-val {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.voice-metric-lbl {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  color: var(--color-mist-grey, #E2EAEC);
+  letter-spacing: 0.02em;
+}
+
+/* 2. Voice Architecture Section */
+.voice-arch-section {
+  padding: clamp(64px, 8vw, 100px) 0;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+}
+
+/* 3. Real-World Telephony Playbooks */
+.voice-playbooks-section {
+  padding: clamp(64px, 8vw, 100px) 0;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+}
+
+.voice-playbooks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.voice-playbook-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border, #E2EAEC);
+  border-radius: var(--radius-lg, 14px);
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.voice-playbook-card:hover {
+  border-color: var(--color-deep-teal, #167C80);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(7, 25, 35, 0.06);
+}
+
+.playbook-num {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 750;
+  color: var(--color-deep-teal, #167C80);
+  margin-bottom: 10px;
+}
+
+.playbook-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.2rem;
+  font-weight: 750;
+  color: var(--color-text-primary, #17252B);
+  margin: 0 0 10px;
+}
+
+.playbook-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary, #40545C);
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.playbook-tags-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border, #E2EAEC);
+}
+
+.playbook-tag-item {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  color: var(--color-text-secondary, #40545C);
+}
+
+/* 4. Warm-Transfer Briefing Protocol */
+.voice-transfer-section {
+  padding: clamp(64px, 8vw, 100px) 0;
+  background-color: var(--color-midnight-navy, #071923);
+  color: #FFFFFF;
+}
+
+.voice-transfer-card {
+  background: var(--color-deep-ocean, #0B3038);
+  border: 1px solid rgba(131, 221, 226, 0.2);
+  border-radius: var(--radius-xl, 18px);
+  padding: clamp(32px, 5vw, 56px);
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.transfer-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.transfer-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 14px;
+}
+
+.transfer-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: var(--color-mist-grey, #E2EAEC);
+  margin: 0;
+}
+
+.transfer-preview-box {
+  background: rgba(7, 25, 35, 0.85);
+  border: 1px solid rgba(226, 234, 236, 0.15);
+  border-radius: var(--radius-md, 10px);
+  padding: 24px;
+}
+
+.transfer-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(226, 234, 236, 0.1);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  color: var(--color-accent-cyan, #83DDE2);
+}
+
+.transfer-preview-body {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--color-cloud-white, #F4F7F7);
+}
+
+@media (max-width: 960px) {
+  .voice-playbooks-grid {
+    grid-template-columns: 1fr;
+  }
+  .voice-transfer-card {
+    grid-template-columns: 1fr;
+  }
+  .voice-metrics-strip {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

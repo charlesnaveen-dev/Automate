@@ -37,7 +37,7 @@ const INCOMING_CHANNELS = [
     sublabel: 'Forms & enquiries',
     pill: 'Instant Capture',
     Icon: Globe,
-    color: '#7657E8',
+    color: '#167C80',
     lightBg: 'rgba(118, 87, 232, 0.1)',
   },
 ];
@@ -49,7 +49,7 @@ const CORE_SERVICES = [
     sublabel: 'Autonomous Decisions & Tasks',
     pill: 'Reasoning',
     Icon: Bot,
-    color: '#7657E8',
+    color: '#167C80',
     lightBg: 'rgba(118, 87, 232, 0.1)',
   },
   {
@@ -158,19 +158,19 @@ export default function WorkflowDiagram() {
             <defs>
               <linearGradient id="inGrad0" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#4389F5" stopOpacity="0.75" />
-                <stop offset="100%" stopColor="#7657E8" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#167C80" stopOpacity="0.9" />
               </linearGradient>
               <linearGradient id="inGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#25A86A" stopOpacity="0.75" />
-                <stop offset="100%" stopColor="#7657E8" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#167C80" stopOpacity="0.9" />
               </linearGradient>
               <linearGradient id="inGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#E89A42" stopOpacity="0.75" />
-                <stop offset="100%" stopColor="#7657E8" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#167C80" stopOpacity="0.9" />
               </linearGradient>
               <linearGradient id="inGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.75" />
-                <stop offset="100%" stopColor="#7657E8" stopOpacity="0.9" />
+                <stop offset="0%" stopColor="#167C80" stopOpacity="0.75" />
+                <stop offset="100%" stopColor="#167C80" stopOpacity="0.9" />
               </linearGradient>
 
               <filter id="energyGlowLeft" x="-40%" y="-40%" width="180%" height="180%">
@@ -207,7 +207,7 @@ export default function WorkflowDiagram() {
             <path
               d="M 0 230 C 70 230, 100 140, 160 140"
               className={`conduit-wire ${activeHoverNode === 'website' ? 'is-active-wire' : ''}`}
-              stroke={activeHoverNode === 'website' ? '#7657E8' : 'url(#inGrad3)'}
+              stroke={activeHoverNode === 'website' ? '#167C80' : 'url(#inGrad3)'}
               strokeWidth={activeHoverNode === 'website' ? '2.5' : '1.5'}
               strokeOpacity={activeHoverNode && activeHoverNode !== 'website' ? '0.25' : '0.7'}
             />
@@ -236,7 +236,7 @@ export default function WorkflowDiagram() {
                 path="M 0 170 C 60 170, 110 140, 160 140"
               />
             </circle>
-            <circle r="3" fill="#7657E8" filter="url(#energyGlowLeft)">
+            <circle r="3" fill="#167C80" filter="url(#energyGlowLeft)">
               <animateMotion
                 dur="2.7s"
                 begin="1.8s"
@@ -322,19 +322,19 @@ export default function WorkflowDiagram() {
           >
             <defs>
               <linearGradient id="outGrad0" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#7657E8" stopOpacity="0.8" />
+                <stop offset="0%" stopColor="#167C80" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#167C80" stopOpacity="0.8" />
               </linearGradient>
               <linearGradient id="outGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.9" />
+                <stop offset="0%" stopColor="#167C80" stopOpacity="0.9" />
                 <stop offset="100%" stopColor="#25A86A" stopOpacity="0.8" />
               </linearGradient>
               <linearGradient id="outGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.9" />
+                <stop offset="0%" stopColor="#167C80" stopOpacity="0.9" />
                 <stop offset="100%" stopColor="#4389F5" stopOpacity="0.8" />
               </linearGradient>
               <linearGradient id="outGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#7657E8" stopOpacity="0.9" />
+                <stop offset="0%" stopColor="#167C80" stopOpacity="0.9" />
                 <stop offset="100%" stopColor="#E89A42" stopOpacity="0.8" />
               </linearGradient>
 
@@ -351,7 +351,7 @@ export default function WorkflowDiagram() {
             <path
               d="M 0 140 C 60 140, 90 50, 160 50"
               className={`conduit-wire ${activeHoverNode === 'ai-agents' ? 'is-active-wire' : ''}`}
-              stroke={activeHoverNode === 'ai-agents' ? '#7657E8' : 'url(#outGrad0)'}
+              stroke={activeHoverNode === 'ai-agents' ? '#167C80' : 'url(#outGrad0)'}
               strokeWidth={activeHoverNode === 'ai-agents' ? '2.5' : '1.5'}
               strokeOpacity={activeHoverNode && activeHoverNode !== 'ai-agents' ? '0.25' : '0.7'}
             />
@@ -378,7 +378,7 @@ export default function WorkflowDiagram() {
             />
 
             {/* Outbound Traveling Photon Energy Beacons */}
-            <circle r="3" fill="#7657E8" filter="url(#energyGlowRight)">
+            <circle r="3" fill="#167C80" filter="url(#energyGlowRight)">
               <animateMotion
                 dur="2.4s"
                 begin="0.3s"

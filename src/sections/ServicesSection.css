@@ -7,7 +7,7 @@
   position: relative;
   width: 100%;
   padding: 120px 0 140px;
-  background-color: var(--bg-primary, #F7F5F0);
+  background-color: var(--bg-primary, #F5F7F8);
   border-bottom: 1px solid var(--border-color, #E5E3DC);
   box-sizing: border-box;
 }
@@ -89,7 +89,7 @@
   flex-wrap: wrap;
   gap: 8px;
   padding: 12px 0;
-  background-color: var(--bg-primary, #F7F5F0);
+  background-color: var(--bg-primary, #F5F7F8);
   margin-bottom: 24px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }

@@ -1,186 +1,191 @@
 import React from 'react';
-import { PhoneCall, Calendar, UserCheck, Clock, PhoneForwarded, FileText, CheckCircle2 } from 'lucide-react';
+import {
+  Mic,
+  PhoneCall,
+  Calendar,
+  UserCheck,
+  Zap,
+  ShieldCheck,
+  CheckCircle2,
+  Clock,
+  ArrowRight
+} from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 import CtaBanner from '../components/CtaBanner';
-import VoiceTelephonySimulator from '../components/VoiceTelephonySimulator';
-import './CapabilityDetailPage.css';
+import VoiceIntelligenceDiagram from '../components/diagrams/VoiceIntelligenceDiagram';
+import { CAPABILITIES_DATA } from '../data/capabilitiesData';
+import './VoiceAiPage.css';
 
 export default function VoiceAiPage() {
+  const capData = CAPABILITIES_DATA.find((c) => c.id === 'voice-ai') || CAPABILITIES_DATA[2];
+
   usePageMetadata({
-    title: 'Voice AI Agents — Conversational Phone & Telephony Systems',
-    description: 'Natural voice AI designed to answer calls, qualify inbound leads, schedule appointments, and route complex inquiries with transparent human fallbacks.',
+    title: 'Voice AI & Conversational Telephony | Hutomate',
+    description: 'Sub-300ms neural voice agents for 24/7 inbound reception, appointment booking, and seamless live human handoffs.',
     path: '/capabilities/voice-ai',
   });
 
   useScrollReveal();
 
-  const useCases = [
+  const playbooks = [
     {
-      title: 'Inbound Call Answering & FAQs',
-      desc: 'Answer incoming customer calls with zero queue wait times, providing instant verified answers to common operational questions.',
-      icon: PhoneCall,
+      num: 'PLAYBOOK 01',
+      title: 'Inbound Emergency Intake & Dispatch',
+      desc: 'Handles after-hours emergency calls for field contractors and trades. Extracts caller address, verifies service agreement, and dispatches on-call technician immediately.',
+      tags: ['Home Services', 'Property Management', 'Commercial HVAC'],
     },
     {
-      title: 'After-Hours Triage & Dispatch',
-      desc: 'Capture urgent service requests when your office is closed, categorize urgency, and trigger emergency on-call notifications.',
-      icon: Clock,
+      num: 'PLAYBOOK 02',
+      title: 'Clinic & Dental Appointment Negotiation',
+      desc: 'Answers patient inquiries, verifies insurance eligibility, inspects doctor calendar availability, and coordinates booking without ever leaving patients on hold.',
+      tags: ['Dental Clinics', 'Medical Centers', 'Physiotherapy'],
     },
     {
-      title: 'Automated Calendar Scheduling',
-      desc: 'Coordinate appointment times conversationally over the phone, cross-reference calendar availability, and send SMS confirmations.',
-      icon: Calendar,
+      num: 'PLAYBOOK 03',
+      title: 'Legal Practice Intake & Conflict Screening',
+      desc: 'Screens prospective clients against firm practice areas, gathers initial case facts, performs conflict check intake, and schedules consults with attorneys.',
+      tags: ['Law Firms', 'Immigration Counsel', 'Corporate Advisory'],
     },
-    {
-      title: 'Pre-Screening & Lead Qualification',
-      desc: 'Engage inbound callers with structured qualification questions, recording intent and budget parameters before escalating to sales staff.',
-      icon: UserCheck,
-    },
-    {
-      title: 'Order Status & Tracking Enquiries',
-      desc: 'Look up shipping numbers and delivery updates securely by authenticating caller phone numbers or reference codes.',
-      icon: FileText,
-    },
-    {
-      title: 'Warm Human Call Escalation',
-      desc: 'When callers request a human or voice sentiment indicates distress, cleanly transfer the call with a live briefing summary to a staff member.',
-      icon: PhoneForwarded,
-    },
-  ];
-
-  const pipelineSteps = [
-    { step: '01', title: 'Audio Ingestion & VAD', desc: 'Real-time Voice Activity Detection (VAD) monitors caller speech with sub-100ms silence detection to handle natural interruptions.' },
-    { step: '02', title: 'Streaming Speech-to-Text', desc: 'Inbound audio packets are transcribed in real time using ultra-low-latency neural speech recognition models.' },
-    { step: '03', title: 'Context & Prompt Evaluation', desc: 'LLM reasoning models evaluate caller intent within conversational guardrails, querying business knowledge bases via function calling.' },
-    { step: '04', title: 'Streaming Neural Voice Synthesis', desc: 'Natural voice models stream generated audio tokens back to the caller in milliseconds, ensuring a fluid conversational rhythm.' },
-    { step: '05', title: 'Deterministic Tool Commit', desc: 'Appointments, CRM notes, or support tickets are committed via secure APIs during or immediately following the call.' },
-    { step: '06', title: 'Call Transcript & Human Summary', desc: 'A structured recap, audio recording, and compliance transcript are archived and dispatched to your team.' },
-  ];
-
-  const safetyPrinciples = [
-    { title: 'Transparent AI Identification', desc: 'Our voice agents always disclose their AI nature at the start of every call. We do not design deceptive synthetic personas.' },
-    { title: 'Instant Human Escalation', desc: 'Callers can request a human specialist at any point. The agent immediately executes a warm transfer or schedules an immediate callback.' },
-    { title: 'PCI & Privacy Guardrails', desc: 'Voice agents do not collect sensitive payment data over plain phone audio without specialized tokenized interactive voice response (IVR).' },
-    { title: 'Deterministic Script Adherence', desc: 'For regulated industries, the agent stays strictly within approved conversational scripts and never speculates on legal or financial matters.' },
   ];
 
   return (
-    <div className="capability-detail-page">
-      <PageHeader
-        eyebrow="CAPABILITIES · VOICE AI"
-        badgeText="Conversational Telephony"
-        badgeType="blue"
-        title="Every conversation can move business forward."
-        description="Natural conversational voice AI designed to answer calls, qualify inbound leads, schedule appointments, and route complex inquiries with transparent human fallbacks."
-      >
-        <Button variant="primary" size="md" arrow href="/contact">
-          Discuss Your Project
-        </Button>
-        <Button variant="secondary" size="md" href="/capabilities">
-          Explore Capabilities
-        </Button>
-      </PageHeader>
-
-      {/* Interactive Telephony Simulator Section */}
-      <section className="section detail-section" style={{ paddingTop: '20px' }}>
+    <div className="voice-ai-page">
+      {/* 1. Telephony Hero */}
+      <section className="voice-hero-section" aria-label="Voice AI Overview">
         <div className="container">
-          <div className="section-header text-center">
-            <span className="section-label section-label-blue">Live Telephony Experience</span>
-            <h2 className="section-heading">Experience natural conversational voice in action</h2>
-            <p className="section-body section-body-center">
-              Inspect how an incoming emergency call is answered in sub-250ms, evaluated against scheduling rules, and confirmed via SMS while preserving immediate warm human escalation.
+          <div className="voice-hero-content reveal-on-scroll">
+            <div className="voice-eyebrow-row">
+              <span className="voice-tag">CONVERSATIONAL TELEPHONY // 03</span>
+              <div className="voice-badge">
+                <span className="voice-badge-dot" />
+                <span>Sub-300ms Streaming Audio Architecture</span>
+              </div>
+            </div>
+
+            <h1 className="voice-hero-title">
+              Intelligent conversations that keep business moving 24/7.
+            </h1>
+
+            <p className="voice-hero-desc">
+              We engineer sub-300ms conversational voice agents that answer inbound calls, qualify inquiries, negotiate calendar appointments, and warm-transfer complex callers to human staff.
             </p>
-          </div>
 
-          <VoiceTelephonySimulator />
-        </div>
-      </section>
+            <div className="voice-hero-actions">
+              <Button variant="cinematic-primary" size="lg" arrow href="/contact">
+                Discuss Your Voice Architecture
+              </Button>
+              <Button variant="cinematic-secondary" size="lg" href="/capabilities">
+                Explore All Capabilities
+              </Button>
+            </div>
 
-      {/* Applications Section */}
-      <section className="section detail-section bg-secondary-section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-label">Telephony Applications</span>
-            <h2 className="section-heading">Where voice agents solve everyday operational strain</h2>
-            <p className="section-body">
-              Never let a high-value customer slip to voicemail. We engineer responsive voice pipelines that handle calls 24/7 with zero hold times.
-            </p>
-          </div>
-
-          <div className="detail-cards-grid">
-            {useCases.map((uc, i) => {
-              const IconComp = uc.icon;
-              return (
-                <div key={i} className="detail-card card">
-                  <div className="detail-card-icon-wrap" style={{ color: '#0284C7' }}>
-                    <IconComp size={20} />
-                  </div>
-                  <h3 className="detail-card-title">{uc.title}</h3>
-                  <p className="detail-card-desc">{uc.desc}</p>
+            {/* Performance Indicators */}
+            <div className="voice-metrics-strip">
+              {capData.heroMetrics?.map((m, idx) => (
+                <div key={idx} className="voice-metric-item">
+                  <span className="voice-metric-val">{m.value}</span>
+                  <span className="voice-metric-lbl">{m.label}</span>
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Audio Pipeline Architecture */}
-      <section className="section detail-section">
+      {/* 2. Voice Architecture Diagram (Voice -> Understanding -> Action) */}
+      <section className="voice-arch-section">
         <div className="container">
-          <div className="section-header text-center">
-            <span className="section-label section-label-green">Technical Pipeline</span>
-            <h2 className="section-heading">How our real-time voice pipeline operates</h2>
-            <p className="section-body section-body-center">
-              Achieving conversational fluency requires sub-300ms round-trip latency, low-latency streaming endpoints, and intelligent interruption handling.
+          <div className="section-editorial-intro reveal-on-scroll">
+            <span className="section-kicker">STREAMING TELEPHONY DATAFLOW</span>
+            <h2 className="section-main-heading">
+              Acoustic Stream → Intent Triage → Calendar &amp; CRM Mutation
+            </h2>
+            <p className="section-main-body">
+              How audio packets travel from enterprise SIP trunks through streaming speech-to-text, intent classification, and instant business tool execution.
             </p>
           </div>
 
-          <div className="timeline-steps-grid">
-            {pipelineSteps.map((st) => (
-              <div key={st.step} className="timeline-step-card card">
-                <span className="timeline-step-number" style={{ color: '#0284C7', backgroundColor: 'rgba(2, 132, 199, 0.08)' }}>
-                  {st.step}
-                </span>
-                <h3 className="timeline-step-title">{st.title}</h3>
-                <p className="timeline-step-desc">{st.desc}</p>
+          <div className="reveal-on-scroll">
+            <VoiceIntelligenceDiagram />
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Real-World Telephony Playbooks */}
+      <section className="voice-playbooks-section">
+        <div className="container">
+          <div className="section-editorial-intro reveal-on-scroll">
+            <span className="section-kicker">DEPLOYED PLAYBOOKS</span>
+            <h2 className="section-main-heading">
+              Engineered for real operational calling scenarios
+            </h2>
+            <p className="section-main-body">
+              Our voice agents are not generic chatbots with a voice skin. They are custom-tuned telephony specialists trained on specific industry protocols.
+            </p>
+          </div>
+
+          <div className="voice-playbooks-grid reveal-on-scroll">
+            {playbooks.map((pb, idx) => (
+              <div key={idx} className="voice-playbook-card">
+                <span className="playbook-num">{pb.num}</span>
+                <h3 className="playbook-title">{pb.title}</h3>
+                <p className="playbook-desc">{pb.desc}</p>
+                <div className="playbook-tags-list">
+                  {pb.tags.map((t, i) => (
+                    <span key={i} className="playbook-tag-item">✓ {t}</span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Safety & Human Escalation */}
-      <section className="section detail-section bg-secondary-section">
+      {/* 4. Warm-Transfer Briefing Protocol */}
+      <section className="voice-transfer-section">
         <div className="container">
-          <div className="section-header">
-            <span className="section-label section-label-blue">Ethics &amp; Reliability</span>
-            <h2 className="section-heading">Voice engineering built on strict transparency</h2>
-            <p className="section-body">
-              We never deceive callers. Transparent disclosures, deterministic guardrails, and instant warm human transfers protect your brand reputation.
-            </p>
+          <div className="section-editorial-intro reveal-on-scroll">
+            <span className="section-kicker" style={{ color: 'var(--color-accent-cyan, #83DDE2)' }}>
+              HUMAN OVERSIGHT
+            </span>
+            <h2 className="section-main-heading" style={{ color: '#FFFFFF' }}>
+              Warm-transfer with instant operator briefing
+            </h2>
           </div>
 
-          <div className="boundaries-grid">
-            {safetyPrinciples.map((b, i) => (
-              <div key={i} className="boundary-card card">
-                <CheckCircle2 size={20} className="boundary-icon" style={{ color: '#0284C7' }} />
-                <h3 className="boundary-title">{b.title}</h3>
-                <p className="boundary-desc">{b.desc}</p>
+          <div className="voice-transfer-card reveal-on-scroll">
+            <div className="transfer-left">
+              <h3 className="transfer-title">Never make callers repeat themselves</h3>
+              <p className="transfer-desc">
+                When a caller requires senior human judgment, our system whispers a 3-bullet briefing into the operator&apos;s headset before connecting the audio: caller identity, primary issue, and verified account history.
+              </p>
+            </div>
+
+            <div className="transfer-preview-box">
+              <div className="transfer-preview-header">
+                <span>INCOMING WARM TRANSFER PROTOCOL</span>
+                <span>PRIORITY 01</span>
               </div>
-            ))}
+              <div className="transfer-preview-body">
+                <p style={{ margin: '0 0 8px 0' }}>• Caller: Dr. Sarah Jenkins (Mercy Health Practice)</p>
+                <p style={{ margin: '0 0 8px 0' }}>• Intent: Urgent medical record transfer &amp; referral sync</p>
+                <p style={{ margin: 0 }}>• Action Staged: HIPAA consent logged, EHR draft updated</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* 5. Closing Call to Action */}
       <CtaBanner
-        title="Ready to automate inbound calls and scheduling?"
-        description="Let’s review your incoming call volume, common inquiries, and calendar booking workflow to build a tailored conversational voice agent."
-        buttonText="Discuss Your Project"
+        title="Ready to upgrade your business phone operations?"
+        description="Share your current call volume, typical customer questions, and calendar software. We'll design a custom telephony architecture for your business."
+        buttonText="Discuss Your Voice Agent"
         buttonHref="/contact"
-        secondaryButtonText="Explore Capabilities"
-        secondaryButtonHref="/capabilities"
+        secondaryButtonText="Explore Custom AI Solutions"
+        secondaryButtonHref="/capabilities/custom-ai-solutions"
       />
     </div>
   );

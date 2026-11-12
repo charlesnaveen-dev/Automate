@@ -3,7 +3,7 @@
  * Hutomate Design System
  * -----------------------------------------------------------------------------
  * Palette:
- * - Main background: #F7F5F0
+ * - Main background: #F5F7F8
  * - Secondary background: #F0EEE8
  * - Primary text: #111111
  * - Secondary text: #66645F
@@ -19,7 +19,7 @@
 .transformation-section {
   position: relative;
   width: 100%;
-  background-color: var(--color-bg-main, var(--bg-main, #F7F5F0));
+  background-color: var(--color-bg-main, var(--bg-main, #F5F7F8));
   color: var(--color-text-primary, var(--text-primary, #111111));
   padding: 120px 0;
   overflow: hidden;

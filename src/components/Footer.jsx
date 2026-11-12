@@ -63,9 +63,6 @@ export default function Footer() {
             <h4 className="footer-col-title">Solutions</h4>
             <ul className="footer-links-list">
               <li>
-                <Link to="/use-cases" className="footer-link">Use Cases</Link>
-              </li>
-              <li>
                 <Link to="/industries" className="footer-link">Industries</Link>
               </li>
               <li>

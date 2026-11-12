@@ -5,7 +5,7 @@
 .industries-section {
   position: relative;
   width: 100%;
-  background-color: var(--color-bg-main, #F7F5F0);
+  background-color: var(--color-bg-main, #F5F7F8);
   color: var(--color-text-primary, #111111);
   padding: clamp(80px, 9vw, 130px) 0;
   font-family: var(--font-family-primary, 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif);

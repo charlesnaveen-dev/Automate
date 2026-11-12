@@ -1,63 +1,20 @@
 import React from 'react';
-import { Bot, Mic, Workflow, Cpu, ArrowRight, ShieldCheck, Zap, Layers } from 'lucide-react';
-import { Link } from '../router/Router';
+import { ShieldCheck, Zap, Layers } from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import CtaBanner from '../components/CtaBanner';
-import InteractiveCapabilitiesShowcase from '../components/InteractiveCapabilitiesShowcase';
+import CapabilitiesPageHero from '../components/CapabilitiesPageHero';
+import EditorialCapabilitiesShowcase from '../components/EditorialCapabilitiesShowcase';
 import './CapabilitiesPage.css';
 
 export default function CapabilitiesPage() {
   usePageMetadata({
-    title: 'Our Capabilities — AI Agents, Workflows & Custom Systems',
-    description: 'Explore Hutomate’s implementation capabilities: AI agents, workflow automation, voice AI systems, and custom AI solutions engineered around your business operations.',
+    title: 'Core Capabilities — Enterprise AI & Automation | Hutomate',
+    description: 'Explore Hutomate’s core technical capabilities: Autonomous AI Agents, Workflow Automation, Voice AI & Telephony, and Custom Enterprise AI Solutions.',
     path: '/capabilities',
   });
 
   useScrollReveal();
-
-  const deepDives = [
-    {
-      id: 'ai-agents',
-      title: 'AI Agents',
-      route: '/capabilities/ai-agents',
-      icon: Bot,
-      eyebrow: 'Autonomous Task Execution',
-      summary: 'Software agents capable of interpreting natural language, retrieving verified internal knowledge, and executing multi-step workflows with human-in-the-loop escalation.',
-      badge: 'Reasoning & Actions',
-      highlight: 'RAG • Tool Orchestration • Guardrails',
-    },
-    {
-      id: 'voice-ai',
-      title: 'AI Receptionists',
-      route: '/capabilities/voice-ai',
-      icon: Mic,
-      eyebrow: 'Conversational Voice AI',
-      summary: 'Sub-second conversational voice workflows that answer incoming phone calls, qualify caller intent, and book appointments directly into your calendar 24/7/365.',
-      badge: 'Sub-300ms Telephony',
-      highlight: '24/7 Inbound • Calendar Negotiation • CRM Sync',
-    },
-    {
-      id: 'workflow-automation',
-      title: 'Workflow Automation',
-      route: '/capabilities/workflow-automation',
-      icon: Workflow,
-      eyebrow: 'System Pipelines',
-      summary: 'Connected, event-driven pipelines that synchronize data across compatible SaaS tools, forms, and databases with zero manual copy-pasting or duplicate entry.',
-      badge: 'Multi-Tool Pipelines',
-      highlight: 'Event Webhooks • Automatic Retries • Deduplication',
-    },
-    {
-      id: 'custom-ai',
-      title: 'Integrations & Custom Systems',
-      route: '/capabilities/custom-ai',
-      icon: Cpu,
-      eyebrow: 'Bespoke Architecture',
-      summary: 'Domain-tuned models, private VPC inferences, and custom integration adapters engineered when off-the-shelf tools cannot satisfy complex security requirements.',
-      badge: 'Proprietary Architecture',
-      highlight: '100+ Connectors • Private VPC • Custom APIs',
-    },
-  ];
 
   const selectionCriteria = [
     {
@@ -79,64 +36,19 @@ export default function CapabilitiesPage() {
 
   return (
     <div className="capabilities-page">
-      {/* Main Interactive Capabilities Showcase (Exact reference layout: header + cards + details) */}
-      <section className="cap-interactive-section">
-        <div className="container">
-          <InteractiveCapabilitiesShowcase
-            defaultActiveId="ai-agents"
-            showHeader={true}
-            eyebrow="CAPABILITIES"
-            heading="Intelligent capabilities. Practical outcomes."
-            supportText="From autonomous AI agents to connected workflows and custom intelligent systems, we build technology around the way businesses operate."
-          />
-        </div>
-      </section>
+      {/* ----------------------------------------------------------------------
+          1. REDESIGNED MONOCHROMATIC CAPABILITIES HERO
+          ---------------------------------------------------------------------- */}
+      <CapabilitiesPageHero />
 
-      {/* Deep Dive Explorer Cards */}
-      <section className="cap-deepdives-section">
-        <div className="container">
-          <div className="cap-section-header reveal-on-scroll">
-            <span className="cap-section-eyebrow reveal-on-scroll reveal-delay-1">TECHNICAL SPECIFICATIONS</span>
-            <h2 className="cap-section-title reveal-on-scroll reveal-delay-2">Explore individual capability architectures</h2>
-            <p className="cap-section-desc reveal-on-scroll reveal-delay-3">
-              Inspect in-depth data flows, security boundaries, and sample integration blueprints for each implementation domain.
-            </p>
-          </div>
+      {/* ----------------------------------------------------------------------
+          2. EDITORIAL CAPABILITIES SHOWCASE (NO FAKE DASHBOARDS)
+          ---------------------------------------------------------------------- */}
+      <EditorialCapabilitiesShowcase />
 
-          <div className="cap-deepdives-grid">
-            {deepDives.map((dd, index) => {
-              const IconComp = dd.icon;
-              return (
-                <Link
-                  key={dd.id}
-                  to={dd.route}
-                  className={`cap-deepdive-card reveal-on-scroll reveal-delay-${(index % 4) + 1}`}
-                >
-                  <div className="cap-dd-top">
-                    <div className="cap-dd-icon">
-                      <IconComp size={22} strokeWidth={2.2} />
-                    </div>
-                    <span className="cap-dd-badge">{dd.badge}</span>
-                  </div>
-
-                  <span className="cap-dd-eyebrow">{dd.eyebrow}</span>
-                  <h3 className="cap-dd-title">{dd.title}</h3>
-                  <p className="cap-dd-summary">{dd.summary}</p>
-
-                  <div className="cap-dd-footer">
-                    <span className="cap-dd-highlight">{dd.highlight}</span>
-                    <span className="cap-dd-link">
-                      Detailed Breakdown <ArrowRight size={14} />
-                    </span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Selection Framework Section */}
+      {/* ----------------------------------------------------------------------
+          3. SELECTION METHODOLOGY SECTION
+          ---------------------------------------------------------------------- */}
       <section className="cap-criteria-section">
         <div className="container">
           <div className="cap-criteria-card reveal-on-scroll">
@@ -166,13 +78,16 @@ export default function CapabilitiesPage() {
         </div>
       </section>
 
+      {/* ----------------------------------------------------------------------
+          4. FINAL CTA BANNER
+          ---------------------------------------------------------------------- */}
       <CtaBanner
         title="Ready to evaluate your team's automation opportunities?"
         description="Share your current operational workflows with our engineering team. We assess technical feasibility, software compatibility, and projected ROI."
         buttonText="Discuss Your Project"
         buttonHref="/contact"
-        secondaryButtonText="Explore Use Cases"
-        secondaryButtonHref="/use-cases"
+        secondaryButtonText="Explore Industries"
+        secondaryButtonHref="/industries"
       />
     </div>
   );
