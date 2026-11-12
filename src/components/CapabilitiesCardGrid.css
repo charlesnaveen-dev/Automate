@@ -1,0 +1,355 @@
+/* =============================================================================
+   CapabilitiesCardGrid Styles — Hutomate Capabilities Overview
+   - Preserves exact card proportions, visual style, and hover animations of homepage
+   - 4-card horizontal showcase on desktop, 2x2 on tablet, 1-col on mobile
+   - Entire card is an accessible clickable link to respective capability route
+   - Brand colours: Midnight Navy (#071923), Deep Teal (#167C80), Electric Cyan (#83DDE2)
+   ============================================================================= */
+
+.cap-cards-grid-wrap {
+  width: 100%;
+}
+
+.cap-cards-grid-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* -----------------------------------------------------------------------------
+   1. Base Card Surface (Consistent with Homepage Light Surface)
+   ----------------------------------------------------------------------------- */
+.cap-overview-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-pure-white, #FFFFFF);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 24px;
+  padding: 34px 28px 32px 28px;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 12px 32px -8px rgba(7, 25, 35, 0.04);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cap-overview-card:focus-visible {
+  outline: 2px solid var(--color-deep-teal, #167C80);
+  outline-offset: 3px;
+}
+
+.cap-overview-card:hover,
+.cap-overview-card:focus-visible {
+  transform: translateY(-6px);
+  background: linear-gradient(165deg, #07262D 0%, #051A20 60%, #031217 100%);
+  border-color: rgba(131, 221, 226, 0.45);
+  box-shadow: 0 22px 46px -10px rgba(7, 38, 45, 0.42), 0 0 24px rgba(131, 221, 226, 0.12);
+}
+
+/* Ambient glow & Corner Wave for highlighted card */
+.cap-overview-card .cap-dark-ambient-wave {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 140px;
+  height: 120px;
+  background: radial-gradient(circle at 100% 100%, rgba(131, 221, 226, 0.28) 0%, rgba(22, 124, 128, 0.15) 50%, transparent 80%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(12px);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.cap-overview-card:hover .cap-dark-ambient-wave,
+.cap-overview-card:focus-visible .cap-dark-ambient-wave {
+  opacity: 1;
+}
+
+.cap-overview-card .cap-dark-corner-wave {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 140px;
+  height: 90px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.cap-overview-card:hover .cap-dark-corner-wave,
+.cap-overview-card:focus-visible .cap-dark-corner-wave {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+/* -----------------------------------------------------------------------------
+   2. Card Top & Number
+   ----------------------------------------------------------------------------- */
+.cap-overview-card .cap-card-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.cap-overview-card .cap-card-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.15rem;
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--color-charcoal, #17252B);
+  transition: color 0.35s ease;
+}
+
+.cap-overview-card:hover .cap-card-num,
+.cap-overview-card:focus-visible .cap-card-num {
+  color: #FFFFFF;
+}
+
+/* -----------------------------------------------------------------------------
+   3. Visual Illustration Area
+   ----------------------------------------------------------------------------- */
+.cap-overview-card .cap-card-visual-wrapper {
+  position: relative;
+  z-index: 2;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.cap-overview-card .cap-visual-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cap-overview-card .cap-svg {
+  width: 140px;
+  height: 105px;
+  overflow: visible;
+}
+
+/* Card 01 Micro-Animations */
+.cap-overview-card:hover .agent-sparkle {
+  transform: scale(1.15);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cap-overview-card:hover .agent-layer--front {
+  transform: translate(2px, -3px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Card 02 Micro-Animations */
+.cap-overview-card:hover .workflow-node--2 {
+  transform: translateY(-2px);
+  transition: transform 0.25s ease;
+}
+
+.cap-overview-card:hover .workflow-node--3 {
+  transform: translateY(-2px);
+  transition: transform 0.25s ease 0.05s;
+}
+
+/* Card 03 Micro-Animations: Waveform Pulsing */
+.cap-overview-card:hover .voice-bar--4 {
+  animation: gridVoiceWaveCenter 1.2s infinite ease-in-out;
+}
+
+.cap-overview-card:hover .voice-bar--3,
+.cap-overview-card:hover .voice-bar--5 {
+  animation: gridVoiceWaveMid 1.2s infinite ease-in-out 0.15s;
+}
+
+.cap-overview-card:hover .voice-bar--2,
+.cap-overview-card:hover .voice-bar--6 {
+  animation: gridVoiceWaveSide 1.2s infinite ease-in-out 0.3s;
+}
+
+@keyframes gridVoiceWaveCenter {
+  0%, 100% { height: 64px; y: 28px; }
+  50% { height: 50px; y: 35px; }
+}
+
+@keyframes gridVoiceWaveMid {
+  0%, 100% { height: 48px; y: 36px; }
+  50% { height: 58px; y: 31px; }
+}
+
+@keyframes gridVoiceWaveSide {
+  0%, 100% { height: 32px; y: 44px; }
+  50% { height: 24px; y: 48px; }
+}
+
+/* Card 04 Micro-Animations: Floating Isometric Plates */
+.cap-overview-card:hover .iso-plate--top {
+  transform: translateY(-4px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cap-overview-card:hover .iso-plate--mid {
+  transform: translateY(-2px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+}
+
+/* -----------------------------------------------------------------------------
+   4. Card Body, Typography & Exploration CTA Link
+   ----------------------------------------------------------------------------- */
+.cap-overview-card .cap-card-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cap-overview-card .cap-card-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--color-midnight-navy, #071923);
+  margin: 0 0 12px 0;
+  transition: color 0.35s ease;
+}
+
+.cap-overview-card:hover .cap-card-title,
+.cap-overview-card:focus-visible .cap-card-title {
+  color: var(--color-pure-white, #FFFFFF);
+}
+
+.cap-overview-card .cap-card-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.94rem;
+  line-height: 1.58;
+  color: var(--color-slate-grey, #40545C);
+  margin: 0 0 28px 0;
+  flex-grow: 1;
+  transition: color 0.35s ease, opacity 0.35s ease;
+}
+
+.cap-overview-card:hover .cap-card-desc,
+.cap-overview-card:focus-visible .cap-card-desc {
+  color: var(--color-cloud-white, #F4F7F7);
+  opacity: 0.9;
+}
+
+.cap-overview-card .cap-card-link-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-deep-teal, #167C80);
+  transition: gap 0.2s ease;
+}
+
+.cap-overview-card .cap-card-link-text {
+  color: var(--color-deep-teal, #167C80);
+  transition: color 0.35s ease;
+}
+
+.cap-overview-card:hover .cap-card-link-text,
+.cap-overview-card:focus-visible .cap-card-link-text {
+  color: var(--color-pure-white, #FFFFFF);
+}
+
+.cap-overview-card .cap-card-link-arrow {
+  color: var(--color-deep-teal, #167C80);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s ease;
+  flex-shrink: 0;
+}
+
+.cap-overview-card:hover .cap-card-link-arrow,
+.cap-overview-card:focus-visible .cap-card-link-arrow {
+  color: var(--color-electric-cyan, #83DDE2);
+  transform: translateX(4px);
+}
+
+/* High contrast visual illustration tweaks on hover/focus */
+.cap-overview-card:hover .workflow-line-base,
+.cap-overview-card:focus-visible .workflow-line-base {
+  stroke: rgba(131, 221, 226, 0.3);
+}
+
+.cap-overview-card:hover .workflow-node rect,
+.cap-overview-card:focus-visible .workflow-node rect {
+  fill: #0B333B;
+  stroke: #83DDE2;
+}
+
+.cap-overview-card:hover .voice-bar,
+.cap-overview-card:focus-visible .voice-bar {
+  fill: #83DDE2;
+}
+
+.cap-overview-card:hover .iso-plate--bot path,
+.cap-overview-card:focus-visible .iso-plate--bot path {
+  fill: #0B333B;
+  stroke: rgba(131, 221, 226, 0.35);
+}
+
+/* -----------------------------------------------------------------------------
+   5. Reduced Motion Preferences
+   ----------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .cap-overview-card,
+  .cap-overview-card .cap-card-link-arrow,
+  .cap-overview-card .agent-sparkle,
+  .cap-overview-card .agent-layer--front,
+  .cap-overview-card .workflow-node--2,
+  .cap-overview-card .workflow-node--3,
+  .cap-overview-card .voice-bar,
+  .cap-overview-card .iso-plate--top,
+  .cap-overview-card .iso-plate--mid {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   6. Responsive Layout Breakpoints
+   ----------------------------------------------------------------------------- */
+@media (max-width: 1140px) {
+  .cap-cards-grid-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cap-cards-grid-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cap-overview-card {
+    padding: 28px 22px;
+    border-radius: 20px;
+  }
+
+  .cap-overview-card .cap-card-visual-wrapper {
+    height: 100px;
+    margin-bottom: 24px;
+  }
+}

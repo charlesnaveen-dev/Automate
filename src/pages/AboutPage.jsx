@@ -1,100 +1,138 @@
 import React from 'react';
-import { Globe, Compass, Target, ShieldCheck, Zap, Layers, Lock, Cpu, Server, Check } from 'lucide-react';
+import {
+  Layers,
+  ShieldCheck,
+  Globe,
+  Check,
+  Code2,
+} from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 import CtaBanner from '../components/CtaBanner';
 import './AboutPage.css';
 
+const PROBLEMS_SOLVED = [
+  {
+    num: '01',
+    title: 'Manual Data Re-Entry',
+    problem: 'Teams lose valuable hours every week manually copying information between CRMs, email, spreadsheets, and accounting tools.',
+    solution: 'We build direct, automated bridges between your tools so data moves instantly and accurately without manual copy-pasting.',
+  },
+  {
+    num: '02',
+    title: 'Delayed Customer Communication',
+    problem: 'Inbound inquiries, appointment requests, and support questions sit waiting during peak hours and weekends.',
+    solution: 'We deploy voice and conversational AI systems that respond immediately, qualify leads, and route details straight to your team.',
+  },
+  {
+    num: '03',
+    title: 'Inconsistent Multi-Step Workflows',
+    problem: 'Multi-stage business operations often slow down or experience errors when handoffs rely on individual memory and manual checklists.',
+    solution: 'We engineer structured automation pipelines with validation rules and built-in human escalation for sensitive checkpoints.',
+  },
+];
+
+const HOW_WE_HELP = [
+  {
+    title: 'Works With Your Current Tools',
+    lead: 'No need to rebuild your software stack or migrate away from what already works.',
+    desc: 'We connect directly into the platforms your team relies on daily—your CRM, internal databases, customer communication channels, and specialized software.',
+    icon: Layers,
+  },
+  {
+    title: 'Engineered for Real Reliability',
+    lead: 'Practical systems designed with strict validation and built-in human oversight.',
+    desc: 'Automation should reduce risk, not introduce uncertainty. We design clear validation checks and explicit human checkpoints so your people remain in control of key decisions.',
+    icon: ShieldCheck,
+  },
+  {
+    title: '100% Client Ownership',
+    lead: 'You own every workflow, integration, and custom code asset we build.',
+    desc: 'We believe in complete client independence. There are no black boxes or proprietary vendor lock-ins. You retain full ownership of your code, schemas, and documentation.',
+    icon: Code2,
+  },
+];
+
+const GUIDING_PRINCIPLES = [
+  {
+    num: '01',
+    title: 'Solve Real Bottlenecks First',
+    desc: 'We prioritize automations that deliver immediate operational relief and measurable time savings, rather than building technology for its own sake.',
+  },
+  {
+    num: '02',
+    title: 'Keep Humans in Control',
+    desc: 'Autonomous does not mean unsupervised. High-stakes actions, sensitive approvals, and edge cases always feature clear escalation paths to your team.',
+  },
+  {
+    num: '03',
+    title: 'Protect Your Business Privacy',
+    desc: 'Your internal data, documents, and customer communications are never used to train public models. We enforce strict enterprise zero-retention policies.',
+  },
+  {
+    num: '04',
+    title: 'Build for Long-Term Durability',
+    desc: 'Every system includes comprehensive documentation, operator training, and live telemetry so your workflows remain reliable as your business grows.',
+  },
+];
+
 export default function AboutPage() {
   usePageMetadata({
-    title: 'About Hutomate — AI Automation & Engineering Partner',
-    description: 'Hutomate is an AI automation and implementation partner helping businesses connect existing tools, automate repetitive operations, and build custom intelligent systems.',
+    title: 'About Hutomate — AI Automation & Implementation Partner',
+    description:
+      'Hutomate is an AI automation and implementation partner helping businesses connect existing tools, automate repetitive tasks, and deploy reliable intelligent systems.',
     path: '/about',
   });
 
   useScrollReveal();
 
-  const philosophyPillars = [
-    {
-      num: '01',
-      title: 'Operational Feasibility First',
-      desc: 'We never sell speculative AI where a deterministic script, clean webhook, or simple automation rule is faster, cheaper, and more reliable.',
-      icon: Target,
-    },
-    {
-      num: '02',
-      title: 'Human-in-the-Loop by Design',
-      desc: 'Autonomous does not mean unsupervised. We design systems that empower internal teams, escalating edge cases and preserving human agency at critical junctures.',
-      icon: ShieldCheck,
-    },
-    {
-      num: '03',
-      title: 'Engineering Rigor Over Hype',
-      desc: 'We build credibility through software engineering standards—schema validation, automated retries, rate limiting, and continuous observability—not inflated claims.',
-      icon: Zap,
-    },
-    {
-      num: '04',
-      title: 'Model & Platform Agnosticism',
-      desc: 'We never lock you into a single proprietary vendor. We select the best models and infrastructure for your exact performance, latency, and budget requirements.',
-      icon: Layers,
-    },
-    {
-      num: '05',
-      title: 'Absolute Data Sovereignty',
-      desc: 'Your proprietary data is never used to train public foundational models. All API integrations are configured with zero-retention policies and enterprise privacy guarantees.',
-      icon: Lock,
-    },
-  ];
-
   return (
-    <div className="about-page">
-      <PageHeader
-        eyebrow="ABOUT HUTOMATE"
-        badgeText="Our Foundation"
-        badgeType="teal"
-        title="Building a smarter way to work."
-        description="Hutomate is an AI automation and implementation partner helping forward-looking businesses eliminate friction, automate routine tasks, and deploy production-grade intelligent systems."
-      >
-        <Button variant="primary" size="md" arrow href="/contact">
-          Discuss Your Project
-        </Button>
-        <Button variant="secondary" size="md" href="/process">
-          Explore Delivery Process
-        </Button>
-      </PageHeader>
+    <div className="about-page-view">
+      {/* ----------------------------------------------------------------------
+          1. HERO SECTION: Positioning & Purpose
+          ---------------------------------------------------------------------- */}
+      <section className="about-hero-section" aria-label="About Hutomate">
+        <div className="about-hero-ambient" aria-hidden="true" />
 
-      {/* Editorial Storytelling Section */}
-      <section className="section about-editorial-section">
-        <div className="container">
-          <div className="about-editorial-grid">
-            <div className="about-editorial-content">
-              <span className="about-kicker">Operational Architecture</span>
-              <h2 className="about-editorial-heading">
-                We believe talented teams shouldn’t spend their days copying data between tabs or answering routine emails.
-              </h2>
-              <p className="about-editorial-lead">
-                Every business carries invisible friction: fragmented software, manual approvals, repetitive data entry, and dropped customer inquiries. Frontier AI offers a solution—but off-the-shelf tools rarely fit the complex realities of production workflows.
+        <div className="container about-hero-container">
+          <div className="about-hero-grid">
+            <div className="about-hero-text reveal-on-scroll">
+              <div className="about-eyebrow-pill">
+                <span className="about-eyebrow-dot" />
+                <span className="about-eyebrow-text">ABOUT HUTOMATE</span>
+              </div>
+
+              <h1 className="about-hero-title">
+                An AI automation partner for{' '}
+                <span className="about-title-accent">growing businesses.</span>
+              </h1>
+
+              <p className="about-hero-lead">
+                Hutomate helps companies modernize how work gets done. We build practical AI systems and automated workflows that connect the tools you already use, reduce repetitive manual tasks, and give your team more time to focus on high-judgment work.
               </p>
-              <p className="about-editorial-subtext">
-                That is why Hutomate exists. We bridge the gap between bleeding-edge machine intelligence and everyday business execution. We don’t sell prepackaged subscriptions; we engineer, integrate, and maintain bespoke automated systems that run seamlessly inside your existing toolstack.
-              </p>
+
+              <div className="about-hero-actions">
+                <Button variant="primary" size="md" arrow href="/contact">
+                  Start a Conversation
+                </Button>
+                <Button variant="secondary" size="md" href="/capabilities">
+                  Explore Capabilities
+                </Button>
+              </div>
             </div>
 
-            <div className="about-editorial-media">
-              <div className="about-media-card">
+            <div className="about-hero-media reveal-on-scroll reveal-delay-2">
+              <div className="about-hero-image-frame">
                 <img
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
-                  alt="Modern architectural workspace"
-                  className="about-editorial-img"
-                  loading="lazy"
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+                  alt="Engineering team collaborating in modern office"
+                  className="about-hero-image"
+                  loading="eager"
                 />
-                <div className="about-media-overlay" />
-                <div className="about-media-caption">
-                  <div className="caption-dot" />
-                  <span>San Francisco & London Engineering Operations</span>
+                <div className="about-image-card-caption">
+                  <span className="caption-dot" />
+                  <span>Practical AI engineering &amp; implementation</span>
                 </div>
               </div>
             </div>
@@ -102,59 +140,71 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Vision & Mission Cards */}
-      <section className="section about-vm-section">
+      {/* ----------------------------------------------------------------------
+          2. CORE MISSION: What Hutomate Solves
+          ---------------------------------------------------------------------- */}
+      <section className="about-mission-section" aria-label="What We Solve">
         <div className="container">
-          <div className="about-vm-grid">
-            <div className="about-vm-card">
-              <div className="about-vm-icon-box">
-                <Compass size={22} color="#167C80" />
-              </div>
-              <span className="about-vm-label">Our Vision</span>
-              <h3 className="about-vm-title">Liberating human talent from mechanical routines.</h3>
-              <p className="about-vm-desc">
-                We envision organizations where operational execution flows quietly and deterministically in the background, freeing people to focus on high-judgment, creative, and relationship-driven work.
-              </p>
-            </div>
+          <div className="about-section-header reveal-on-scroll">
+            <span className="about-section-kicker">WHAT WE SOLVE</span>
+            <h2 className="about-section-title">
+              Most teams lose hours every day to fragmented tools and repetitive admin.
+            </h2>
+            <p className="about-section-desc">
+              Work rarely slows down because people lack talent. It slows down because software tools operate in silos, inquiries wait in queues, and skilled operators spend their days manually transferring data between different systems.
+            </p>
+          </div>
 
-            <div className="about-vm-card">
-              <div className="about-vm-icon-box">
-                <Target size={22} color="#167C80" />
+          <div className="about-problems-grid">
+            {PROBLEMS_SOLVED.map((item, idx) => (
+              <div key={item.num} className={`about-problem-card reveal-on-scroll reveal-delay-${idx + 1}`}>
+                <div className="problem-card-top">
+                  <span className="problem-num">{item.num}</span>
+                  <span className="problem-tag">Common Bottleneck</span>
+                </div>
+                <h3 className="problem-title">{item.title}</h3>
+                <div className="problem-comparison">
+                  <div className="problem-point problem-point--issue">
+                    <span className="comparison-label">The Challenge</span>
+                    <p>{item.problem}</p>
+                  </div>
+                  <div className="problem-point problem-point--solve">
+                    <span className="comparison-label comparison-label--teal">How We Solve It</span>
+                    <p>{item.solution}</p>
+                  </div>
+                </div>
               </div>
-              <span className="about-vm-label">Our Mission</span>
-              <h3 className="about-vm-title">Engineering practical, resilient intelligence.</h3>
-              <p className="about-vm-desc">
-                Our mission is to translate AI breakthroughs into practical, secure, and production-tested workflows that yield immediate, measurable return on investment without requiring staff to change how they work.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* The 5 Pillars Section */}
-      <section className="section about-pillars-section">
+      {/* ----------------------------------------------------------------------
+          3. HOW WE HELP: Distinctive Implementation Approach
+          ---------------------------------------------------------------------- */}
+      <section className="about-help-section" aria-label="How We Help Businesses">
         <div className="container">
-          <div className="section-header">
-            <span className="section-label">Core Philosophy</span>
-            <h2 className="section-heading">The 5 pillars that guide our engineering</h2>
-            <p className="section-body">
-              How we evaluate every client opportunity, architecture decision, and system integration.
+          <div className="about-section-header reveal-on-scroll">
+            <span className="about-section-kicker">HOW WE HELP</span>
+            <h2 className="about-section-title">
+              Practical automation designed around your business realities.
+            </h2>
+            <p className="about-section-desc">
+              We do not ask your team to adapt to rigid software or abandon what works. We build solutions that integrate quietly into your existing operating rhythm.
             </p>
           </div>
 
-          <div className="principles-grid">
-            {philosophyPillars.map((pr) => {
-              const IconComp = pr.icon;
+          <div className="about-pillars-grid">
+            {HOW_WE_HELP.map((pillar, idx) => {
+              const IconComponent = pillar.icon;
               return (
-                <div key={pr.num} className="principle-card">
-                  <div className="principle-top">
-                    <span className="principle-num">{pr.num}</span>
-                    <div className="principle-icon-wrap">
-                      <IconComp size={18} color="#167C80" />
-                    </div>
+                <div key={pillar.title} className={`about-pillar-card reveal-on-scroll reveal-delay-${idx + 1}`}>
+                  <div className="pillar-icon-box">
+                    <IconComponent size={22} />
                   </div>
-                  <h3 className="principle-title">{pr.title}</h3>
-                  <p className="principle-desc">{pr.desc}</p>
+                  <h3 className="pillar-card-title">{pillar.title}</h3>
+                  <p className="pillar-card-lead">{pillar.lead}</p>
+                  <p className="pillar-card-desc">{pillar.desc}</p>
                 </div>
               );
             })}
@@ -162,79 +212,141 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Data Sovereignty & Standards Section */}
-      <section className="section about-standards-section">
+      {/* ----------------------------------------------------------------------
+          4. WHY WORK WITH HUTOMATE: Editorial Split Narrative
+          ---------------------------------------------------------------------- */}
+      <section className="about-why-section" aria-label="Why Work With Hutomate">
         <div className="container">
-          <div className="about-standards-box">
-            <div className="standards-left">
-              <span className="standards-badge">ENTERPRISE ASSURANCE</span>
-              <h2 className="standards-title">Built on strict security and privacy standards</h2>
-              <p className="standards-desc">
-                We engineer all AI pipelines to adhere to strict regulatory compliance and enterprise cybersecurity frameworks. You maintain complete sovereignty over your data and code.
-              </p>
-              <div className="standards-checklist">
-                <div className="checklist-item">
-                  <Check size={16} color="#83DDE2" />
-                  <span>Zero public LLM training on client inputs or proprietary logs</span>
-                </div>
-                <div className="checklist-item">
-                  <Check size={16} color="#83DDE2" />
-                  <span>End-to-end encryption in transit (TLS 1.3) and at rest (AES-256)</span>
-                </div>
-                <div className="checklist-item">
-                  <Check size={16} color="#83DDE2" />
-                  <span>Isolated VPC / on-premises deployment options available</span>
+          <div className="about-why-layout">
+            <div className="about-why-media reveal-on-scroll">
+              <div className="about-why-image-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+                  alt="Modern architectural workspace"
+                  className="about-why-image"
+                  loading="lazy"
+                />
+                <div className="about-why-overlay" />
+                <div className="about-why-tagline">
+                  <div className="tagline-dot" />
+                  <span>Disciplined Engineering Over Speculative Hype</span>
                 </div>
               </div>
             </div>
 
-            <div className="standards-right">
-              <div className="standards-metric-card">
-                <Server size={28} color="#83DDE2" />
-                <span className="metric-title">Private VPC Deployment</span>
-                <span className="metric-sub">Dedicated isolated instances across AWS, GCP, or Azure</span>
-              </div>
-              <div className="standards-metric-card">
-                <Cpu size={28} color="#83DDE2" />
-                <span className="metric-title">Granular RBAC</span>
-                <span className="metric-sub">Role-based access control with detailed audit logs</span>
+            <div className="about-why-content reveal-on-scroll reveal-delay-2">
+              <span className="about-section-kicker">WHY HUTOMATE</span>
+              <h2 className="about-why-heading">
+                Engineering discipline over speculative hype.
+              </h2>
+
+              <p className="about-why-text">
+                The market is filled with generic AI chatbots and flashy demos that look impressive on the surface, but struggle the moment they encounter real-world exceptions, messy inputs, or complex business logic.
+              </p>
+
+              <p className="about-why-text">
+                We take an engineering-first approach. We map your actual operational pathways, test prototypes in safe staging environments using real scenarios, and run parallel verifications alongside your team before cutover.
+              </p>
+
+              <div className="about-why-checklist">
+                <div className="why-check-item">
+                  <div className="check-box">
+                    <Check size={14} />
+                  </div>
+                  <div>
+                    <h4 className="check-title">Clear Business Outcomes</h4>
+                    <p className="check-desc">We identify clear operational metrics before writing code—measuring time saved and error reductions.</p>
+                  </div>
+                </div>
+
+                <div className="why-check-item">
+                  <div className="check-box">
+                    <Check size={14} />
+                  </div>
+                  <div>
+                    <h4 className="check-title">Direct Engineering Access</h4>
+                    <p className="check-desc">You collaborate directly with engineers who understand system architecture and operational workflows.</p>
+                  </div>
+                </div>
+
+                <div className="why-check-item">
+                  <div className="check-box">
+                    <Check size={14} />
+                  </div>
+                  <div>
+                    <h4 className="check-title">Full Training &amp; Enablement</h4>
+                    <p className="check-desc">We ensure your staff are fully trained and comfortable overseeing the new systems from day one.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Global Operational Delivery */}
-      <section className="section about-global-section">
+      {/* ----------------------------------------------------------------------
+          5. HOW WE APPROACH OUR WORK: Guiding Principles
+          ---------------------------------------------------------------------- */}
+      <section className="about-principles-section" aria-label="Our Guiding Principles">
         <div className="container">
-          <div className="global-reach-box">
-            <div className="global-reach-text">
-              <div className="global-reach-header">
-                <Globe size={22} color="#83DDE2" />
-                <h3>Global Operational Delivery</h3>
+          <div className="about-section-header reveal-on-scroll">
+            <span className="about-section-kicker">OUR APPROACH</span>
+            <h2 className="about-section-title">
+              Four principles that guide every solution we engineer.
+            </h2>
+            <p className="about-section-desc">
+              How we evaluate every engagement, architect system integrations, and protect client interests.
+            </p>
+          </div>
+
+          <div className="principles-editorial-grid">
+            {GUIDING_PRINCIPLES.map((gp, idx) => (
+              <div key={gp.num} className={`principle-editorial-item reveal-on-scroll reveal-delay-${idx + 1}`}>
+                <span className="gp-num">{gp.num}</span>
+                <h3 className="gp-title">{gp.title}</h3>
+                <p className="gp-desc">{gp.desc}</p>
               </div>
-              <p>
-                Hutomate partners with forward-thinking organizations across international markets, aligning with regional compliance standards, timezones, and communication cadences.
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ----------------------------------------------------------------------
+          6. GLOBAL ENGAGEMENT: International Delivery
+          ---------------------------------------------------------------------- */}
+      <section className="about-global-section" aria-label="Global Client Reach">
+        <div className="container">
+          <div className="about-global-card reveal-on-scroll">
+            <div className="global-card-header">
+              <div className="global-icon-badge">
+                <Globe size={22} />
+              </div>
+              <h3 className="global-title">Supporting forward-thinking businesses worldwide</h3>
+              <p className="global-lead">
+                Hutomate works with clients across the United States, United Kingdom, Australia, and internationally. We align with your timezones, compliance standards, and communication cadence.
               </p>
             </div>
 
-            <div className="regions-tags">
-              <span className="region-tag">United States</span>
-              <span className="region-tag">United Kingdom</span>
-              <span className="region-tag">Australia</span>
-              <span className="region-tag">Singapore</span>
-              <span className="region-tag">Worldwide Remote</span>
+            <div className="global-regions-strip">
+              <span className="region-chip">United States</span>
+              <span className="region-chip">United Kingdom</span>
+              <span className="region-chip">Australia</span>
+              <span className="region-chip">Canada</span>
+              <span className="region-chip">Worldwide Remote</span>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ----------------------------------------------------------------------
+          7. CLOSING CTA BANNER
+          ---------------------------------------------------------------------- */}
       <CtaBanner
-        title="Ready to build practical automation for your team?"
-        description="Let’s have an honest discussion about your current operational challenges and how tailored AI architectures can solve them."
+        title="Ready to make your operations work smarter?"
+        description="Let's discuss where repetitive work is slowing your team down and explore how practical AI automation can help."
         buttonText="Discuss Your Project"
         buttonHref="/contact"
-        secondaryButtonText="Explore How We Work"
+        secondaryButtonText="Explore Delivery Process"
         secondaryButtonHref="/process"
       />
     </div>

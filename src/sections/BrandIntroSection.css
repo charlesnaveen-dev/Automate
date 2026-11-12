@@ -1,33 +1,100 @@
 /* =============================================================================
    BrandIntroSection Styles — Section 02 (Our Philosophy)
    - Deep Ocean (#0B3038) & Midnight Navy (#071923) Dark Architectural Canvas
-   - Progressive typography reveal via GSAP
-   - Ruled horizontal manifesto layout (replacing repetitive 3-box cards)
-   - High-contrast pure white inks and Electric Cyan (#83DDE2) accents
+   - Scroll-driven progressive statement reveal inspired by reference
+   - Subtle interactive interconnected systems canvas (nodes, lines & pulses)
+   - Electric Cyan (#83DDE2) & Deep Teal (#167C80) brand accents
+   - Seamless transition into the Ruled Architectural Manifesto (03 Foundations)
    ============================================================================= */
 
 .brand-intro-section {
   position: relative;
   width: 100%;
-  background: radial-gradient(circle at 50% 10%, rgba(11, 48, 56, 0.95) 0%, rgba(7, 25, 35, 1) 85%);
-  padding: clamp(96px, 11vw, 150px) 0 clamp(80px, 9vw, 120px);
+  background-color: var(--color-midnight-navy, #071923);
   box-sizing: border-box;
-  overflow: hidden;
-  border-top: 1px solid rgba(226, 234, 236, 0.1);
-  border-bottom: 1px solid rgba(226, 234, 236, 0.1);
+  overflow: clip;
 }
 
-.brand-intro-editorial {
-  max-width: 880px;
-  margin: 0 auto clamp(60px, 7vw, 90px);
+/* =============================================================================
+   PART 1: SCROLL-DRIVEN STATEMENT STAGE
+   ============================================================================= */
+.brand-statement-scroll-stage {
+  position: relative;
+  width: 100%;
+}
+
+.brand-statement-pin-box {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  min-height: calc(100dvh - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(60px, 8vh, 100px) 0 clamp(40px, 6vh, 80px);
+  box-sizing: border-box;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 40%, rgba(11, 48, 56, 0.95) 0%, rgba(7, 25, 35, 1) 85%);
+}
+
+/* Canvas & Ambient Glow Backdrop */
+.brand-intro-canvas-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.interconnected-systems-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.brand-intro-bloom-overlay {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(340px, 65vw, 840px);
+  height: clamp(340px, 65vw, 620px);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(131, 221, 226, 0.08) 0%,
+    rgba(22, 124, 128, 0.05) 40%,
+    transparent 72%
+  );
+  filter: blur(48px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Statement Content Container */
+.brand-statement-container {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  margin: 0 auto;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 clamp(20px, 4vw, 40px);
+  box-sizing: border-box;
 }
 
 /* Monospace Badge */
-.intro-badge {
+.statement-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -35,7 +102,9 @@
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(226, 234, 236, 0.15);
   border-radius: var(--radius-full, 9999px);
-  margin-bottom: clamp(20px, 2.8vh, 28px);
+  margin-bottom: clamp(24px, 3vh, 32px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .intro-badge-dot {
@@ -43,7 +112,7 @@
   height: 6px;
   border-radius: 50%;
   background-color: var(--color-accent-cyan, #83DDE2);
-  box-shadow: 0 0 8px rgba(131, 221, 226, 0.8);
+  box-shadow: 0 0 10px rgba(131, 221, 226, 0.85);
 }
 
 .intro-badge-text {
@@ -55,57 +124,108 @@
   text-transform: uppercase;
 }
 
-/* Headline with Editorial Highlight */
-.brand-intro-section .intro-headline {
+/* Display Headline */
+.statement-display-headline {
   font-family: var(--font-family-headings, 'Manrope', sans-serif);
-  font-size: clamp(2.4rem, 4.5vw, 3.85rem);
+  font-size: clamp(2.35rem, 4.6vw, 3.85rem);
   font-weight: 800;
-  line-height: 1.12;
+  line-height: 1.14;
   letter-spacing: -0.035em;
-  color: #FFFFFF !important;
-  margin: 0 0 clamp(20px, 2.5vh, 28px);
+  color: #FFFFFF;
+  margin: 0 0 clamp(24px, 3vh, 36px);
   text-wrap: balance;
+  max-width: 880px;
 }
 
-.intro-headline-highlight {
-  color: #FFFFFF;
+.statement-phrase {
+  display: block;
+  transition: opacity 200ms ease;
+}
+
+.statement-cyan-accent {
   position: relative;
   display: inline-block;
+  color: var(--color-electric-cyan, #83DDE2);
+  transition: color 250ms ease, text-shadow 250ms ease;
 }
 
-.intro-headline-highlight::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: 0;
-  right: 0;
+.statement-cyan-accent-line {
+  display: block;
   height: 3px;
-  background-color: var(--color-accent-cyan, #83DDE2);
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(131, 221, 226, 0.2) 0%,
+    rgba(131, 221, 226, 1) 45%,
+    rgba(22, 124, 128, 0.9) 100%
+  );
   border-radius: 2px;
-  box-shadow: 0 0 10px rgba(131, 221, 226, 0.5);
+  margin-top: 4px;
+  box-shadow: 0 0 14px rgba(131, 221, 226, 0.6);
+  transform-origin: left center;
 }
 
-/* Body Copy */
-.brand-intro-section .intro-body {
+/* Narrative Body */
+.statement-narrative-block {
+  max-width: 820px;
+  margin: 0 auto clamp(28px, 3.6vh, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.statement-narrative-block .statement-phrase {
   font-family: var(--font-family-body, 'Inter', sans-serif);
-  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+  font-size: clamp(1.05rem, 1.25vw, 1.22rem);
   line-height: 1.65;
-  color: var(--color-mist-grey, #E2EAEC) !important;
-  max-width: 740px;
-  margin: 0 0 clamp(32px, 4vh, 44px);
+  color: var(--color-mist-grey, #E2EAEC);
+  margin: 0;
   text-wrap: pretty;
 }
 
-/* CTA Wrap */
-.intro-cta-wrap {
+.brand-term-accent {
+  color: var(--color-electric-cyan, #83DDE2);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: color 250ms ease, text-shadow 250ms ease;
+}
+
+/* Action Buttons Row */
+.statement-actions-row {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
+  transition: opacity 250ms ease;
 }
 
-/* Ruled Architectural Manifesto */
+/* Default state: full visibility for No-JS & SSR fallbacks */
+.phrase-1,
+.phrase-2,
+.phrase-3,
+.phrase-4,
+.phrase-5 {
+  opacity: 1;
+}
+
+/* =============================================================================
+   PART 2: RULED ARCHITECTURAL MANIFESTO (03 FOUNDATIONS)
+   ============================================================================= */
+.brand-manifesto-stage {
+  position: relative;
+  z-index: 2;
+  padding: clamp(64px, 8vw, 110px) 0 clamp(80px, 9vw, 130px);
+  background: linear-gradient(
+    180deg,
+    rgba(7, 25, 35, 1) 0%,
+    rgba(11, 48, 56, 0.7) 40%,
+    rgba(7, 25, 35, 1) 100%
+  );
+  border-top: 1px solid rgba(226, 234, 236, 0.08);
+  border-bottom: 1px solid rgba(226, 234, 236, 0.08);
+}
+
 .intro-pillars-manifesto {
   width: 100%;
   max-width: 1060px;
@@ -222,15 +342,66 @@
   transform: scale(1.4);
 }
 
+/* =============================================================================
+   RESPONSIVENESS & PREFERS-REDUCED-MOTION
+   ============================================================================= */
 @media (max-width: 768px) {
+  .brand-statement-pin-box {
+    min-height: calc(100vh - 64px);
+    padding: 40px 0;
+  }
+
+  .statement-display-headline {
+    font-size: clamp(1.85rem, 7vw, 2.5rem);
+    margin-bottom: 20px;
+  }
+
+  .statement-narrative-block {
+    margin-bottom: 28px;
+  }
+
   .pillar-architectural-row {
     grid-template-columns: 50px 1fr;
     padding: 28px 8px;
   }
+
   .pillar-action-cell {
     display: none;
   }
+
   .pillar-num-cell {
     font-size: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phrase-1,
+  .phrase-2,
+  .phrase-3,
+  .phrase-4,
+  .phrase-5,
+  .statement-cyan-accent,
+  .brand-term-accent {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .statement-cyan-accent {
+    color: var(--color-electric-cyan, #83DDE2) !important;
+  }
+
+  .brand-term-accent {
+    color: var(--color-electric-cyan, #83DDE2) !important;
+  }
+
+  .statement-cyan-accent-line {
+    transform: none !important;
+    scale: 1 !important;
+  }
+
+  .statement-actions-row {
+    pointer-events: auto !important;
+    opacity: 1 !important;
   }
 }

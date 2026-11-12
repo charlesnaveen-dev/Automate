@@ -1,247 +1,406 @@
-import React, { useState, useEffect } from 'react';
-import { Clock, FileText, CheckCircle2, ShieldCheck, ArrowRight, GitBranch } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import {
+  Clock,
+  FileText,
+  ShieldCheck,
+  CheckCircle2,
+  GitBranch,
+  Compass,
+  Hammer,
+  Rocket,
+  TrendingUp,
+  Search,
+} from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 import CtaBanner from '../components/CtaBanner';
 import './ProcessPage.css';
 
+const PROCESS_STAGES = [
+  {
+    num: '01',
+    phase: 'Discover',
+    tagline: 'Operational Audit & Feasibility',
+    narrative:
+      'We map your existing manual workflows, pinpoint specific operational bottlenecks, inspect tool integrations, and evaluate data hygiene to determine exact automation feasibility.',
+    deliverables:
+      'Process workflow diagram, technical feasibility scorecard, data schema audit, and prioritized backlog.',
+    timeCommitment:
+      '2 to 3 hours of interviews with team leads and frontline operators.',
+    checkpoint:
+      'Documented data schema access, explicit success metrics, and sign-off on target ROI.',
+    icon: Search,
+  },
+  {
+    num: '02',
+    phase: 'Architect',
+    tagline: 'System Architecture & Technical Design',
+    narrative:
+      'We architect the end-to-end technical system: specifying API endpoints, webhook schemas, model routing strategies, data sanitization rules, and human-in-the-loop checkpoints.',
+    deliverables:
+      'Formal technical specification document, system architecture blueprint, and data security review.',
+    timeCommitment:
+      '1 collaborative architecture review and scope sign-off session.',
+    checkpoint:
+      'API security approval, encryption protocol validation, and executive stakeholder sign-off.',
+    icon: Compass,
+  },
+  {
+    num: '03',
+    phase: 'Build',
+    tagline: 'Production Engineering & Sandbox Prototyping',
+    narrative:
+      'We build and benchmark functional prototypes in an isolated staging environment using sanitized sample data, then construct production code with exponential retries and schema validation.',
+    deliverables:
+      'Production codebase, encrypted credential handling, operational dashboards, and end-to-end test suites.',
+    timeCommitment:
+      'Hands-on review and feedback session on prototype performance.',
+    checkpoint:
+      'Concordance validation against historical operational datasets and verified edge cases.',
+    icon: Hammer,
+  },
+  {
+    num: '04',
+    phase: 'Deploy',
+    tagline: 'Parallel Verification & Controlled Cutover',
+    narrative:
+      'We run the automation in parallel with your human staff, validating edge-case outcomes, tuning confidence thresholds, and training operators on oversight procedures before live cutover.',
+    deliverables:
+      'Standard Operating Procedures (SOP), staff training sessions, and formal UAT sign-off.',
+    timeCommitment:
+      '1 to 2 weeks of parallel verification by designated internal operators.',
+    checkpoint:
+      'Resolution of all critical edge cases and full staff sign-off on escalation protocols.',
+    icon: Rocket,
+  },
+  {
+    num: '05',
+    phase: 'Optimize',
+    tagline: 'Continuous Telemetry & SLA Governance',
+    narrative:
+      'We manage the live cutover with continuous telemetry. We monitor system latency, model drift, API status, and provide ongoing prompt, connector, and schema maintenance.',
+    deliverables:
+      'Live telemetry monitoring, monthly operational health summaries, and SLA-backed support.',
+    timeCommitment:
+      'Bi-weekly or monthly operational check-ins.',
+    checkpoint:
+      'Active uptime alerting, automated failovers, and regular model drift recalibration.',
+    icon: TrendingUp,
+  },
+];
+
 export default function ProcessPage() {
   usePageMetadata({
-    title: 'Engineering Process — Disciplined 5-Stage Implementation Framework',
-    description: 'Our disciplined, step-by-step engineering delivery process ensures technical feasibility, system reliability, and clear human oversight before deployment.',
+    title: 'Process — Disciplined 5-Stage Implementation Framework | Hutomate',
+    description:
+      'How Hutomate takes businesses from operational challenges to working solutions: Discover, Architect, Build, Deploy, and Optimize with complete transparency and human oversight.',
     path: '/process',
   });
 
-  const [activeStep, setActiveStep] = useState('01');
+  const [activeStageNum, setActiveStageNum] = useState('01');
+  const stagesContainerRef = useRef(null);
 
   useScrollReveal();
 
-  const steps = [
-    {
-      num: '01',
-      phase: 'Discover',
-      title: 'Operational Audit & Technical Feasibility',
-      desc: 'We map your existing manual workflows, pinpoint specific operational bottlenecks, inspect tool integrations, and evaluate data hygiene to determine exact automation feasibility.',
-      deliverables: 'Process workflow diagram, technical feasibility scorecard, data schema audit, and prioritized backlog.',
-      timeCommitment: '2 to 3 hours of interviews with team leads and frontline operators.',
-      gateCriteria: 'Documented data schema access, explicit success metrics, and sign-off on target ROI.',
-    },
-    {
-      num: '02',
-      phase: 'Architect',
-      title: 'Technical Architecture & Solution Design',
-      desc: 'We architect the end-to-end technical system: specifying API endpoints, webhook schemas, model routing strategies, data sanitization rules, and human-in-the-loop checkpoints.',
-      deliverables: 'Formal technical specification document, system architecture blueprint, and data security review.',
-      timeCommitment: '1 collaborative architecture review and scope sign-off session.',
-      gateCriteria: 'API security approval, encryption protocol validation, and executive stakeholder sign-off.',
-    },
-    {
-      num: '03',
-      phase: 'Sandbox',
-      title: 'Production Engineering & Sandbox Prototyping',
-      desc: 'We build and benchmark functional prototypes in an isolated staging environment using sanitized sample data, then construct production code with exponential retries and schema validation.',
-      deliverables: 'Production codebase, encrypted credential handling, operational dashboards, and end-to-end test suites.',
-      timeCommitment: 'Hands-on review and feedback session on prototype performance.',
-      gateCriteria: '>99.2% benchmark accuracy against gold-standard manual operational datasets.',
-    },
-    {
-      num: '04',
-      phase: 'Pilot',
-      title: 'Parallel Verification & Controlled Cutover',
-      desc: 'We run the automation in parallel with your human staff, validating edge-case outcomes, tuning confidence thresholds, and training operators on oversight procedures before live cutover.',
-      deliverables: 'Standard Operating Procedures (SOP), staff training sessions, and formal UAT sign-off.',
-      timeCommitment: '1 to 2 weeks of parallel verification by designated internal operators.',
-      gateCriteria: 'Zero unresolved Sev-1 edge cases and 100% staff certification on escalation protocols.',
-    },
-    {
-      num: '05',
-      phase: 'Observe',
-      title: 'Continuous Telemetry & SLA Governance',
-      desc: 'We manage the live cutover with continuous telemetry. We monitor system latency, model drift, API status, and provide ongoing prompt, connector, and schema maintenance.',
-      deliverables: 'Live telemetry monitoring, monthly operational health summaries, and SLA-backed support.',
-      timeCommitment: 'Bi-weekly or monthly operational check-ins.',
-      gateCriteria: 'Active uptime alerting, automated failovers, and regular model drift recalibration.',
-    },
-  ];
-
-  // Scroll-triggered phase reveal and active tracking
+  // Synchronized scroll tracking (Preserving Batch 2 requirements)
+  // Animation starts when section enters viewport, advances smoothly based on scroll,
+  // gives sufficient reading time, avoids sudden jumps, and preserves native mobile scrolling.
   useEffect(() => {
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const stepNum = entry.target.getAttribute('data-step');
-          if (stepNum) setActiveStep(stepNum);
+    const handleScroll = () => {
+      const stageElements = document.querySelectorAll('.proc-stage-chapter');
+      if (!stageElements.length) return;
+
+      const viewportHeight = window.innerHeight;
+      const triggerLine = viewportHeight * 0.42;
+
+      let current = '01';
+
+      stageElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= triggerLine) {
+          const num = el.getAttribute('data-stage');
+          if (num) current = num;
         }
       });
+
+      setActiveStageNum(current);
     };
 
-    const observer = new IntersectionObserver(observerCallback, {
-      rootMargin: '-20% 0px -40% 0px',
-      threshold: 0.2,
-    });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
-    const elements = document.querySelectorAll('.process-step-row');
-    elements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const activeIdx = steps.findIndex((s) => s.num === activeStep);
-  const progressHeightPercent = ((activeIdx + 1) / steps.length) * 100;
+  const scrollToStage = (stageNum) => {
+    setActiveStageNum(stageNum);
+    const target = document.getElementById(`process-stage-${stageNum}`);
+    if (target) {
+      const navOffset = 90;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const activeIndex = PROCESS_STAGES.findIndex((s) => s.num === activeStageNum);
+  const railProgressPercent = ((activeIndex + 1) / PROCESS_STAGES.length) * 100;
 
   return (
-    <div className="process-page">
-      <PageHeader
-        eyebrow="ENGINEERING PROCESS"
-        badgeText="Disciplined Delivery"
-        badgeType="teal"
-        title="From business challenge to intelligent execution."
-        description="We do not believe in speculative AI demos or rushed deployments. We follow a proven five-stage implementation framework that guarantees architectural integrity, operational fit, and clear human oversight before any production cutover."
-      >
-        <Button variant="primary" size="md" arrow href="/contact">
-          Discuss Your Project
-        </Button>
-        <Button variant="secondary" size="md" href="/capabilities">
-          Explore Capabilities
-        </Button>
-      </PageHeader>
+    <div className="process-page-view">
+      {/* ----------------------------------------------------------------------
+          1. EDITORIAL PROCESS HERO
+          Communicates moving from operational challenge to working solution
+          ---------------------------------------------------------------------- */}
+      <section className="proc-hero-section" aria-label="Process Introduction">
+        <div className="proc-hero-ambient" aria-hidden="true" />
 
-      {/* Engineering Principles Ribbon */}
-      <section className="process-ribbon-section">
-        <div className="container">
-          <div className="process-metrics-ribbon">
-            <div className="process-ribbon-item">
-              <span className="ribbon-val">100%</span>
-              <span className="ribbon-lbl">Deterministic Milestones</span>
+        <div className="container proc-hero-container">
+          <div className="proc-hero-content reveal-on-scroll">
+            <div className="proc-eyebrow-pill">
+              <span className="proc-eyebrow-dot" />
+              <span className="proc-eyebrow-text">DELIVERY FRAMEWORK</span>
             </div>
-            <div className="process-ribbon-divider" />
-            <div className="process-ribbon-item">
-              <span className="ribbon-val">0</span>
-              <span className="ribbon-lbl">Cutover Production Downtime</span>
+
+            <h1 className="proc-hero-title">
+              From an operational challenge to a{' '}
+              <span className="proc-title-accent">working solution.</span>
+            </h1>
+
+            <p className="proc-hero-lead">
+              We do not believe in speculative demos or rushed cutovers. Every Hutomate deployment follows a disciplined five-stage engineering framework that guarantees architectural integrity, data security, and clear human oversight before any production launch.
+            </p>
+
+            <div className="proc-hero-actions">
+              <Button variant="primary" size="md" arrow href="/contact">
+                Discuss Your Project
+              </Button>
+              <Button variant="secondary" size="md" href="/capabilities">
+                Explore Capabilities
+              </Button>
             </div>
-            <div className="process-ribbon-divider" />
-            <div className="process-ribbon-item">
-              <span className="ribbon-val">Human-in-Loop</span>
-              <span className="ribbon-lbl">Escalation & Safety Gates</span>
-            </div>
-            <div className="process-ribbon-divider" />
-            <div className="process-ribbon-item">
-              <span className="ribbon-val">2–4 Wks</span>
-              <span className="ribbon-lbl">Typical Prototype Sprint</span>
-            </div>
+          </div>
+
+          {/* Connected 5-Stage Milestone Strip */}
+          <div className="proc-milestones-bar reveal-on-scroll reveal-delay-2" aria-label="Process Stages Summary">
+            {PROCESS_STAGES.map((st, idx) => {
+              const isActive = activeStageNum === st.num;
+              return (
+                <button
+                  key={st.num}
+                  type="button"
+                  className={`proc-milestone-pill ${isActive ? 'is-active' : ''}`}
+                  onClick={() => scrollToStage(st.num)}
+                >
+                  <span className="milestone-num">{st.num}</span>
+                  <span className="milestone-name">{st.phase}</span>
+                  {idx < PROCESS_STAGES.length - 1 && (
+                    <span className="milestone-arrow" aria-hidden="true">→</span>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Main Process Timeline */}
-      <section className="section process-main-section">
-        <div className="container">
-          <div className="process-timeline-layout">
-            {/* Left animated progress line track on desktop */}
-            <div className="process-progress-rail" aria-hidden="true">
-              <div className="rail-background-line"></div>
-              <div
-                className="rail-active-line"
-                style={{ height: `${progressHeightPercent}%` }}
-              ></div>
-            </div>
+      {/* ----------------------------------------------------------------------
+          2. FIVE-STAGE EDITORIAL STORYTELLING PRESENTATION
+          Split layout: Sticky stage navigator on desktop + expansive chapters
+          ---------------------------------------------------------------------- */}
+      <section className="proc-stages-section" ref={stagesContainerRef} aria-label="Five Implementation Stages">
+        <div className="container proc-stages-container">
+          <div className="proc-stages-layout">
+            {/* Left Sticky Progress Rail (Desktop) */}
+            <aside className="proc-sticky-sidebar" aria-label="Stages Navigation">
+              <div className="proc-sticky-card">
+                <div className="proc-sticky-header">
+                  <span className="proc-sticky-eyebrow">ROADMAP</span>
+                  <h3 className="proc-sticky-title">5 Delivery Stages</h3>
+                </div>
 
-            {/* Steps Column */}
-            <div className="process-timeline">
-              {steps.map((st) => {
-                const isActive = activeStep === st.num;
+                <div className="proc-sticky-track">
+                  {/* Vertical Progress Line */}
+                  <div className="proc-track-line-bg" />
+                  <div
+                    className="proc-track-line-fill"
+                    style={{ height: `${railProgressPercent}%` }}
+                  />
+
+                  {/* Stage Jump Links */}
+                  <nav className="proc-sticky-nav">
+                    {PROCESS_STAGES.map((st) => {
+                      const isActive = activeStageNum === st.num;
+                      return (
+                        <button
+                          key={st.num}
+                          type="button"
+                          className={`proc-nav-item ${isActive ? 'is-active' : ''}`}
+                          onClick={() => scrollToStage(st.num)}
+                        >
+                          <span className="proc-nav-bullet" />
+                          <div className="proc-nav-text">
+                            <span className="proc-nav-phase">{st.num} — {st.phase}</span>
+                            <span className="proc-nav-sub">{st.tagline.split('&')[0].trim()}</span>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </nav>
+                </div>
+
+                <div className="proc-sticky-footer">
+                  <div className="proc-status-dot" />
+                  <span>Staged Cutover Protocol</span>
+                </div>
+              </div>
+            </aside>
+
+            {/* Right Main Chapters Column */}
+            <main className="proc-chapters-col">
+              {PROCESS_STAGES.map((st, idx) => {
+                const isActive = activeStageNum === st.num;
+                const IconComponent = st.icon;
+
                 return (
                   <article
                     key={st.num}
-                    id={`stage-${st.num}`}
-                    data-step={st.num}
-                    className={`process-step-row ${isActive ? 'is-active-phase' : ''}`}
-                    onClick={() => setActiveStep(st.num)}
+                    id={`process-stage-${st.num}`}
+                    data-stage={st.num}
+                    className={`proc-stage-chapter ${isActive ? 'is-active' : ''}`}
                   >
-                    <div className="step-num-col">
-                      <span className="step-num-big">{st.num}</span>
-                      <span className="step-phase-tag">{st.phase}</span>
+                    {/* Chapter Header */}
+                    <div className="chapter-header-row">
+                      <div className="chapter-meta">
+                        <span className="chapter-num">{st.num}</span>
+                        <div className="chapter-phase-badge">
+                          <IconComponent size={14} className="chapter-phase-icon" />
+                          <span>Phase {st.num} // {st.phase}</span>
+                        </div>
+                      </div>
+
                       {isActive && (
-                        <span className="step-active-indicator">
-                          <span className="step-active-dot"></span>
-                          <span>In Focus</span>
-                        </span>
+                        <div className="chapter-live-indicator">
+                          <span className="live-pulse-dot" />
+                          <span>Current Focus</span>
+                        </div>
                       )}
                     </div>
 
-                    <div className="step-main-col">
-                      <div className="step-header-wrap">
-                        <span className="step-stage-pill">Phase {st.num}</span>
-                        <h3 className="step-title">{st.title}</h3>
-                      </div>
-                      <p className="step-desc">{st.desc}</p>
+                    <h2 className="chapter-title">{st.tagline}</h2>
 
-                      <div className="step-gate-card">
-                        <div className="gate-header">
-                          <ShieldCheck size={15} color="#167C80" />
-                          <span className="gate-label">Stage Gate Criteria</span>
+                    <p className="chapter-narrative">{st.narrative}</p>
+
+                    {/* Integrated Information Panel (Clean editorial layout, no separate clunky boxes) */}
+                    <div className="chapter-info-panel">
+                      <div className="chapter-info-grid">
+                        {/* Key Deliverables (Priority Retained) */}
+                        <div className="chapter-deliverables-block">
+                          <div className="info-block-label">
+                            <FileText size={15} className="info-label-icon" />
+                            <span>Key Deliverables</span>
+                          </div>
+                          <p className="info-block-text">{st.deliverables}</p>
                         </div>
-                        <p className="gate-text">{st.gateCriteria}</p>
+
+                        {/* Client Time Required (Concise supporting info) */}
+                        <div className="chapter-time-block">
+                          <div className="info-block-label">
+                            <Clock size={15} className="info-label-icon info-label-icon--slate" />
+                            <span>Client Time Required</span>
+                          </div>
+                          <p className="info-block-text info-block-text--time">{st.timeCommitment}</p>
+                        </div>
+                      </div>
+
+                      {/* Milestone Checkpoint (Natural integration of stage gate) */}
+                      <div className="chapter-checkpoint-row">
+                        <div className="checkpoint-badge">
+                          <ShieldCheck size={14} className="checkpoint-icon" />
+                          <span className="checkpoint-title">Stage Gate Milestone:</span>
+                        </div>
+                        <span className="checkpoint-desc">{st.checkpoint}</span>
                       </div>
                     </div>
 
-                    <div className="step-details-col">
-                      <div className="step-info-block">
-                        <span className="info-label">
-                          <FileText size={14} color="#167C80" />
-                          Key Deliverables
-                        </span>
-                        <p className="info-val">{st.deliverables}</p>
+                    {/* Subtle connector to next stage */}
+                    {idx < PROCESS_STAGES.length - 1 && (
+                      <div className="chapter-connector" aria-hidden="true">
+                        <div className="connector-dot" />
+                        <div className="connector-line" />
                       </div>
-
-                      <div className="step-info-block">
-                        <span className="info-label">
-                          <Clock size={14} color="#40545C" />
-                          Client Time Required
-                        </span>
-                        <p className="info-val">{st.timeCommitment}</p>
-                      </div>
-                    </div>
+                    )}
                   </article>
                 );
               })}
-            </div>
+            </main>
           </div>
         </div>
       </section>
 
-      {/* Governance & Assurance Banner */}
-      <section className="section process-assurance-section">
+      {/* ----------------------------------------------------------------------
+          3. GOVERNANCE & ENGINEERING TRANSPARENCY
+          ---------------------------------------------------------------------- */}
+      <section className="proc-assurance-section" aria-label="Engineering Standards">
         <div className="container">
-          <div className="process-assurance-card">
-            <div className="assurance-badge">
-              <CheckCircle2 size={16} />
-              <span>GUARANTEED QUALITY ASSURANCE</span>
+          <div className="proc-assurance-card reveal-on-scroll">
+            <div className="assurance-header">
+              <div className="assurance-badge">
+                <CheckCircle2 size={15} />
+                <span>QUALITY &amp; GOVERNANCE</span>
+              </div>
+              <h2 className="assurance-heading">
+                Engineering transparency. <br className="assurance-br" />
+                Zero black-box lock-in.
+              </h2>
+              <p className="assurance-lead">
+                Every system we build is designed for enterprise stability, client sovereignty, and operational independence.
+              </p>
             </div>
-            <h2 className="assurance-title">No black-box code. Total engineering transparency.</h2>
-            <p className="assurance-desc">
-              Every Hutomate deployment includes complete documentation, standard operating procedures, full code ownership, and thorough training for your operational teams.
-            </p>
-            <div className="assurance-grid">
-              <div className="assurance-pill">
-                <GitBranch size={16} color="#83DDE2" />
-                <span>Client Repository Ownership</span>
+
+            <div className="assurance-cards-grid">
+              <div className="assurance-item-card">
+                <div className="assurance-icon-box">
+                  <GitBranch size={20} />
+                </div>
+                <h3 className="assurance-item-title">Client Repository Ownership</h3>
+                <p className="assurance-item-desc">
+                  You maintain 100% intellectual property ownership of your codebase, automation workflows, connector schemas, and operational dashboards.
+                </p>
               </div>
-              <div className="assurance-pill">
-                <ShieldCheck size={16} color="#83DDE2" />
-                <span>Zero Training on Your Data</span>
+
+              <div className="assurance-item-card">
+                <div className="assurance-icon-box">
+                  <ShieldCheck size={20} />
+                </div>
+                <h3 className="assurance-item-title">Zero Public Model Training</h3>
+                <p className="assurance-item-desc">
+                  Your business data and customer interactions are never used to train public foundation models. We enforce strict zero-data-retention API policies.
+                </p>
               </div>
-              <div className="assurance-pill">
-                <CheckCircle2 size={16} color="#83DDE2" />
-                <span>Production SLA Support</span>
+
+              <div className="assurance-item-card">
+                <div className="assurance-icon-box">
+                  <CheckCircle2 size={20} />
+                </div>
+                <h3 className="assurance-item-title">Production SLA &amp; Support</h3>
+                <p className="assurance-item-desc">
+                  Continuous telemetry monitoring, model drift recalibration, and guaranteed response SLAs keep your production workflows running reliably.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ----------------------------------------------------------------------
+          4. CLOSING CTA BANNER
+          ---------------------------------------------------------------------- */}
       <CtaBanner
         title="Ready to begin with Discovery?"
         description="Our initial operational audit evaluates your processes, data structures, and tool compatibility to confirm feasibility before any commitment."

@@ -1,0 +1,464 @@
+/* =============================================================================
+   HowItWorksTogether Styles — Hutomate Capabilities
+   - Flowing curved animated SVG path with 4 integrated stages:
+     01 Capture -> 02 Automate -> 03 Execute -> 04 Grow
+   - Brand colours: Deep Navy (#071923 / #0B2029), Teal (#167C80 / #087F83),
+     Cool Off-white (#F3F7F7), Electric Cyan (#83DDE2)
+   - Responsive: Fluid S-curve on desktop, elegant vertical flow on mobile
+   ============================================================================= */
+
+.how-it-works-section {
+  position: relative;
+  width: 100%;
+  padding: clamp(90px, 10vw, 130px) 0;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  overflow: hidden;
+  border-top: 1px solid var(--color-mist-grey, #E2EAEC);
+}
+
+.how-bg-glow {
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(22, 124, 128, 0.08) 0%, rgba(131, 221, 226, 0.03) 50%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(50px);
+}
+
+/* -----------------------------------------------------------------------------
+   1. Split Layout
+   ----------------------------------------------------------------------------- */
+.how-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+/* -----------------------------------------------------------------------------
+   2. Left Column: Typography & Interactive Tabs
+   ----------------------------------------------------------------------------- */
+.how-left-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.how-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background-color: var(--color-pure-white, #FFFFFF);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 9999px;
+  margin-bottom: 22px;
+  width: fit-content;
+  box-shadow: 0 2px 6px rgba(7, 25, 35, 0.03);
+}
+
+.how-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-deep-teal, #167C80);
+}
+
+.how-eyebrow-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-charcoal, #17252B);
+}
+
+.how-main-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(2.3rem, 3.8vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--color-midnight-navy, #071923);
+  margin: 0 0 20px 0;
+}
+
+.how-title-accent {
+  color: var(--color-deep-teal, #167C80);
+}
+
+.how-main-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.65;
+  color: var(--color-slate-grey, #40545C);
+  margin: 0 0 36px 0;
+}
+
+/* Interactive Tabs */
+.how-stages-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.how-stage-tab {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  background-color: var(--color-pure-white, #FFFFFF);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  width: 100%;
+}
+
+.how-stage-tab:hover {
+  border-color: rgba(22, 124, 128, 0.4);
+  transform: translateX(4px);
+}
+
+.how-stage-tab.is-active {
+  background-color: var(--color-pure-white, #FFFFFF);
+  border-color: var(--color-deep-teal, #167C80);
+  box-shadow: 0 8px 24px -6px rgba(22, 124, 128, 0.16);
+  transform: translateX(6px);
+}
+
+.how-tab-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.how-stage-tab.is-active .how-tab-indicator {
+  background-color: var(--color-deep-teal, #167C80);
+  border-color: var(--color-deep-teal, #167C80);
+}
+
+.how-tab-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  font-weight: 750;
+  color: var(--color-charcoal, #17252B);
+  transition: color 0.25s ease;
+}
+
+.how-stage-tab.is-active .how-tab-num {
+  color: #FFFFFF;
+}
+
+.how-tab-text-wrap {
+  flex-grow: 1;
+}
+
+.how-tab-heading-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.how-tab-name {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-midnight-navy, #071923);
+  letter-spacing: -0.01em;
+}
+
+.how-stage-tab.is-active .how-tab-name {
+  color: var(--color-deep-teal, #167C80);
+}
+
+.how-tab-subtitle {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-slate-grey, #40545C);
+}
+
+.how-tab-active-details {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--color-slate-grey, #40545C);
+  margin: 6px 0 0 0;
+  animation: howFadeIn 0.3s ease forwards;
+}
+
+@keyframes howFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.how-tab-chevron {
+  color: var(--color-slate-grey, #40545C);
+  opacity: 0.4;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.how-stage-tab.is-active .how-tab-chevron {
+  opacity: 1;
+  color: var(--color-deep-teal, #167C80);
+  transform: translateX(2px);
+}
+
+/* -----------------------------------------------------------------------------
+   3. Right Column: Flowing Curved Path Canvas & Anchored Nodes
+   ----------------------------------------------------------------------------- */
+.how-visual-canvas {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  height: 580px;
+  margin: 0 auto;
+  background-color: var(--color-pure-white, #FFFFFF);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 28px;
+  padding: 24px 28px;
+  box-shadow: 0 16px 40px -12px rgba(7, 25, 35, 0.06);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.how-flow-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Anchor Nodes on SVG */
+.svg-node-anchor {
+  transition: transform 0.3s ease;
+}
+
+.svg-node-anchor .svg-node-halo {
+  opacity: 0.4;
+  transition: all 0.35s ease;
+}
+
+.svg-node-anchor.is-active .svg-node-halo {
+  opacity: 1;
+  animation: haloPulse 2s infinite ease-in-out;
+}
+
+@keyframes haloPulse {
+  0%, 100% { r: 22px; fill: rgba(131, 221, 226, 0.25); }
+  50% { r: 30px; fill: rgba(22, 124, 128, 0.1); }
+}
+
+/* -----------------------------------------------------------------------------
+   4. Floating Stage Cards Positioned Naturally Along The Flow
+   ----------------------------------------------------------------------------- */
+.how-floating-nodes-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.how-stage-card {
+  position: absolute;
+  width: 260px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 6px 20px -4px rgba(7, 25, 35, 0.06);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.how-stage-card:focus-visible {
+  outline: 2px solid var(--color-deep-teal, #167C80);
+  outline-offset: 2px;
+}
+
+.how-stage-card:hover {
+  border-color: var(--color-deep-teal, #167C80);
+  box-shadow: 0 12px 28px -6px rgba(22, 124, 128, 0.18);
+  transform: translateY(-2px);
+}
+
+.how-stage-card.is-active {
+  background: #FFFFFF;
+  border-color: var(--color-deep-teal, #167C80);
+  box-shadow: 0 14px 34px -6px rgba(22, 124, 128, 0.24);
+  transform: translateY(-2px);
+  z-index: 10;
+}
+
+/* Non-overlapping coordinates matching the curved path flow */
+/* Stage 1 (Capture: Anchor at 95, 85) -> Card positioned to the right */
+.how-stage-card--1 {
+  top: 40px;
+  left: 140px;
+}
+
+/* Stage 2 (Automate: Anchor at 485, 195) -> Card positioned to the left */
+.how-stage-card--2 {
+  top: 170px;
+  left: 195px;
+}
+
+/* Stage 3 (Execute: Anchor at 115, 345) -> Card positioned to the right */
+.how-stage-card--3 {
+  top: 300px;
+  left: 145px;
+}
+
+/* Stage 4 (Grow: Anchor at 485, 465) -> Card positioned to the left */
+.how-stage-card--4 {
+  top: 430px;
+  left: 195px;
+}
+
+.how-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.how-card-icon-wrap {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background-color: rgba(22, 124, 128, 0.1);
+  color: var(--color-deep-teal, #167C80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.how-stage-card.is-active .how-card-icon-wrap {
+  background-color: var(--color-deep-teal, #167C80);
+  color: #FFFFFF;
+}
+
+.how-card-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 750;
+  color: var(--color-slate-grey, #40545C);
+}
+
+.how-stage-card.is-active .how-card-badge {
+  color: var(--color-deep-teal, #167C80);
+}
+
+.how-card-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: var(--color-midnight-navy, #071923);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.how-stage-card.is-active .how-card-title {
+  color: var(--color-deep-teal, #167C80);
+}
+
+.how-card-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--color-slate-grey, #40545C);
+  margin: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   5. Reduced Motion Preferences
+   ----------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .how-flow-svg circle animateMotion {
+    display: none;
+  }
+  .svg-node-anchor.is-active .svg-node-halo {
+    animation: none;
+  }
+  .how-stage-tab,
+  .how-stage-card {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   6. Responsive Layout
+   ----------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .how-split-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .how-visual-canvas {
+    max-width: 100%;
+    height: auto;
+    min-height: 520px;
+    padding: 24px 20px;
+  }
+
+  .how-flow-svg {
+    display: none; /* In mobile stack, replace with clean vertical connector rail */
+  }
+
+  .how-floating-nodes-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-left: 28px;
+    border-left: 2px dashed rgba(22, 124, 128, 0.35);
+  }
+
+  .how-stage-card {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100%;
+    transform: none !important;
+  }
+
+  .how-stage-card::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -35px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-deep-teal, #167C80);
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 0 0 2px var(--color-deep-teal, #167C80);
+  }
+}

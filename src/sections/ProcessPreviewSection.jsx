@@ -14,7 +14,7 @@ const PROCESS_PHASES = [
   },
   {
     num: '02',
-    name: 'Strategise',
+    name: 'Architect',
     tagline: 'System architecture & roadmap',
     desc: 'We define the technical architecture: model selection, webhook contracts, data sanitization rules, and human-in-the-loop review checkpoints.',
     deliverable: 'Technical Specification Blueprint & Security Review',
@@ -38,9 +38,9 @@ const PROCESS_PHASES = [
   },
   {
     num: '05',
-    name: 'Improve',
-    tagline: 'Ongoing tuning & optimization',
-    desc: 'We monitor production latency, refine confidence thresholds against real data, and continually extend capabilities as your business grows.',
+    name: 'Optimize',
+    tagline: 'Continuous telemetry & tuning',
+    desc: 'We monitor production telemetry, refine confidence thresholds against real operational data, and continually extend capabilities as your business grows.',
     deliverable: 'Performance Telemetry & Iterative Enhancements',
     icon: TrendingUp,
   },

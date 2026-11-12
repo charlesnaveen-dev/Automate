@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Clock, Globe, CheckCircle2, ShieldCheck, Send, Loader2, ArrowRight } from 'lucide-react';
+import { Mail, Clock, Globe, CheckCircle2, ShieldCheck, Loader2, ArrowRight } from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
@@ -122,9 +122,9 @@ export default function ContactPage() {
                   <Clock size={18} color="#167C80" />
                   <span className="contact-block-kicker">Response SLA</span>
                 </div>
-                <h3 className="contact-info-title">1 Business Day Guarantee</h3>
+                <h3 className="contact-info-title">1 Business Day Response</h3>
                 <p className="contact-info-desc">
-                  Every inquiry is evaluated directly by an automation engineer or director. No sales bots or multi-week qualification delays.
+                  Every inquiry is evaluated directly by our technical engineering team. We review your workflow and respond with clear next steps.
                 </p>
               </div>
 
@@ -176,7 +176,7 @@ export default function ContactPage() {
                     )}
                     <div className="success-summary-row">
                       <span className="summary-label">Next Step:</span>
-                      <span className="summary-val">Phase 1 Feasibility &amp; Architecture Audit</span>
+                      <span className="summary-val">Operational Feasibility &amp; Architecture Review</span>
                     </div>
                   </div>
 

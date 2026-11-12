@@ -1,94 +1,93 @@
 import React from 'react';
-import { ShieldCheck, Zap, Layers } from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import CtaBanner from '../components/CtaBanner';
-import CapabilitiesPageHero from '../components/CapabilitiesPageHero';
-import EditorialCapabilitiesShowcase from '../components/EditorialCapabilitiesShowcase';
+import CapabilitiesCardGrid from '../components/CapabilitiesCardGrid';
+import HowItWorksTogether from '../components/HowItWorksTogether';
+import DesignedAroundBusiness from '../components/DesignedAroundBusiness';
+import CapabilitiesFinalCta from '../components/CapabilitiesFinalCta';
 import './CapabilitiesPage.css';
 
 export default function CapabilitiesPage() {
   usePageMetadata({
-    title: 'Core Capabilities — Enterprise AI & Automation | Hutomate',
-    description: 'Explore Hutomate’s core technical capabilities: Autonomous AI Agents, Workflow Automation, Voice AI & Telephony, and Custom Enterprise AI Solutions.',
+    title: 'Capabilities — AI Agents, Workflow Automation & Intelligent Systems | Hutomate',
+    description: 'Intelligence built around the way your business works. Explore Hutomate’s core capabilities: AI Agents, Workflow Automation, Voice AI, and Custom AI Solutions.',
     path: '/capabilities',
   });
 
   useScrollReveal();
 
-  const selectionCriteria = [
-    {
-      title: 'Task Characteristics',
-      desc: 'Does the workflow require strict deterministic rules (best for workflow automation) or conversational reasoning and unstructured text interpretation (best for AI agents)?',
-      icon: Layers,
-    },
-    {
-      title: 'System Compatibility',
-      desc: 'Do your current tools provide documented REST APIs, webhooks, or database access? We evaluate technical feasibility before committing to a build.',
-      icon: Zap,
-    },
-    {
-      title: 'Failure Tolerance & Oversight',
-      desc: 'What is the consequence of an edge-case error? We design explicit human approval checkpoints wherever critical financial or client data is involved.',
-      icon: ShieldCheck,
-    },
-  ];
-
   return (
-    <div className="capabilities-page">
+    <div className="capabilities-page-view">
       {/* ----------------------------------------------------------------------
-          1. REDESIGNED MONOCHROMATIC CAPABILITIES HERO
+          SECTION 01: HERO & FOUR CORE CAPABILITY CARDS
           ---------------------------------------------------------------------- */}
-      <CapabilitiesPageHero />
+      <section className="cap-overview-hero-section" aria-label="Capabilities Introduction">
+        {/* Subtle decorative bottom wave ribbon */}
+        <div className="cap-hero-wave-wrap" aria-hidden="true">
+          <svg
+            className="cap-hero-wave-svg"
+            viewBox="0 0 1440 240"
+            fill="none"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="capHeroWaveGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#167C80" stopOpacity="0.14" />
+                <stop offset="60%" stopColor="#83DDE2" stopOpacity="0.08" />
+                <stop offset="100%" stopColor="#83DDE2" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M -60 240 C 180 180 340 220 540 180 C 740 140 880 200 1100 240 Z"
+              fill="url(#capHeroWaveGrad)"
+            />
+          </svg>
+        </div>
 
-      {/* ----------------------------------------------------------------------
-          2. EDITORIAL CAPABILITIES SHOWCASE (NO FAKE DASHBOARDS)
-          ---------------------------------------------------------------------- */}
-      <EditorialCapabilitiesShowcase />
-
-      {/* ----------------------------------------------------------------------
-          3. SELECTION METHODOLOGY SECTION
-          ---------------------------------------------------------------------- */}
-      <section className="cap-criteria-section">
-        <div className="container">
-          <div className="cap-criteria-card reveal-on-scroll">
-            <div className="criteria-header reveal-on-scroll">
-              <span className="cap-section-eyebrow reveal-on-scroll reveal-delay-1">SELECTION METHODOLOGY</span>
-              <h2 className="criteria-title reveal-on-scroll reveal-delay-2">How we select the right automation approach for your operations</h2>
-              <p className="criteria-body reveal-on-scroll reveal-delay-3">
-                We do not apply AI blindly. Every engagement begins with assessing whether an operational problem is best solved by deterministic automation, conversational telephony, an autonomous agent, or an integration pipeline.
-              </p>
+        <div className="container cap-overview-container">
+          {/* Header Copy */}
+          <div className="cap-hero-text-block reveal-on-scroll">
+            <div className="cap-hero-eyebrow-pill">
+              <span className="cap-hero-eyebrow-dot" />
+              <span className="cap-hero-eyebrow-text">CAPABILITIES</span>
             </div>
 
-            <div className="criteria-grid">
-              {selectionCriteria.map((crit, idx) => {
-                const IconComp = crit.icon;
-                return (
-                  <div key={idx} className={`criteria-item reveal-on-scroll reveal-delay-${idx + 1}`}>
-                    <div className="criteria-icon-wrap">
-                      <IconComp size={20} />
-                    </div>
-                    <h3 className="criteria-item-title">{crit.title}</h3>
-                    <p className="criteria-item-desc">{crit.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
+            <h1 className="cap-hero-title">
+              Intelligence built around the <br className="cap-hero-br" />
+              way your <span className="cap-hero-title-accent">business works.</span>
+            </h1>
+
+            <p className="cap-hero-desc">
+              Hutomate brings AI, automation and intelligent systems together to simplify operations, connect your tools and help your business move forward.
+            </p>
+          </div>
+
+          {/* Four Capability Cards */}
+          <div className="reveal-on-scroll reveal-delay-2">
+            <CapabilitiesCardGrid />
           </div>
         </div>
       </section>
 
       {/* ----------------------------------------------------------------------
-          4. FINAL CTA BANNER
+          SECTION 02: HOW IT ALL WORKS TOGETHER
+          Flowing curved animated SVG path across 4 integrated stages:
+          01 Capture -> 02 Automate -> 03 Execute -> 04 Grow
           ---------------------------------------------------------------------- */}
-      <CtaBanner
-        title="Ready to evaluate your team's automation opportunities?"
-        description="Share your current operational workflows with our engineering team. We assess technical feasibility, software compatibility, and projected ROI."
-        buttonText="Discuss Your Project"
-        buttonHref="/contact"
-        secondaryButtonText="Explore Industries"
-        secondaryButtonHref="/industries"
-      />
+      <HowItWorksTogether />
+
+      {/* ----------------------------------------------------------------------
+          SECTION 03: DESIGNED AROUND YOUR BUSINESS
+          Editorial split composition presenting the 3 foundational principles:
+          Tailored Solutions • Seamless Integrations • Human-Guided
+          ---------------------------------------------------------------------- */}
+      <DesignedAroundBusiness />
+
+      {/* ----------------------------------------------------------------------
+          SECTION 04: FINAL CLOSING CTA SECTION
+          Wide horizontal composition with layered Hutomate brand visual
+          ---------------------------------------------------------------------- */}
+      <CapabilitiesFinalCta />
     </div>
   );
 }

@@ -1,0 +1,227 @@
+/* =============================================================================
+   DesignedAroundBusiness Styles — Hutomate Capabilities
+   - Editorial split composition presenting 3 foundational principles:
+     1. Tailored Solutions
+     2. Seamless Integrations
+     3. Human-Guided
+   - Generous whitespace, refined typography, and hairline transitions
+   - Strictly Hutomate Palette: Midnight Navy (#071923), Teal (#167C80), Pure White (#FFFFFF)
+   ============================================================================= */
+
+.designed-around-section {
+  position: relative;
+  width: 100%;
+  padding: clamp(90px, 11vw, 140px) 0;
+  background-color: var(--color-pure-white, #FFFFFF);
+  border-top: 1px solid var(--color-mist-grey, #E2EAEC);
+}
+
+.designed-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: clamp(48px, 7vw, 96px);
+  align-items: flex-start;
+}
+
+/* -----------------------------------------------------------------------------
+   1. Left Column: Editorial Heading & Architecture Proof Points
+   ----------------------------------------------------------------------------- */
+.designed-left-col {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.designed-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 9999px;
+  margin-bottom: 22px;
+  width: fit-content;
+}
+
+.designed-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-deep-teal, #167C80);
+}
+
+.designed-eyebrow-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-charcoal, #17252B);
+}
+
+.designed-main-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(2.3rem, 3.8vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--color-midnight-navy, #071923);
+  margin: 0 0 20px 0;
+}
+
+.designed-title-accent {
+  color: var(--color-deep-teal, #167C80);
+}
+
+.designed-main-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.65;
+  color: var(--color-slate-grey, #40545C);
+  margin: 0 0 36px 0;
+}
+
+/* Pillar List */
+.designed-pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-mist-grey, #E2EAEC);
+}
+
+.designed-pillar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.designed-pillar-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background-color: rgba(22, 124, 128, 0.1);
+  color: var(--color-deep-teal, #167C80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.designed-pillar-name {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 750;
+  color: var(--color-midnight-navy, #071923);
+  margin: 0 0 3px 0;
+}
+
+.designed-pillar-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--color-slate-grey, #40545C);
+  margin: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   2. Right Column: The Three Editorial Principles Stack
+   ----------------------------------------------------------------------------- */
+.designed-principles-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.designed-principle-entry {
+  position: relative;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--color-mist-grey, #E2EAEC);
+  transition: all 0.3s ease;
+}
+
+.designed-principle-entry:first-child {
+  padding-top: 0;
+}
+
+.designed-principle-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.principle-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.principle-index {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-deep-teal, #167C80);
+}
+
+.principle-icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  color: var(--color-deep-teal, #167C80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.designed-principle-entry:hover .principle-icon-badge {
+  background-color: var(--color-deep-teal, #167C80);
+  border-color: var(--color-deep-teal, #167C80);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.principle-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(1.4rem, 2vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight-navy, #071923);
+  margin: 0 0 10px 0;
+  transition: color 0.25s ease;
+}
+
+.designed-principle-entry:hover .principle-title {
+  color: var(--color-deep-teal, #167C80);
+}
+
+.principle-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-slate-grey, #40545C);
+  margin: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   3. Responsive Layout
+   ----------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .designed-split-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .designed-left-col {
+    position: static;
+  }
+
+  .designed-principle-entry {
+    padding: 30px 0;
+  }
+}

@@ -10,10 +10,10 @@ import './CapabilitiesPageHero.css';
  */
 export default function CapabilitiesPageHero() {
   const specs = [
-    { value: '99.4%', label: 'Intent Classification Accuracy' },
-    { value: '< 1.2s', label: 'Grounded Execution Loop' },
-    { value: '100%', label: 'Client-Owned Code & Schemas' },
-    { value: 'SOC-2', label: 'Aligned Enterprise Security' },
+    { value: '4 Disciplines', label: 'Engineered For Operations' },
+    { value: 'Human Oversight', label: 'Built-in Escalation Gates' },
+    { value: 'Full Ownership', label: 'Client-Owned Code & Schemas' },
+    { value: 'Private VPC', label: 'Zero Data Retention Options' },
   ];
 
   return (

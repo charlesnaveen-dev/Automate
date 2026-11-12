@@ -5,7 +5,6 @@ import HeroSection from '../sections/HeroSection';
 import BrandIntroSection from '../sections/BrandIntroSection';
 import CapabilitiesSection from '../sections/CapabilitiesSection';
 import IndustriesPreviewSection from '../sections/IndustriesPreviewSection';
-import TechSystemsSection from '../sections/TechSystemsSection';
 import ProcessPreviewSection from '../sections/ProcessPreviewSection';
 import FinalCtaSection from '../sections/FinalCtaSection';
 import './HomePage.css';
@@ -33,8 +32,6 @@ export default function HomePage() {
       {/* Section 04: Industries Preview ("Technology that adapts to your industry") */}
       <IndustriesPreviewSection />
 
-      {/* Section 05: Technology & Systems ("Connected systems. Thoughtful engineering") */}
-      <TechSystemsSection />
 
       {/* Section 06: Process Preview ("From the first idea to real-world implementation") */}
       <ProcessPreviewSection />

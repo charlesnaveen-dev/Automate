@@ -20,8 +20,8 @@ const ROUTES = [
   },
   {
     path: '/capabilities',
-    title: 'Core Capabilities — Enterprise AI & Automation | Hutomate',
-    description: "Explore Hutomate's core technical capabilities: Autonomous AI Agents, Workflow Automation, Voice AI & Telephony, and Custom Enterprise AI Solutions.",
+    title: 'Capabilities — AI Agents, Workflow Automation & Intelligent Systems | Hutomate',
+    description: "Intelligence built around the way your business works. Explore Hutomate's core capabilities: AI Agents, Workflow Automation, Voice AI, and Custom AI Solutions.",
   },
   {
     path: '/capabilities/ai-agents',

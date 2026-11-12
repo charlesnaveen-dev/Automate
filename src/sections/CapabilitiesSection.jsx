@@ -332,6 +332,8 @@ const CAPABILITIES = [
 export default function CapabilitiesSection() {
   // Shared active selection state (null by default so all 4 cards start in normal white state)
   const [activeCardNum, setActiveCardNum] = useState(null);
+  const [hoveredCardNum, setHoveredCardNum] = useState(null);
+  const [focusedCardNum, setFocusedCardNum] = useState(null);
 
   const handleCardClick = (num, e) => {
     // If clicking directly on the exploration link, allow normal navigation
@@ -408,9 +410,13 @@ export default function CapabilitiesSection() {
         </div>
 
         {/* Four Cards Grid */}
-        <div className="cap-cards-row">
+        <div className="cap-cards-row" onMouseLeave={() => setHoveredCardNum(null)}>
           {CAPABILITIES.map((cap) => {
+            const isHovered = hoveredCardNum === cap.num;
+            const isFocused = focusedCardNum === cap.num;
             const isActive = activeCardNum === cap.num;
+            // Hover or focus highlights the card; when nothing is hovered/focused, active clicked card remains highlighted
+            const isHighlighted = isHovered || isFocused || (hoveredCardNum === null && focusedCardNum === null && isActive);
 
             return (
               <div
@@ -421,38 +427,45 @@ export default function CapabilitiesSection() {
                 aria-label={`${cap.title} capability. Click to toggle active preview.`}
                 onClick={(e) => handleCardClick(cap.num, e)}
                 onKeyDown={(e) => handleKeyDown(cap.num, e)}
+                onMouseEnter={() => setHoveredCardNum(cap.num)}
+                onFocus={() => setFocusedCardNum(cap.num)}
+                onBlur={() => setFocusedCardNum(null)}
                 className={`cap-panel-card ${
-                  isActive
+                  isHighlighted
                     ? 'cap-panel-card--active cap-panel-card--dark'
                     : 'cap-panel-card--light'
                 }`}
               >
-                {/* Dynamic ethereal ambient glow & corner ribbon for the active card */}
-                {isActive && (
-                  <>
-                    <div className="cap-dark-ambient-wave" aria-hidden="true" />
-                    <svg className="cap-dark-corner-wave" viewBox="0 0 160 100" fill="none" aria-hidden="true">
-                      <defs>
-                        <linearGradient id={`activeWaveGrad-${cap.num}`} x1="0%" y1="100%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="#167C80" stopOpacity="0.45" />
-                          <stop offset="60%" stopColor="#83DDE2" stopOpacity="0.22" />
-                          <stop offset="100%" stopColor="#83DDE2" stopOpacity="0" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        d="M 40 100 C 80 90 115 70 138 40 C 148 26 154 14 160 0 L 160 100 Z"
-                        fill={`url(#activeWaveGrad-${cap.num})`}
-                      />
-                      <path
-                        d="M 30 100 C 75 92 112 72 136 42 C 145 30 152 16 160 4"
-                        stroke="#83DDE2"
-                        strokeWidth="1.5"
-                        strokeOpacity="0.55"
-                        fill="none"
-                      />
-                    </svg>
-                  </>
-                )}
+                {/* Dynamic ethereal ambient glow & corner ribbon for the highlighted card */}
+                <div
+                  className={`cap-dark-ambient-wave ${isHighlighted ? 'is-visible' : ''}`}
+                  aria-hidden="true"
+                />
+                <svg
+                  className={`cap-dark-corner-wave ${isHighlighted ? 'is-visible' : ''}`}
+                  viewBox="0 0 160 100"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <defs>
+                    <linearGradient id={`activeWaveGrad-${cap.num}`} x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#167C80" stopOpacity="0.45" />
+                      <stop offset="60%" stopColor="#83DDE2" stopOpacity="0.22" />
+                      <stop offset="100%" stopColor="#83DDE2" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M 40 100 C 80 90 115 70 138 40 C 148 26 154 14 160 0 L 160 100 Z"
+                    fill={`url(#activeWaveGrad-${cap.num})`}
+                  />
+                  <path
+                    d="M 30 100 C 75 92 112 72 136 42 C 145 30 152 16 160 4"
+                    stroke="#83DDE2"
+                    strokeWidth="1.5"
+                    strokeOpacity="0.55"
+                    fill="none"
+                  />
+                </svg>
 
                 {/* Top Row: Capability Number */}
                 <div className="cap-card-top">

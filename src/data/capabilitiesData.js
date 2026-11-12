@@ -31,9 +31,9 @@ export const CAPABILITIES_DATA = [
     heroHeadline: 'AI agents that understand context, make decisions, and execute business tasks.',
     heroDescription: 'We build autonomous software agents that interpret natural language, retrieve verified company knowledge, and execute complex multi-step workflows across your business tools—with strict human-in-the-loop oversight.',
     heroMetrics: [
-      { value: '99.4%', label: 'Intent Classification' },
-      { value: '< 1.2s', label: 'Reasoning Execution Loop' },
-      { value: '100%', label: 'Auditable Guardrails' }
+      { value: 'Calibrated', label: 'Intent Classification' },
+      { value: 'Fast Loop', label: 'Grounded Reasoning Cycle' },
+      { value: 'Complete', label: 'Auditable Guardrails' }
     ],
     businessProblem: {
       lead: 'Knowledge work is weighed down by repetitive manual triage, disconnected information, and delayed responses.',
@@ -113,7 +113,7 @@ export const CAPABILITIES_DATA = [
     ],
     businessBenefits: [
       { title: '24/7 Task Execution', desc: 'Processes requests, classifies documents, and logs tickets around the clock with zero backlog.' },
-      { title: 'Zero Hallucination Tolerance', desc: 'Answers strictly grounded in your verified documentation with clickable source references.' },
+      { title: 'Grounded Retrieval Guardrails', desc: 'Answers strictly grounded in your verified documentation with clickable source citations.' },
       { title: 'Complete Human Control', desc: 'Staff retain approval checkpoints on sensitive decisions, financial records, and client emails.' },
       { title: 'Full Auditability', desc: 'Every reasoning trace, input prompt, and executed tool call is logged in tamper-evident audit trails.' }
     ],
@@ -136,9 +136,9 @@ export const CAPABILITIES_DATA = [
     heroHeadline: 'Connect business tools and eliminate manual operational bottlenecks.',
     heroDescription: 'We architect robust, event-driven automation pipelines that eliminate manual data re-entry, coordinate multi-system processes, and keep your software stack synchronized in real time.',
     heroMetrics: [
-      { value: '100%', label: 'Data Accuracy' },
-      { value: '< 500ms', label: 'Event Trigger Latency' },
-      { value: '0', label: 'Manual Copy-Pasting' }
+      { value: 'Structured', label: 'Schema Validation' },
+      { value: 'Real-Time', label: 'Event Triggering' },
+      { value: 'Automated', label: 'Data Ingestion & Sync' }
     ],
     businessProblem: {
       lead: 'Modern businesses use dozens of specialized SaaS tools, but the data handoffs between them are manual, sluggish, and error-prone.',
@@ -217,8 +217,8 @@ export const CAPABILITIES_DATA = [
       }
     ],
     businessBenefits: [
-      { title: 'Zero Data Entry Overhead', desc: 'Completely eliminates manual copy-pasting between systems and human clerical error.' },
-      { title: 'Sub-Second Event Propagation', desc: 'Events trigger immediate actions across all connected platforms in real time.' },
+      { title: 'Automated Data Ingestion', desc: 'Eliminates repetitive manual copy-pasting between business systems with automated validation checks.' },
+      { title: 'Real-Time Event Propagation', desc: 'Events trigger immediate coordinated actions across all connected platforms.' },
       { title: 'Built-in Fault Tolerance', desc: 'Automated retries, dead-letter queues, and health checks prevent lost transactions.' },
       { title: 'Observable Architecture', desc: 'Centralized dashboards display status, latency, and throughput across every pipeline.' }
     ],
@@ -237,13 +237,13 @@ export const CAPABILITIES_DATA = [
     route: '/capabilities/voice-ai',
     icon: Mic,
     tagline: 'Conversational Phone & Autonomous Telephony Systems',
-    heroBadge: 'SUB-300MS CONVERSATIONAL TELEPHONY',
+    heroBadge: 'CONVERSATIONAL BUSINESS TELEPHONY',
     heroHeadline: 'Intelligent voice systems that handle natural phone conversations.',
-    heroDescription: 'Sub-second conversational voice workflows that answer incoming phone calls, qualify caller intent, answer complex questions, and book appointments directly into your calendar 24/7/365.',
+    heroDescription: 'Conversational voice workflows that answer incoming phone calls, qualify caller intent, answer complex questions, and book appointments directly into your calendar around the clock.',
     heroMetrics: [
-      { value: '100%', label: 'Inbound Call Answer Rate' },
-      { value: '< 300ms', label: 'Natural Conversational Latency' },
-      { value: '24/7/365', label: 'Uninterrupted Coverage' }
+      { value: 'Immediate', label: 'Inbound Call Answering' },
+      { value: 'Low Latency', label: 'Natural Conversational Cadence' },
+      { value: '24/7', label: 'Continuous Inbound Coverage' }
     ],
     businessProblem: {
       lead: 'Every unanswered business call is lost revenue, yet staffing front-desk phones around the clock is economically impossible.',
@@ -322,8 +322,8 @@ export const CAPABILITIES_DATA = [
       }
     ],
     businessBenefits: [
-      { title: 'Zero Missed Calls', desc: 'Answers 100% of inbound phone inquiries immediately, capturing leads that competitors miss.' },
-      { title: 'Sub-300ms Human Latency', desc: 'Natural voice cadence and conversational pauses that feel professional and respectful.' },
+      { title: 'Immediate Call Coverage', desc: 'Answers incoming phone inquiries promptly, capturing leads that competitors miss.' },
+      { title: 'Natural Conversational Cadence', desc: 'Natural voice cadence and conversational pauses that feel professional and respectful.' },
       { title: 'Direct Calendar Sync', desc: 'Books appointments straight into Google Calendar, Outlook, or specialized practice software.' },
       { title: 'Fail-Safe Human Transfer', desc: 'Seamlessly forwards sensitive or escalated callers to on-duty team members.' }
     ],
@@ -346,9 +346,9 @@ export const CAPABILITIES_DATA = [
     heroHeadline: 'Tailored AI systems engineered around specific business requirements.',
     heroDescription: 'When off-the-shelf software cannot satisfy complex operational requirements, security constraints, or proprietary workflows, we engineer bespoke AI systems, specialized RAG pipelines, and private VPC solutions.',
     heroMetrics: [
-      { value: 'Zero', label: 'Data Retention Guarantee' },
-      { value: 'Private VPC', label: 'Enterprise Security' },
-      { value: '100+', label: 'Supported System Connectors' }
+      { value: 'Zero-Retention', label: 'Enterprise Data Privacy' },
+      { value: 'Private VPC', label: 'Dedicated Cloud Deployment' },
+      { value: 'Enterprise', label: 'Supported System Connectors' }
     ],
     businessProblem: {
       lead: 'Generic SaaS tools fail when businesses handle sensitive customer data, non-standard workflows, or legacy systems.',

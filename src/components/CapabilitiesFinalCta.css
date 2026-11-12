@@ -1,0 +1,430 @@
+/* =============================================================================
+   CapabilitiesFinalCta Styles — Hutomate Capabilities
+   - Wide horizontal CTA composition with layered Hutomate brand visual
+   - Deep Navy foundation (#071923 / #0B2029) with Deep Ocean radial bloom
+   - Electric Cyan (#83DDE2) and Deep Teal (#167C80) accents
+   - Strictly Hutomate Brand System: No purple, no pink, no lavender
+   ============================================================================= */
+
+.cap-cta-section {
+  position: relative;
+  width: 100%;
+  background: radial-gradient(circle at 65% 50%, rgba(11, 48, 56, 0.96) 0%, rgba(7, 25, 35, 1) 85%);
+  padding: clamp(96px, 12vw, 150px) 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-top: 1px solid rgba(226, 234, 236, 0.1);
+}
+
+.cap-cta-bloom {
+  position: absolute;
+  top: 50%;
+  right: 15%;
+  transform: translateY(-50%);
+  width: 650px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(131, 221, 226, 0.12) 0%, rgba(22, 124, 128, 0.08) 45%, transparent 70%);
+  pointer-events: none;
+  filter: blur(60px);
+}
+
+.cap-cta-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(226, 234, 236, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 234, 236, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Card Container */
+.cap-cta-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.cap-cta-split {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+/* -----------------------------------------------------------------------------
+   1. Left Column: Copy & Actions
+   ----------------------------------------------------------------------------- */
+.cap-cta-copy-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.cap-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(226, 234, 236, 0.15);
+  border-radius: 9999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.cap-cta-beacon {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-electric-cyan, #83DDE2);
+  box-shadow: 0 0 8px var(--color-electric-cyan, #83DDE2);
+}
+
+.cap-cta-headline {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(2.3rem, 4vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: #FFFFFF;
+  margin: 0 0 18px 0;
+}
+
+.cap-cta-headline-accent {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-decoration-color: var(--color-electric-cyan, #83DDE2);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+.cap-cta-subhead {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--color-mist-grey, #E2EAEC);
+  max-width: 580px;
+  margin: 0 0 38px 0;
+}
+
+/* Action Buttons */
+.cap-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 38px;
+}
+
+.cap-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 30px;
+  border-radius: 9999px;
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.96rem;
+  font-weight: 650;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cap-cta-btn--primary {
+  background-color: var(--color-deep-teal, #167C80);
+  border: 1px solid var(--color-deep-teal, #167C80);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(22, 124, 128, 0.35);
+}
+
+.cap-cta-btn--primary:hover {
+  background-color: #1a8f94;
+  border-color: #83DDE2;
+  box-shadow: 0 6px 24px rgba(131, 221, 226, 0.35);
+  transform: translateY(-2px);
+}
+
+.cap-cta-btn-arrow {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cap-cta-btn--primary:hover .cap-cta-btn-arrow {
+  transform: translateX(4px);
+}
+
+.cap-cta-btn--secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(226, 234, 236, 0.22);
+  color: #FFFFFF;
+  backdrop-filter: blur(8px);
+}
+
+.cap-cta-btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Trust Indicators Row */
+.cap-cta-trust-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 0.8rem;
+  color: rgba(226, 234, 236, 0.7);
+}
+
+.cap-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cap-trust-icon {
+  color: var(--color-electric-cyan, #83DDE2);
+}
+
+.cap-trust-divider {
+  color: rgba(226, 234, 236, 0.3);
+}
+
+/* -----------------------------------------------------------------------------
+   2. Right Column: Layered Hutomate Brand Visual
+   ----------------------------------------------------------------------------- */
+.cap-cta-visual-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cap-brand-visual-canvas {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cap-brand-backglow {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(131, 221, 226, 0.25) 0%, rgba(22, 124, 128, 0.15) 50%, transparent 75%);
+  filter: blur(35px);
+  pointer-events: none;
+}
+
+.cap-brand-orbital-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: ctaOrbitRotate 60s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes ctaOrbitRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Tilted Back Glass Plate */
+.cap-brand-plate-back {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(11, 48, 56, 0.4) 0%, rgba(7, 25, 35, 0.6) 100%);
+  border: 1px solid rgba(131, 221, 226, 0.2);
+  transform: rotate(-10deg) translate(-14px, -10px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+/* Focal Glass Plate */
+.cap-brand-plate-focal {
+  position: relative;
+  z-index: 2;
+  width: 230px;
+  height: 230px;
+  border-radius: 30px;
+  background: linear-gradient(150deg, rgba(11, 48, 56, 0.88) 0%, rgba(7, 25, 35, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(131, 221, 226, 0.45);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(131, 221, 226, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  animation: ctaFocalFloat 6s ease-in-out infinite;
+}
+
+@keyframes ctaFocalFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.cap-brand-symbol-glow-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cap-focal-symbol {
+  filter: drop-shadow(0 0 16px rgba(131, 221, 226, 0.6));
+}
+
+.cap-brand-label-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.cap-brand-name {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  color: #FFFFFF;
+}
+
+.cap-brand-tagline {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-electric-cyan, #83DDE2);
+  text-transform: uppercase;
+}
+
+/* Floating Satellite Chips */
+.cap-brand-chip {
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  background: rgba(7, 25, 35, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(131, 221, 226, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.cap-brand-chip--top {
+  top: 15px;
+  right: -10px;
+  animation: ctaChipTopFloat 5s ease-in-out infinite;
+}
+
+@keyframes ctaChipTopFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+.cap-brand-chip--bottom {
+  bottom: 20px;
+  left: -15px;
+  animation: ctaChipBottomFloat 5.5s ease-in-out infinite 0.5s;
+}
+
+@keyframes ctaChipBottomFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.cap-chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-electric-cyan, #83DDE2);
+  box-shadow: 0 0 6px var(--color-electric-cyan, #83DDE2);
+}
+
+.cap-chip-icon {
+  color: var(--color-electric-cyan, #83DDE2);
+}
+
+.cap-chip-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+/* -----------------------------------------------------------------------------
+   3. Reduced Motion
+   ----------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .cap-brand-orbital-svg,
+  .cap-brand-plate-focal,
+  .cap-brand-chip--top,
+  .cap-brand-chip--bottom {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   4. Responsive Layout
+   ----------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .cap-cta-split {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .cap-cta-copy-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .cap-cta-actions {
+    justify-content: center;
+  }
+
+  .cap-cta-trust-row {
+    justify-content: center;
+  }
+
+  .cap-brand-visual-canvas {
+    width: 300px;
+    height: 300px;
+  }
+
+  .cap-brand-plate-back {
+    width: 180px;
+    height: 180px;
+  }
+
+  .cap-brand-plate-focal {
+    width: 200px;
+    height: 200px;
+  }
+
+  .cap-brand-chip--top {
+    right: 0;
+  }
+
+  .cap-brand-chip--bottom {
+    left: 0;
+  }
+}

@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Sparkles, Shield, Cpu, Network } from 'lucide-react';
+import { Shield, Cpu, Network } from 'lucide-react';
 import Button from '../components/Button';
+import InterconnectedSystemsCanvas from '../components/InterconnectedSystemsCanvas';
 import { useGsapContext } from '../animations/useGsapContext';
 import './BrandIntroSection.css';
 
@@ -10,6 +11,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function BrandIntroSection() {
   const sectionRef = useRef(null);
+  const stageRef = useRef(null);
+  const pinBoxRef = useRef(null);
 
   const pillars = [
     {
@@ -36,24 +39,157 @@ export default function BrandIntroSection() {
   ];
 
   useGsapContext(sectionRef, (context, isReducedMotion) => {
-    if (isReducedMotion) return;
-
-    gsap.fromTo(
-      '.intro-reveal-line',
-      { opacity: 0, y: 30 },
-      {
+    // If user prefers reduced motion, render in static accessible layout without scroll-locking
+    if (isReducedMotion) {
+      gsap.set(['.phrase-1', '.phrase-2', '.phrase-3', '.phrase-4', '.phrase-5'], {
         opacity: 1,
         y: 0,
-        duration: 0.9,
-        stagger: 0.15,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.brand-intro-editorial',
-          start: 'top 80%',
+      });
+      gsap.set('.statement-cyan-accent', {
+        color: '#83DDE2',
+      });
+      gsap.set('.statement-cyan-accent-line', {
+        scaleX: 1,
+      });
+      gsap.set('.brand-term-accent', {
+        color: '#83DDE2',
+      });
+      gsap.set('.phrase-5', {
+        opacity: 1,
+        pointerEvents: 'auto',
+      });
+      return;
+    }
+
+    sectionRef.current?.classList.add('is-scroll-ready');
+
+    // Initial state for scroll-driven reveals (dimmed baseline, ready to light up on scroll)
+    gsap.set('.phrase-1', { opacity: 0.22, y: 0 });
+    gsap.set('.phrase-2', { opacity: 0.20, y: 0 });
+    gsap.set('.phrase-3', { opacity: 0.18, y: 0 });
+    gsap.set('.phrase-4', { opacity: 0.15, y: 0 });
+    gsap.set('.phrase-5', { opacity: 0.15, pointerEvents: 'none' });
+
+    gsap.set('.statement-cyan-accent', {
+      color: '#E2EAEC',
+      textShadow: 'none',
+    });
+    gsap.set('.statement-cyan-accent-line', {
+      scaleX: 0,
+      transformOrigin: 'left center',
+    });
+    gsap.set('.brand-term-accent', {
+      color: '#E2EAEC',
+    });
+
+    // Pinned Scroll-Driven Scrollytelling Sequence
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: stageRef.current,
+        start: 'top top',
+        end: '+=150%',
+        pin: pinBoxRef.current,
+        pinSpacing: true,
+        scrub: 0.75,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const actions = pinBoxRef.current?.querySelector('.phrase-5');
+          if (actions) {
+            actions.style.pointerEvents = self.progress > 0.82 ? 'auto' : 'none';
+          }
         },
-      }
+      },
+    });
+
+    // 1. Line 1: "Business operations deserve" illuminates to crisp pure white
+    tl.to(
+      '.phrase-1',
+      {
+        opacity: 1,
+        duration: 0.25,
+        ease: 'power1.inOut',
+      },
+      0
     );
 
+    // 2. Line 2: "better technology." illuminates and blooms into Electric Cyan
+    tl.to(
+      '.phrase-2',
+      {
+        opacity: 1,
+        duration: 0.25,
+        ease: 'power1.inOut',
+      },
+      0.18
+    );
+
+    tl.to(
+      '.statement-cyan-accent',
+      {
+        color: '#83DDE2',
+        textShadow: '0 0 24px rgba(131, 221, 226, 0.55)',
+        duration: 0.25,
+        ease: 'power1.inOut',
+      },
+      0.22
+    );
+
+    tl.to(
+      '.statement-cyan-accent-line',
+      {
+        scaleX: 1,
+        duration: 0.25,
+        ease: 'power2.out',
+      },
+      0.25
+    );
+
+    // 3. Line 3: "Enterprises worldwide lose thousands of productive hours..."
+    tl.to(
+      '.phrase-3',
+      {
+        opacity: 1,
+        duration: 0.25,
+        ease: 'power1.inOut',
+      },
+      0.44
+    );
+
+    // 4. Line 4: "Hutomate unites modern AI agents..."
+    tl.to(
+      '.phrase-4',
+      {
+        opacity: 1,
+        duration: 0.25,
+        ease: 'power1.inOut',
+      },
+      0.64
+    );
+
+    tl.to(
+      '.brand-term-accent',
+      {
+        color: '#83DDE2',
+        duration: 0.2,
+        stagger: 0.05,
+        ease: 'power1.inOut',
+      },
+      0.70
+    );
+
+    // 5. Line 5: CTA Action buttons smoothly fade in and activate
+    tl.to(
+      '.phrase-5',
+      {
+        opacity: 1,
+        duration: 0.18,
+        ease: 'power1.inOut',
+      },
+      0.82
+    );
+
+    // Ruled Architectural Manifesto reveals smoothly as user continues into foundations
     gsap.fromTo(
       '.pillar-architectural-row',
       { opacity: 0, x: -20 },
@@ -61,10 +197,10 @@ export default function BrandIntroSection() {
         opacity: 1,
         x: 0,
         duration: 0.7,
-        stagger: 0.2,
+        stagger: 0.18,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: '.intro-pillars-manifesto',
+          trigger: '.brand-manifesto-stage',
           start: 'top 75%',
         },
       }
@@ -72,65 +208,98 @@ export default function BrandIntroSection() {
   }, []);
 
   return (
-    <section className="brand-intro-section" id="intro" ref={sectionRef} aria-label="Our Philosophy">
-      <div className="container">
-        {/* Editorial Statement */}
-        <div className="brand-intro-editorial">
-          <div className="intro-badge intro-reveal-line">
-            <span className="intro-badge-dot" />
-            <span className="intro-badge-text">ENGINEERING PHILOSOPHY</span>
+    <section
+      className="brand-intro-section"
+      id="intro"
+      ref={sectionRef}
+      aria-label="Our Philosophy"
+    >
+      {/* Part 1: Scrollytelling Statement Stage with Interconnected Systems Canvas */}
+      <div className="brand-statement-scroll-stage" ref={stageRef}>
+        <div className="brand-statement-pin-box" ref={pinBoxRef}>
+          {/* Animated interconnected system nodes & lines background */}
+          <div className="brand-intro-canvas-backdrop" aria-hidden="true">
+            <InterconnectedSystemsCanvas />
+            <div className="brand-intro-bloom-overlay" />
           </div>
 
-          <h2 className="intro-headline intro-reveal-line">
-            Business operations deserve{' '}
-            <span className="intro-headline-highlight">better technology.</span>
-          </h2>
+          <div className="container brand-statement-container">
+            {/* Monospace Eyebrow Badge */}
+            <div className="intro-badge statement-eyebrow">
+              <span className="intro-badge-dot" />
+              <span className="intro-badge-text">ENGINEERING PHILOSOPHY</span>
+            </div>
 
-          <p className="intro-body intro-reveal-line">
-            Enterprises worldwide lose thousands of productive hours to fragmented tools and administrative overhead. Hutomate unites modern AI agents, voice intelligence, and workflow engineering to build operational systems that scale cleanly without adding headcount.
-          </p>
+            {/* Progressive Display Statement Headline */}
+            <h2 className="statement-display-headline">
+              <span className="statement-phrase phrase-1">Business operations deserve</span>
+              <span className="statement-phrase phrase-2">
+                <span className="statement-cyan-accent">
+                  better technology.
+                  <span className="statement-cyan-accent-line" aria-hidden="true" />
+                </span>
+              </span>
+            </h2>
 
-          <div className="intro-cta-wrap intro-reveal-line">
-            <Button variant="primary" size="md" arrow href="/about">
-              Our Vision &amp; Architecture
-            </Button>
-            <Button variant="secondary" size="md" href="/capabilities">
-              Explore Core Capabilities
-            </Button>
+            {/* Progressive Narrative Body */}
+            <div className="statement-narrative-block">
+              <p className="statement-phrase phrase-3">
+                Enterprises worldwide lose thousands of productive hours to fragmented tools and administrative overhead.
+              </p>
+              <p className="statement-phrase phrase-4">
+                Hutomate unites modern <span className="brand-term-accent">AI agents</span>,{' '}
+                <span className="brand-term-accent">voice intelligence</span>, and{' '}
+                <span className="brand-term-accent">workflow engineering</span> to build operational systems that scale cleanly without adding headcount.
+              </p>
+            </div>
+
+            {/* Dual Conversion CTA Actions */}
+            <div className="statement-actions-row phrase-5">
+              <Button variant="primary" size="md" arrow href="/about">
+                Our Vision &amp; Architecture
+              </Button>
+              <Button variant="secondary" size="md" href="/capabilities">
+                Explore Core Capabilities
+              </Button>
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Ruled Architectural Manifesto (No repetitive boxes) */}
-        <div className="intro-pillars-manifesto">
-          <div className="manifesto-header">
-            <span className="manifesto-label">CORE PRINCIPLES</span>
-            <span className="manifesto-count">03 FOUNDATIONS</span>
-          </div>
+      {/* Part 2: Ruled Architectural Manifesto (03 Foundations) */}
+      <div className="brand-manifesto-stage">
+        <div className="container">
+          <div className="intro-pillars-manifesto">
+            <div className="manifesto-header">
+              <span className="manifesto-label">CORE PRINCIPLES</span>
+              <span className="manifesto-count">03 FOUNDATIONS</span>
+            </div>
 
-          <div className="manifesto-list">
-            {pillars.map((pillar) => {
-              const IconComp = pillar.icon;
-              return (
-                <div key={pillar.num} className="pillar-architectural-row">
-                  <div className="pillar-num-cell">
-                    <span className="pillar-num-text">{pillar.num}</span>
-                  </div>
-
-                  <div className="pillar-content-cell">
-                    <div className="pillar-meta-row">
-                      <span className="pillar-tag-badge">{pillar.tag}</span>
-                      <IconComp size={16} className="pillar-meta-icon" />
+            <div className="manifesto-list">
+              {pillars.map((pillar) => {
+                const IconComp = pillar.icon;
+                return (
+                  <div key={pillar.num} className="pillar-architectural-row">
+                    <div className="pillar-num-cell">
+                      <span className="pillar-num-text">{pillar.num}</span>
                     </div>
-                    <h3 className="pillar-row-title">{pillar.title}</h3>
-                    <p className="pillar-row-desc">{pillar.desc}</p>
-                  </div>
 
-                  <div className="pillar-action-cell">
-                    <span className="pillar-indicator" aria-hidden="true" />
+                    <div className="pillar-content-cell">
+                      <div className="pillar-meta-row">
+                        <span className="pillar-tag-badge">{pillar.tag}</span>
+                        <IconComp size={16} className="pillar-meta-icon" />
+                      </div>
+                      <h3 className="pillar-row-title">{pillar.title}</h3>
+                      <p className="pillar-row-desc">{pillar.desc}</p>
+                    </div>
+
+                    <div className="pillar-action-cell">
+                      <span className="pillar-indicator" aria-hidden="true" />
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

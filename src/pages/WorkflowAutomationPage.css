@@ -1,350 +1,738 @@
 /* =============================================================================
-   Workflow Automation Page Styles — Bespoke Pipeline Architecture
-   - Cloud White (#F4F7F7) & Pure White (#FFFFFF) Architecture
-   - Event-driven pipeline visualization (Trigger → Process → Execution)
-   - Multi-App Integration Ecosystem Matrix
-   - Operational Comparison (Manual vs. Automated)
+   WORKFLOW AUTOMATION CAPABILITY PAGE — EDITORIAL REDESIGN
+   Hutomate Brand:
+   - Deep Navy: #0B2029
+   - Teal: #087F83 & #167C80
+   - Cool Off-white: #F3F7F7
+   - Pure White: #FFFFFF
+   - Strictly NO purple, lavender, or pink
    ============================================================================= */
 
-.workflow-automation-page {
+.wf-page-redesign {
+  position: relative;
   width: 100%;
-  background-color: var(--color-cloud-white, #F4F7F7);
+  background-color: var(--color-pure-white, #FFFFFF);
+  color: var(--color-charcoal, #17252B);
+  overflow-x: hidden;
 }
 
-/* 1. Dedicated Pipeline Hero */
+/* =============================================================================
+   SECTION 01: HERO — FULL-COVER PHOTOGRAPHY
+   ============================================================================= */
 .wf-hero-section {
   position: relative;
   width: 100%;
-  background: radial-gradient(circle at 40% 10%, rgba(11, 48, 56, 0.95) 0%, rgba(7, 25, 35, 1) 85%);
-  padding: clamp(96px, 12vw, 150px) 0 clamp(64px, 8vw, 96px);
+  min-height: clamp(560px, 82vh, 860px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
   box-sizing: border-box;
-  color: #FFFFFF;
-  border-bottom: 1px solid rgba(226, 234, 236, 0.1);
+  padding: clamp(100px, 14vh, 160px) 0 clamp(64px, 8vh, 96px);
+}
+
+.wf-hero-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.wf-hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  transform: scale(1);
+  will-change: transform, opacity;
+}
+
+.wf-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 32, 41, 0.45) 0%,
+    rgba(11, 32, 41, 0.74) 55%,
+    rgba(11, 32, 41, 0.94) 100%
+  );
+  z-index: 2;
+}
+
+.wf-hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 75% 35%,
+    rgba(8, 127, 131, 0.12) 0%,
+    transparent 65%
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+.wf-hero-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
 }
 
 .wf-hero-content {
-  max-width: 920px;
+  max-width: 820px;
 }
 
-.wf-eyebrow-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.wf-tag {
-  font-family: var(--font-family-mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--color-accent-cyan, #83DDE2);
-  text-transform: uppercase;
-}
-
-.wf-badge {
+.wf-hero-label {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 5px 12px;
-  background-color: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(226, 234, 236, 0.15);
-  border-radius: var(--radius-full, 9999px);
+  gap: 10px;
   font-family: var(--font-family-mono, monospace);
-  font-size: 11px;
-  font-weight: 600;
-  color: #FFFFFF;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-cyan, #83DDE2);
+  margin-bottom: clamp(16px, 2.5vw, 24px);
+  padding: 6px 14px;
+  background: rgba(8, 127, 131, 0.16);
+  border: 1px solid rgba(131, 221, 226, 0.28);
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
 }
 
-.wf-badge-dot {
-  width: 6px;
-  height: 6px;
+.wf-hero-beacon {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background-color: var(--color-accent-cyan, #83DDE2);
-  box-shadow: 0 0 8px rgba(131, 221, 226, 0.8);
+  box-shadow: 0 0 10px var(--color-accent-cyan, #83DDE2);
 }
 
-.wf-hero-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
-  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+.wf-hero-headline {
+  font-family: var(--font-family-headings, 'Manrope', -apple-system, sans-serif);
+  font-size: clamp(2.4rem, 4.6vw, 3.8rem);
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.035em;
   color: #FFFFFF;
-  margin: 0 0 20px;
+  margin: 0 0 clamp(20px, 3vw, 28px) 0;
   text-wrap: balance;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
 }
 
 .wf-hero-desc {
   font-family: var(--font-family-body, 'Inter', sans-serif);
-  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
-  line-height: 1.65;
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  line-height: 1.62;
   color: var(--color-mist-grey, #E2EAEC);
-  max-width: 760px;
-  margin: 0 0 36px;
-  text-wrap: pretty;
+  max-width: 660px;
+  margin: 0 0 clamp(32px, 4vw, 44px) 0;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
-.wf-hero-actions {
+.wf-hero-ctas {
   display: flex;
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 40px;
 }
 
-.wf-metrics-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  max-width: 700px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(226, 234, 236, 0.12);
-}
-
-.wf-metric-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.wf-metric-val {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
-  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
-  font-weight: 800;
-  color: #FFFFFF;
-  line-height: 1.1;
-  margin-bottom: 4px;
-}
-
-.wf-metric-lbl {
-  font-family: var(--font-family-mono, monospace);
-  font-size: 11px;
-  color: var(--color-mist-grey, #E2EAEC);
-  letter-spacing: 0.02em;
-}
-
-/* 2. Pipeline Diagram Section */
-.wf-pipeline-section {
-  padding: clamp(64px, 8vw, 100px) 0;
-  background-color: #FFFFFF;
+/* =============================================================================
+   SECTION 02: THE CHALLENGE — ASYMMETRIC COMPARISON MATRIX
+   ============================================================================= */
+.wf-challenge-section {
+  position: relative;
+  background-color: var(--color-cloud-white, #F3F7F7);
+  padding: clamp(80px, 9vw, 130px) 0;
   border-bottom: 1px solid var(--color-border, #E2EAEC);
 }
 
-/* 3. Integration Ecosystem Grid */
-.wf-ecosystem-section {
-  padding: clamp(64px, 8vw, 100px) 0;
-  background-color: var(--color-cloud-white, #F4F7F7);
-  border-bottom: 1px solid var(--color-border, #E2EAEC);
-}
-
-.wf-tools-grid {
+.wf-challenge-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 36px;
-}
-
-.wf-tool-card {
-  background: #FFFFFF;
-  border: 1px solid var(--color-border, #E2EAEC);
-  border-radius: var(--radius-md, 10px);
-  padding: 22px 20px;
-  display: flex;
-  flex-direction: column;
-  transition: all var(--transition-fast, 150ms ease);
-}
-
-.wf-tool-card:hover {
-  border-color: var(--color-deep-teal, #167C80);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(7, 25, 35, 0.06);
-}
-
-.wf-tool-header {
-  display: flex;
+  grid-template-columns: 1.1fr 1.2fr;
+  gap: clamp(40px, 6vw, 84px);
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
 }
 
-.wf-tool-name {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
-  font-size: 1.1rem;
-  font-weight: 750;
-  color: var(--color-text-primary, #17252B);
-}
-
-.wf-tool-badge {
-  font-family: var(--font-family-mono, monospace);
-  font-size: 10px;
-  color: var(--color-deep-teal, #167C80);
-  background: rgba(22, 124, 128, 0.08);
-  padding: 3px 8px;
-  border-radius: var(--radius-full, 9999px);
-}
-
-.wf-tool-desc {
-  font-family: var(--font-family-body, 'Inter', sans-serif);
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--color-text-secondary, #40545C);
-  margin: 0;
-}
-
-/* 4. Resilient Automation Tenets */
-.wf-tenets-section {
-  padding: clamp(64px, 8vw, 100px) 0;
-  background-color: #FFFFFF;
-  border-bottom: 1px solid var(--color-border, #E2EAEC);
-}
-
-.wf-tenets-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 40px;
-}
-
-.wf-tenet-card {
-  background: var(--color-cloud-white, #F4F7F7);
-  border: 1px solid var(--color-border, #E2EAEC);
-  border-radius: var(--radius-lg, 14px);
-  padding: 32px 26px;
-  display: flex;
-  flex-direction: column;
-}
-
-.wf-tenet-num {
-  font-family: var(--font-family-mono, monospace);
-  font-size: 12px;
-  font-weight: 750;
-  color: var(--color-deep-teal, #167C80);
-  margin-bottom: 12px;
-}
-
-.wf-tenet-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-text-primary, #17252B);
-  margin: 0 0 10px;
-}
-
-.wf-tenet-desc {
-  font-family: var(--font-family-body, 'Inter', sans-serif);
-  font-size: 0.925rem;
-  line-height: 1.6;
-  color: var(--color-text-secondary, #40545C);
-  margin: 0;
-}
-
-/* 5. Before vs. After Matrix */
-.wf-comparison-section {
-  padding: clamp(64px, 8vw, 100px) 0;
-  background-color: var(--color-midnight-navy, #071923);
-  color: #FFFFFF;
-}
-
-.wf-matrix-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  margin-top: 40px;
-}
-
-.wf-matrix-col {
-  border-radius: var(--radius-lg, 14px);
-  padding: 32px 28px;
-}
-
-.wf-matrix-col--before {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(226, 234, 236, 0.1);
-}
-
-.wf-matrix-col--after {
-  background: var(--color-deep-ocean, #0B3038);
-  border: 1px solid rgba(131, 221, 226, 0.25);
-  box-shadow: 0 0 30px rgba(131, 221, 226, 0.06);
-}
-
-.wf-matrix-label {
+.wf-section-kicker {
   font-family: var(--font-family-mono, monospace);
   font-size: 11px;
-  font-weight: 750;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  color: var(--color-deep-teal, #167C80);
+  margin-bottom: 14px;
   display: block;
 }
 
-.wf-matrix-label--before {
+.wf-challenge-heading {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(2.1rem, 3.4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: var(--color-charcoal, #17252B);
+  margin: 0 0 20px 0;
+}
+
+.wf-challenge-lead {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--color-slate-grey, #40545C);
+  margin: 0 0 32px 0;
+}
+
+.wf-challenge-stat-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 24px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border, #E2EAEC);
+  border-left: 4px solid var(--color-deep-teal, #167C80);
+  border-radius: var(--radius-sm, 6px);
+  box-shadow: 0 4px 16px rgba(11, 32, 41, 0.04);
+}
+
+.wf-stat-value {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-deep-teal, #167C80);
+}
+
+.wf-stat-label {
+  font-size: 13.5px;
+  color: var(--color-slate-grey, #40545C);
+  line-height: 1.45;
+}
+
+.wf-comparison-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border, #E2EAEC);
+  border-radius: var(--radius-sm, 6px);
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(11, 32, 41, 0.05);
+}
+
+.wf-comparison-header {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  background: #0B2029;
+  padding: 14px 20px;
+}
+
+.wf-col-label {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.wf-col-label.manual {
   color: var(--color-muted-grey, #71838A);
 }
 
-.wf-matrix-label--after {
+.wf-col-label.automated {
   color: var(--color-accent-cyan, #83DDE2);
 }
 
-.wf-matrix-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
-  font-size: 1.4rem;
-  font-weight: 800;
-  margin: 0 0 20px;
-  color: #FFFFFF;
+.wf-comparison-rows {
+  display: flex;
+  flex-direction: column;
 }
 
-.wf-matrix-list {
-  list-style: none;
-  padding: 0;
+.wf-comp-row {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+  transition: background-color 150ms ease;
+}
+
+.wf-comp-row:last-child {
+  border-bottom: none;
+}
+
+.wf-comp-row:hover {
+  background-color: var(--color-cloud-white, #F3F7F7);
+}
+
+.wf-comp-cell {
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.wf-comp-cell.manual {
+  border-right: 1px solid var(--color-border, #E2EAEC);
+}
+
+.wf-comp-cell p {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-charcoal, #17252B);
   margin: 0;
+}
+
+.wf-comp-cell.manual p {
+  color: var(--color-slate-grey, #40545C);
+}
+
+.wf-comp-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.wf-comp-dot.red {
+  background-color: #B23B3B;
+}
+
+.wf-comp-dot.green {
+  background-color: var(--color-deep-teal, #167C80);
+}
+
+/* =============================================================================
+   SECTION 03: WHAT WE DELIVER — INTERACTIVE PIPELINE ACCORDION
+   ============================================================================= */
+.wf-deliver-section {
+  position: relative;
+  background-color: #FFFFFF;
+  padding: clamp(80px, 9vw, 130px) 0;
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+}
+
+.wf-deliver-header {
+  max-width: 760px;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.wf-section-heading {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(2.1rem, 3.4vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: var(--color-charcoal, #17252B);
+  margin: 0 0 16px 0;
+}
+
+.wf-section-subhead {
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  line-height: 1.62;
+  color: var(--color-slate-grey, #40545C);
+  margin: 0;
+}
+
+.wf-accordion-wrap {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.wf-matrix-item {
-  font-family: var(--font-family-body, 'Inter', sans-serif);
-  font-size: 0.95rem;
-  line-height: 1.55;
+.wf-accordion-item {
+  background-color: var(--color-cloud-white, #F3F7F7);
+  border: 1px solid var(--color-border, #E2EAEC);
+  border-radius: var(--radius-sm, 6px);
+  overflow: hidden;
+  transition: border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
+}
+
+.wf-accordion-item.is-active {
+  background-color: #FFFFFF;
+  border-color: var(--color-deep-teal, #167C80);
+  box-shadow: 0 8px 30px rgba(11, 32, 41, 0.07);
+}
+
+.wf-accordion-trigger {
+  width: 100%;
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(20px, 2.5vw, 28px);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 20px;
+  box-sizing: border-box;
 }
 
-.wf-matrix-col--before .wf-matrix-item {
-  color: var(--color-mist-grey, #E2EAEC);
+.wf-accordion-trigger-left {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 28px);
 }
 
-.wf-matrix-col--after .wf-matrix-item {
+.wf-item-num {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-deep-teal, #167C80);
+  padding: 6px 12px;
+  background: rgba(22, 124, 128, 0.08);
+  border-radius: 4px;
+}
+
+.wf-item-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.wf-item-domain {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-grey, #71838A);
+}
+
+.wf-item-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(1.15rem, 1.5vw, 1.45rem);
+  font-weight: 700;
+  color: var(--color-charcoal, #17252B);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.wf-accordion-icon-wrap {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(11, 32, 41, 0.04);
+  color: var(--color-charcoal, #17252B);
+  flex-shrink: 0;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.wf-accordion-item.is-active .wf-accordion-icon-wrap {
+  background: var(--color-deep-teal, #167C80);
   color: #FFFFFF;
 }
 
-.matrix-check {
-  color: var(--color-accent-cyan, #83DDE2);
-  flex-shrink: 0;
-  margin-top: 3px;
+.wf-chevron {
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.matrix-cross {
+.wf-chevron.is-rotated {
+  transform: rotate(180deg);
+}
+
+.wf-accordion-drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wf-accordion-drawer.is-open {
+  grid-template-rows: 1fr;
+}
+
+.wf-drawer-inner {
+  overflow: hidden;
+}
+
+.wf-drawer-grid {
+  padding: 0 clamp(20px, 2.5vw, 28px) clamp(24px, 3vw, 32px);
+  border-top: 1px solid var(--color-border, #E2EAEC);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: flex-start;
+  margin-top: 6px;
+  padding-top: 20px;
+}
+
+.wf-drawer-lead {
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--color-charcoal, #17252B);
+  margin: 0 0 12px 0;
+}
+
+.wf-drawer-desc {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--color-slate-grey, #40545C);
+  margin: 0 0 24px 0;
+}
+
+.wf-drawer-systems {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wf-systems-label {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--color-muted-grey, #71838A);
-  flex-shrink: 0;
-  margin-top: 3px;
 }
 
-@media (max-width: 960px) {
-  .wf-tools-grid {
-    grid-template-columns: repeat(2, 1fr);
+.wf-systems-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.wf-sys-pill {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 12px;
+  color: var(--color-charcoal, #17252B);
+  background: var(--color-cloud-white, #F3F7F7);
+  border: 1px solid var(--color-border, #E2EAEC);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.wf-drawer-specs {
+  background: var(--color-cloud-white, #F3F7F7);
+  border: 1px solid var(--color-border, #E2EAEC);
+  border-radius: var(--radius-sm, 6px);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wf-specs-title {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-deep-teal, #167C80);
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+  padding-bottom: 8px;
+}
+
+.wf-spec-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wf-spec-key {
+  font-size: 11.5px;
+  color: var(--color-muted-grey, #71838A);
+}
+
+.wf-spec-val {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-charcoal, #17252B);
+}
+
+/* =============================================================================
+   SECTION 04: WHY IT MATTERS — 4-QUADRANT PRECISION GRID
+   ============================================================================= */
+.wf-matters-section {
+  position: relative;
+  background-color: var(--color-cloud-white, #F3F7F7);
+  padding: clamp(80px, 9vw, 130px) 0;
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+}
+
+.wf-matters-header {
+  max-width: 760px;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.wf-quadrant-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(16px, 2.5vw, 24px);
+}
+
+.wf-quadrant-cell {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border, #E2EAEC);
+  border-radius: var(--radius-sm, 6px);
+  padding: clamp(28px, 3.5vw, 36px);
+  display: flex;
+  flex-direction: column;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.wf-quadrant-cell:hover {
+  transform: translateY(-3px);
+  border-color: rgba(22, 124, 128, 0.4);
+  box-shadow: 0 10px 28px rgba(11, 32, 41, 0.06);
+}
+
+.wf-quadrant-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.wf-quadrant-tag {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-deep-teal, #167C80);
+  background: rgba(22, 124, 128, 0.08);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.wf-quadrant-index {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-muted-grey, #71838A);
+}
+
+.wf-quadrant-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-charcoal, #17252B);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.015em;
+}
+
+.wf-quadrant-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--color-slate-grey, #40545C);
+  margin: 0;
+}
+
+/* =============================================================================
+   SECTION 05: FINAL CTA — PREMIUM DARK NAVY COMPOSITION
+   ============================================================================= */
+.wf-final-cta-section {
+  position: relative;
+  background-color: #0B2029;
+  padding: clamp(90px, 11vw, 140px) 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.wf-final-cta-bloom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(8, 127, 131, 0.22) 0%,
+    rgba(11, 32, 41, 0) 70%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.wf-final-cta-inner {
+  position: relative;
+  z-index: 10;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wf-final-kicker {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-cyan, #83DDE2);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.wf-final-heading {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: #FFFFFF;
+  margin: 0 0 20px 0;
+  text-wrap: balance;
+}
+
+.wf-final-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: clamp(1rem, 1.25vw, 1.18rem);
+  line-height: 1.65;
+  color: var(--color-mist-grey, #E2EAEC);
+  margin: 0 auto 36px auto;
+  max-width: 620px;
+}
+
+.wf-final-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* =============================================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================================= */
+@media (max-width: 1024px) {
+  .wf-challenge-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
-  .wf-tenets-grid {
+
+  .wf-drawer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wf-quadrant-grid {
     grid-template-columns: 1fr;
   }
-  .wf-matrix-grid {
+
+  .wf-comparison-header,
+  .wf-comp-row {
     grid-template-columns: 1fr;
   }
-  .wf-metrics-strip {
-    grid-template-columns: 1fr;
-    gap: 20px;
+
+  .wf-comp-cell.manual {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border, #E2EAEC);
+  }
+}
+
+@media (max-width: 640px) {
+  .wf-hero-ctas,
+  .wf-final-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .wf-hero-ctas .btn,
+  .wf-final-actions .btn {
+    width: 100%;
   }
 }

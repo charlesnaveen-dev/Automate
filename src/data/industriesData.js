@@ -29,7 +29,7 @@ export const INDUSTRIES_DATA = [
     category: 'professional',
     categoryLabel: 'Professional & Legal',
     icon: Scale,
-    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/industries/legal.jpg',
     heroHeadline: 'AI Phone Answering, Intake & Case Automation for Modern Law Practices',
     heroSubhead: 'Capture prospective clients around the clock, screen conflict parameters instantly, and automate retainer workflows so attorneys focus on billable casework.',
     heroMetrics: [
@@ -82,13 +82,13 @@ export const INDUSTRIES_DATA = [
     category: 'property',
     categoryLabel: 'Property & Trades',
     icon: Home,
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/industries/real-estate.jpg',
     heroHeadline: 'Instant Inbound Lead Capture & Showing Automation for Real Estate Teams',
     heroSubhead: 'Convert portal leads and drive-by inquiries within seconds. AI agents qualify buyer budgets, verify financing status, and book private showings 24/7.',
     heroMetrics: [
-      { value: '< 15s', label: 'Lead Response Time' },
-      { value: '3x', label: 'Showing Conversion Rate' },
-      { value: '100%', label: 'CRM Record Hygiene' }
+      { value: 'Immediate', label: 'Lead Response Time' },
+      { value: 'Higher', label: 'Showing Conversion Rate' },
+      { value: 'Consistent', label: 'CRM Record Hygiene' }
     ],
     challenges: [
       'Lead leakage from Zillow, Realtor.com, and lawn signage outside business hours when buyers call hot.',
@@ -126,7 +126,7 @@ export const INDUSTRIES_DATA = [
       { step: '04', title: 'CRM & Alert Dispatch', desc: 'Tour details and buyer summary are committed to Follow Up Boss with instant SMS to agent.' }
     ],
     stack: ['Follow Up Boss', 'KvCORE', 'Google Calendar', 'Twilio SMS', 'Zillow API'],
-    impact: '< 15s lead response time • 3x higher showing conversion • 100% CRM record hygiene'
+    impact: 'Immediate lead intake • Higher showing conversion • Consistent CRM record hygiene'
   },
   {
     id: 'healthcare',
@@ -135,7 +135,7 @@ export const INDUSTRIES_DATA = [
     category: 'health',
     categoryLabel: 'Health & Care',
     icon: HeartPulse,
-    image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/industries/healthcare.jpg',
     heroHeadline: 'HIPAA-Conscious Patient Scheduling & Front Desk Automation for Clinics',
     heroSubhead: 'Relieve front desk telephone burnout. AI voice assistants manage patient bookings, dispatch digital intake forms, and reduce appointment no-shows.',
     heroMetrics: [
@@ -188,13 +188,13 @@ export const INDUSTRIES_DATA = [
     category: 'property',
     categoryLabel: 'Property & Trades',
     icon: Wrench,
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/industries/home-services.jpg',
     heroHeadline: '24/7 Emergency Dispatch & Job Booking for Field Service Contractors',
     heroSubhead: 'Never miss an emergency repair call while technicians are on the job. Autonomous voice agents identify issues, verify addresses, and dispatch directly into ServiceTitan.',
     heroMetrics: [
-      { value: '100%', label: 'Inbound Calls Answered' },
-      { value: '0', label: 'Lost Emergency Jobs' },
-      { value: 'Sub-60s', label: 'Dispatch Creation' }
+      { value: '24/7', label: 'Inbound Calls Answered' },
+      { value: 'Direct', label: 'Emergency Dispatch' },
+      { value: 'Real-Time', label: 'Work Order Creation' }
     ],
     challenges: [
       'Technicians in crawl spaces or on rooftops cannot answer ringing phones, losing urgent high-ticket jobs to rivals.',
@@ -241,7 +241,7 @@ export const INDUSTRIES_DATA = [
     category: 'professional',
     categoryLabel: 'Professional & Legal',
     icon: DollarSign,
-    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/industries/financial-services.jpg',
     heroHeadline: 'Intelligent Document Chasing, OCR Extraction & Client Intake for CPAs',
     heroSubhead: 'Eliminate peak-season document bottlenecks. Automated agents chase missing tax files, parse line items with computer vision, and update ledgers without manual typing.',
     heroMetrics: [
@@ -294,7 +294,7 @@ export const INDUSTRIES_DATA = [
     category: 'professional',
     categoryLabel: 'Professional & Legal',
     icon: Shield,
-    image: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/industries/insurance.jpg',
     heroHeadline: '24/7 First Notice of Loss (FNOL) & Underwriting Automation for Agencies',
     heroSubhead: 'Accelerate quote turnarounds and provide instant policy service. Conversational intake agents gather rating details, log claims, and orchestrate renewals.',
     heroMetrics: [
@@ -347,12 +347,12 @@ export const INDUSTRIES_DATA = [
     category: 'property',
     categoryLabel: 'Property & Trades',
     icon: HardHat,
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/industries/construction.jpg',
     heroHeadline: 'Field-to-Office RFI, Change Order & Subcontractor Compliance Automation',
     heroSubhead: 'Eliminate project standstills. AI agents triage site RFIs, verify subcontractor certificates of insurance, and reconcile job delivery tickets against purchase orders.',
     heroMetrics: [
       { value: '75%', label: 'Faster RFI Turnaround' },
-      { value: '100%', label: 'Sub Compliance Tracking' },
+      { value: 'Automated', label: 'Sub Compliance Tracking' },
       { value: 'Real-Time', label: 'Job Cost Reconciliation' }
     ],
     challenges: [
@@ -400,7 +400,7 @@ export const INDUSTRIES_DATA = [
     category: 'property',
     categoryLabel: 'Property & Trades',
     icon: Building2,
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/industries/property-management.jpg',
     heroHeadline: '24/7 Tenant Maintenance Triage & Leasing Tour Automation',
     heroSubhead: 'Protect property managers from after-hours phone fatigue. AI agents classify maintenance emergencies, dispatch pre-approved vendors, and book prospect tours in AppFolio.',
     heroMetrics: [
@@ -453,13 +453,13 @@ export const INDUSTRIES_DATA = [
     category: 'professional',
     categoryLabel: 'Professional & Legal',
     icon: Briefcase,
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/industries/professional-services.jpg',
     heroHeadline: 'Client Discovery Synthesis, SOW Generation & Project Provisioning',
     heroSubhead: 'Accelerate proposal velocity and eliminate delivery handoff friction. AI systems synthesize discovery calls, assemble scoped SOWs, and auto-provision project workspaces.',
     heroMetrics: [
       { value: '4x', label: 'Faster SOW Generation' },
-      { value: '0', label: 'Client Onboarding Delays' },
-      { value: '100%', label: 'Delivery Scope Alignment' }
+      { value: 'Zero', label: 'Client Onboarding Delays' },
+      { value: 'Structured', label: 'Delivery Scope Alignment' }
     ],
     challenges: [
       'Senior consultants spending up to 20% of their time assembling SOWs, engagement proposals, and client meeting notes.',
@@ -506,13 +506,13 @@ export const INDUSTRIES_DATA = [
     category: 'tech-logistics',
     categoryLabel: 'Tech, Auto & Commerce',
     icon: Car,
-    image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/industries/automotive.jpg',
     heroHeadline: '24/7 Service Bay Scheduling & Automated Vehicle Status Updates',
     heroSubhead: 'Maximize bay utilization and stop phone interruptions. Voice AI agents book service appointments in your DMS, qualify repairs, and send SMS inspection updates.',
     heroMetrics: [
       { value: '24/7', label: 'Service Bay Scheduling' },
       { value: '50%', label: 'Fewer Advisor Interruptions' },
-      { value: '100%', label: 'After-Hours Lead Capture' }
+      { value: 'Full', label: 'After-Hours Lead Capture' }
     ],
     challenges: [
       'Service advisors constantly interrupted by phone inquiries for vehicle repair status updates and inspection reports.',
@@ -559,13 +559,13 @@ export const INDUSTRIES_DATA = [
     category: 'tech-logistics',
     categoryLabel: 'Tech, Auto & Commerce',
     icon: Server,
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/industries/it-services.jpg',
     heroHeadline: 'Tier-1 Ticket Triage, Autonomous Runbooks & User Provisioning for MSPs',
     heroSubhead: 'Protect engineers from ticket volume overwhelm. AI agents authenticate users, resolve routine Tier-1 requests, and escalate critical outages with full diagnostic telemetry.',
     heroMetrics: [
-      { value: '< 2 min', label: 'Tier-1 Resolution' },
-      { value: '45%', label: 'Ticket Volume Reduction' },
-      { value: '100%', label: 'SLA Compliance' }
+      { value: 'Fast', label: 'Tier-1 Resolution' },
+      { value: 'Reduced', label: 'Ticket Volume Overhead' },
+      { value: 'Monitored', label: 'SLA Tracking & Compliance' }
     ],
     challenges: [
       'Helpdesk engineers overwhelmed by repetitive Tier-1 tickets (password resets, VPN access, software provisioning).',
@@ -612,7 +612,7 @@ export const INDUSTRIES_DATA = [
     category: 'tech-logistics',
     categoryLabel: 'Tech, Auto & Commerce',
     icon: Package,
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/industries/ecommerce-logistics.jpg',
     heroHeadline: 'Automated Order Support, 3PL Sync & Returns Resolution for Retailers',
     heroSubhead: 'Turn order support into an effortless automated flow. AI agents answer tracking inquiries, generate return labels, and synchronize warehouse stock across storefronts in real time.',
     heroMetrics: [
