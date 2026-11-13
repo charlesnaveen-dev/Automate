@@ -58,6 +58,57 @@
   align-items: center;
 }
 
+/* Header specific brand lockup with smooth crossfade */
+.hutomate-brand-lockup.is-header-brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  width: 95px;
+  flex-shrink: 0;
+}
+
+.hutomate-brand-lockup.is-header-brand .hutomate-brand-img {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 28px;
+  width: auto;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hutomate-brand-lockup.is-header-brand .hutomate-wordmark-light {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hutomate-brand-lockup.is-header-brand .hutomate-wordmark-navy {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Scrolled state: crossfade to navy wordmark */
+.site-header.is-scrolled .hutomate-brand-lockup.is-header-brand .hutomate-wordmark-light {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.site-header.is-scrolled .hutomate-brand-lockup.is-header-brand .hutomate-wordmark-navy {
+  opacity: 1;
+  visibility: visible;
+}
+
+.site-header.is-scrolled .hutomate-brand-lockup.is-header-brand {
+  height: 25px;
+  width: 85px;
+}
+
+.site-header.is-scrolled .hutomate-brand-lockup.is-header-brand .hutomate-brand-img {
+  height: 25px;
+}
+
 /* Footer brand lockup */
 .footer-brand .hutomate-brand-lockup {
   display: flex;

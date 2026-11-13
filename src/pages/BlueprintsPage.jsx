@@ -90,6 +90,14 @@ export default function BlueprintsPage() {
 
       <section className="section detail-section">
         <div className="container">
+          <div className="section-header reveal-on-scroll">
+            <span className="section-label">Architecture Patterns</span>
+            <h2 className="section-heading">Representative operational data flows &amp; human oversight gates</h2>
+            <p className="section-body">
+              Each conceptual blueprint illustrates data ingestion, machine intelligence boundaries, API coordination, and explicit human authorization gates for mission-critical operations.
+            </p>
+          </div>
+
           <div className="blueprints-container">
             {blueprints.map((bp) => (
               <div key={bp.num} className="blueprint-card card card-hover-lift reveal-on-scroll">
@@ -100,7 +108,7 @@ export default function BlueprintsPage() {
                   </span>
                 </div>
 
-                <h2 className="blueprint-title">{bp.title}</h2>
+                <h3 className="blueprint-title">{bp.title}</h3>
                 <p className="blueprint-desc">{bp.desc}</p>
 
                 <div className="blueprint-flow-diagram">
@@ -116,11 +124,11 @@ export default function BlueprintsPage() {
                 <div className="blueprint-details-row">
                   <div className="blueprint-detail-block">
                     <span className="detail-label">Underlying Technology Stack</span>
-                    <span className="detail-val">{bp.stack}</span>
+                    <span className="detail-content">{bp.stack}</span>
                   </div>
                   <div className="blueprint-detail-block">
                     <span className="detail-label">Built-in Safety Guardrails</span>
-                    <span className="detail-val">{bp.safeguard}</span>
+                    <span className="detail-content">{bp.safeguard}</span>
                   </div>
                 </div>
               </div>

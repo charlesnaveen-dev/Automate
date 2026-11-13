@@ -18,9 +18,9 @@ export default function PageHeader({
           <div className="page-header-eyebrow-row">
             {eyebrow && <SectionLabel number={eyebrowNumber} text={eyebrow} />}
             {badgeText && (
-              <span className={`badge badge-${badgeType} page-header-badge`}>
-                <span className="badge-dot" aria-hidden="true" />
-                <span>{badgeText}</span>
+              <span className="page-header-meta">
+                <span className="page-header-meta-separator" aria-hidden="true">·</span>
+                <span className="page-header-meta-text">{badgeText}</span>
               </span>
             )}
           </div>

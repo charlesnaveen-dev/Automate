@@ -1,31 +1,44 @@
-/* Blueprints Page Styles — Rebranded Hutomate Design System */
+/* =============================================================================
+   Blueprints Page Styles — Hutomate Brand System
+   - Cloud White (#F4F7F7) background
+   - Pure White (#FFFFFF) elevated blueprint cards with crisp borders
+   - Flow diagram with connected operational stage nodes
+   - Deep Teal accents and Manrope / Inter typography
+   ============================================================================= */
+
 .blueprints-page {
   width: 100%;
   background-color: var(--color-cloud-white, #F4F7F7);
   color: var(--color-charcoal, #17252B);
 }
 
+.blueprints-page .detail-section {
+  padding: var(--section-padding-compact, clamp(56px, 6.5vw, 84px) 0);
+}
+
 .blueprints-container {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: clamp(28px, 4vw, 40px);
 }
 
 .blueprint-card {
-  padding: 40px;
+  padding: clamp(28px, 4vw, 40px);
   background-color: var(--color-pure-white, #FFFFFF);
   border: 1px solid var(--color-mist-grey, #E2EAEC);
   border-radius: 16px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 16px rgba(7, 25, 35, 0.03);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .blueprint-card:hover {
   transform: translateY(-2px);
-  border-color: var(--color-deep-teal, #167C80);
-  box-shadow: 0 12px 32px rgba(7, 25, 35, 0.08);
+  border-color: rgba(22, 124, 128, 0.4);
+  box-shadow: 0 14px 36px rgba(7, 25, 35, 0.07);
 }
 
 .blueprint-header-row {
@@ -39,10 +52,10 @@
 
 .blueprint-num {
   font-family: var(--font-mono, monospace);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 750;
   color: var(--color-deep-teal, #167C80);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 .blueprint-badge {
@@ -52,41 +65,44 @@
   font-family: var(--font-mono, monospace);
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 20px;
-  background-color: rgba(22, 124, 128, 0.08);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
   color: var(--color-deep-teal, #167C80);
-  border: 1px solid rgba(22, 124, 128, 0.2);
+  border: none;
 }
 
 .blueprint-title {
   font-family: var(--font-family-headings, 'Manrope', sans-serif);
-  font-size: 1.6rem;
+  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);
-  margin-bottom: 12px;
-  line-height: 1.3;
+  margin: 0 0 12px 0;
+  line-height: 1.25;
   letter-spacing: -0.02em;
 }
 
 .blueprint-desc {
   font-family: var(--font-family-body, 'Inter', sans-serif);
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 0.965rem;
+  line-height: 1.62;
   color: var(--color-slate-grey, #40545C);
-  margin-bottom: 32px;
+  margin: 0 0 clamp(24px, 3vw, 32px) 0;
   max-width: 860px;
 }
 
+/* 4-Stage Operational Dataflow Diagram */
 .blueprint-flow-diagram {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: clamp(24px, 3vw, 32px);
   background-color: var(--color-cloud-white, #F4F7F7);
   border: 1px solid var(--color-mist-grey, #E2EAEC);
   border-radius: 12px;
-  padding: 24px;
+  padding: clamp(16px, 2.5vw, 24px);
   position: relative;
 }
 
@@ -97,6 +113,13 @@
   padding: 18px 16px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flow-node:hover {
+  border-color: rgba(22, 124, 128, 0.35);
+  box-shadow: 0 4px 14px rgba(7, 25, 35, 0.04);
 }
 
 .node-stage {
@@ -106,6 +129,7 @@
   text-transform: uppercase;
   color: var(--color-deep-teal, #167C80);
   margin-bottom: 6px;
+  letter-spacing: 0.04em;
 }
 
 .node-title {
@@ -113,15 +137,18 @@
   font-size: 0.95rem;
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);
-  margin-bottom: 6px;
+  margin: 0 0 6px 0;
+  line-height: 1.3;
 }
 
 .node-items {
   font-size: 0.82rem;
   color: var(--color-slate-grey, #40545C);
   line-height: 1.5;
+  margin: 0;
 }
 
+/* Bottom Tech Stack & Safeguard Details */
 .blueprint-details-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -157,6 +184,7 @@
   }
   .blueprint-details-row {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
@@ -165,6 +193,6 @@
     grid-template-columns: 1fr;
   }
   .blueprint-card {
-    padding: 24px 20px;
+    padding: 22px 18px;
   }
 }

@@ -10,7 +10,7 @@
   position: relative;
   width: 100%;
   background-color: #FFFFFF;
-  padding: clamp(96px, 10vw, 140px) 0;
+  padding: clamp(72px, 8.5vh, 108px) 0;
   box-sizing: border-box;
   border-top: 1px solid var(--color-border, #E2EAEC);
 }
@@ -20,7 +20,7 @@
   grid-template-columns: 1.2fr 1fr;
   gap: clamp(24px, 4vw, 56px);
   align-items: flex-end;
-  margin-bottom: clamp(48px, 6vw, 72px);
+  margin-bottom: clamp(28px, 3.5vh, 44px);
 }
 
 .process-preview-eyebrow {

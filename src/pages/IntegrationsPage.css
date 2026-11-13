@@ -1,30 +1,44 @@
-/* Integrations Page Styles — Rebranded Hutomate Design System */
+/* =============================================================================
+   Integrations Page Styles — Hutomate Brand System
+   - Cloud White (#F4F7F7) background
+   - Balanced 2-column or 4-column category grid
+   - Structured assessment panel with numbered due diligence points
+   - Pure White (#FFFFFF) elevated cards with crisp borders
+   ============================================================================= */
+
 .integrations-page {
   width: 100%;
   background-color: var(--color-cloud-white, #F4F7F7);
   color: var(--color-charcoal, #17252B);
 }
 
+.integrations-page .detail-section {
+  padding: var(--section-padding-compact, clamp(56px, 6.5vw, 84px) 0);
+}
+
 .integrations-categories-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 64px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 2.5vw, 28px);
+  margin-bottom: clamp(48px, 6vw, 72px);
 }
 
 .integration-cat-card {
-  padding: 32px 28px;
+  padding: clamp(24px, 3vw, 32px);
   background-color: var(--color-pure-white, #FFFFFF);
   border: 1px solid var(--color-mist-grey, #E2EAEC);
   border-radius: 14px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 2px 10px rgba(7, 25, 35, 0.03);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease;
 }
 
 .integration-cat-card:hover {
   transform: translateY(-2px);
-  border-color: var(--color-deep-teal, #167C80);
+  border-color: rgba(22, 124, 128, 0.4);
   box-shadow: 0 12px 30px -8px rgba(7, 25, 35, 0.08);
 }
 
@@ -34,17 +48,18 @@
 
 .cat-title {
   font-family: var(--font-family-headings, 'Manrope', sans-serif);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);
-  margin-bottom: 6px;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.015em;
 }
 
 .cat-desc {
   font-family: var(--font-family-body, 'Inter', sans-serif);
-  font-size: 0.885rem;
+  font-size: 0.9rem;
   color: var(--color-slate-grey, #40545C);
-  line-height: 1.55;
+  line-height: 1.58;
   margin: 0;
 }
 
@@ -54,35 +69,78 @@
   gap: 8px;
   margin-top: auto;
   padding-top: 16px;
+  border-top: 1px solid var(--color-mist-grey, #E2EAEC);
 }
 
 .tool-tag {
   font-family: var(--font-mono, monospace);
   font-size: 0.78rem;
   font-weight: 600;
-  padding: 4px 10px;
+  padding: 5px 11px;
   border-radius: 6px;
   background-color: var(--color-cloud-white, #F4F7F7);
   color: var(--color-charcoal, #17252B);
   border: 1px solid var(--color-mist-grey, #E2EAEC);
 }
 
+/* Technical Due Diligence Assessment Box */
 .assessment-box {
   background-color: var(--color-pure-white, #FFFFFF);
   border: 1px solid var(--color-mist-grey, #E2EAEC);
   border-radius: 16px;
-  padding: 40px;
+  padding: clamp(28px, 4vw, 44px);
   box-shadow: 0 4px 20px rgba(7, 25, 35, 0.03);
+}
+
+.assessment-box-header {
+  max-width: 760px;
+  margin-bottom: clamp(24px, 3.5vw, 36px);
+}
+
+.assessment-box-title {
+  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  font-weight: 800;
+  color: var(--color-midnight-navy, #071923);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
 }
 
 .assessment-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-  margin-top: 24px;
+  gap: clamp(20px, 3vw, 32px);
 }
 
 .assessment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  border: 1px solid var(--color-mist-grey, #E2EAEC);
+  border-radius: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.assessment-item:hover {
+  border-color: rgba(22, 124, 128, 0.35);
+}
+
+.assessment-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  font-weight: 750;
+  color: var(--color-deep-teal, #167C80);
+  background: rgba(22, 124, 128, 0.08);
+  border: 1px solid rgba(22, 124, 128, 0.18);
+  border-radius: 6px;
+  padding: 4px 8px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.assessment-content {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -93,26 +151,33 @@
   font-size: 1.05rem;
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);
+  margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .assessment-desc {
-  font-size: 0.9rem;
+  font-size: 0.885rem;
   color: var(--color-slate-grey, #40545C);
-  line-height: 1.55;
+  line-height: 1.58;
   margin: 0;
 }
 
-@media (max-width: 1024px) {
-  .integrations-categories-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* =============================================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================================= */
+@media (max-width: 900px) {
+  .integrations-categories-grid,
+  .assessment-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 768px) {
-  .integrations-categories-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 600px) {
+  .integration-cat-card,
+  .assessment-box {
+    padding: 22px 18px;
   }
-  .assessment-grid {
-    grid-template-columns: 1fr;
+  .assessment-item {
+    padding: 16px;
   }
 }

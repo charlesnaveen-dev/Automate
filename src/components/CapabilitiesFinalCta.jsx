@@ -1,6 +1,5 @@
 import React from 'react';
 import { Clock, ShieldCheck, Cpu, ArrowRight } from 'lucide-react';
-import { HutomateSymbol } from './HutomateLogo';
 import { Link } from '../router/Router';
 import './CapabilitiesFinalCta.css';
 
@@ -114,13 +113,17 @@ export default function CapabilitiesFinalCta() {
                 {/* Layer 2: Tilted Back Glass Plate */}
                 <div className="cap-brand-plate-back" />
 
-                {/* Layer 3: Focal Glass Plate with Authentic Hutomate Symbol */}
+                {/* Layer 3: Focal Glass Plate with Authentic Hutomate Wordmark */}
                 <div className="cap-brand-plate-focal">
-                  <div className="cap-brand-symbol-glow-wrap">
-                    <HutomateSymbol size={80} color="#83DDE2" className="cap-focal-symbol" />
+                  <div className="cap-brand-wordmark-wrap">
+                    <img
+                      src="/hutomate_wordmark_white.png"
+                      alt="Hutomate"
+                      className="cap-focal-wordmark-img"
+                      height={30}
+                    />
                   </div>
                   <div className="cap-brand-label-lockup">
-                    <span className="cap-brand-name">HUTOMATE</span>
                     <span className="cap-brand-tagline">INTELLIGENT SYSTEMS</span>
                   </div>
                 </div>

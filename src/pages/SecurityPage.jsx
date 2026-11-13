@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Lock, EyeOff, FileText, Server, Key } from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 import CtaBanner from '../components/CtaBanner';
@@ -8,10 +9,12 @@ import './SecurityPage.css';
 
 export default function SecurityPage() {
   usePageMetadata({
-    title: 'Security & Responsible AI — Data Protection & Governance',
+    title: 'Security & Responsible AI — Data Protection & Governance | Hutomate',
     description: 'We build enterprise automation with strict data protection, zero model training on client IP, role-based access control, and human oversight gates.',
     path: '/security',
   });
+
+  useScrollReveal();
 
   const pillars = [
     {
@@ -75,7 +78,7 @@ export default function SecurityPage() {
       <PageHeader
         eyebrow="SECURITY &amp; GOVERNANCE"
         badgeText="Enterprise Security"
-        badgeType="green"
+        badgeType="teal"
         title="Enterprise security and responsible AI practices from day one."
         description="We design automation systems with strict data protection boundaries, model safety guardrails, and human oversight. Your data remains strictly yours, and automated actions are always bounded."
       >
@@ -89,8 +92,8 @@ export default function SecurityPage() {
 
       <section className="section detail-section">
         <div className="container">
-          <div className="section-header">
-            <span className="section-label section-label-green">Security Architecture</span>
+          <div className="section-header reveal-on-scroll">
+            <span className="section-label">Security Architecture</span>
             <h2 className="section-heading">Core data protection and governance pillars</h2>
             <p className="section-body">
               How we protect your confidential business data and maintain operational integrity.
@@ -101,7 +104,7 @@ export default function SecurityPage() {
             {pillars.map((p, i) => {
               const IconComp = p.icon;
               return (
-                <div key={i} className="security-pillar-card card">
+                <div key={i} className={`security-pillar-card card reveal-on-scroll reveal-delay-${(i % 3) + 1}`}>
                   <div className="pillar-icon-wrap">
                     <IconComp size={22} />
                   </div>
@@ -112,10 +115,10 @@ export default function SecurityPage() {
             })}
           </div>
 
-          <div className="hitl-container">
-            <div className="section-header" style={{ marginBottom: '20px' }}>
-              <span className="section-label section-label-blue">Human Oversight</span>
-              <h3 className="section-heading" style={{ fontSize: '1.5rem' }}>The Three-Zone Oversight Framework</h3>
+          <div className="hitl-container reveal-on-scroll">
+            <div className="hitl-header">
+              <span className="section-label">Human Oversight</span>
+              <h3 className="hitl-title">The Three-Zone Oversight Framework</h3>
               <p className="section-body">
                 We categorize all business actions into strict operational boundaries to ensure AI systems never exceed their authorized mandate:
               </p>

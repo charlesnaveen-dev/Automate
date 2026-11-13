@@ -93,18 +93,18 @@
   box-sizing: border-box;
 }
 
-/* Monospace Badge */
+/* Monospace Eyebrow (Clean Editorial Typography — No Decorative Pill Box) */
 .statement-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(226, 234, 236, 0.15);
-  border-radius: var(--radius-full, 9999px);
-  margin-bottom: clamp(24px, 3vh, 32px);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  margin-bottom: clamp(16px, 2.5vh, 24px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .intro-badge-dot {
@@ -117,10 +117,10 @@
 
 .intro-badge-text {
   font-family: var(--font-family-mono, monospace);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: #FFFFFF;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-electric-cyan, #83DDE2);
   text-transform: uppercase;
 }
 
@@ -215,7 +215,7 @@
 .brand-manifesto-stage {
   position: relative;
   z-index: 2;
-  padding: clamp(64px, 8vw, 110px) 0 clamp(80px, 9vw, 130px);
+  padding: clamp(72px, 8.5vh, 108px) 0;
   background: linear-gradient(
     180deg,
     rgba(7, 25, 35, 1) 0%,
@@ -289,14 +289,13 @@
 
 .pillar-tag-badge {
   font-family: var(--font-family-mono, monospace);
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--color-deep-teal, #167C80);
-  background-color: rgba(22, 124, 128, 0.2);
-  border: 1px solid rgba(22, 124, 128, 0.35);
-  padding: 3px 10px;
-  border-radius: var(--radius-full, 9999px);
+  letter-spacing: 0.12em;
+  color: var(--color-electric-cyan, #83DDE2);
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
 
 .pillar-meta-icon {

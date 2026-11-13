@@ -25,7 +25,7 @@ export default function Header() {
   // Monitor scroll for subtle frosted-glass background
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 15);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -90,7 +90,7 @@ export default function Header() {
       <div className="header-container">
         {/* Left: Exact Hutomate Brand Logo */}
         <Link to="/" className="header-brand" aria-label="Hutomate home" onClick={handleLinkClick}>
-          <HutomateLogo symbolSize={28} variant="light" />
+          <HutomateLogo variant="header" />
         </Link>
 
         {/* Center: Desktop Navigation */}
@@ -228,7 +228,7 @@ export default function Header() {
       >
         <div className="mobile-nav-inner">
           <div className="mobile-nav-header">
-            <span className="brand-wordmark mobile-brand">Hutomate</span>
+            <HutomateLogo variant="light" />
             <button
               type="button"
               className="mobile-close-btn"

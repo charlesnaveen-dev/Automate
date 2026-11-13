@@ -171,10 +171,32 @@
   --spacing-3xl: 64px;
   --spacing-4xl: 96px;
 
-  --container-max-width: 1240px;
+  --container-max-width: 1280px;
+  --container-narrow-max-width: 880px;
+  --container-wide-max-width: 1360px;
   --container-padding: clamp(20px, 4vw, 40px);
-  --max-content-width: 1240px;
+  --max-content-width: 1280px;
   --header-height: 80px;
+
+  /* Standardized Vertical Rhythm & Section Spacing Scale (Viewport-Aware System) */
+  --section-viewport-height: calc(100svh - var(--header-height, 80px));
+  --section-padding-standard: clamp(72px, 8.5vh, 108px) 0;
+  --section-padding-compact: clamp(48px, 6vh, 72px) 0;
+  --section-padding-hero: clamp(48px, 6vh, 80px) 0;
+  --section-padding-cta: clamp(72px, 9vh, 120px) 0;
+  --section-header-margin-bottom: clamp(32px, 4vh, 48px);
+  --section-header-split-gap: clamp(24px, 4vw, 56px);
+  --section-eyebrow-margin-bottom: 14px;
+
+  /* Editorial Eyebrow Typography Standard Tokens */
+  --eyebrow-font-size: 0.8125rem;
+  --eyebrow-letter-spacing: 0.12em;
+  --eyebrow-font-weight: 700;
+  --eyebrow-text-transform: uppercase;
+  --eyebrow-color: var(--color-deep-teal, #167C80);
+  --eyebrow-color-dark: var(--color-electric-cyan, #83DDE2);
+  --eyebrow-rule-color: var(--color-mist-grey, #E2EAEC);
+  --eyebrow-rule-color-dark: rgba(131, 221, 226, 0.35);
 
   /* Architectural radii: crisp, modern, avoiding excessive bubbly rounding */
   --radius-xs: 4px;

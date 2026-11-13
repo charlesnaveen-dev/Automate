@@ -78,27 +78,27 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #A8A49C;
-  margin-bottom: 24px;
-  padding: 6px 14px;
-  background-color: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 9999px;
+  color: var(--color-electric-cyan, #83DDE2);
+  margin-bottom: 14px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
   width: fit-content;
   line-height: 1;
 }
 
 .contact-eyebrow-dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background-color: var(--color-accent-purple, #7657E8);
+  background-color: var(--color-electric-cyan, #83DDE2);
   display: inline-block;
-  box-shadow: 0 0 10px rgba(118, 87, 232, 0.8);
+  box-shadow: 0 0 8px rgba(131, 221, 226, 0.8);
 }
 
 .contact-headline {

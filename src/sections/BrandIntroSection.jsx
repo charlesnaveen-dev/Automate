@@ -63,40 +63,40 @@ export default function BrandIntroSection() {
 
     sectionRef.current?.classList.add('is-scroll-ready');
 
-    // Initial state for scroll-driven reveals (dimmed baseline, ready to light up on scroll)
-    gsap.set('.phrase-1', { opacity: 0.22, y: 0 });
-    gsap.set('.phrase-2', { opacity: 0.20, y: 0 });
-    gsap.set('.phrase-3', { opacity: 0.18, y: 0 });
-    gsap.set('.phrase-4', { opacity: 0.15, y: 0 });
-    gsap.set('.phrase-5', { opacity: 0.15, pointerEvents: 'none' });
+    // Initial state for scroll-driven reveals (clean, legible baseline, ready to illuminate on scroll)
+    gsap.set('.phrase-1', { opacity: 0.65, y: 0 });
+    gsap.set('.phrase-2', { opacity: 0.60, y: 0 });
+    gsap.set('.phrase-3', { opacity: 0.50, y: 0 });
+    gsap.set('.phrase-4', { opacity: 0.45, y: 0 });
+    gsap.set('.phrase-5', { opacity: 0.85, pointerEvents: 'auto' });
 
     gsap.set('.statement-cyan-accent', {
-      color: '#E2EAEC',
-      textShadow: 'none',
+      color: '#83DDE2',
+      textShadow: '0 0 16px rgba(131, 221, 226, 0.35)',
     });
     gsap.set('.statement-cyan-accent-line', {
-      scaleX: 0,
+      scaleX: 0.5,
       transformOrigin: 'left center',
     });
     gsap.set('.brand-term-accent', {
-      color: '#E2EAEC',
+      color: '#83DDE2',
     });
 
-    // Pinned Scroll-Driven Scrollytelling Sequence
+    // Pinned Scroll-Driven Scrollytelling Sequence (compact, controlled duration)
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: stageRef.current,
         start: 'top top',
-        end: '+=150%',
+        end: '+=45%',
         pin: pinBoxRef.current,
         pinSpacing: true,
-        scrub: 0.75,
+        scrub: 0.5,
         anticipatePin: 1,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
           const actions = pinBoxRef.current?.querySelector('.phrase-5');
           if (actions) {
-            actions.style.pointerEvents = self.progress > 0.82 ? 'auto' : 'none';
+            actions.style.pointerEvents = 'auto';
           }
         },
       },

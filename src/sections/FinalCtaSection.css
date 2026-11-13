@@ -10,10 +10,18 @@
   position: relative;
   width: 100%;
   background: radial-gradient(circle at 50% 40%, rgba(11, 48, 56, 0.95) 0%, rgba(7, 25, 35, 1) 85%);
-  padding: clamp(96px, 12vw, 150px) 0;
+  min-height: clamp(520px, 65vh, 700px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(72px, 9vh, 120px) 0;
   box-sizing: border-box;
   overflow: hidden;
   border-top: 1px solid rgba(226, 234, 236, 0.1);
+}
+
+.final-cta-section > .container {
+  width: 100%;
 }
 
 .final-cta-bloom {
@@ -51,17 +59,17 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(226, 234, 236, 0.14);
-  border-radius: var(--radius-full, 9999px);
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
   font-family: var(--font-family-mono, monospace);
-  font-size: 11px;
+  font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #FFFFFF;
+  letter-spacing: 0.14em;
+  color: var(--color-accent-cyan, #83DDE2);
   text-transform: uppercase;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 
 .cta-beacon {

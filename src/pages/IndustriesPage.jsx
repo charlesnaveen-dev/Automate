@@ -1,439 +1,150 @@
-import React, { useState, useRef, useMemo } from 'react';
-import {
-  ArrowRight,
-  ChevronLeft,
-  ChevronRight
-} from 'lucide-react';
+import React, { useRef } from 'react';
+import { ArrowRight } from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useGsapContext } from '../animations/useGsapContext';
 import gsap from 'gsap';
 import Button from '../components/Button';
 import { Link } from '../router/Router';
-import { INDUSTRIES_DATA, INDUSTRY_CATEGORIES } from '../data/industriesData';
+import { INDUSTRIES_DATA } from '../data/industriesData';
 import './IndustriesPage.css';
 
-// 4 Universal Operational Challenges (Relatable, human, grounded in real business experience)
-const COMMON_CHALLENGES = [
-  {
-    num: '01',
-    title: 'Missed opportunities',
-    desc: 'When prospective client calls or web inquiries arrive while your team is in consultations, on job sites, or after business hours, clients often reach out to another provider before morning.',
-  },
-  {
-    num: '02',
-    title: 'Repetitive manual work',
-    desc: 'Skilled professionals spend hours every week re-keying customer information, drafting standard intake files, and moving data manually between spreadsheets and CRMs.',
-  },
-  {
-    num: '03',
-    title: 'Delayed customer responses',
-    desc: 'Clients expect quick answers. Inboxes backlogged with routine inquiries slow down appointment bookings, quote approvals, and customer communication.',
-  },
-  {
-    num: '04',
-    title: 'Disconnected business operations',
-    desc: 'Specialized industry software tools that do not communicate automatically create manual handoffs, mismatched client records, and invisible coordination bottlenecks.',
-  },
-];
-
-// Featured Industry Highlights (Refined editorial presentation)
-const FEATURED_SLUGS = ['legal', 'healthcare', 'home-services'];
+// Short, clear, business-friendly descriptions for each of the 12 industries
+const INDUSTRY_DESCRIPTIONS = {
+  legal: 'Autonomous intake, conflict screening, and retainer generation engineered to capture prospective casework 24/7 without consuming billable attorney hours.',
+  'real-estate': 'Instant buyer inquiry triage, financing pre-qualification, and automated showing coordination integrated directly with your CRM and calendar.',
+  healthcare: 'HIPAA-conscious phone receptionists, automated appointment scheduling, and digital intake routing that streamline clinic front-desk operations.',
+  'home-services': '24/7 emergency dispatch and call triage that capture job requests, quote details, and book technician arrival windows directly into field software.',
+  'financial-services': 'Event-driven document verification, client onboarding pipelines, and automated bookkeeping extraction that eliminate clerical data entry.',
+  insurance: 'Conversational intake agents that gather policy requirements upfront, pre-fill carrier rating platforms, and automate policy document retrieval.',
+  construction: 'Site-to-office communication automation with real-time RFI logging, subcontractor compliance tracking, and field receipt reconciliation.',
+  'property-management': '24/7 tenant maintenance triage that separates emergencies from routine repairs, dispatches approved vendors, and automates tour bookings.',
+  'professional-services': 'Automated proposal generation, consultative lead qualification, and immediate client workspace provisioning upon contract execution.',
+  automotive: 'Voice AI service scheduling, automatic status updates, and digital repair authorization workflows that keep service bays operating at capacity.',
+  'it-services': 'Autonomous Tier-1 ticket triage, SOP knowledge retrieval, and SLA-governed outage escalation integrated with PSA and RMM stacks.',
+  'ecommerce-logistics': 'Real-time order tracking resolution, automated returns management, and proactive shipping exception alerts across multiple warehouses.',
+};
 
 export default function IndustriesPage() {
   const pageRef = useRef(null);
-  const sliderRef = useRef(null);
-  const [activeCategory, setActiveCategory] = useState('all');
 
   usePageMetadata({
-    title: 'Industries We Serve — Sector-Specific AI Implementation | Hutomate',
-    description: 'Explore tailored AI agents, voice receptionists, and automation pipelines engineered for legal, healthcare, real estate, trades, and 12 core business sectors.',
+    title: 'Industries — Sector-Specific AI & Automation Engineering | Hutomate',
+    description: 'Technology engineered for your industry. Discover how Hutomate adapts autonomous AI agents, voice receptionists, and workflow automation to 12 core business sectors.',
     path: '/industries',
   });
 
-  useScrollReveal(activeCategory);
+  useScrollReveal();
 
   useGsapContext(pageRef, (context, isReducedMotion) => {
     if (isReducedMotion) {
-      gsap.set('.ind-hero-bg, .ind-hero-content > *', { opacity: 1, y: 0 });
+      gsap.set('.ind-editorial-hero-content > *', { opacity: 1, y: 0 });
       return;
     }
 
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
     tl.fromTo(
-      '.ind-hero-bg',
-      { scale: 1.05, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out' }
+      '.ind-editorial-kicker',
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.5 }
     )
       .fromTo(
-        '.ind-hero-headline',
+        '.ind-editorial-headline',
         { opacity: 0, y: 22 },
         { opacity: 1, y: 0, duration: 0.7 },
-        '-=0.6'
+        '-=0.35'
       )
       .fromTo(
-        '.ind-hero-copy',
+        '.ind-editorial-intro',
         { opacity: 0, y: 16 },
         { opacity: 1, y: 0, duration: 0.6 },
         '-=0.4'
-      )
-      .fromTo(
-        '.ind-hero-actions',
-        { opacity: 0, y: 14 },
-        { opacity: 1, y: 0, duration: 0.55 },
-        '-=0.35'
       );
   }, []);
 
-  const filteredIndustries = useMemo(() => {
-    if (activeCategory === 'all') return INDUSTRIES_DATA;
-    return INDUSTRIES_DATA.filter((item) => item.category === activeCategory);
-  }, [activeCategory]);
-
-  const featuredIndustries = useMemo(() => {
-    return FEATURED_SLUGS.map((slug) => INDUSTRIES_DATA.find((item) => item.id === slug)).filter(Boolean);
-  }, []);
-
-  const scrollSlider = (direction) => {
-    if (!sliderRef.current) return;
-    const cardWidth = 380;
-    const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
-    sliderRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  };
-
-  const scrollToSectors = (e) => {
-    e.preventDefault();
-    const target = document.getElementById('sectors');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <div className="industries-page-redesign" ref={pageRef}>
+    <div className="industries-editorial-page" ref={pageRef}>
       {/* =========================================================================
-          SECTION 01: HERO — FULL-COVER PHOTOGRAPHY & EDITORIAL CLARITY
+          HERO SECTION — MODERN LIGHT EDITORIAL COMPOSITION
+          Retains the exact required headline: "Technology engineered for your industry."
           ========================================================================= */}
-      <section className="ind-hero-section" aria-label="Industries Overview">
-        <div className="ind-hero-bg-wrapper" aria-hidden="true">
-          <img
-            src="/images/hero-industries.jpg"
-            alt="Modern business workplace environment"
-            className="ind-hero-bg"
-            loading="eager"
-            decoding="sync"
-          />
-          <div className="ind-hero-overlay" />
-        </div>
-
-        <div className="container ind-hero-container">
-          <div className="ind-hero-content">
-            <h1 className="ind-hero-headline">
-              Every Industry Has Its Own Challenges.{' '}
-              <span className="ind-headline-teal">We Build Around Them.</span>
+      <section className="ind-editorial-hero-section" aria-label="Industries Overview">
+        <div className="container">
+          <div className="ind-editorial-hero-content">
+            <span className="ind-editorial-kicker">SECTOR SPECIALIZATION</span>
+            <h1 className="ind-editorial-headline">
+              Technology engineered for your industry.
             </h1>
-
-            <p className="ind-hero-copy">
-              From customer conversations to complex business operations, Hutomate builds intelligent automation around the way your business works.
+            <p className="ind-editorial-intro">
+              Every sector operates with distinct communication rhythms, compliance demands, and specialized software stacks. Hutomate designs, integrates, and deploys autonomous AI agents and automated workflows tailored to the exact operational realities of your business.
             </p>
-
-            <div className="ind-hero-actions">
-              <a
-                href="#sectors"
-                className="btn btn-primary btn-lg"
-                onClick={scrollToSectors}
-              >
-                <span className="btn-text">Explore Industry Sectors</span>
-                <span className="btn-arrow" aria-hidden="true">
-                  <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.5 1.5L13 6M13 6L8.5 10.5M13 6H1" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </span>
-              </a>
-              <Button variant="secondary" size="lg" href="/contact">
-                Discuss Your Project
-              </Button>
-            </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          SECTION 02: CROSS-INDUSTRY FRICTION — RELATABLE BUSINESS CHALLENGES
+          INDUSTRY CARDS COLLECTION — 12 CARDS IN ONE CONSISTENT DESIGN SYSTEM
+          Layout: 3 columns desktop, 2 columns tablet, 1 column mobile
           ========================================================================= */}
-      <section className="ind-friction-section" aria-label="Common Operational Challenges">
+      <section className="ind-editorial-grid-section" aria-label="Industry Solutions Collection">
         <div className="container">
-          <div className="ind-friction-header reveal-on-scroll">
-            <span className="ind-section-kicker">OPERATIONAL REALITY</span>
-            <h2 className="ind-section-heading">
-              Different Businesses. Similar Operational Challenges.
-            </h2>
-            <p className="ind-section-subhead">
-              Every sector uses different tools and terminology, but the administrative friction that slows down growth and burns staff bandwidth follows four predictable patterns.
-            </p>
-          </div>
+          <div className="ind-editorial-grid">
+            {INDUSTRIES_DATA.map((item, idx) => {
+              const description = INDUSTRY_DESCRIPTIONS[item.id] || item.solution;
 
-          <div className="ind-friction-grid reveal-on-scroll">
-            {COMMON_CHALLENGES.map((ch, idx) => (
-              <div key={idx} className="ind-friction-card">
-                <span className="ind-friction-num">{ch.num}</span>
-                <h3 className="ind-friction-title">{ch.title}</h3>
-                <p className="ind-friction-desc">{ch.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 03: FEATURED SECTOR HIGHLIGHTS (Asymmetric Editorial Cards)
-          ========================================================================= */}
-      <section className="ind-featured-section" aria-label="Featured Industry Solutions">
-        <div className="container">
-          <div className="ind-featured-header reveal-on-scroll">
-            <span className="ind-section-kicker">FEATURED IMPLEMENTATIONS</span>
-            <h2 className="ind-section-heading">
-              Built for how modern firms actually operate.
-            </h2>
-            <p className="ind-section-subhead">
-              Explore how tailored intelligent systems eliminate specific operational bottlenecks in high-demand business environments.
-            </p>
-          </div>
-
-          <div className="ind-featured-grid reveal-on-scroll">
-            {/* Primary Featured Card: Legal Practices */}
-            {featuredIndustries[0] && (
-              <div className="ind-highlight-card-primary">
-                <div className="ind-highlight-media">
-                  <img
-                    src={featuredIndustries[0].image}
-                    alt={featuredIndustries[0].name}
-                    className="ind-highlight-img"
-                    loading="lazy"
-                  />
-                  <div className="ind-highlight-overlay" />
-                  <span className="ind-category-pill">{featuredIndustries[0].categoryLabel}</span>
-                </div>
-                <div className="ind-highlight-body">
-                  <span className="ind-highlight-sub">{featuredIndustries[0].tag}</span>
-                  <h3 className="ind-highlight-title">{featuredIndustries[0].name}</h3>
-                  <p className="ind-highlight-lead">{featuredIndustries[0].solution}</p>
-
-                  <div className="ind-highlight-friction">
-                    <span className="ind-friction-label">Primary Challenge:</span>
-                    <p className="ind-friction-text">{featuredIndustries[0].challenges[0]}</p>
-                  </div>
-
-                  <div className="ind-highlight-footer">
-                    <Link
-                      to={`/industries/${featuredIndustries[0].id}`}
-                      className="ind-highlight-link"
-                    >
-                      <span>Explore Legal Practices</span>
-                      <ArrowRight size={16} />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Secondary Asymmetric Pair: Healthcare & Home Services */}
-            <div className="ind-highlight-pair">
-              {featuredIndustries.slice(1).map((item) => (
-                <div key={item.id} className="ind-highlight-card-secondary">
-                  <div className="ind-highlight-media secondary">
+              return (
+                <Link
+                  key={item.id}
+                  to={`/industries/${item.id}`}
+                  className={`ind-editorial-card reveal-on-scroll reveal-delay-${(idx % 3) + 1}`}
+                  aria-label={`Explore ${item.name} automation solutions`}
+                >
+                  <div className="ind-card-media">
                     <img
                       src={item.image}
-                      alt={item.name}
-                      className="ind-highlight-img"
+                      alt={`${item.name} workplace environment`}
+                      className="ind-card-img"
                       loading="lazy"
+                      decoding="async"
                     />
-                    <div className="ind-highlight-overlay" />
-                    <span className="ind-category-pill">{item.categoryLabel}</span>
                   </div>
-                  <div className="ind-highlight-body secondary">
-                    <span className="ind-highlight-sub">{item.tag}</span>
-                    <h3 className="ind-highlight-title secondary">{item.name}</h3>
-                    <p className="ind-highlight-lead secondary">{item.solution}</p>
-
-                    <div className="ind-highlight-friction compact">
-                      <span className="ind-friction-label">Primary Challenge:</span>
-                      <p className="ind-friction-text">{item.challenges[0]}</p>
-                    </div>
-
-                    <div className="ind-highlight-footer">
-                      <Link
-                        to={`/industries/${item.id}`}
-                        className="ind-highlight-link"
-                      >
-                        <span>Explore {item.name}</span>
-                        <ArrowRight size={15} />
-                      </Link>
+                  <div className="ind-card-body">
+                    <h2 className="ind-card-title">{item.name}</h2>
+                    <p className="ind-card-desc">{description}</p>
+                    <div className="ind-card-link-row">
+                      <span className="ind-card-link-text">Explore industry</span>
+                      <ArrowRight size={16} className="ind-card-link-arrow" aria-hidden="true" />
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          SECTION 04: INTERACTIVE SECTOR SHOWCASE — ALL 12 INDUSTRIES ACCESSIBLE
+          CLOSING SECTION — REFINED EDITORIAL CONSULTATION BAND
           ========================================================================= */}
-      <section className="ind-directory-section" id="sectors" aria-label="All 12 Industry Sectors">
+      <section className="ind-editorial-cta-section" aria-label="Discuss Your Industry Project">
         <div className="container">
-          <div className="ind-directory-header reveal-on-scroll">
-            <div className="ind-directory-header-left">
-              <span className="ind-section-kicker">SECTOR DIRECTORY</span>
-              <h2 className="ind-section-heading">
-                Explore All 12 Industry Sectors
+          <div className="ind-editorial-cta-box reveal-on-scroll">
+            <div className="ind-editorial-cta-text">
+              <span className="ind-editorial-kicker">BESPOKE ARCHITECTURES</span>
+              <h2 className="ind-editorial-cta-heading">
+                Have a specialized industry or custom operating model?
               </h2>
-              <p className="ind-section-subhead">
-                Browse our complete range of specialized industry implementations. Select an industry to review its dedicated architecture and workflows.
+              <p className="ind-editorial-cta-subhead">
+                Our engineers design custom automation pipelines and integrations for proprietary systems, niche business workflows, and hybrid environments.
               </p>
             </div>
-
-            <div className="ind-slider-controls-wrap">
-              <button
-                type="button"
-                className="ind-nav-arrow-btn"
-                onClick={() => scrollSlider('left')}
-                aria-label="Scroll left through industries"
-              >
-                <ChevronLeft size={20} />
-              </button>
-              <button
-                type="button"
-                className="ind-nav-arrow-btn"
-                onClick={() => scrollSlider('right')}
-                aria-label="Scroll right through industries"
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
-          </div>
-
-          {/* Clean Category Filter Tabs */}
-          <div className="ind-filter-bar reveal-on-scroll" role="tablist" aria-label="Filter by sector group">
-            {INDUSTRY_CATEGORIES.map((cat) => (
-              <button
-                key={cat.id}
-                type="button"
-                role="tab"
-                aria-selected={activeCategory === cat.id}
-                className={`ind-filter-pill ${activeCategory === cat.id ? 'is-active' : ''}`}
-                onClick={() => setActiveCategory(cat.id)}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Interactive Horizontal Showcase Slider */}
-          <div className="ind-slider-track" ref={sliderRef} tabIndex={0} aria-label="Industries carousel">
-            {filteredIndustries.map((item) => (
-              <div key={item.id} className="ind-carousel-card">
-                <div className="ind-card-photo-box">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="ind-card-photo"
-                    loading="lazy"
-                  />
-                  <div className="ind-photo-gradient" />
-                  <span className="ind-card-cat">{item.categoryLabel}</span>
-                </div>
-                <div className="ind-card-content">
-                  <h3 className="ind-card-heading">{item.name}</h3>
-                  <p className="ind-card-summary">{item.solution}</p>
-
-                  <div className="ind-card-challenge-pill">
-                    <span className="ind-pill-label">Key Challenge:</span>
-                    <p className="ind-pill-copy">{item.challenges[0]}</p>
-                  </div>
-
-                  <div className="ind-card-action-row">
-                    <Link
-                      to={`/industries/${item.id}`}
-                      className="ind-card-action-link"
-                    >
-                      <span>Explore Industry Details</span>
-                      <ArrowRight size={15} />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 05: HOW WE IMPLEMENT FOR YOUR BUSINESS
-          (Replacing generic capability repetition with genuine deployment steps)
-          ========================================================================= */}
-      <section className="ind-process-overview-section" aria-label="Implementation Approach">
-        <div className="container">
-          <div className="ind-process-header reveal-on-scroll">
-            <span className="ind-section-kicker">OUR APPROACH</span>
-            <h2 className="ind-section-heading">
-              How we deploy automation for your business.
-            </h2>
-            <p className="ind-section-subhead">
-              We do not force generic software onto your operations. Every deployment is architected around your existing software tools, security requirements, and team cadence.
-            </p>
-          </div>
-
-          <div className="ind-process-steps-grid reveal-on-scroll">
-            <div className="ind-process-step-card">
-              <span className="ind-step-number">01</span>
-              <h3 className="ind-step-title">Workflow Audit &amp; Tool Inspection</h3>
-              <p className="ind-step-desc">
-                We review how client inquiries, scheduling, and paperwork currently flow through your firm. We identify high-friction manual bottlenecks and map out API compatibility with your existing software stack.
-              </p>
-            </div>
-
-            <div className="ind-process-step-card">
-              <span className="ind-step-number">02</span>
-              <h3 className="ind-step-title">Guarded Architecture &amp; Integration</h3>
-              <p className="ind-step-desc">
-                We engineer intelligent voice systems, document pipelines, or task agents with deterministic confidence thresholds. Staff maintain full approval gates on sensitive customer communication and critical records.
-              </p>
-            </div>
-
-            <div className="ind-process-step-card">
-              <span className="ind-step-number">03</span>
-              <h3 className="ind-step-title">Live Testing &amp; Ongoing Optimization</h3>
-              <p className="ind-step-desc">
-                We conduct sandbox testing with real-world scenarios before going live. Your team receives clear operational guidelines, and continuous telemetry monitors accuracy and turnaround times.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 06: FINAL CTA — IMMERSIVE DARK NAVY COMPOSITION
-          ========================================================================= */}
-      <section className="ind-final-cta-section" aria-label="Discuss Your Industry Project">
-        <div className="ind-final-cta-bloom" aria-hidden="true" />
-        <div className="container">
-          <div className="ind-final-cta-inner reveal-on-scroll">
-            <span className="ind-final-kicker">LET&apos;S TALK</span>
-            <h2 className="ind-final-heading">
-              Let&apos;s Build Around Your Business.
-            </h2>
-            <p className="ind-final-desc">
-              Tell us where your business spends too much time. Let&apos;s explore how intelligent automation can make a difference.
-            </p>
-            <div className="ind-final-actions">
+            <div className="ind-editorial-cta-actions">
               <Button variant="primary" size="lg" arrow href="/contact">
                 Discuss Your Project
               </Button>
               <Button variant="secondary" size="lg" href="/capabilities">
-                Explore Our Capabilities
+                Explore Capabilities
               </Button>
             </div>
           </div>

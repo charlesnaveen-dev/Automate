@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 import CtaBanner from '../components/CtaBanner';
@@ -8,10 +9,12 @@ import './EngagementPage.css';
 
 export default function EngagementPage() {
   usePageMetadata({
-    title: 'Engagement Models & Pricing Transparency',
+    title: 'Engagement Models & Pricing Transparency | Hutomate',
     description: 'Transparent engagement structures built around real project outcomes. How we partner with clients, what each model includes, and cost drivers.',
     path: '/engagement',
   });
+
+  useScrollReveal();
 
   const models = [
     {
@@ -74,26 +77,32 @@ export default function EngagementPage() {
 
   const costFactors = [
     {
+      num: '01',
       title: 'Integration Complexity',
       desc: 'Modern REST APIs with clear webhooks require significantly less development time than legacy on-premise systems or bespoke SQL schemas.',
     },
     {
+      num: '02',
       title: 'Data Hygiene & Structuring',
       desc: 'Workflows relying on clean, structured databases take less effort than pipelines requiring complex OCR parsing from messy multi-format PDFs.',
     },
     {
+      num: '03',
       title: 'Inference Volume & Model Tier',
       desc: 'High-throughput pipelines requiring real-time sub-second voice synthesis or multi-million token processing have different unit economics than daily batch tasks.',
     },
     {
+      num: '04',
       title: 'Human Review Interfaces',
       desc: 'Automations operating via standard Slack or email approval webhooks are simpler to deliver than custom multi-user internal web dashboards.',
     },
     {
+      num: '05',
       title: 'Regulatory & Security Requirements',
       desc: 'Projects requiring strict HIPAA/GDPR isolation, private tenant infrastructure, or comprehensive SOC2 compliance documentation require specialized architecture.',
     },
     {
+      num: '06',
       title: 'Deployment & Telemetry Scope',
       desc: 'Mission-critical systems requiring redundant fallbacks and real-time observability dashboards involve additional engineering rigor.',
     },
@@ -118,7 +127,7 @@ export default function EngagementPage() {
 
       <section className="section detail-section">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal-on-scroll">
             <span className="section-label">Engagement Options</span>
             <h2 className="section-heading">How we partner with client teams</h2>
             <p className="section-body">
@@ -128,7 +137,7 @@ export default function EngagementPage() {
 
           <div className="models-grid">
             {models.map((m, i) => (
-              <div key={i} className="model-card card">
+              <div key={i} className={`model-card card reveal-on-scroll reveal-delay-${(i % 2) + 1}`}>
                 <div className="model-header">
                   <span className="model-tag">{m.tag}</span>
                   <span className="model-structure">{m.structure}</span>
@@ -153,10 +162,10 @@ export default function EngagementPage() {
             ))}
           </div>
 
-          <div className="cost-factors-box">
-            <div className="section-header" style={{ marginBottom: '20px' }}>
-              <span className="section-label section-label-green">Cost Drivers</span>
-              <h3 className="section-heading" style={{ fontSize: '1.5rem' }}>What factors determine project investment?</h3>
+          <div className="cost-factors-box reveal-on-scroll">
+            <div className="cost-factors-header">
+              <span className="section-label">Cost Drivers</span>
+              <h3 className="cost-factors-title">What factors determine project investment?</h3>
               <p className="section-body">
                 We believe in total transparency. Project scope and ongoing costs are driven by these concrete technical variables:
               </p>
@@ -165,8 +174,11 @@ export default function EngagementPage() {
             <div className="factors-grid">
               {costFactors.map((f, i) => (
                 <div key={i} className="factor-item">
-                  <h4 className="factor-title">{f.title}</h4>
-                  <p className="factor-desc">{f.desc}</p>
+                  <span className="factor-num">{f.num}</span>
+                  <div className="factor-content">
+                    <h4 className="factor-title">{f.title}</h4>
+                    <p className="factor-desc">{f.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>

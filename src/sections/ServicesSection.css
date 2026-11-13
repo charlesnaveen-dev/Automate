@@ -30,19 +30,19 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono, monospace);
-  font-size: 0.8rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #7657E8;
-  margin-bottom: 24px;
+  color: var(--color-deep-teal, #167C80);
+  margin-bottom: 14px;
 }
 
 .services-eyebrow-dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background-color: #7657E8;
+  background-color: var(--color-deep-teal, #167C80);
 }
 
 .services-title {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import CapabilitiesHero3D from '../components/CapabilitiesHero3D';
 import CapabilitiesCardGrid from '../components/CapabilitiesCardGrid';
 import HowItWorksTogether from '../components/HowItWorksTogether';
 import DesignedAroundBusiness from '../components/DesignedAroundBusiness';
@@ -19,9 +20,18 @@ export default function CapabilitiesPage() {
   return (
     <div className="capabilities-page-view">
       {/* ----------------------------------------------------------------------
-          SECTION 01: HERO & FOUR CORE CAPABILITY CARDS
+          SECTION 01: NEW 3D ARCHITECTURAL PRODUCT SCULPTURE HERO
           ---------------------------------------------------------------------- */}
-      <section className="cap-overview-hero-section" aria-label="Capabilities Introduction">
+      <CapabilitiesHero3D />
+
+      {/* ----------------------------------------------------------------------
+          SECTION 02: CAPABILITIES INTRODUCTION & FOUR CORE CARDS
+          ---------------------------------------------------------------------- */}
+      <section
+        className="cap-overview-hero-section"
+        id="capabilities-content"
+        aria-label="Capabilities Introduction"
+      >
         {/* Subtle decorative bottom wave ribbon */}
         <div className="cap-hero-wave-wrap" aria-hidden="true">
           <svg

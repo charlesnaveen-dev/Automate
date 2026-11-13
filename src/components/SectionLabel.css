@@ -1,34 +1,52 @@
-/* SectionLabel Component Styles */
+/* SectionLabel Component Styles — Clean Editorial Eyebrow (No Decorative Pill Box) */
 .section-label {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  font-family: var(--font-family);
-  font-size: 11.5px;
+  gap: 8px;
+  font-family: var(--font-family-headings, var(--font-headings, 'Manrope', sans-serif));
+  font-size: 0.8125rem; /* 13px */
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-secondary, #66645F);
-  line-height: 1;
-  padding: 5px 12px;
-  background-color: rgba(223, 220, 212, 0.35);
-  border: 1px solid var(--border-color, #DFDCD4);
-  border-radius: var(--radius-full, 9999px);
+  color: var(--color-deep-teal, #167C80);
+  line-height: 1.4;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
   width: fit-content;
+  margin-bottom: 4px;
 }
 
 .section-label-number {
-  color: var(--text-primary, #111111);
+  color: var(--color-deep-teal, #167C80);
   font-weight: 800;
+  font-feature-settings: 'tnum' 1;
 }
 
 .section-label-divider {
-  color: var(--text-muted, #8E8B82);
+  color: var(--color-muted-grey, #71838A);
   font-weight: 500;
-  opacity: 0.7;
+  opacity: 0.5;
+  margin: 0 1px;
 }
 
 .section-label-text {
-  color: var(--text-secondary, #66645F);
+  color: var(--color-deep-teal, #167C80);
   letter-spacing: 0.14em;
 }
+
+/* Dark surface variant when nested inside dark containers */
+.bg-dark .section-label,
+.dark .section-label,
+[data-theme="dark"] .section-label {
+  color: var(--color-electric-cyan, #83DDE2);
+}
+
+.bg-dark .section-label .section-label-number,
+.bg-dark .section-label .section-label-text,
+.dark .section-label .section-label-number,
+.dark .section-label .section-label-text {
+  color: var(--color-electric-cyan, #83DDE2);
+}
+

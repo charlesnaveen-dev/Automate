@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, MessageSquare, Phone, Globe, Bot, GitBranch, Mic, Cpu } from 'lucide-react';
-import { BrandSymbol } from './Header';
 import './WorkflowDiagram.css';
 
 const INCOMING_CHANNELS = [
@@ -282,10 +281,15 @@ export default function WorkflowDiagram() {
                 <span className="core-status-text">Autonomous Core</span>
               </div>
 
-              {/* Brand Symbol inside illuminated lens */}
+              {/* Brand Wordmark inside illuminated lens */}
               <div className="core-symbol-frame">
                 <div className="core-symbol-glow" />
-                <BrandSymbol size={32} />
+                <img
+                  src="/hutomate_wordmark_navy.png"
+                  alt="Hutomate"
+                  className="core-symbol-wordmark-img"
+                  height={18}
+                />
               </div>
 
               {/* Title & Tagline */}
@@ -525,7 +529,12 @@ export default function WorkflowDiagram() {
           </div>
           <div className="mobile-core-row">
             <div className="mobile-symbol-wrapper">
-              <BrandSymbol size={28} />
+              <img
+                src="/hutomate_wordmark_navy.png"
+                alt="Hutomate"
+                className="mobile-core-wordmark-img"
+                height={16}
+              />
             </div>
             <div className="mobile-core-text">
               <span className="mobile-core-name">Hutomate Engine</span>

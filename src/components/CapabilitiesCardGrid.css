@@ -26,8 +26,8 @@
   flex-direction: column;
   background-color: var(--color-pure-white, #FFFFFF);
   border: 1px solid var(--color-mist-grey, #E2EAEC);
-  border-radius: 24px;
-  padding: 34px 28px 32px 28px;
+  border-radius: 20px;
+  padding: clamp(24px, 2.5vw, 28px) clamp(20px, 2vw, 24px);
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
@@ -124,11 +124,11 @@
 .cap-overview-card .cap-card-visual-wrapper {
   position: relative;
   z-index: 2;
-  height: 120px;
+  height: 105px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 36px;
+  margin-bottom: 22px;
 }
 
 .cap-overview-card .cap-visual-box {

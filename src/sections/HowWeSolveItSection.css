@@ -31,19 +31,20 @@
   align-items: center;
   gap: 10px;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 0.8rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--text-muted, #71717A);
-  margin-bottom: 24px;
+  color: var(--color-deep-teal, #167C80);
+  margin-bottom: 14px;
 }
 
 .solve-eyebrow-index {
-  color: #2563EB;
-  background-color: rgba(37, 99, 235, 0.08);
-  padding: 3px 8px;
-  border-radius: 4px;
+  color: var(--color-deep-teal, #167C80);
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-weight: 800;
 }
 
 .solve-headline {

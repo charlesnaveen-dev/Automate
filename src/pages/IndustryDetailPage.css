@@ -23,12 +23,12 @@
 .ind-detail-hero-section {
   position: relative;
   width: 100%;
-  min-height: clamp(540px, 80vh, 820px);
+  min-height: calc(100svh - var(--header-height, 80px));
   display: flex;
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
-  padding: clamp(100px, 14vh, 160px) 0 clamp(64px, 8vh, 96px);
+  padding: clamp(60px, 8vh, 100px) 0;
 }
 
 .ind-detail-hero-bg-wrapper {
@@ -141,13 +141,13 @@
 .ind-detail-challenge-section {
   position: relative;
   background-color: var(--color-cloud-white, #F3F7F7);
-  padding: clamp(80px, 9vw, 120px) 0;
+  padding: clamp(72px, 8.5vh, 108px) 0;
   border-bottom: 1px solid var(--color-border, #E2EAEC);
 }
 
 .ind-detail-challenge-header {
   max-width: 800px;
-  margin-bottom: clamp(44px, 5vw, 64px);
+  margin-bottom: clamp(28px, 3.5vh, 44px);
 }
 
 .ind-detail-kicker {
@@ -181,16 +181,17 @@
 .ind-detail-challenges-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(20px, 3vw, 32px);
+  gap: clamp(20px, 2.5vw, 28px);
 }
 
 .ind-detail-challenge-card {
   background-color: #FFFFFF;
   border: 1px solid var(--color-border, #E2EAEC);
-  border-radius: var(--radius-sm, 6px);
+  border-radius: 12px;
   padding: clamp(24px, 3vw, 32px);
   display: flex;
   flex-direction: column;
+  box-shadow: 0 2px 10px rgba(7, 25, 35, 0.03);
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
 }
 
@@ -230,13 +231,13 @@
 .ind-detail-deliver-section {
   position: relative;
   background-color: #FFFFFF;
-  padding: clamp(80px, 9vw, 120px) 0;
+  padding: clamp(72px, 8.5vh, 108px) 0;
   border-bottom: 1px solid var(--color-border, #E2EAEC);
 }
 
 .ind-detail-deliver-header {
   max-width: 800px;
-  margin-bottom: clamp(44px, 5vw, 64px);
+  margin-bottom: clamp(28px, 3.5vh, 44px);
 }
 
 .ind-detail-accordion-wrap {
@@ -248,7 +249,7 @@
 .ind-detail-accordion-item {
   background-color: var(--color-cloud-white, #F3F7F7);
   border: 1px solid var(--color-border, #E2EAEC);
-  border-radius: var(--radius-sm, 6px);
+  border-radius: 12px;
   overflow: hidden;
   transition: border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
 }
@@ -395,13 +396,18 @@
 .ind-detail-matters-section {
   position: relative;
   background-color: var(--color-cloud-white, #F3F7F7);
-  padding: clamp(80px, 9vw, 120px) 0;
+  min-height: clamp(520px, 65vh, 700px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(72px, 8.5vh, 108px) 0;
   border-bottom: 1px solid var(--color-border, #E2EAEC);
+  box-sizing: border-box;
 }
 
 .ind-detail-matters-header {
   max-width: 800px;
-  margin-bottom: clamp(44px, 5vw, 64px);
+  margin-bottom: clamp(28px, 3.5vh, 44px);
 }
 
 .ind-detail-benefits-grid {
@@ -413,10 +419,11 @@
 .ind-detail-benefit-card {
   background-color: #FFFFFF;
   border: 1px solid var(--color-border, #E2EAEC);
-  border-radius: var(--radius-sm, 6px);
+  border-radius: 12px;
   padding: clamp(24px, 3vw, 32px);
   display: flex;
   flex-direction: column;
+  box-shadow: 0 2px 8px rgba(7, 25, 35, 0.03);
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
 }
 
@@ -468,7 +475,11 @@
 .ind-detail-final-cta-section {
   position: relative;
   background-color: #0B2029;
-  padding: clamp(90px, 11vw, 140px) 0;
+  min-height: clamp(480px, 58vh, 620px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(72px, 9vh, 120px) 0;
   overflow: hidden;
   box-sizing: border-box;
 }

@@ -848,7 +848,7 @@ export default function IndustryDetailPage({ industryId }) {
           <div className="ind-detail-final-cta-inner reveal-on-scroll">
             <span className="ind-detail-final-kicker">GET STARTED</span>
             <h2 className="ind-detail-final-heading">
-              Let&apos;s build a smarter way to run your {industryMeta.name.toLowerCase()} business.
+              Let&apos;s build a smarter way to run your {industryMeta.name.toLowerCase()} operations.
             </h2>
             <p className="ind-detail-final-desc">
               Share your current workflow and software tools with our engineering team. We&apos;ll evaluate where intelligent automation can eliminate manual friction and drive immediate efficiency.

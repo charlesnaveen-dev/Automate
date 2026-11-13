@@ -1,0 +1,529 @@
+/* =============================================================================
+   CapabilitiesHero3D Styles — Premium 3D Architectural Product Sculpture
+   - Split layout: Confident editorial copy + custom 3D architectural sculpture
+   - Layered physical materials: matte white porcelain, deep teal, translucent glass
+   - Genuinely animated with entrance reveal, slow physical floating & mouse parallax
+   - 100% Brand System: #0B2029, #087F83, #F3F7F7, #FFFFFF, #83DDE2, #40545C
+   ============================================================================= */
+
+.cap-3d-hero-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-cloud-white, #F4F7F7);
+  min-height: calc(100svh - var(--header-height, 80px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(48px, 6vh, 80px) 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(11, 48, 56, 0.06);
+}
+
+/* =============================================================================
+   1. BACKGROUND CANVAS: GRID & AMBIENT STUDIO LIGHTING
+   ============================================================================= */
+.cap-3d-bg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.cap-3d-grid-pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(to right, rgba(8, 127, 131, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(8, 127, 131, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at center, black 65%, transparent 95%);
+  -webkit-mask-image: radial-gradient(circle at center, black 65%, transparent 95%);
+}
+
+.cap-3d-ambient-light {
+  position: absolute;
+  right: 5%;
+  top: 15%;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(131, 221, 226, 0.22) 0%,
+    rgba(8, 127, 131, 0.08) 40%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.cap-3d-bg-crosshairs {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* =============================================================================
+   2. MAIN CONTAINER & SPLIT LAYOUT
+   ============================================================================= */
+.cap-3d-container {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max-width, 1280px);
+  margin: 0 auto;
+  padding: 0 var(--container-padding, clamp(20px, 4vw, 40px));
+  box-sizing: border-box;
+}
+
+.cap-3d-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  min-height: 480px;
+}
+
+/* =============================================================================
+   3. LEFT COLUMN: EDITORIAL TYPOGRAPHY
+   ============================================================================= */
+.cap-3d-editorial-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  z-index: 5;
+}
+
+.cap-3d-eyebrow-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.cap-3d-eyebrow {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #087F83;
+  text-transform: uppercase;
+}
+
+.cap-3d-eyebrow-rule {
+  width: 34px;
+  height: 1.5px;
+  background-color: #087F83;
+  opacity: 0.85;
+}
+
+.cap-3d-eyebrow-crosshair {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 13px;
+  color: rgba(8, 127, 131, 0.45);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.cap-3d-headline {
+  font-family: var(--font-family-headings, 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: #0B2029;
+  margin: 0 0 22px 0;
+  text-wrap: balance;
+}
+
+.cap-3d-teal {
+  color: #087F83;
+}
+
+.cap-3d-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+  line-height: 1.65;
+  color: #40545C;
+  margin: 0 0 34px 0;
+  max-width: 480px;
+  text-wrap: pretty;
+}
+
+.cap-3d-cta-wrap {
+  display: flex;
+  align-items: center;
+}
+
+/* =============================================================================
+   4. RIGHT COLUMN: 3D ARCHITECTURAL PRODUCT SCULPTURE
+   ============================================================================= */
+.cap-3d-sculpture-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+}
+
+.cap-3d-viewport {
+  perspective: 1200px;
+  width: 100%;
+  max-width: 520px;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cap-3d-stage {
+  position: relative;
+  width: 420px;
+  height: 380px;
+  transform-style: preserve-3d;
+  will-change: transform;
+  animation: floatingSculpture 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatingSculpture {
+  0% {
+    transform: rotateX(14deg) rotateY(-22deg) translateY(0px);
+  }
+  50% {
+    transform: rotateX(16deg) rotateY(-19deg) translateY(-8px);
+  }
+  100% {
+    transform: rotateX(12deg) rotateY(-25deg) translateY(6px);
+  }
+}
+
+/* Base Sculpture Layer */
+.cap-sculpture-layer {
+  position: absolute;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* -----------------------------------------------------------------------------
+   Layer 0: Ground Foundation Plinth with Laser Technical Markings
+   ----------------------------------------------------------------------------- */
+.cap-layer-plinth {
+  width: 380px;
+  height: 300px;
+  left: 20px;
+  top: 40px;
+  transform: translateZ(-60px);
+}
+
+.cap-plinth-face {
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(11, 48, 56, 0.08);
+  border-radius: 20px;
+  box-shadow:
+    0 35px 70px -10px rgba(11, 48, 56, 0.14),
+    0 10px 24px rgba(11, 48, 56, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.cap-plinth-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(8, 127, 131, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(8, 127, 131, 0.06) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+.cap-plinth-marker {
+  position: absolute;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 8.5px;
+  font-weight: 700;
+  color: rgba(8, 127, 131, 0.55);
+  letter-spacing: 0.1em;
+}
+
+.cap-plinth-marker.top-left {
+  top: 14px;
+  left: 16px;
+}
+
+.cap-plinth-marker.top-right {
+  top: 14px;
+  right: 16px;
+}
+
+.cap-plinth-marker.bottom-left {
+  bottom: 14px;
+  left: 16px;
+}
+
+.cap-plinth-marker.bottom-right {
+  bottom: 14px;
+  right: 16px;
+}
+
+/* -----------------------------------------------------------------------------
+   Layer 1: Solid Deep Teal Structural Cantilever Block
+   ----------------------------------------------------------------------------- */
+.cap-layer-teal-block {
+  width: 230px;
+  height: 150px;
+  left: 45px;
+  top: 85px;
+  transform: translateZ(-15px) rotateZ(-6deg);
+}
+
+.cap-teal-block-top {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #087F83 0%, #0B3038 100%);
+  border-radius: 14px;
+  border: 1px solid rgba(131, 221, 226, 0.35);
+  box-shadow:
+    0 22px 42px -6px rgba(8, 127, 131, 0.38),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+.cap-teal-spec-label {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(131, 221, 226, 0.85);
+}
+
+/* -----------------------------------------------------------------------------
+   Layer 2: Intersecting Matte White Monolithic Pillar
+   ----------------------------------------------------------------------------- */
+.cap-layer-white-monolith {
+  width: 180px;
+  height: 200px;
+  left: 185px;
+  top: 70px;
+  transform: translateZ(25px) rotateZ(10deg);
+}
+
+.cap-white-monolith-top {
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid rgba(11, 48, 56, 0.09);
+  box-shadow:
+    0 20px 45px -8px rgba(11, 48, 56, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  position: relative;
+}
+
+.cap-monolith-hairline {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: rgba(11, 48, 56, 0.08);
+}
+
+/* -----------------------------------------------------------------------------
+   Layer 3: Translucent Electric Cyan / Teal Refractive Blade
+   ----------------------------------------------------------------------------- */
+.cap-layer-glass-blade {
+  width: 190px;
+  height: 130px;
+  left: 135px;
+  top: 175px;
+  transform: translateZ(55px) rotateZ(-16deg);
+}
+
+.cap-glass-inner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(8, 127, 131, 0.28) 0%,
+    rgba(131, 221, 226, 0.16) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(131, 221, 226, 0.55);
+  border-radius: 14px;
+  box-shadow:
+    0 16px 36px rgba(8, 127, 131, 0.18),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.cap-glass-sheen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    transparent 100%
+  );
+  border-radius: 14px 14px 0 0;
+}
+
+/* -----------------------------------------------------------------------------
+   Layer 4: Geometric Precision Orbital Rings
+   ----------------------------------------------------------------------------- */
+.cap-layer-orbit-rings {
+  width: 320px;
+  height: 320px;
+  left: 50px;
+  top: 30px;
+  transform: translateZ(70px);
+  pointer-events: none;
+}
+
+.cap-orbit-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* -----------------------------------------------------------------------------
+   Layer 5: Apex Hutomate Master Identity Medallion
+   ----------------------------------------------------------------------------- */
+.cap-sculpture-core {
+  position: absolute;
+  left: 215px;
+  top: 155px;
+  transform: translate(-50%, -50%) translateZ(95px);
+  transform-style: preserve-3d;
+  z-index: 25;
+}
+
+.cap-core-disc {
+  width: 136px;
+  height: 136px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(11, 48, 56, 0.09);
+  box-shadow:
+    0 24px 50px -8px rgba(11, 48, 56, 0.2),
+    0 8px 20px rgba(8, 127, 131, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cap-core-bezel {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1px dashed rgba(8, 127, 131, 0.22);
+}
+
+.cap-core-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.cap-core-wordmark-img {
+  height: 24px;
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+  display: block;
+}
+
+/* =============================================================================
+   5. RESPONSIVE BREAKPOINTS
+   ============================================================================= */
+@media (max-width: 1080px) {
+  .cap-3d-split-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cap-3d-editorial-col {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .cap-3d-desc {
+    max-width: 580px;
+  }
+
+  .cap-3d-viewport {
+    height: 400px;
+    max-width: 440px;
+  }
+
+  .cap-3d-stage {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 767px) {
+  .cap-3d-hero-section {
+    padding: 60px 0 40px 0;
+  }
+
+  .cap-3d-editorial-col {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .cap-3d-headline {
+    font-size: 2.2rem;
+  }
+
+  .cap-3d-viewport {
+    height: 350px;
+    max-width: 360px;
+  }
+
+  .cap-3d-stage {
+    transform: scale(0.72);
+  }
+}
+
+/* =============================================================================
+   6. PREFERS-REDUCED-MOTION
+   ============================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .cap-3d-stage {
+    animation: none !important;
+    transform: rotateX(14deg) rotateY(-22deg) !important;
+  }
+
+  .cap-sculpture-layer,
+  .cap-sculpture-core,
+  .cap-3d-editorial-col > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
