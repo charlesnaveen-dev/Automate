@@ -112,6 +112,7 @@ function RouteSwitcher() {
       PageComponent = FaqPage;
       break;
     case '/start-project':
+    case '/discuss-your-project':
       PageComponent = StartProjectPage;
       break;
     case '/contact':

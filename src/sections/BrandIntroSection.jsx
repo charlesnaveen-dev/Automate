@@ -93,7 +93,7 @@ export default function BrandIntroSection() {
         scrub: 0.5,
         anticipatePin: 1,
         invalidateOnRefresh: true,
-        onUpdate: (self) => {
+        onUpdate: (_self) => {
           const actions = pinBoxRef.current?.querySelector('.phrase-5');
           if (actions) {
             actions.style.pointerEvents = 'auto';

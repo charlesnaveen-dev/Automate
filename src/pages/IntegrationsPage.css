@@ -47,7 +47,7 @@
 }
 
 .cat-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.2rem;
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);
@@ -73,7 +73,7 @@
 }
 
 .tool-tag {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.78rem;
   font-weight: 600;
   padding: 5px 11px;
@@ -98,7 +98,7 @@
 }
 
 .assessment-box-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(1.4rem, 2.2vw, 1.8rem);
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);
@@ -128,7 +128,7 @@
 }
 
 .assessment-num {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.85rem;
   font-weight: 750;
   color: var(--color-deep-teal, #167C80);
@@ -147,7 +147,7 @@
 }
 
 .assessment-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.05rem;
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);

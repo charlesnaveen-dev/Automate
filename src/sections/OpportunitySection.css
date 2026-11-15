@@ -38,7 +38,7 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -55,7 +55,7 @@
 }
 
 .opp-headline {
-  font-family: var(--font-family-primary, 'Manrope', sans-serif);
+  font-family: var(--font-family-primary, 'Inter', sans-serif);
   font-size: clamp(2rem, 3.6vw, 3.25rem);
   font-weight: 800;
   line-height: 1.1;
@@ -71,7 +71,7 @@
 }
 
 .opp-subhead {
-  font-family: var(--font-family-primary, 'Manrope', sans-serif);
+  font-family: var(--font-family-primary, 'Inter', sans-serif);
   font-size: clamp(0.95rem, 1.2vw, 1.08rem);
   line-height: 1.6;
   font-weight: 450;
@@ -159,12 +159,12 @@
 }
 
 .opp-tag-num {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 10.5px;
 }
 
 .opp-pillar-title {
-  font-family: var(--font-family-primary, 'Manrope', sans-serif);
+  font-family: var(--font-family-primary, 'Inter', sans-serif);
   font-size: clamp(1.25rem, 1.4vw, 1.45rem);
   font-weight: 800;
   color: var(--color-text-primary, #111111);

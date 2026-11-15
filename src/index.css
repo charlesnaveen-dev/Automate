@@ -25,7 +25,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-headings, 'Manrope', sans-serif);
+  font-family: var(--font-headings, 'Inter', sans-serif);
   color: var(--color-text-primary, #17252B);
   font-weight: 750;
   line-height: var(--line-height-tight, 1.15);

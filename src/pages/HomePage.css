@@ -35,7 +35,7 @@
 }
 
 .home-bp-num {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--color-deep-teal, #167C80);
@@ -43,7 +43,7 @@
 }
 
 .home-bp-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);

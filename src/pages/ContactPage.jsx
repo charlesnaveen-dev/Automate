@@ -5,97 +5,105 @@ import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 import './ContactPage.css';
 
-const INDUSTRIES = [
-  'Select your industry...',
-  'Home Services & Field Operations',
-  'Healthcare & Clinics',
-  'Professional Services (Legal, Accounting, Advisory)',
-  'Real Estate & Property Management',
-  'E-commerce & Retail',
-  'Hospitality & Customer Experience',
-  'Logistics & Supply Chain',
-  'Financial Services & FinTech',
-  'SaaS & Technology',
-  'Other / Specialized Sector',
-];
-
-const SERVICES = [
-  { id: 'ai-agents', label: 'AI Agents' },
-  { id: 'workflow-automation', label: 'Workflow Automation' },
-  { id: 'voice-ai', label: 'Voice AI' },
-  { id: 'custom-ai', label: 'Custom AI Solutions' },
-  { id: 'not-sure', label: 'Not sure yet' },
-];
-
 export default function ContactPage() {
   usePageMetadata({
-    title: 'Discuss Your Project — Hutomate Technical Consultation',
-    description: 'Reach out to discuss your operational challenges. We review workflows, evaluate technical feasibility, and design custom intelligent systems.',
+    title: 'Contact Us — Hutomate Intelligent Automation',
+    description: 'Get in touch with the Hutomate team. We review your operational challenges and evaluate how intelligent automation can help your business.',
     path: '/contact',
   });
 
   const [formData, setFormData] = useState({
     name: '',
+    phone: '',
     email: '',
-    company: '',
-    website: '',
-    industry: '',
-    service: 'ai-agents',
-    message: '',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isDeliveredViaApi, setIsDeliveredViaApi] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errorMsg) setErrorMsg('');
   };
 
-  const handleServiceSelect = (serviceId) => {
-    setFormData((prev) => ({ ...prev, service: serviceId }));
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name.trim()) {
-      setErrorMsg('Please enter your name.');
+    const trimmedName = formData.name.trim();
+    const trimmedPhone = formData.phone.trim();
+    const trimmedEmail = formData.email.trim();
+
+    if (!trimmedName || trimmedName.length < 2) {
+      setErrorMsg('Please enter your name or business name.');
       return;
     }
-    if (!formData.email.trim() || !formData.email.includes('@')) {
-      setErrorMsg('Please enter a valid work email address.');
+
+    const phoneRegex = /^[+]?[\d\s().-]{7,25}$/;
+    if (!trimmedPhone || !phoneRegex.test(trimmedPhone)) {
+      setErrorMsg('Please enter a valid telephone number.');
       return;
     }
-    if (!formData.company.trim()) {
-      setErrorMsg('Please enter your company name.');
-      return;
-    }
-    if (!formData.message.trim() || formData.message.trim().length < 15) {
-      setErrorMsg('Please describe your operational challenge or project (at least 15 characters).');
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
+      setErrorMsg('Please enter a valid email address.');
       return;
     }
 
     setErrorMsg('');
     setIsSubmitting(true);
 
-    // Simulate reliable dispatch
-    setTimeout(() => {
+    const record = {
+      name: trimmedName,
+      phone: trimmedPhone,
+      email: trimmedEmail,
+      timestamp: new Date().toISOString(),
+      formType: 'General Contact',
+    };
+
+    // 1. Local backup to localStorage
+    try {
+      const stored = JSON.parse(localStorage.getItem('hutomate_enquiries') || '[]');
+      stored.push(record);
+      localStorage.setItem('hutomate_enquiries', JSON.stringify(stored));
+    } catch (_storageErr) {
+      // LocalStorage access restricted in private/sandbox mode
+    }
+
+    // 2. Dispatch to backend API if available
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(record),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        setIsDeliveredViaApi(Boolean(data.delivered));
+      } else {
+        setIsDeliveredViaApi(false);
+      }
+    } catch (_err) {
+      setIsDeliveredViaApi(false);
+    } finally {
       setIsSubmitting(false);
       setSubmitted(true);
       window.scrollTo({ top: 120, behavior: 'smooth' });
-    }, 850);
+    }
   };
 
   return (
     <div className="contact-page">
       <PageHeader
         eyebrow="GET IN TOUCH"
-        badgeText="Project Scoping & Consultation"
+        badgeText="Direct Communication"
         badgeType="teal"
-        title="Let's build something intelligent."
-        description="Whether you have a specific operational bottleneck to solve, want to explore autonomous agents, or need expert guidance on connecting legacy tools, our engineering leads are ready."
+        title="Contact Us"
+        description="Have a question about our automation capabilities or want to explore how our systems apply to your workflows? Share your contact information and our engineering team will get back to you within one business day."
       />
 
       <section className="section contact-section">
@@ -112,8 +120,8 @@ export default function ContactPage() {
                 <p className="contact-info-desc">
                   For formal RFPs, technical questions, or exploratory architectural reviews:
                 </p>
-                <a href="mailto:hello@hutomate.com" className="direct-email-link">
-                  hello@hutomate.com
+                <a href="mailto:hutomate@gmail.com" className="direct-email-link">
+                  hutomate@gmail.com
                 </a>
               </div>
 
@@ -144,197 +152,81 @@ export default function ContactPage() {
                   <Globe size={18} color="#167C80" />
                   <span className="contact-block-kicker">Global Availability</span>
                 </div>
-                <h3 className="contact-info-title">Serving Global Operations</h3>
+                <h3 className="contact-info-title">Working with Businesses Worldwide</h3>
                 <p className="contact-info-desc">
-                  Working with clients across the United States, United Kingdom, Australia, and worldwide with full timezone accommodation.
+                  Supporting clients across the United States, United Kingdom, Australia, and worldwide with full timezone accommodation.
                 </p>
               </div>
             </div>
 
-            {/* Right Column: Multi-Field Project Enquiry Form */}
+            {/* Right Column: Clean Three-Field Enquiry Form */}
             <div className="contact-form-card">
               {submitted ? (
                 <div className="contact-success-state">
                   <div className="contact-success-icon-box">
                     <CheckCircle2 size={36} color="#167C80" />
                   </div>
-                  <h3 className="contact-success-title">Project Enquiry Received</h3>
+                  <h2 className="contact-success-title">
+                    {isDeliveredViaApi ? 'Enquiry Delivered Successfully' : 'Enquiry Recorded Locally'}
+                  </h2>
                   <p className="contact-success-text">
-                    Thank you, <strong>{formData.name}</strong>. An automation director will review your project brief for <strong>{formData.company}</strong> and respond to <strong>{formData.email}</strong> within 1 business day.
+                    {isDeliveredViaApi ? (
+                      <>
+                        Your enquiry has been delivered directly to our engineering team at <strong>hutomate@gmail.com</strong>. We will review your details and respond to <strong>{formData.email}</strong> within one business day.
+                      </>
+                    ) : (
+                      <>
+                        Your contact details have been safely recorded. To ensure immediate receipt by our engineers right now, please click the button below to dispatch directly to <strong>hutomate@gmail.com</strong>.
+                      </>
+                    )}
                   </p>
 
                   <div className="contact-success-summary-box">
                     <div className="success-summary-row">
-                      <span className="summary-label">Target Capability:</span>
-                      <span className="summary-val">{SERVICES.find((s) => s.id === formData.service)?.label}</span>
+                      <span className="summary-label">Name / Business Name:</span>
+                      <span className="summary-val">{formData.name}</span>
                     </div>
-                    {formData.industry && (
-                      <div className="success-summary-row">
-                        <span className="summary-label">Industry:</span>
-                        <span className="summary-val">{formData.industry}</span>
-                      </div>
-                    )}
                     <div className="success-summary-row">
-                      <span className="summary-label">Next Step:</span>
-                      <span className="summary-val">Operational Feasibility &amp; Architecture Review</span>
+                      <span className="summary-label">Phone Number:</span>
+                      <span className="summary-val">{formData.phone}</span>
+                    </div>
+                    <div className="success-summary-row">
+                      <span className="summary-label">Email Address:</span>
+                      <span className="summary-val">{formData.email}</span>
                     </div>
                   </div>
+
+                  {!isDeliveredViaApi && (
+                    <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+                      <a
+                        href={`mailto:hutomate@gmail.com?subject=${encodeURIComponent(`Project Enquiry: ${formData.name}`)}&body=${encodeURIComponent(`Name / Business Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nHello Hutomate Team,\n\nI submitted an inquiry on your website and would like to explore an intelligent automation project.`)}`}
+                        className="btn btn-primary btn-md"
+                        style={{ width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', padding: '14px 24px', fontWeight: '700' }}
+                      >
+                        Send via Email Client to hutomate@gmail.com →
+                      </a>
+                    </div>
+                  )}
 
                   <Button
                     variant="secondary"
-                    size="sm"
+                    size="md"
                     onClick={() => {
                       setSubmitted(false);
-                      setFormData({
-                        name: '',
-                        email: '',
-                        company: '',
-                        website: '',
-                        industry: '',
-                        service: 'ai-agents',
-                        message: '',
-                      });
+                      setFormData({ name: '', phone: '', email: '' });
                     }}
                   >
-                    Submit Another Enquiry
+                    Send Another Message
                   </Button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="contact-form-inner" noValidate>
+                <form className="contact-form-element" onSubmit={handleSubmit} noValidate>
                   <div className="form-header-area">
-                    <span className="form-eyebrow">Project Consultation</span>
-                    <h3 className="form-main-heading">Tell us about your automation goals</h3>
-                    <p className="form-main-sub">We review your current tools, bottlenecks, and feasibility before suggesting an architecture.</p>
-                  </div>
-
-                  {/* 2-Column Grid for Name & Work Email */}
-                  <div className="form-row-2col">
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="name">
-                        Full Name <span className="form-required">*</span>
-                      </label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        required
-                        placeholder="Sarah Jenkins"
-                        className="form-input"
-                        value={formData.name}
-                        onChange={handleChange}
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="email">
-                        Work Email <span className="form-required">*</span>
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="sarah@company.com"
-                        className="form-input"
-                        value={formData.email}
-                        onChange={handleChange}
-                      />
-                    </div>
-                  </div>
-
-                  {/* 2-Column Grid for Company & Website */}
-                  <div className="form-row-2col">
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="company">
-                        Company Name <span className="form-required">*</span>
-                      </label>
-                      <input
-                        id="company"
-                        name="company"
-                        type="text"
-                        required
-                        placeholder="Apex Logistics Ltd"
-                        className="form-input"
-                        value={formData.company}
-                        onChange={handleChange}
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="website">
-                        Website <span className="form-optional">(Optional)</span>
-                      </label>
-                      <input
-                        id="website"
-                        name="website"
-                        type="url"
-                        placeholder="https://company.com"
-                        className="form-input"
-                        value={formData.website}
-                        onChange={handleChange}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Industry Select */}
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="industry">
-                      Industry Sector
-                    </label>
-                    <select
-                      id="industry"
-                      name="industry"
-                      className="form-select"
-                      value={formData.industry}
-                      onChange={handleChange}
-                    >
-                      {INDUSTRIES.map((ind, i) => (
-                        <option key={i} value={i === 0 ? '' : ind}>
-                          {ind}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Service Selection Pills */}
-                  <div className="form-group">
-                    <label className="form-label">
-                      Primary Area of Interest
-                    </label>
-                    <div className="service-pills-grid" role="radiogroup">
-                      {SERVICES.map((srv) => {
-                        const isSelected = formData.service === srv.id;
-                        return (
-                          <button
-                            key={srv.id}
-                            type="button"
-                            role="radio"
-                            aria-checked={isSelected}
-                            className={`service-pill-btn ${isSelected ? 'is-selected' : ''}`}
-                            onClick={() => handleServiceSelect(srv.id)}
-                          >
-                            <span>{srv.label}</span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Message / Operational Challenge */}
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="message">
-                      Operational Challenge &amp; Project Description <span className="form-required">*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={4}
-                      placeholder="Describe the repetitive tasks, manual handoffs, or systems (CRM, ERP, email, telephony) you wish to automate..."
-                      className="form-textarea"
-                      value={formData.message}
-                      onChange={handleChange}
-                    />
+                    <span className="form-eyebrow">ENQUIRY FORM</span>
+                    <h2 className="form-main-heading">Send an enquiry</h2>
+                    <p className="form-main-sub">
+                      Tell us how to reach you and our engineering team will get in touch.
+                    </p>
                   </div>
 
                   {errorMsg && (
@@ -343,23 +235,79 @@ export default function ContactPage() {
                     </div>
                   )}
 
-                  <button
-                    type="submit"
-                    className="contact-submit-btn"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 size={16} className="btn-spinner" />
-                        <span>Evaluating Brief...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Submit Project Brief</span>
-                        <ArrowRight size={16} />
-                      </>
-                    )}
-                  </button>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="name">
+                      Name / Business Name <span className="form-required">*</span>
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      className="form-input"
+                      placeholder="e.g. Sarah Jenkins or Apex Logistics"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      autoComplete="name"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="phone">
+                      Phone Number <span className="form-required">*</span>
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      className="form-input"
+                      placeholder="e.g. +1 (555) 234-5678"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      autoComplete="tel"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="email">
+                      Email Address <span className="form-required">*</span>
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      className="form-input"
+                      placeholder="e.g. sarah@company.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      autoComplete="email"
+                    />
+                  </div>
+
+                  <div className="form-submit-group">
+                    <button
+                      type="submit"
+                      className="btn btn-primary btn-lg form-submit-btn"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 size={16} className="btn-spinner" />
+                          <span>Sending Enquiry...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Send Enquiry</span>
+                          <ArrowRight size={16} className="btn-icon" />
+                        </>
+                      )}
+                    </button>
+                    <span className="form-privacy-note">
+                      We respect your privacy. No spam or unsolicited sales calls.
+                    </span>
+                  </div>
                 </form>
               )}
             </div>

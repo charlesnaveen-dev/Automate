@@ -189,7 +189,7 @@ export default function Header() {
         {/* Right: CTA & Mobile Toggle */}
         <div className="header-actions">
           <div className="desktop-cta-wrap">
-            <Button variant="primary" size="sm" arrow href="/contact">
+            <Button variant="primary" size="sm" arrow href="/start-project">
               Discuss Your Project
             </Button>
           </div>
@@ -304,7 +304,7 @@ export default function Header() {
               variant="primary"
               size="md"
               arrow
-              href="/contact"
+              href="/start-project"
               className="mobile-cta-btn"
               onClick={handleLinkClick}
             >

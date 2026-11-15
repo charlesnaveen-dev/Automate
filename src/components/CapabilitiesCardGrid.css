@@ -104,7 +104,7 @@
 }
 
 .cap-overview-card .cap-card-num {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 1.15rem;
   font-weight: 750;
   line-height: 1;
@@ -220,7 +220,7 @@
 }
 
 .cap-overview-card .cap-card-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.45rem;
   font-weight: 800;
   line-height: 1.25;

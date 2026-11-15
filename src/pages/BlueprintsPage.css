@@ -51,7 +51,7 @@
 }
 
 .blueprint-num {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.82rem;
   font-weight: 750;
   color: var(--color-deep-teal, #167C80);
@@ -62,7 +62,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -75,7 +75,7 @@
 }
 
 .blueprint-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(1.35rem, 2.2vw, 1.65rem);
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);
@@ -123,7 +123,7 @@
 }
 
 .node-stage {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.7rem;
   font-weight: 750;
   text-transform: uppercase;
@@ -133,7 +133,7 @@
 }
 
 .node-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 0.95rem;
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);
@@ -164,7 +164,7 @@
 }
 
 .detail-label {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;

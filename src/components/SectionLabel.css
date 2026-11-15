@@ -3,7 +3,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-family-headings, var(--font-headings, 'Manrope', sans-serif));
+  font-family: var(--font-family-headings, var(--font-headings, 'Inter', sans-serif));
   font-size: 0.8125rem; /* 13px */
   font-weight: 700;
   letter-spacing: 0.12em;

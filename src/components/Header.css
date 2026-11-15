@@ -223,7 +223,7 @@
 }
 
 .overview-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 14px;
   font-weight: 700;
   color: #FFFFFF;
@@ -289,7 +289,7 @@
 }
 
 .sublink-label {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 13.5px;
   font-weight: 600;
   color: #FFFFFF;
@@ -384,12 +384,23 @@
   border-left: 1px solid rgba(226, 234, 236, 0.15);
   box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
   z-index: 999;
+  display: none;
   transform: translateX(100%);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-nav-panel.is-open {
+  display: block;
   transform: translateX(0);
+  animation: slideInDrawer 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInDrawer {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .mobile-nav-inner {
@@ -409,7 +420,7 @@
 }
 
 .mobile-brand {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 20px;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -463,7 +474,7 @@
 }
 
 .mobile-nav-link {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 16px;
   font-weight: 600;
   color: #FFFFFF;
@@ -504,7 +515,7 @@
 }
 
 .mobile-nav-caption {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11px;
   color: var(--color-muted-grey, #71838A);
   text-align: center;

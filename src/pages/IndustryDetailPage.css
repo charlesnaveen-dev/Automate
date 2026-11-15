@@ -1,12 +1,13 @@
 /* =============================================================================
    INDIVIDUAL INDUSTRY PAGES — EDITORIAL BRAND SYSTEM
    Hutomate Brand:
-   - Deep Navy: #0B2029
+   - Deep Navy: #0B2029 & #071923
    - Teal: #087F83 & #167C80
-   - Electric Cyan: #83DDE2
-   - Cool Off-white: #F3F7F7
+   - Accent Cyan: #83DDE2
+   - Surface Off-white: #F4F7F7
    - Pure White: #FFFFFF
-   - Strictly NO purple, lavender, or pink
+   - Slate Grey: #40545C
+   - Subtle Border: #E2EAEC
    ============================================================================= */
 
 .ind-detail-page {
@@ -18,7 +19,7 @@
 }
 
 /* =============================================================================
-   SECTION 01: HERO — FULL-COVER PHOTOGRAPHY
+   SECTION 01: HERO — FULL-COVER PHOTOGRAPHY WITH CINEMATIC OVERLAY
    ============================================================================= */
 .ind-detail-hero-section {
   position: relative;
@@ -46,8 +47,6 @@
   object-fit: cover;
   object-position: center 30%;
   display: block;
-  transform: scale(1);
-  will-change: transform, opacity;
 }
 
 .ind-detail-hero-overlay {
@@ -77,55 +76,61 @@
   text-align: center;
 }
 
-/* Clean Breadcrumb Navigation */
+/* Breadcrumb Navigation */
 .ind-detail-breadcrumb {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-family-body, 'Inter', sans-serif);
-  font-size: 13px;
-  margin-bottom: clamp(16px, 2.5vw, 24px);
+  margin-bottom: clamp(20px, 2.5vh, 28px);
 }
 
 .ind-crumb-link {
-  color: var(--color-mist-grey, #E2EAEC);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-cyan, #83DDE2);
   text-decoration: none;
-  transition: color 150ms ease;
+  transition: opacity 160ms ease;
 }
 
 .ind-crumb-link:hover {
-  color: #FFFFFF;
+  opacity: 0.75;
 }
 
 .ind-crumb-sep {
-  color: var(--color-muted-grey, #71838A);
+  color: rgba(226, 234, 236, 0.45);
 }
 
 .ind-crumb-current {
-  color: var(--color-accent-cyan, #83DDE2);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
+  font-size: 11.5px;
   font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
 }
 
 .ind-detail-hero-headline {
-  font-family: var(--font-family-headings, 'Manrope', -apple-system, sans-serif);
-  font-size: clamp(2.3rem, 4.4vw, 3.8rem);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
+  font-size: clamp(2.35rem, 4.4vw, 3.8rem);
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.035em;
   color: #FFFFFF;
-  margin: 0 0 clamp(18px, 2.5vw, 26px) 0;
+  margin: 0 0 clamp(18px, 2.2vh, 26px) 0;
   text-wrap: balance;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
 }
 
 .ind-detail-hero-subhead {
   font-family: var(--font-family-body, 'Inter', sans-serif);
-  font-size: clamp(1.05rem, 1.3vw, 1.22rem);
+  font-size: clamp(1.05rem, 1.25vw, 1.22rem);
   line-height: 1.62;
   color: var(--color-mist-grey, #E2EAEC);
+  margin: 0 0 clamp(28px, 3.5vh, 40px) 0;
   max-width: 680px;
-  margin: 0 0 clamp(32px, 4vw, 42px) 0;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  text-wrap: pretty;
 }
 
 .ind-detail-hero-actions {
@@ -136,22 +141,15 @@
 }
 
 /* =============================================================================
-   SECTION 02: THE CHALLENGE — SECTOR OPERATIONAL REALITY
+   SHARED SECTION HEADER STYLES (SECTIONS 02, 03, 04)
    ============================================================================= */
-.ind-detail-challenge-section {
-  position: relative;
-  background-color: var(--color-cloud-white, #F3F7F7);
-  padding: clamp(72px, 8.5vh, 108px) 0;
-  border-bottom: 1px solid var(--color-border, #E2EAEC);
-}
-
-.ind-detail-challenge-header {
-  max-width: 800px;
-  margin-bottom: clamp(28px, 3.5vh, 44px);
+.ind-detail-section-header {
+  max-width: 780px;
+  margin-bottom: clamp(32px, 4vh, 48px);
 }
 
 .ind-detail-kicker {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', monospace);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -162,310 +160,230 @@
 }
 
 .ind-detail-heading {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
-  font-size: clamp(2rem, 3.2vw, 2.85rem);
-  font-weight: 800;
-  line-height: 1.18;
-  letter-spacing: -0.03em;
-  color: var(--color-charcoal, #17252B);
-  margin: 0 0 16px 0;
-}
-
-.ind-detail-lead {
-  font-size: clamp(1rem, 1.15vw, 1.125rem);
-  line-height: 1.62;
-  color: var(--color-slate-grey, #40545C);
-  margin: 0;
-}
-
-.ind-detail-challenges-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(20px, 2.5vw, 28px);
-}
-
-.ind-detail-challenge-card {
-  background-color: #FFFFFF;
-  border: 1px solid var(--color-border, #E2EAEC);
-  border-radius: 12px;
-  padding: clamp(24px, 3vw, 32px);
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 2px 10px rgba(7, 25, 35, 0.03);
-  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
-}
-
-.ind-detail-challenge-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(22, 124, 128, 0.4);
-  box-shadow: 0 10px 28px rgba(11, 32, 41, 0.06);
-}
-
-.ind-challenge-idx {
-  font-family: var(--font-family-mono, monospace);
-  font-size: 13px;
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
+  font-size: clamp(1.65rem, 2.4vw, 2.25rem);
   font-weight: 700;
-  color: var(--color-deep-teal, #167C80);
-  margin-bottom: 14px;
-}
-
-.ind-challenge-card-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-charcoal, #17252B);
-  margin: 0 0 10px 0;
-  letter-spacing: -0.02em;
-}
-
-.ind-challenge-card-desc {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--color-slate-grey, #40545C);
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  color: var(--color-midnight-navy, #071923);
   margin: 0;
+  text-wrap: balance;
 }
 
 /* =============================================================================
-   SECTION 03: WHAT WE DELIVER — INTERACTIVE SOLUTION MODULES
+   SECTION 02: THE OPERATIONAL CHALLENGE
+   Three horizontal editorial rows with numbers, titles, and real-world problems
+   No cards, no boxes, no shadows.
+   ============================================================================= */
+.ind-detail-challenge-section {
+  position: relative;
+  background-color: #FFFFFF;
+  padding: clamp(72px, 8.5vh, 108px) 0;
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+}
+
+.ind-challenge-editorial-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border, #E2EAEC);
+  width: 100%;
+}
+
+.ind-challenge-row {
+  display: grid;
+  grid-template-columns: 80px 280px 1fr;
+  gap: clamp(24px, 3.5vw, 48px);
+  align-items: baseline;
+  padding: clamp(28px, 3.5vh, 40px) 0;
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+  box-sizing: border-box;
+}
+
+.ind-challenge-num {
+  font-family: var(--font-family-mono, 'Inter', monospace);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-deep-teal, #167C80);
+  letter-spacing: 0.04em;
+}
+
+.ind-challenge-title {
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--color-midnight-navy, #071923);
+  margin: 0;
+}
+
+.ind-challenge-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--color-slate-grey, #40545C);
+  margin: 0;
+  max-width: 680px;
+}
+
+/* =============================================================================
+   SECTION 03: WHAT WE DELIVER
+   Three vertically stacked, fully visible service rows (open by default)
+   with natural software compatibility messaging.
+   No accordions, no expandable cards, no hidden descriptions.
    ============================================================================= */
 .ind-detail-deliver-section {
   position: relative;
-  background-color: #FFFFFF;
+  background-color: var(--color-cloud-white, #F4F7F7);
   padding: clamp(72px, 8.5vh, 108px) 0;
   border-bottom: 1px solid var(--color-border, #E2EAEC);
 }
 
-.ind-detail-deliver-header {
-  max-width: 800px;
-  margin-bottom: clamp(28px, 3.5vh, 44px);
-}
-
-.ind-detail-accordion-wrap {
+.ind-deliver-editorial-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-}
-
-.ind-detail-accordion-item {
-  background-color: var(--color-cloud-white, #F3F7F7);
-  border: 1px solid var(--color-border, #E2EAEC);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
-}
-
-.ind-detail-accordion-item.is-active {
-  background-color: #FFFFFF;
-  border-color: var(--color-deep-teal, #167C80);
-  box-shadow: 0 8px 30px rgba(11, 32, 41, 0.07);
-}
-
-.ind-detail-accordion-trigger {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: clamp(20px, 2.5vw, 28px);
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  gap: 20px;
-  box-sizing: border-box;
-}
-
-.ind-detail-trigger-left {
-  display: flex;
-  align-items: center;
-  gap: clamp(16px, 2vw, 24px);
-}
-
-.ind-detail-item-num {
-  font-family: var(--font-family-mono, monospace);
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--color-deep-teal, #167C80);
-  padding: 6px 12px;
-  background: rgba(22, 124, 128, 0.08);
-  border-radius: 4px;
-}
-
-.ind-detail-item-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
-  font-size: clamp(1.15rem, 1.4vw, 1.4rem);
-  font-weight: 800;
-  color: var(--color-charcoal, #17252B);
-  margin: 0;
-  letter-spacing: -0.02em;
-}
-
-.ind-detail-chevron-wrap {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(11, 32, 41, 0.04);
-  color: var(--color-charcoal, #17252B);
-  flex-shrink: 0;
-  transition: background-color 200ms ease, color 200ms ease;
-}
-
-.ind-detail-accordion-item.is-active .ind-detail-chevron-wrap {
-  background: var(--color-deep-teal, #167C80);
-  color: #FFFFFF;
-}
-
-.ind-detail-chevron {
-  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.ind-detail-chevron.is-rotated {
-  transform: rotate(180deg);
-}
-
-.ind-detail-accordion-drawer {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.ind-detail-accordion-drawer.is-open {
-  grid-template-rows: 1fr;
-}
-
-.ind-detail-drawer-inner {
-  overflow: hidden;
-  padding: 0 clamp(20px, 2.5vw, 28px) clamp(24px, 3vw, 32px);
   border-top: 1px solid var(--color-border, #E2EAEC);
-  margin-top: 6px;
-  padding-top: 20px;
+  width: 100%;
 }
 
-.ind-drawer-lead {
-  font-size: 15.5px;
-  font-weight: 600;
-  line-height: 1.55;
-  color: var(--color-charcoal, #17252B);
-  margin: 0 0 10px 0;
-}
-
-.ind-drawer-desc {
-  font-size: 14.5px;
-  line-height: 1.65;
-  color: var(--color-slate-grey, #40545C);
-  margin: 0 0 20px 0;
-}
-
-.ind-drawer-stack-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.ind-stack-label {
-  font-family: var(--font-family-mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-muted-grey, #71838A);
-}
-
-.ind-stack-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.ind-stack-chip {
-  font-family: var(--font-family-mono, monospace);
-  font-size: 12px;
-  color: var(--color-charcoal, #17252B);
-  background: var(--color-cloud-white, #F3F7F7);
-  border: 1px solid var(--color-border, #E2EAEC);
-  padding: 4px 10px;
-  border-radius: 4px;
-}
-
-/* =============================================================================
-   SECTION 04: WHY IT MATTERS — MEASURABLE BUSINESS VALUE
-   ============================================================================= */
-.ind-detail-matters-section {
-  position: relative;
-  background-color: var(--color-cloud-white, #F3F7F7);
-  min-height: clamp(520px, 65vh, 700px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(72px, 8.5vh, 108px) 0;
+.ind-deliver-row {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: clamp(32px, 4vw, 56px);
+  align-items: baseline;
+  padding: clamp(32px, 4vh, 48px) 0;
   border-bottom: 1px solid var(--color-border, #E2EAEC);
   box-sizing: border-box;
 }
 
-.ind-detail-matters-header {
-  max-width: 800px;
-  margin-bottom: clamp(28px, 3.5vh, 44px);
-}
-
-.ind-detail-benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(16px, 2vw, 24px);
-}
-
-.ind-detail-benefit-card {
-  background-color: #FFFFFF;
-  border: 1px solid var(--color-border, #E2EAEC);
-  border-radius: 12px;
-  padding: clamp(24px, 3vw, 32px);
+.ind-deliver-left {
   display: flex;
-  flex-direction: column;
-  box-shadow: 0 2px 8px rgba(7, 25, 35, 0.03);
-  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  align-items: baseline;
+  gap: 16px;
 }
 
-.ind-detail-benefit-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(22, 124, 128, 0.4);
-  box-shadow: 0 10px 28px rgba(11, 32, 41, 0.06);
-}
-
-.ind-benefit-top {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.ind-benefit-index {
-  font-family: var(--font-family-mono, monospace);
+.ind-deliver-num {
+  font-family: var(--font-family-mono, 'Inter', monospace);
   font-size: 13px;
   font-weight: 700;
   color: var(--color-deep-teal, #167C80);
+  flex-shrink: 0;
 }
 
-.ind-benefit-line {
-  height: 1px;
-  flex-grow: 1;
-  background-color: var(--color-border, #E2EAEC);
+.ind-deliver-title {
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.32;
+  letter-spacing: -0.02em;
+  color: var(--color-midnight-navy, #071923);
+  margin: 0;
 }
 
-.ind-benefit-card-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--color-charcoal, #17252B);
-  margin: 0 0 10px 0;
-  letter-spacing: -0.015em;
+.ind-deliver-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.ind-benefit-card-desc {
-  font-size: 14px;
-  line-height: 1.6;
+.ind-deliver-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 15px;
+  line-height: 1.65;
   color: var(--color-slate-grey, #40545C);
+  margin: 0;
+  max-width: 720px;
+}
+
+.ind-deliver-compatibility {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--color-muted-grey, #62767E);
+  margin: 0;
+  max-width: 720px;
+}
+
+.ind-compat-label {
+  font-weight: 600;
+  color: var(--color-deep-teal, #167C80);
+}
+
+/* =============================================================================
+   SECTION 04: PRACTICAL BUSINESS VALUE
+   Clean two-column Before / After comparison with aligned corresponding points.
+   No card grids, no shadows, no fake stats.
+   ============================================================================= */
+.ind-detail-value-section {
+  position: relative;
+  background-color: #FFFFFF;
+  padding: clamp(72px, 8.5vh, 108px) 0;
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+}
+
+.ind-comparison-table {
+  width: 100%;
+}
+
+.ind-comparison-headers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 64px);
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--color-midnight-navy, #071923);
+  box-sizing: border-box;
+}
+
+.ind-comp-col-header {
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-slate-grey, #40545C);
+}
+
+.ind-comp-after-head {
+  color: var(--color-deep-teal, #167C80);
+}
+
+.ind-comparison-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.ind-comparison-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: baseline;
+  padding: clamp(22px, 2.5vh, 30px) 0;
+  border-bottom: 1px solid var(--color-border, #E2EAEC);
+  box-sizing: border-box;
+}
+
+.ind-comp-cell {
+  position: relative;
+}
+
+.ind-comp-mobile-tag {
+  display: none;
+}
+
+.ind-comp-before .ind-comp-text {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--color-slate-grey, #5A6D75);
+  margin: 0;
+}
+
+.ind-comp-after .ind-comp-text {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 15px;
+  line-height: 1.62;
+  font-weight: 500;
+  color: var(--color-midnight-navy, #071923);
   margin: 0;
 }
 
@@ -475,13 +393,15 @@
 .ind-detail-final-cta-section {
   position: relative;
   background-color: #0B2029;
-  min-height: clamp(480px, 58vh, 620px);
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(72px, 9vh, 120px) 0;
+  padding: clamp(72px, 8vw, 110px) 0 clamp(48px, 5.5vw, 68px) 0;
   overflow: hidden;
   box-sizing: border-box;
+  border-top: 1px solid rgba(226, 234, 236, 0.08);
+  border-bottom: 1px solid rgba(226, 234, 236, 0.08);
 }
 
 .ind-detail-cta-bloom {
@@ -510,7 +430,7 @@
 }
 
 .ind-detail-final-kicker {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -521,8 +441,8 @@
 }
 
 .ind-detail-final-heading {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
-  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
+  font-size: clamp(2rem, 3.6vw, 3rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.035em;
@@ -549,63 +469,45 @@
 }
 
 /* =============================================================================
-   ARCHETYPE SPECIFIC VARIATIONS
-   ============================================================================= */
-
-/* Editorial Archetype (Legal, Financial Services, Consulting) */
-.archetype-editorial .ind-detail-challenge-card {
-  border-left: 3px solid var(--color-deep-teal, #167C80);
-}
-
-/* Practical Archetype (Home Services, Construction, Automotive) */
-.archetype-practical .ind-detail-challenge-card {
-  background-color: var(--color-cloud-white, #F3F7F7);
-  border: 1px solid var(--color-border, #E2EAEC);
-}
-.archetype-practical .ind-detail-accordion-item.is-active {
-  border-left: 4px solid var(--color-deep-teal, #167C80);
-}
-
-/* Reassuring Archetype (Healthcare) */
-.archetype-reassuring .ind-detail-hero-overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(11, 48, 56, 0.45) 0%,
-    rgba(11, 32, 41, 0.74) 55%,
-    rgba(11, 32, 41, 0.94) 100%
-  );
-}
-
-/* Operations Archetype (Property Management) */
-.archetype-operations .ind-detail-challenge-card {
-  border-top: 3px solid var(--color-deep-teal, #167C80);
-}
-
-/* Spacious Archetype (Real Estate, Logistics) */
-.archetype-spacious .ind-detail-challenges-grid {
-  gap: 32px;
-}
-
-/* =============================================================================
    RESPONSIVE DESIGN BREAKPOINTS
    ============================================================================= */
 @media (max-width: 1024px) {
-  .ind-detail-challenges-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .ind-challenge-row {
+    grid-template-columns: 60px 240px 1fr;
+    gap: 28px;
   }
 
-  .ind-detail-benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .ind-deliver-row {
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
   }
 }
 
 @media (max-width: 768px) {
-  .ind-detail-challenges-grid {
-    grid-template-columns: 1fr;
+  .ind-challenge-row {
+    grid-template-columns: 48px 1fr;
+    gap: 12px 20px;
+    align-items: start;
+    padding: 24px 0;
   }
 
-  .ind-detail-benefits-grid {
+  .ind-challenge-desc {
+    grid-column: 2 / -1;
+  }
+
+  .ind-deliver-row {
     grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 28px 0;
+  }
+
+  .ind-comparison-headers {
+    gap: 24px;
+  }
+
+  .ind-comparison-row {
+    gap: 24px;
+    padding: 20px 0;
   }
 }
 
@@ -619,5 +521,46 @@
   .ind-detail-hero-actions .btn,
   .ind-detail-final-actions .btn {
     width: 100%;
+  }
+
+  .ind-challenge-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .ind-challenge-num {
+    margin-bottom: 2px;
+  }
+
+  .ind-challenge-desc {
+    grid-column: 1 / -1;
+  }
+
+  .ind-comparison-headers {
+    display: none;
+  }
+
+  .ind-comparison-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px 0;
+  }
+
+  .ind-comp-mobile-tag {
+    display: inline-block;
+    font-family: var(--font-family-mono, monospace);
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+
+  .ind-comp-before .ind-comp-mobile-tag {
+    color: var(--color-muted-grey, #71838A);
+  }
+
+  .ind-comp-after .ind-comp-mobile-tag {
+    color: var(--color-deep-teal, #167C80);
   }
 }

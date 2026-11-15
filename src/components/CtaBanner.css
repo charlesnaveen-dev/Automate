@@ -48,7 +48,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -70,7 +70,7 @@
 }
 
 .cta-banner-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(2rem, 3.8vw, 3.2rem);
   font-weight: 800;
   line-height: 1.15;
@@ -105,7 +105,7 @@
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11px;
   color: var(--color-muted-grey, #71838A);
   letter-spacing: 0.02em;

@@ -66,8 +66,8 @@ export default function IndustriesPage() {
   return (
     <div className="industries-editorial-page" ref={pageRef}>
       {/* =========================================================================
-          HERO SECTION — MODERN LIGHT EDITORIAL COMPOSITION
-          Retains the exact required headline: "Technology engineered for your industry."
+          HERO SECTION — SINGLE-COLUMN EDITORIAL COMPOSITION
+          Clean warm-white editorial background with refined typography
           ========================================================================= */}
       <section className="ind-editorial-hero-section" aria-label="Industries Overview">
         <div className="container">
@@ -140,7 +140,7 @@ export default function IndustriesPage() {
               </p>
             </div>
             <div className="ind-editorial-cta-actions">
-              <Button variant="primary" size="lg" arrow href="/contact">
+              <Button variant="primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
               <Button variant="secondary" size="lg" href="/capabilities">

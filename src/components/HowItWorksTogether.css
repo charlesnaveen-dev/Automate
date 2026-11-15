@@ -75,7 +75,7 @@
 }
 
 .how-eyebrow-text {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -84,7 +84,7 @@
 }
 
 .how-main-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(2.3rem, 3.8vw, 3.4rem);
   font-weight: 800;
   line-height: 1.15;
@@ -159,7 +159,7 @@
 }
 
 .how-tab-num {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.8rem;
   font-weight: 750;
   color: var(--color-charcoal, #17252B);
@@ -182,7 +182,7 @@
 }
 
 .how-tab-name {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.05rem;
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);
@@ -371,7 +371,7 @@
 }
 
 .how-card-badge {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.72rem;
   font-weight: 750;
   color: var(--color-slate-grey, #40545C);
@@ -382,7 +382,7 @@
 }
 
 .how-card-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 0.96rem;
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);

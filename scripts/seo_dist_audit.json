@@ -1,0 +1,490 @@
+[
+  {
+    "file": "about/index.html",
+    "title": "About Hutomate — Intelligent Systems Partner",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/about",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/about"
+  },
+  {
+    "file": "about.html",
+    "title": "About Hutomate — Intelligent Systems Partner",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/about",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/about"
+  },
+  {
+    "file": "blueprints/index.html",
+    "title": "Automation Blueprints — Architectural Patterns | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/blueprints",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/blueprints"
+  },
+  {
+    "file": "blueprints.html",
+    "title": "Automation Blueprints — Architectural Patterns | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/blueprints",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/blueprints"
+  },
+  {
+    "file": "capabilities/ai-agents/index.html",
+    "title": "Autonomous AI Agents — Enterprise Intelligence | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/capabilities/ai-agents",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/capabilities/ai-agents"
+  },
+  {
+    "file": "capabilities/ai-agents.html",
+    "title": "Autonomous AI Agents — Enterprise Intelligence | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/capabilities/ai-agents",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/capabilities/ai-agents"
+  },
+  {
+    "file": "capabilities/custom-ai/index.html",
+    "title": "Custom AI Solutions — Bespoke Intelligence Systems | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/capabilities/custom-ai",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/capabilities/custom-ai"
+  },
+  {
+    "file": "capabilities/custom-ai-solutions/index.html",
+    "title": "Custom AI Solutions — Bespoke Intelligence Systems | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/capabilities/custom-ai-solutions",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/capabilities/custom-ai-solutions"
+  },
+  {
+    "file": "capabilities/custom-ai-solutions.html",
+    "title": "Custom AI Solutions — Bespoke Intelligence Systems | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/capabilities/custom-ai-solutions",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/capabilities/custom-ai-solutions"
+  },
+  {
+    "file": "capabilities/custom-ai.html",
+    "title": "Custom AI Solutions — Bespoke Intelligence Systems | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/capabilities/custom-ai",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/capabilities/custom-ai"
+  },
+  {
+    "file": "capabilities/index.html",
+    "title": "Capabilities — AI Agents, Workflow Automation & Intelligent Systems | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/capabilities",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/capabilities"
+  },
+  {
+    "file": "capabilities/voice-ai/index.html",
+    "title": "Voice AI & Telephony — Autonomous Voice Agents | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/capabilities/voice-ai",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/capabilities/voice-ai"
+  },
+  {
+    "file": "capabilities/voice-ai.html",
+    "title": "Voice AI & Telephony — Autonomous Voice Agents | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/capabilities/voice-ai",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/capabilities/voice-ai"
+  },
+  {
+    "file": "capabilities/workflow-automation/index.html",
+    "title": "Intelligent Workflow Automation — Connected Systems | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/capabilities/workflow-automation",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/capabilities/workflow-automation"
+  },
+  {
+    "file": "capabilities/workflow-automation.html",
+    "title": "Intelligent Workflow Automation — Connected Systems | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/capabilities/workflow-automation",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/capabilities/workflow-automation"
+  },
+  {
+    "file": "capabilities.html",
+    "title": "Capabilities — AI Agents, Workflow Automation & Intelligent Systems | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/capabilities",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/capabilities"
+  },
+  {
+    "file": "contact/index.html",
+    "title": "Contact Hutomate — Start Your Automation Journey",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/contact",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/contact"
+  },
+  {
+    "file": "contact.html",
+    "title": "Contact Hutomate — Start Your Automation Journey",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/contact",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/contact"
+  },
+  {
+    "file": "engagement/index.html",
+    "title": "Engagement Models & Partnership | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/engagement",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/engagement"
+  },
+  {
+    "file": "engagement.html",
+    "title": "Engagement Models & Partnership | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/engagement",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/engagement"
+  },
+  {
+    "file": "faq/index.html",
+    "title": "Frequently Asked Questions | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/faq",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/faq"
+  },
+  {
+    "file": "faq.html",
+    "title": "Frequently Asked Questions | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/faq",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/faq"
+  },
+  {
+    "file": "index.html",
+    "title": "Hutomate — International AI Automation & Intelligent Systems",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/"
+  },
+  {
+    "file": "industries/automotive/index.html",
+    "title": "Automotive & Repair Centers Service AI | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/automotive",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/automotive"
+  },
+  {
+    "file": "industries/automotive.html",
+    "title": "Automotive & Repair Centers Service AI | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/automotive",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/automotive"
+  },
+  {
+    "file": "industries/construction/index.html",
+    "title": "Construction & Contracting AI Automation | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/construction",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/construction"
+  },
+  {
+    "file": "industries/construction.html",
+    "title": "Construction & Contracting AI Automation | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/construction",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/construction"
+  },
+  {
+    "file": "industries/ecommerce-logistics/index.html",
+    "title": "E-commerce & Logistics Support Automation | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/ecommerce-logistics",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/ecommerce-logistics"
+  },
+  {
+    "file": "industries/ecommerce-logistics.html",
+    "title": "E-commerce & Logistics Support Automation | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/ecommerce-logistics",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/ecommerce-logistics"
+  },
+  {
+    "file": "industries/financial-services/index.html",
+    "title": "Financial Services & Accounting AI Automation | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/financial-services",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/financial-services"
+  },
+  {
+    "file": "industries/financial-services.html",
+    "title": "Financial Services & Accounting AI Automation | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/financial-services",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/financial-services"
+  },
+  {
+    "file": "industries/healthcare/index.html",
+    "title": "Healthcare & Clinics AI Scheduling | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/healthcare",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/healthcare"
+  },
+  {
+    "file": "industries/healthcare.html",
+    "title": "Healthcare & Clinics AI Scheduling | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/healthcare",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/healthcare"
+  },
+  {
+    "file": "industries/home-services/index.html",
+    "title": "Home Services & Trades 24/7 AI Dispatch | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/home-services",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/home-services"
+  },
+  {
+    "file": "industries/home-services.html",
+    "title": "Home Services & Trades 24/7 AI Dispatch | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/home-services",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/home-services"
+  },
+  {
+    "file": "industries/index.html",
+    "title": "Industries We Serve — AI Automation by Sector | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries"
+  },
+  {
+    "file": "industries/insurance/index.html",
+    "title": "Insurance Agencies FNOL & Underwriting Automation | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/insurance",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/insurance"
+  },
+  {
+    "file": "industries/insurance.html",
+    "title": "Insurance Agencies FNOL & Underwriting Automation | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/insurance",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/insurance"
+  },
+  {
+    "file": "industries/it-services/index.html",
+    "title": "IT & Managed Service Providers Support AI | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/it-services",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/it-services"
+  },
+  {
+    "file": "industries/it-services.html",
+    "title": "IT & Managed Service Providers Support AI | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/it-services",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/it-services"
+  },
+  {
+    "file": "industries/legal/index.html",
+    "title": "Legal Practices AI & Automation Solutions | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/legal",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/legal"
+  },
+  {
+    "file": "industries/legal.html",
+    "title": "Legal Practices AI & Automation Solutions | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/legal",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/legal"
+  },
+  {
+    "file": "industries/professional-services/index.html",
+    "title": "Professional Services & Consulting AI Automation | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/professional-services",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/professional-services"
+  },
+  {
+    "file": "industries/professional-services.html",
+    "title": "Professional Services & Consulting AI Automation | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/professional-services",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/professional-services"
+  },
+  {
+    "file": "industries/property-management/index.html",
+    "title": "Property Management 24/7 Maintenance AI | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/property-management",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/property-management"
+  },
+  {
+    "file": "industries/property-management.html",
+    "title": "Property Management 24/7 Maintenance AI | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/property-management",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/property-management"
+  },
+  {
+    "file": "industries/real-estate/index.html",
+    "title": "Real Estate & Brokerages AI Automation | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/real-estate",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/real-estate"
+  },
+  {
+    "file": "industries/real-estate.html",
+    "title": "Real Estate & Brokerages AI Automation | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries/real-estate",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries/real-estate"
+  },
+  {
+    "file": "industries.html",
+    "title": "Industries We Serve — AI Automation by Sector | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/industries",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/industries"
+  },
+  {
+    "file": "integrations/index.html",
+    "title": "Connected Ecosystem & Integrations | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/integrations",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/integrations"
+  },
+  {
+    "file": "integrations.html",
+    "title": "Connected Ecosystem & Integrations | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/integrations",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/integrations"
+  },
+  {
+    "file": "privacy/index.html",
+    "title": "Privacy Policy | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/privacy",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/privacy"
+  },
+  {
+    "file": "privacy.html",
+    "title": "Privacy Policy | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/privacy",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/privacy"
+  },
+  {
+    "file": "process/index.html",
+    "title": "Our 5-Phase Implementation Process | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/process",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/process"
+  },
+  {
+    "file": "process.html",
+    "title": "Our 5-Phase Implementation Process | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/process",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/process"
+  },
+  {
+    "file": "security/index.html",
+    "title": "Enterprise Security & Privacy Standards | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/security",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/security"
+  },
+  {
+    "file": "security.html",
+    "title": "Enterprise Security & Privacy Standards | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/security",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/security"
+  },
+  {
+    "file": "start-project/index.html",
+    "title": "Start Your Project — Custom AI Automation Scoping | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/start-project",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/start-project"
+  },
+  {
+    "file": "start-project.html",
+    "title": "Start Your Project — Custom AI Automation Scoping | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/start-project",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/start-project"
+  },
+  {
+    "file": "terms/index.html",
+    "title": "Terms of Service | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/terms",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/terms"
+  },
+  {
+    "file": "terms.html",
+    "title": "Terms of Service | Hutomate",
+    "hasDescription": true,
+    "canonical": "https://automat-ten.vercel.app/terms",
+    "hasOgTitle": true,
+    "ogUrl": "https://automat-ten.vercel.app/terms"
+  }
+]

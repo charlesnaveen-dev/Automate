@@ -36,7 +36,7 @@ export default function CtaBanner({
               <span className="dot-divider">•</span>
               <span>No vendor lock-in</span>
               <span className="dot-divider">•</span>
-              <span>Clients across USA, UK, Australia &amp; India</span>
+              <span>Working with businesses worldwide</span>
             </div>
           </div>
         </div>

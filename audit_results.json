@@ -1,0 +1,677 @@
+[
+  {
+    "viewport": "mobile-360",
+    "route": "/",
+    "hasOverflow": false,
+    "scrollWidth": 360,
+    "innerWidth": 360,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-360",
+    "route": "/capabilities",
+    "hasOverflow": false,
+    "scrollWidth": 360,
+    "innerWidth": 360,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-360",
+    "route": "/capabilities/ai-agents",
+    "hasOverflow": false,
+    "scrollWidth": 360,
+    "innerWidth": 360,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-360",
+    "route": "/capabilities/workflow-automation",
+    "hasOverflow": false,
+    "scrollWidth": 360,
+    "innerWidth": 360,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-360",
+    "route": "/industries",
+    "hasOverflow": false,
+    "scrollWidth": 360,
+    "innerWidth": 360,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-360",
+    "route": "/industries/legal",
+    "hasOverflow": false,
+    "scrollWidth": 360,
+    "innerWidth": 360,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-360",
+    "route": "/process",
+    "hasOverflow": false,
+    "scrollWidth": 360,
+    "innerWidth": 360,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-360",
+    "route": "/about",
+    "hasOverflow": false,
+    "scrollWidth": 360,
+    "innerWidth": 360,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-360",
+    "route": "/contact",
+    "hasOverflow": false,
+    "scrollWidth": 360,
+    "innerWidth": 360,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": null,
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-390",
+    "route": "/",
+    "hasOverflow": false,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-390",
+    "route": "/capabilities",
+    "hasOverflow": false,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-390",
+    "route": "/capabilities/ai-agents",
+    "hasOverflow": false,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-390",
+    "route": "/capabilities/workflow-automation",
+    "hasOverflow": false,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-390",
+    "route": "/industries",
+    "hasOverflow": false,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-390",
+    "route": "/industries/legal",
+    "hasOverflow": false,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-390",
+    "route": "/process",
+    "hasOverflow": false,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-390",
+    "route": "/about",
+    "hasOverflow": false,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-390",
+    "route": "/contact",
+    "hasOverflow": false,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": null,
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-430",
+    "route": "/",
+    "hasOverflow": false,
+    "scrollWidth": 430,
+    "innerWidth": 430,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-430",
+    "route": "/capabilities",
+    "hasOverflow": false,
+    "scrollWidth": 430,
+    "innerWidth": 430,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-430",
+    "route": "/capabilities/ai-agents",
+    "hasOverflow": false,
+    "scrollWidth": 430,
+    "innerWidth": 430,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-430",
+    "route": "/capabilities/workflow-automation",
+    "hasOverflow": false,
+    "scrollWidth": 430,
+    "innerWidth": 430,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-430",
+    "route": "/industries",
+    "hasOverflow": false,
+    "scrollWidth": 430,
+    "innerWidth": 430,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-430",
+    "route": "/industries/legal",
+    "hasOverflow": false,
+    "scrollWidth": 430,
+    "innerWidth": 430,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-430",
+    "route": "/process",
+    "hasOverflow": false,
+    "scrollWidth": 430,
+    "innerWidth": 430,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-430",
+    "route": "/about",
+    "hasOverflow": false,
+    "scrollWidth": 430,
+    "innerWidth": 430,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "mobile-430",
+    "route": "/contact",
+    "hasOverflow": false,
+    "scrollWidth": 430,
+    "innerWidth": 430,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": null,
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-768",
+    "route": "/",
+    "hasOverflow": false,
+    "scrollWidth": 768,
+    "innerWidth": 768,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-768",
+    "route": "/capabilities",
+    "hasOverflow": false,
+    "scrollWidth": 768,
+    "innerWidth": 768,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-768",
+    "route": "/capabilities/ai-agents",
+    "hasOverflow": false,
+    "scrollWidth": 768,
+    "innerWidth": 768,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-768",
+    "route": "/capabilities/workflow-automation",
+    "hasOverflow": false,
+    "scrollWidth": 768,
+    "innerWidth": 768,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-768",
+    "route": "/industries",
+    "hasOverflow": false,
+    "scrollWidth": 768,
+    "innerWidth": 768,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-768",
+    "route": "/industries/legal",
+    "hasOverflow": false,
+    "scrollWidth": 768,
+    "innerWidth": 768,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-768",
+    "route": "/process",
+    "hasOverflow": false,
+    "scrollWidth": 768,
+    "innerWidth": 768,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-768",
+    "route": "/about",
+    "hasOverflow": false,
+    "scrollWidth": 768,
+    "innerWidth": 768,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-768",
+    "route": "/contact",
+    "hasOverflow": false,
+    "scrollWidth": 768,
+    "innerWidth": 768,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": null,
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-1024",
+    "route": "/",
+    "hasOverflow": false,
+    "scrollWidth": 1024,
+    "innerWidth": 1024,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-1024",
+    "route": "/capabilities",
+    "hasOverflow": false,
+    "scrollWidth": 1024,
+    "innerWidth": 1024,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-1024",
+    "route": "/capabilities/ai-agents",
+    "hasOverflow": false,
+    "scrollWidth": 1024,
+    "innerWidth": 1024,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-1024",
+    "route": "/capabilities/workflow-automation",
+    "hasOverflow": false,
+    "scrollWidth": 1024,
+    "innerWidth": 1024,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-1024",
+    "route": "/industries",
+    "hasOverflow": false,
+    "scrollWidth": 1024,
+    "innerWidth": 1024,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-1024",
+    "route": "/industries/legal",
+    "hasOverflow": false,
+    "scrollWidth": 1024,
+    "innerWidth": 1024,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-1024",
+    "route": "/process",
+    "hasOverflow": false,
+    "scrollWidth": 1024,
+    "innerWidth": 1024,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-1024",
+    "route": "/about",
+    "hasOverflow": false,
+    "scrollWidth": 1024,
+    "innerWidth": 1024,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  },
+  {
+    "viewport": "tablet-1024",
+    "route": "/contact",
+    "hasOverflow": false,
+    "scrollWidth": 1024,
+    "innerWidth": 1024,
+    "overflowDiff": 0,
+    "offendingElements": [],
+    "fonts": {
+      "h1": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "h2": null,
+      "p": "\"JetBrains Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "btn": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif"
+    }
+  }
+]

@@ -1,0 +1,746 @@
+[
+  {
+    "viewport": "320px",
+    "route": "/",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/capabilities",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/capabilities/ai-agents",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/capabilities/workflow-automation",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/capabilities/voice-ai",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/capabilities/custom-ai-solutions",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/industries",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/industries/legal",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/industries/real-estate",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/industries/healthcare",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/industries/home-services",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/industries/financial-services",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/industries/insurance",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/industries/construction",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/industries/property-management",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/industries/professional-services",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/industries/automotive",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/industries/it-services",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/industries/ecommerce-logistics",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/process",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/about",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/blueprints",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/integrations",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/engagement",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/security",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/faq",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/contact",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/start-project",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/privacy",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/terms",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "320px",
+    "route": "/404",
+    "status": "OK",
+    "scrollW": 320
+  },
+  {
+    "viewport": "375px",
+    "route": "/",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/capabilities",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/capabilities/ai-agents",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/capabilities/workflow-automation",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/capabilities/voice-ai",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/capabilities/custom-ai-solutions",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/industries",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/industries/legal",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/industries/real-estate",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/industries/healthcare",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/industries/home-services",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/industries/financial-services",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/industries/insurance",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/industries/construction",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/industries/property-management",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/industries/professional-services",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/industries/automotive",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/industries/it-services",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/industries/ecommerce-logistics",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/process",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/about",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/blueprints",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/integrations",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/engagement",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/security",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/faq",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/contact",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/start-project",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/privacy",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/terms",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "375px",
+    "route": "/404",
+    "status": "OK",
+    "scrollW": 375
+  },
+  {
+    "viewport": "390px",
+    "route": "/",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/capabilities",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/capabilities/ai-agents",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/capabilities/workflow-automation",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/capabilities/voice-ai",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/capabilities/custom-ai-solutions",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/industries",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/industries/legal",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/industries/real-estate",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/industries/healthcare",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/industries/home-services",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/industries/financial-services",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/industries/insurance",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/industries/construction",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/industries/property-management",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/industries/professional-services",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/industries/automotive",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/industries/it-services",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/industries/ecommerce-logistics",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/process",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/about",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/blueprints",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/integrations",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/engagement",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/security",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/faq",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/contact",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/start-project",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/privacy",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/terms",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "390px",
+    "route": "/404",
+    "status": "OK",
+    "scrollW": 390
+  },
+  {
+    "viewport": "430px",
+    "route": "/",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/capabilities",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/capabilities/ai-agents",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/capabilities/workflow-automation",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/capabilities/voice-ai",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/capabilities/custom-ai-solutions",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/industries",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/industries/legal",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/industries/real-estate",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/industries/healthcare",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/industries/home-services",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/industries/financial-services",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/industries/insurance",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/industries/construction",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/industries/property-management",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/industries/professional-services",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/industries/automotive",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/industries/it-services",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/industries/ecommerce-logistics",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/process",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/about",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/blueprints",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/integrations",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/engagement",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/security",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/faq",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/contact",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/start-project",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/privacy",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/terms",
+    "status": "OK",
+    "scrollW": 430
+  },
+  {
+    "viewport": "430px",
+    "route": "/404",
+    "status": "OK",
+    "scrollW": 430
+  }
+]

@@ -37,7 +37,7 @@ html {
 body {
   min-height: 100vh;
   min-height: 100dvh;
-  font-family: var(--font-family-primary);
+  font-family: var(--font-family-primary, var(--font-family-body, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif));
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-body);
@@ -74,7 +74,7 @@ svg {
 
 /* Typography Resets */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-primary);
+  font-family: var(--font-family-headings, var(--font-family-primary, 'Inter', -apple-system, sans-serif));
   color: var(--color-text-primary);
   line-height: var(--line-height-heading);
   letter-spacing: var(--letter-spacing-tight);

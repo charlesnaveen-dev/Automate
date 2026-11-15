@@ -8,8 +8,8 @@ import './HutomateLogo.css';
  */
 export default function HutomateLogo({
   symbolOnly = false,
-  symbolSize = 28,
-  color = '#111111',
+  _symbolSize = 28,
+  _color = '#111111',
   variant = 'default',
   className = '',
 }) {
@@ -65,7 +65,7 @@ export default function HutomateLogo({
 /**
  * Backward compatibility export
  */
-export function HutomateSymbol({ size = 30, color = 'currentColor', className = '' }) {
+export function HutomateSymbol({ size: _size = 30, color: _color = 'currentColor', className: _className = '' } = {}) {
   return null;
 }
 

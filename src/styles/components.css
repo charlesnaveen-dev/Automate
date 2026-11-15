@@ -81,7 +81,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -101,7 +101,7 @@
 }
 
 .section-heading {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: var(--font-size-h1, clamp(2.15rem, 3.6vw, 3.1rem));
   font-weight: 750;
   line-height: var(--line-height-tight, 1.15);
@@ -311,7 +311,7 @@
   gap: 7px;
   padding: 0;
   border-radius: 0;
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;

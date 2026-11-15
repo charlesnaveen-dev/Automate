@@ -105,7 +105,7 @@
 
 .timeline-step-number {
   display: inline-block;
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--color-deep-teal, #167C80);
@@ -186,7 +186,7 @@
 }
 
 .mini-step-num {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--color-deep-teal, #167C80);
@@ -253,7 +253,7 @@
 }
 
 .editorial-showcase-tag {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -365,7 +365,7 @@
 }
 
 .cap-hero-metric-num {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 1rem;
   font-weight: 800;
   color: #167C80;
@@ -598,7 +598,7 @@
 }
 
 .related-cap-num {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 12px;
   font-weight: 750;
   color: #64748B;

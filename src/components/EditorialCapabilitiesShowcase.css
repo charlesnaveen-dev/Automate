@@ -66,7 +66,7 @@
 }
 
 .editorial-tab-num {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 13px;
   font-weight: 800;
   color: var(--color-muted-grey, #71838A);
@@ -86,7 +86,7 @@
 }
 
 .editorial-tab-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1rem;
   font-weight: 800;
   color: var(--color-text-primary, #17252B);
@@ -158,7 +158,7 @@
   background: rgba(22, 124, 128, 0.08);
   border: 1px solid rgba(22, 124, 128, 0.2);
   color: var(--color-deep-teal, #167C80);
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11px;
   font-weight: 750;
   letter-spacing: 0.1em;
@@ -175,7 +175,7 @@
 }
 
 .editorial-domain-index {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 13px;
   font-weight: 800;
   color: var(--color-muted-grey, #71838A);
@@ -186,7 +186,7 @@
 }
 
 .editorial-panel-headline {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(2rem, 3.6vw, 3.2rem);
   font-weight: 850;
   line-height: 1.15;
@@ -225,7 +225,7 @@
 }
 
 .editorial-metric-value {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.5rem;
   font-weight: 850;
   color: var(--color-text-primary, #17252B);
@@ -233,7 +233,7 @@
 }
 
 .editorial-metric-label {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-muted-grey, #71838A);
@@ -251,7 +251,7 @@
 
 .editorial-kicker {
   display: block;
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11px;
   font-weight: 750;
   letter-spacing: 0.12em;
@@ -261,7 +261,7 @@
 }
 
 .editorial-section-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.65rem;
   font-weight: 800;
   color: var(--color-text-primary, #17252B);
@@ -303,7 +303,7 @@
 }
 
 .editorial-challenge-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.05rem;
   font-weight: 750;
   color: var(--color-text-primary, #17252B);
@@ -354,7 +354,7 @@
 }
 
 .editorial-module-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.025rem;
   font-weight: 750;
   color: var(--color-text-primary, #17252B);
@@ -391,7 +391,7 @@
 }
 
 .editorial-eco-label {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11px;
   font-weight: 750;
   text-transform: uppercase;
@@ -406,7 +406,7 @@
 }
 
 .editorial-eco-pill {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 12px;
   font-weight: 600;
   color: var(--color-text-primary, #17252B);

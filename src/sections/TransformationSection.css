@@ -55,7 +55,7 @@
 }
 
 .transformation-headline {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', -apple-system, sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', -apple-system, sans-serif));
   font-size: clamp(2.5rem, 1.8rem + 3.2vw, 4.25rem);
   font-weight: 800;
   line-height: 1.08;
@@ -98,7 +98,7 @@
 }
 
 .transformation-subhead {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', -apple-system, sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', -apple-system, sans-serif));
   font-size: clamp(1.0625rem, 0.98rem + 0.35vw, 1.25rem);
   line-height: 1.65;
   color: var(--color-text-secondary, var(--text-secondary, #66645F));
@@ -202,7 +202,7 @@
 }
 
 .zone-label {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -279,7 +279,7 @@
 }
 
 .scattered-card-title {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
   font-size: 13px;
   font-weight: 700;
   color: var(--color-text-primary, #111111);
@@ -288,7 +288,7 @@
 }
 
 .scattered-card-meta {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
   font-size: 10.5px;
   color: var(--color-text-secondary, #66645F);
   line-height: 1.2;
@@ -496,7 +496,7 @@
 }
 
 .hub-brand-title {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
   font-size: 14.5px;
   font-weight: 800;
   color: var(--color-text-primary, #111111);
@@ -505,7 +505,7 @@
 }
 
 .hub-brand-sub {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
   font-size: 10px;
   font-weight: 700;
   color: var(--color-accent-purple, var(--accent-purple, #7657E8));
@@ -592,7 +592,7 @@
 }
 
 .panel-title {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
   font-size: 15px;
   font-weight: 800;
   letter-spacing: -0.015em;
@@ -621,7 +621,7 @@
 }
 
 .panel-subtitle {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
   font-size: 11.5px;
   color: var(--color-text-secondary, #66645F);
   margin: 0;
@@ -688,7 +688,7 @@
 }
 
 .service-name {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
   font-size: 13px;
   font-weight: 700;
   color: var(--color-text-primary, #111111);
@@ -706,7 +706,7 @@
 }
 
 .service-desc {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
   font-size: 11px;
   color: var(--color-text-secondary, #66645F);
   line-height: 1.35;
@@ -723,7 +723,7 @@
   justify-content: space-between;
   padding-top: 12px;
   border-top: 1px solid var(--color-border-subtle, #EBE8E0);
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
 }
 
 .footer-metric {
@@ -763,7 +763,7 @@
 
 .problem-narratives-eyebrow {
   display: block;
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -773,7 +773,7 @@
 }
 
 .problem-narratives-title {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
   font-size: clamp(1.5rem, 1.25rem + 1.2vw, 2.125rem);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -826,7 +826,7 @@
 }
 
 .problem-num {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -842,7 +842,7 @@
 }
 
 .problem-title {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
   font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.35rem);
   font-weight: 700;
   letter-spacing: -0.015em;
@@ -859,7 +859,7 @@
 }
 
 .problem-desc {
-  font-family: var(--font-family-primary, var(--font-family, 'Manrope', sans-serif));
+  font-family: var(--font-family-primary, var(--font-family, 'Inter', sans-serif));
   font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
   line-height: 1.55;
   color: var(--color-text-secondary, var(--text-secondary, #66645F));

@@ -170,13 +170,16 @@ export default function WorkflowAutomationPage() {
           ========================================================================= */}
       <section className="wf-hero-section" aria-label="Workflow Automation Hero">
         <div className="wf-hero-bg-wrapper" aria-hidden="true">
-          <img
-            src="/images/hero-workflow-automation.jpg"
-            alt=""
-            className="wf-hero-bg"
-            loading="eager"
-            decoding="sync"
-          />
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/images/hero-workflow-automation-mobile.jpg" />
+            <img
+              src="/images/hero-workflow-automation.jpg"
+              alt=""
+              className="wf-hero-bg"
+              loading="eager"
+              decoding="sync"
+            />
+          </picture>
           <div className="wf-hero-overlay" />
           <div className="wf-hero-vignette" />
         </div>
@@ -197,7 +200,7 @@ export default function WorkflowAutomationPage() {
             </p>
 
             <div className="wf-hero-ctas">
-              <Button variant="primary" size="lg" arrow href="/contact">
+              <Button variant="primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
               <Button variant="secondary" size="lg" href="/process">
@@ -385,7 +388,7 @@ export default function WorkflowAutomationPage() {
               Talk with our engineering team about your current tool stack. We identify integration bottlenecks and design a reliable automation roadmap.
             </p>
             <div className="wf-final-actions">
-              <Button variant="primary" size="lg" arrow href="/contact">
+              <Button variant="primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
               <Button variant="secondary" size="lg" href="/process">

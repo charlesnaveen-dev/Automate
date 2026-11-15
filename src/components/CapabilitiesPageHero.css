@@ -62,7 +62,7 @@
 }
 
 .cap-hero-badge-text {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -71,7 +71,7 @@
 }
 
 .cap-hero-headline {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(2.5rem, 5vw, 4.2rem);
   font-weight: 800;
   line-height: 1.1;
@@ -118,7 +118,7 @@
 }
 
 .cap-hero-spec-val {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(1.6rem, 2.2vw, 2.2rem);
   font-weight: 800;
   color: #FFFFFF;
@@ -127,7 +127,7 @@
 }
 
 .cap-hero-spec-lbl {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11px;
   color: var(--color-muted-grey, #71838A);
   letter-spacing: 0.02em;

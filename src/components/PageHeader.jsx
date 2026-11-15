@@ -8,7 +8,7 @@ export default function PageHeader({
   title,
   description,
   badgeText,
-  badgeType = 'teal',
+  badgeType: _badgeType = 'teal',
   children,
 }) {
   return (

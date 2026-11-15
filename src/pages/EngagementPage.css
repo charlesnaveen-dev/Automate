@@ -52,7 +52,7 @@
 }
 
 .model-tag {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.8rem;
   font-weight: 750;
   text-transform: uppercase;
@@ -61,7 +61,7 @@
 }
 
 .model-structure {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.78rem;
   font-weight: 600;
   padding: 0;
@@ -72,7 +72,7 @@
 }
 
 .model-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.35rem;
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);
@@ -144,7 +144,7 @@
 }
 
 .cost-factors-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(1.4rem, 2.2vw, 1.8rem);
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);
@@ -174,7 +174,7 @@
 }
 
 .factor-num {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.82rem;
   font-weight: 750;
   color: var(--color-deep-teal, #167C80);
@@ -193,7 +193,7 @@
 }
 
 .factor-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1rem;
   font-weight: 800;
   color: var(--color-midnight-navy, #071923);

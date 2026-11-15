@@ -1,368 +1,317 @@
 import React, { useState } from 'react';
-import { CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import { Mail, Clock, ShieldCheck, CheckCircle2, Loader2, ArrowRight, Sparkles } from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import PageHeader from '../components/PageHeader';
 import Button from '../components/Button';
 import './StartProjectPage.css';
 
-const getInitialFormState = () => {
-  const initial = {
-    fullName: '',
-    workEmail: '',
-    companyName: '',
-    companyWebsite: '',
-    region: 'Americas (EST/CST/PST)',
-    solutions: [],
-    processDescription: '',
-    toolsInUse: '',
-    volume: 'Daily high volume',
-    timeline: 'Within 2-4 weeks',
-  };
-
-  if (typeof window === 'undefined') return { form: initial, context: '' };
-
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const serviceParam = params.get('service');
-    const industryParam = params.get('industry');
-
-    const solutions = [];
-    let context = '';
-
-    if (serviceParam) {
-      if (serviceParam.includes('agent')) {
-        solutions.push('agents');
-        context = 'AI Agents';
-      } else if (serviceParam.includes('voice') || serviceParam.includes('receptionist')) {
-        solutions.push('voice');
-        context = 'AI Receptionists / Voice AI';
-      } else if (serviceParam.includes('workflow')) {
-        solutions.push('workflows');
-        context = 'Workflow Automation';
-      } else if (serviceParam.includes('custom') || serviceParam.includes('integration')) {
-        solutions.push('custom');
-        context = 'Custom AI & Integrations';
-      }
-    }
-
-    if (industryParam) {
-      const cleanName = industryParam.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-      context = context ? `${context} for ${cleanName}` : `${cleanName} Sector`;
-      initial.processDescription = `Industry / Sector: ${cleanName}\nKey operational bottleneck to solve: `;
-    }
-
-    if (solutions.length > 0) {
-      initial.solutions = solutions;
-    }
-
-    return { form: initial, context };
-  } catch {
-    return { form: initial, context: '' };
-  }
-};
-
 export default function StartProjectPage() {
   usePageMetadata({
-    title: 'Start a Project — Scoping & Initial Feasibility Consultation',
-    description: 'Share your operational challenge or repetitive workflow with our engineering team. We review submissions within 1 business day with an initial feasibility assessment.',
+    title: 'Discuss Your Project — Hutomate Intelligent Automation',
+    description: 'Tell us a little about your business and how to reach you. Our team will get in touch to understand your requirements and explore the right solution.',
     path: '/start-project',
   });
 
-  const [initialData] = useState(() => getInitialFormState());
-  const [formData, setFormData] = useState(initialData.form);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isDeliveredViaApi, setIsDeliveredViaApi] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
-  const preselectedContext = initialData.context;
-
-  const solutionOptions = [
-    { id: 'agents', label: 'AI Agents (task reasoning & execution)' },
-    { id: 'workflows', label: 'Workflow Automation (connecting tools)' },
-    { id: 'voice', label: 'Voice AI (inbound phone/call triage)' },
-    { id: 'custom', label: 'Custom AI Solutions (bespoke architectures)' },
-    { id: 'unsure', label: 'Not sure yet / Exploring feasibility' },
-  ];
-
-  const handleSolutionToggle = (id) => {
-    setFormData((prev) => {
-      const exists = prev.solutions.includes(id);
-      return {
-        ...prev,
-        solutions: exists
-          ? prev.solutions.filter((s) => s !== id)
-          : [...prev.solutions, id],
-      };
-    });
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errorMsg) setErrorMsg('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.fullName.trim() || !formData.workEmail.trim() || !formData.companyName.trim() || !formData.processDescription.trim()) {
-      setErrorMsg('Please complete all required fields.');
+
+    const trimmedName = formData.name.trim();
+    const trimmedPhone = formData.phone.trim();
+    const trimmedEmail = formData.email.trim();
+
+    if (!trimmedName || trimmedName.length < 2) {
+      setErrorMsg('Please enter your name or business name.');
       return;
     }
+
+    const phoneRegex = /^[+]?[\d\s().-]{7,25}$/;
+    if (!trimmedPhone || !phoneRegex.test(trimmedPhone)) {
+      setErrorMsg('Please enter a valid telephone number.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
+      setErrorMsg('Please enter a valid email address.');
+      return;
+    }
+
     setErrorMsg('');
-    setSubmitted(true);
-    window.scrollTo({ top: 100, behavior: 'smooth' });
+    setIsSubmitting(true);
+
+    const record = {
+      name: trimmedName,
+      phone: trimmedPhone,
+      email: trimmedEmail,
+      timestamp: new Date().toISOString(),
+      formType: 'Project Intake Consultation',
+    };
+
+    // 1. Local backup to localStorage
+    try {
+      const stored = JSON.parse(localStorage.getItem('hutomate_enquiries') || '[]');
+      stored.push(record);
+      localStorage.setItem('hutomate_enquiries', JSON.stringify(stored));
+    } catch (_storageErr) {
+      // LocalStorage access restricted in private/sandbox mode
+    }
+
+    // 2. Dispatch to backend API if available
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(record),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        setIsDeliveredViaApi(Boolean(data.delivered));
+      } else {
+        setIsDeliveredViaApi(false);
+      }
+    } catch (_err) {
+      setIsDeliveredViaApi(false);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
   };
 
   return (
     <div className="start-project-page">
       <PageHeader
-        eyebrow="PROJECT INTAKE"
-        badgeText="Discovery &amp; Scoping"
+        eyebrow="PROJECT INITIATION"
+        badgeText="Discovery &amp; Consultation"
         badgeType="teal"
-        title="Tell us about the operational challenge you want to solve."
-        description="Complete our scoping questionnaire to give our engineering team context before our first consultation. We review every submission within 1 business day."
+        title="Let's build something intelligent."
+        description="Tell us a little about your business and how to reach you. Our team will get in touch to understand your requirements and explore the right solution."
       />
 
-      <section className="section detail-section">
+      <section className="section start-project-section">
         <div className="container">
-          {submitted ? (
-            <div className="submission-success-card card">
-              <div className="success-icon-wrap">
-                <CheckCircle2 size={32} />
-              </div>
-              <h2 className="success-title">Thank you, {formData.fullName.split(' ')[0]}!</h2>
-              <p className="success-desc">
-                Your project scoping details have been securely received. Our engineering team will review your workflow requirements and respond to <strong>{formData.workEmail}</strong> within 1 business day with a preliminary feasibility assessment.
-              </p>
-
-              <div className="summary-details-box">
-                <div style={{ fontWeight: 700, marginBottom: '8px', color: 'var(--text-primary)' }}>
-                  Submission Summary:
+          <div className="project-layout-grid">
+            {/* Left Column: Project Consultation Guidance */}
+            <div className="project-info-panel">
+              <div className="project-info-block">
+                <div className="project-block-header">
+                  <Sparkles size={18} color="#167C80" />
+                  <span className="project-block-kicker">Technical Consultation</span>
                 </div>
-                <div><strong>Company:</strong> {formData.companyName}</div>
-                <div><strong>Region:</strong> {formData.region}</div>
-                <div><strong>Selected Areas:</strong> {formData.solutions.length > 0 ? formData.solutions.join(', ') : 'General evaluation'}</div>
-                <div><strong>Timeline:</strong> {formData.timeline}</div>
+                <h3 className="project-info-title">Direct Access to Engineering Leads</h3>
+                <p className="project-info-desc">
+                  We review your current software stack, operational bottlenecks, and workflow requirements before proposing an architecture.
+                </p>
               </div>
 
-              <Button variant="primary" size="md" href="/">
-                Return to Homepage
-              </Button>
+              <div className="project-info-block">
+                <div className="project-block-header">
+                  <Clock size={18} color="#167C80" />
+                  <span className="project-block-kicker">Feasibility Review</span>
+                </div>
+                <h3 className="project-info-title">1 Business Day Turnaround</h3>
+                <p className="project-info-desc">
+                  Our technical leads evaluate incoming project inquiries promptly with clear next steps and an estimated scoping schedule.
+                </p>
+              </div>
+
+              <div className="project-info-block">
+                <div className="project-block-header">
+                  <ShieldCheck size={18} color="#167C80" />
+                  <span className="project-block-kicker">Confidentiality</span>
+                </div>
+                <h3 className="project-info-title">Mutual NDA on Request</h3>
+                <p className="project-info-desc">
+                  We treat all operational data and workflow discussions as strictly confidential and routinely sign NDAs prior to technical audits.
+                </p>
+              </div>
+
+              <div className="project-info-block">
+                <div className="project-block-header">
+                  <Mail size={18} color="#167C80" />
+                  <span className="project-block-kicker">Direct Inquiries</span>
+                </div>
+                <h3 className="project-info-title">Have an RFP or Spec Document?</h3>
+                <p className="project-info-desc">
+                  You can also email project briefs or RFP documentation directly to our team:
+                </p>
+                <a href="mailto:hutomate@gmail.com" className="project-direct-email">
+                  hutomate@gmail.com
+                </a>
+              </div>
             </div>
-          ) : (
-            <div className="scoping-form-wrapper card">
-              {preselectedContext && (
-                <div style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  backgroundColor: 'rgba(22, 124, 128, 0.08)',
-                  border: '1px solid rgba(22, 124, 128, 0.2)',
-                  padding: '8px 16px',
-                  borderRadius: '8px',
-                  marginBottom: '24px',
-                  fontSize: '0.9rem',
-                  fontWeight: 600,
-                  color: '#167C80'
-                }}>
-                  <Sparkles size={16} />
-                  <span>Context pre-selected: <strong>{preselectedContext}</strong></span>
-                </div>
-              )}
-              <form onSubmit={handleSubmit}>
-                <h3 className="form-section-title">01. Contact Information</h3>
-                <div className="form-grid-2">
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="fullName">
-                      Full Name <span className="required">*</span>
-                    </label>
-                    <input
-                      id="fullName"
-                      name="fullName"
-                      type="text"
-                      required
-                      placeholder="Jane Doe"
-                      className="form-input"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                    />
+
+            {/* Right Column: Clean Three-Field Project Form */}
+            <div className="project-form-card">
+              {submitted ? (
+                <div className="project-success-state">
+                  <div className="project-success-icon-box">
+                    <CheckCircle2 size={36} color="#167C80" />
                   </div>
-
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="workEmail">
-                      Work Email <span className="required">*</span>
-                    </label>
-                    <input
-                      id="workEmail"
-                      name="workEmail"
-                      type="email"
-                      required
-                      placeholder="jane@company.com"
-                      className="form-input"
-                      value={formData.workEmail}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-
-                <div className="form-grid-2">
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="companyName">
-                      Company Name <span className="required">*</span>
-                    </label>
-                    <input
-                      id="companyName"
-                      name="companyName"
-                      type="text"
-                      required
-                      placeholder="Acme Operations Ltd"
-                      className="form-input"
-                      value={formData.companyName}
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="companyWebsite">
-                      Company Website (optional)
-                    </label>
-                    <input
-                      id="companyWebsite"
-                      name="companyWebsite"
-                      type="text"
-                      placeholder="https://example.com"
-                      className="form-input"
-                      value={formData.companyWebsite}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label" htmlFor="region">
-                    Primary Region / Operating Time Zone
-                  </label>
-                  <select
-                    id="region"
-                    name="region"
-                    className="form-select"
-                    value={formData.region}
-                    onChange={handleChange}
-                  >
-                    <option value="Americas (EST/CST/PST)">Americas (EST / CST / PST)</option>
-                    <option value="EMEA (GMT/CET)">United Kingdom &amp; Europe (GMT / BST / CET)</option>
-                    <option value="APAC (AEST/SGT)">Australia &amp; Asia-Pacific (AEST / SGT / IST)</option>
-                    <option value="Other">Other Global Location</option>
-                  </select>
-                </div>
-
-                <h3 className="form-section-title" style={{ marginTop: '36px' }}>
-                  02. Areas of Interest
-                </h3>
-                <div className="chips-grid">
-                  {solutionOptions.map((opt) => {
-                    const isSelected = formData.solutions.includes(opt.id);
-                    return (
-                      <label
-                        key={opt.id}
-                        className={`chip-checkbox-label ${isSelected ? 'selected' : ''}`}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={isSelected}
-                          onChange={() => handleSolutionToggle(opt.id)}
-                        />
-                        <span>{opt.label}</span>
-                      </label>
-                    );
-                  })}
-                </div>
-
-                <h3 className="form-section-title" style={{ marginTop: '36px' }}>
-                  03. Current Operational Bottleneck
-                </h3>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="processDescription">
-                    Describe the repetitive task or workflow your team spends manual time on <span className="required">*</span>
-                  </label>
-                  <textarea
-                    id="processDescription"
-                    name="processDescription"
-                    required
-                    placeholder="e.g. When customer emails arrive with PDF order forms, our team manually opens each file, copies data into our CRM, and alerts the warehouse team in Slack..."
-                    className="form-textarea"
-                    value={formData.processDescription}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label" htmlFor="toolsInUse">
-                    Which software tools or platforms are currently involved?
-                  </label>
-                  <input
-                    id="toolsInUse"
-                    name="toolsInUse"
-                    type="text"
-                    placeholder="e.g. HubSpot, Zendesk, Xero, Google Sheets, Postgres"
-                    className="form-input"
-                    value={formData.toolsInUse}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <div className="form-grid-2">
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="volume">
-                      Estimated Task Frequency / Volume
-                    </label>
-                    <select
-                      id="volume"
-                      name="volume"
-                      className="form-select"
-                      value={formData.volume}
-                      onChange={handleChange}
-                    >
-                      <option value="Daily high volume">Daily high volume (multiple times/hour)</option>
-                      <option value="Daily routine">Daily routine (several times a day)</option>
-                      <option value="Weekly batch routines">Weekly batch routines</option>
-                      <option value="Continuous 24/7 operations">Continuous 24/7 operations</option>
-                    </select>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="timeline">
-                      Implementation Timeline
-                    </label>
-                    <select
-                      id="timeline"
-                      name="timeline"
-                      className="form-select"
-                      value={formData.timeline}
-                      onChange={handleChange}
-                    >
-                      <option value="Within 2-4 weeks">Immediately (within 2-4 weeks)</option>
-                      <option value="Next 1-2 months">Next 1-2 months</option>
-                      <option value="Upcoming quarter">Exploring / Budgeting for upcoming quarter</option>
-                    </select>
-                  </div>
-                </div>
-
-                {errorMsg && (
-                  <div style={{ color: '#ef4444', fontSize: '0.9rem', marginBottom: '16px' }}>
-                    {errorMsg}
-                  </div>
-                )}
-
-                <div className="form-submit-row">
-                  <Button variant="primary" size="lg" arrow type="submit">
-                    Submit Scoping Request
-                  </Button>
-                  <p className="form-trust-text">
-                    <ShieldCheck size={14} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }} />
-                    We respect your privacy. Submissions are reviewed under strict non-disclosure obligations. We never share your data.
+                  <h2 className="project-success-title">
+                    {isDeliveredViaApi ? 'Project Inquiry Delivered Successfully' : 'Project Inquiry Saved Locally'}
+                  </h2>
+                  <p className="project-success-text">
+                    {isDeliveredViaApi ? (
+                      <>
+                        Your project inquiry has been delivered directly to our solutions architecture team at <strong>hutomate@gmail.com</strong>. We will review your requirements and respond to <strong>{formData.email}</strong> within one business day.
+                      </>
+                    ) : (
+                      <>
+                        Your project details have been safely recorded. To ensure our engineering leads receive your requirements immediately, please click the button below to dispatch directly to <strong>hutomate@gmail.com</strong>.
+                      </>
+                    )}
                   </p>
+
+                  <div className="project-success-summary-box">
+                    <div className="success-summary-row">
+                      <span className="summary-label">Name / Business Name:</span>
+                      <span className="summary-val">{formData.name}</span>
+                    </div>
+                    <div className="success-summary-row">
+                      <span className="summary-label">Phone Number:</span>
+                      <span className="summary-val">{formData.phone}</span>
+                    </div>
+                    <div className="success-summary-row">
+                      <span className="summary-label">Email Address:</span>
+                      <span className="summary-val">{formData.email}</span>
+                    </div>
+                  </div>
+
+                  {!isDeliveredViaApi && (
+                    <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+                      <a
+                        href={`mailto:hutomate@gmail.com?subject=${encodeURIComponent(`Project Consultation: ${formData.name}`)}&body=${encodeURIComponent(`Name / Business Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nHello Hutomate Engineering Team,\n\nI would like to discuss an intelligent automation project for my business.`)}`}
+                        className="btn btn-primary btn-md"
+                        style={{ width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', padding: '14px 24px', fontWeight: '700' }}
+                      >
+                        Send via Email Client to hutomate@gmail.com →
+                      </a>
+                    </div>
+                  )}
+
+                  <Button
+                    variant="secondary"
+                    size="md"
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormData({ name: '', phone: '', email: '' });
+                    }}
+                  >
+                    Submit Another Project Inquiry
+                  </Button>
                 </div>
-              </form>
+              ) : (
+                <form className="project-form-element" onSubmit={handleSubmit} noValidate>
+                  <div className="form-header-area">
+                    <span className="form-eyebrow">PROJECT INTAKE</span>
+                    <h2 className="form-main-heading">Start the conversation</h2>
+                    <p className="form-main-sub">
+                      Tell us how to reach you and we will arrange a discovery call to understand your requirements.
+                    </p>
+                  </div>
+
+                  {errorMsg && (
+                    <div className="form-error-banner" role="alert">
+                      {errorMsg}
+                    </div>
+                  )}
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="project-name">
+                      Name / Business Name <span className="form-required">*</span>
+                    </label>
+                    <input
+                      id="project-name"
+                      name="name"
+                      type="text"
+                      className="form-input"
+                      placeholder="e.g. Sarah Jenkins or Apex Logistics"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      autoComplete="name"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="project-phone">
+                      Phone Number <span className="form-required">*</span>
+                    </label>
+                    <input
+                      id="project-phone"
+                      name="phone"
+                      type="tel"
+                      className="form-input"
+                      placeholder="e.g. +1 (555) 234-5678"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      autoComplete="tel"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="project-email">
+                      Email Address <span className="form-required">*</span>
+                    </label>
+                    <input
+                      id="project-email"
+                      name="email"
+                      type="email"
+                      className="form-input"
+                      placeholder="e.g. sarah@company.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      autoComplete="email"
+                    />
+                  </div>
+
+                  <div className="form-submit-group">
+                    <button
+                      type="submit"
+                      className="btn btn-primary btn-lg form-submit-btn"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 size={16} className="btn-spinner" />
+                          <span>Preparing Consultation...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Discuss Your Project</span>
+                          <ArrowRight size={16} className="btn-icon" />
+                        </>
+                      )}
+                    </button>
+                    <span className="form-privacy-note">
+                      We treat all workflow discussions and project inquiries with strict confidentiality.
+                    </span>
+                  </div>
+                </form>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </section>
     </div>

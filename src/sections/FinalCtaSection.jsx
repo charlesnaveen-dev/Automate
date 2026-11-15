@@ -28,7 +28,7 @@ export default function FinalCtaSection() {
             </p>
 
             <div className="final-cta-actions">
-              <Button variant="cinematic-primary" size="lg" arrow href="/contact">
+              <Button variant="cinematic-primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
               <Button variant="cinematic-secondary" size="lg" href="/capabilities">
@@ -45,12 +45,12 @@ export default function FinalCtaSection() {
               <span className="trust-divider" aria-hidden="true">•</span>
               <div className="trust-item">
                 <Globe size={14} className="trust-icon" aria-hidden="true" />
-                <span>Serving USA, UK, Australia &amp; Worldwide</span>
+                <span>Working with businesses worldwide</span>
               </div>
               <span className="trust-divider" aria-hidden="true">•</span>
               <div className="trust-item">
                 <ShieldCheck size={14} className="trust-icon" aria-hidden="true" />
-                <span>Zero-Retention Privacy Guarantee</span>
+                <span>Strict client confidentiality</span>
               </div>
             </div>
           </div>

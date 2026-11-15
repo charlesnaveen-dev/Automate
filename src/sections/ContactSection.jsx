@@ -217,8 +217,8 @@ export default function ContactSection() {
                     <Mail size={18} className="contact-direct-icon" aria-hidden="true" />
                     <div>
                       <span className="contact-direct-label">Direct Communication:</span>
-                      <a href="mailto:hello@hutomate.com" className="contact-direct-email">
-                        hello@hutomate.com
+                      <a href="mailto:hutomate@gmail.com" className="contact-direct-email">
+                        hutomate@gmail.com
                       </a>
                     </div>
                   </div>

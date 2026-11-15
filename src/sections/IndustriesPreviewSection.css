@@ -100,7 +100,7 @@
 }
 
 .ind-editorial-eyebrow {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -116,7 +116,7 @@
 }
 
 .ind-editorial-crosshair {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 13px;
   color: rgba(8, 127, 131, 0.45);
   font-weight: 400;
@@ -124,7 +124,7 @@
 }
 
 .ind-editorial-headline {
-  font-family: var(--font-family-headings, 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-family: var(--font-family-headings, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: clamp(2.35rem, 3.8vw, 3.4rem);
   font-weight: 800;
   line-height: 1.12;
@@ -271,7 +271,7 @@
 }
 
 .ind-hub-wordmark {
-  font-family: var(--font-family-headings, 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-family: var(--font-family-headings, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: 19px;
   font-weight: 750;
   color: #0B2029;
@@ -396,14 +396,14 @@
 }
 
 .ind-mobile-brand-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 15px;
   font-weight: 700;
   color: #0B2029;
 }
 
 .ind-mobile-brand-count {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11px;
   font-weight: 600;
   color: #087F83;
@@ -475,7 +475,7 @@
 }
 
 .ind-mobile-card-tag {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 9.5px;
   font-weight: 600;
   color: #71838A;
@@ -530,7 +530,14 @@
   }
 
   .ind-orbit-stage {
-    transform: scale(0.88);
+    transform: scale(0.82);
+    transform-origin: center center;
+  }
+}
+
+@media (max-width: 860px) {
+  .ind-orbit-stage {
+    transform: scale(0.72);
     transform-origin: center center;
   }
 }

@@ -54,7 +54,7 @@
 }
 
 .designed-eyebrow-text {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -63,7 +63,7 @@
 }
 
 .designed-main-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(2.3rem, 3.8vw, 3.4rem);
   font-weight: 800;
   line-height: 1.15;
@@ -113,7 +113,7 @@
 }
 
 .designed-pillar-name {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 0.95rem;
   font-weight: 750;
   color: var(--color-midnight-navy, #071923);
@@ -160,7 +160,7 @@
 }
 
 .principle-index {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.01em;
@@ -188,7 +188,7 @@
 }
 
 .principle-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(1.4rem, 2vw, 1.7rem);
   font-weight: 800;
   letter-spacing: -0.025em;

@@ -36,7 +36,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(226, 234, 236, 0.15);
   color: var(--color-accent-cyan, #83DDE2);
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -54,7 +54,7 @@
 }
 
 .diagram-caption {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11.5px;
   color: var(--color-mist-grey, #E2EAEC);
   letter-spacing: 0.03em;
@@ -93,7 +93,7 @@
 }
 
 .diagram-node-eyebrow {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 10px;
   font-weight: 750;
   letter-spacing: 0.1em;
@@ -106,7 +106,7 @@
 }
 
 .diagram-node-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.15rem;
   font-weight: 800;
   color: #FFFFFF;
@@ -134,7 +134,7 @@
 
 .diagram-node-tags li {
   font-size: 11.5px;
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   color: var(--color-mist-grey, #E2EAEC);
   background: rgba(255, 255, 255, 0.05);
   padding: 4px 10px;
@@ -254,7 +254,7 @@
 }
 
 .diagram-waveform-label {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11px;
   color: var(--color-accent-cyan, #83DDE2);
 }

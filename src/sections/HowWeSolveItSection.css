@@ -30,7 +30,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -48,7 +48,7 @@
 }
 
 .solve-headline {
-  font-family: var(--font-primary, 'Manrope', sans-serif);
+  font-family: var(--font-primary, 'Inter', sans-serif);
   font-size: clamp(2.2rem, 3.8vw, 3.4rem);
   font-weight: 800;
   line-height: 1.16;
@@ -109,7 +109,7 @@
 }
 
 .solve-step-number {
-  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.85rem;
   font-weight: 700;
   color: #2563EB;
@@ -123,7 +123,7 @@
 }
 
 .solve-step-heading {
-  font-family: var(--font-primary, 'Manrope', sans-serif);
+  font-family: var(--font-primary, 'Inter', sans-serif);
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary, #111111);
@@ -133,7 +133,7 @@
 }
 
 .solve-step-desc {
-  font-family: var(--font-primary, 'Manrope', sans-serif);
+  font-family: var(--font-primary, 'Inter', sans-serif);
   font-size: 0.95rem;
   line-height: 1.62;
   color: var(--text-secondary, #52525B);
@@ -153,7 +153,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-primary, 'Manrope', sans-serif);
+  font-family: var(--font-primary, 'Inter', sans-serif);
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-primary, #111111);

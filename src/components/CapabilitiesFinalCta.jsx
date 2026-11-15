@@ -33,7 +33,7 @@ export default function CapabilitiesFinalCta() {
 
               {/* Action Buttons */}
               <div className="cap-cta-actions">
-                <Link to="/contact" className="cap-cta-btn cap-cta-btn--primary">
+                <Link to="/start-project" className="cap-cta-btn cap-cta-btn--primary">
                   <span>Discuss Your Project</span>
                   <ArrowRight size={16} className="cap-cta-btn-arrow" />
                 </Link>
@@ -52,7 +52,7 @@ export default function CapabilitiesFinalCta() {
                 <span className="cap-trust-divider" aria-hidden="true">•</span>
                 <div className="cap-trust-item">
                   <ShieldCheck size={13} className="cap-trust-icon" aria-hidden="true" />
-                  <span>Zero-Retention Privacy</span>
+                  <span>Strict Confidentiality</span>
                 </div>
                 <span className="cap-trust-divider" aria-hidden="true">•</span>
                 <div className="cap-trust-item">

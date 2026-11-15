@@ -9,7 +9,7 @@
   color: #FFFFFF;
   padding-top: clamp(80px, 9vw, 130px);
   padding-bottom: clamp(80px, 9vw, 130px);
-  font-family: var(--font-family-primary, 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-family: var(--font-family-primary, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
   overflow: hidden;
   box-sizing: border-box;
   border-top: 1px solid rgba(131, 221, 226, 0.12);

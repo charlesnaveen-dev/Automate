@@ -20,17 +20,16 @@
 }
 
 /* =============================================================================
-   1. HERO SECTION — EDITORIAL COMPOSITION
+   1. HERO SECTION — SINGLE-COLUMN EDITORIAL COMPOSITION
    ============================================================================= */
 .ind-editorial-hero-section {
   position: relative;
   width: 100%;
-  min-height: calc(100svh - var(--header-height, 80px));
   display: flex;
   align-items: center;
-  padding: clamp(48px, 6vh, 80px) 0;
+  padding: clamp(64px, 8vh, 96px) 0 clamp(72px, 9vh, 104px) 0;
   border-bottom: 1px solid var(--color-border, #E2EAEC);
-  background-color: var(--color-cloud-white, #F4F7F7);
+  background: linear-gradient(180deg, #F8FAFA 0%, var(--color-cloud-white, #F4F7F7) 100%);
   box-sizing: border-box;
 }
 
@@ -39,12 +38,12 @@
 }
 
 .ind-editorial-hero-content {
-  max-width: 860px;
+  max-width: 820px;
 }
 
 .ind-editorial-kicker {
   display: inline-block;
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -54,7 +53,7 @@
 }
 
 .ind-editorial-headline {
-  font-family: var(--font-family-headings, 'Manrope', -apple-system, sans-serif);
+  font-family: var(--font-family-headings, 'Inter', -apple-system, sans-serif);
   font-size: clamp(2.4rem, 4.4vw, 3.8rem);
   font-weight: 800;
   line-height: 1.12;
@@ -149,7 +148,7 @@
 }
 
 .ind-card-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.35rem;
   font-weight: 800;
   line-height: 1.25;
@@ -224,7 +223,7 @@
 }
 
 .ind-editorial-cta-heading {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(1.65rem, 2.5vw, 2.35rem);
   font-weight: 800;
   line-height: 1.2;
@@ -254,6 +253,10 @@
    4. RESPONSIVE REFINEMENTS
    ============================================================================= */
 @media (max-width: 1024px) {
+  .ind-editorial-hero-content {
+    max-width: 100%;
+  }
+
   .ind-editorial-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
@@ -266,14 +269,24 @@
 }
 
 @media (max-width: 640px) {
+  .ind-editorial-hero-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .ind-editorial-headline {
+    font-size: clamp(2rem, 8vw, 2.6rem);
+    margin: 0 0 16px 0;
+  }
+
+  .ind-editorial-intro {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
   .ind-editorial-grid {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-
-  .ind-editorial-hero-section {
-    padding-top: 44px;
-    padding-bottom: 36px;
   }
 
   .ind-editorial-cta-actions {

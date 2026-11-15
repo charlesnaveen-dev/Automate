@@ -167,13 +167,16 @@ export default function VoiceAiPage() {
           ========================================================================= */}
       <section className="voice-hero-section" aria-label="Voice AI Hero">
         <div className="voice-hero-bg-wrapper" aria-hidden="true">
-          <img
-            src="/images/hero-voice-ai.jpg"
-            alt=""
-            className="voice-hero-bg"
-            loading="eager"
-            decoding="sync"
-          />
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/images/hero-voice-ai-mobile.jpg" />
+            <img
+              src="/images/hero-voice-ai.jpg"
+              alt=""
+              className="voice-hero-bg"
+              loading="eager"
+              decoding="sync"
+            />
+          </picture>
           <div className="voice-hero-overlay" />
           <div className="voice-hero-vignette" />
         </div>
@@ -194,7 +197,7 @@ export default function VoiceAiPage() {
             </p>
 
             <div className="voice-hero-ctas">
-              <Button variant="primary" size="lg" arrow href="/contact">
+              <Button variant="primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
               <Button variant="secondary" size="lg" href="/process">
@@ -373,7 +376,7 @@ export default function VoiceAiPage() {
               Schedule a consultation with our voice engineering team. We review your call flows, phone setup, and calendar integration needs.
             </p>
             <div className="voice-final-actions">
-              <Button variant="primary" size="lg" arrow href="/contact">
+              <Button variant="primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
               <Button variant="secondary" size="lg" href="/process">

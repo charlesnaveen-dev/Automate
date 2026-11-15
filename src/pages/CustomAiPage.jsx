@@ -174,13 +174,16 @@ export default function CustomAiPage() {
           ========================================================================= */}
       <section className="custom-hero-section" aria-label="Custom AI Solutions Hero">
         <div className="custom-hero-bg-wrapper" aria-hidden="true">
-          <img
-            src="/images/hero-custom-ai.jpg"
-            alt=""
-            className="custom-hero-bg"
-            loading="eager"
-            decoding="sync"
-          />
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/images/hero-custom-ai-mobile.jpg" />
+            <img
+              src="/images/hero-custom-ai.jpg"
+              alt=""
+              className="custom-hero-bg"
+              loading="eager"
+              decoding="sync"
+            />
+          </picture>
           <div className="custom-hero-overlay" />
           <div className="custom-hero-vignette" />
         </div>
@@ -201,7 +204,7 @@ export default function CustomAiPage() {
             </p>
 
             <div className="custom-hero-ctas">
-              <Button variant="primary" size="lg" arrow href="/contact">
+              <Button variant="primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
               <Button variant="secondary" size="lg" href="/process">
@@ -227,20 +230,21 @@ export default function CustomAiPage() {
                 Mature enterprises handle sensitive client records, non-standard document formats, and legacy operational systems. Off-the-shelf AI tools cannot be safely retrofitted to these environments without significant security and accuracy risks.
               </p>
               <div className="custom-challenge-banner">
-                <span className="custom-banner-title">Zero Data Retention</span>
-                <span className="custom-banner-text">
+                <div className="custom-banner-header">
+                  <span className="custom-banner-badge" aria-hidden="true" />
+                  <span className="custom-banner-title">Zero Data Retention</span>
+                </div>
+                <p className="custom-banner-text">
                   Private VPC deployment guarantees that confidential business data is never cached or used for public model training.
-                </span>
+                </p>
               </div>
             </div>
 
             <div className="custom-challenge-right reveal-on-scroll">
               {CHALLENGES.map((ch, idx) => (
                 <div key={idx} className="custom-challenge-card">
-                  <div className="custom-challenge-header">
-                    <span className="custom-challenge-num">{ch.num}</span>
-                    <h3 className="custom-challenge-title">{ch.title}</h3>
-                  </div>
+                  <span className="custom-challenge-num">{ch.num}</span>
+                  <h3 className="custom-challenge-title">{ch.title}</h3>
                   <p className="custom-challenge-desc">{ch.desc}</p>
                 </div>
               ))}
@@ -380,7 +384,7 @@ export default function CustomAiPage() {
               Talk directly with our solutions architects. We evaluate your data security constraints, existing technical infrastructure, and system design requirements.
             </p>
             <div className="custom-final-actions">
-              <Button variant="primary" size="lg" arrow href="/contact">
+              <Button variant="primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
               <Button variant="secondary" size="lg" href="/process">

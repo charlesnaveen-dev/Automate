@@ -28,7 +28,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -50,7 +50,7 @@
 }
 
 .page-header-badge {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--font-family-mono, 'Inter', sans-serif);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -58,7 +58,7 @@
 }
 
 .page-header-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(2.4rem, 4.4vw, 3.6rem);
   font-weight: 800;
   line-height: 1.12;

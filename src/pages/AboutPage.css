@@ -86,7 +86,7 @@
 }
 
 .about-eyebrow-text {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -95,7 +95,7 @@
 }
 
 .about-hero-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(2.3rem, 4.2vw, 3.6rem);
   font-weight: 800;
   line-height: 1.15;
@@ -157,7 +157,7 @@
   align-items: center;
   gap: 8px;
   color: #FFFFFF;
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -181,7 +181,7 @@
 
 .about-section-kicker {
   display: inline-block;
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -191,7 +191,7 @@
 }
 
 .about-section-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(2rem, 3.2vw, 2.75rem);
   font-weight: 800;
   line-height: 1.2;
@@ -246,14 +246,14 @@
 }
 
 .problem-num {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 1.3rem;
   font-weight: 800;
   color: var(--color-deep-teal, #167C80);
 }
 
 .problem-tag {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.7rem;
   font-weight: 750;
   text-transform: uppercase;
@@ -262,7 +262,7 @@
 }
 
 .problem-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.015em;
@@ -294,7 +294,7 @@
 
 .comparison-label {
   display: block;
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -368,7 +368,7 @@
 }
 
 .pillar-card-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -451,7 +451,7 @@
   align-items: center;
   gap: 10px;
   color: #FFFFFF;
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -470,7 +470,7 @@
 }
 
 .about-why-heading {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(2rem, 3.2vw, 2.75rem);
   font-weight: 800;
   line-height: 1.2;
@@ -516,7 +516,7 @@
 }
 
 .check-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 0.98rem;
   font-weight: 750;
   color: var(--color-midnight-navy, #071923);
@@ -563,7 +563,7 @@
 }
 
 .gp-num {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--color-deep-teal, #167C80);
@@ -571,7 +571,7 @@
 }
 
 .gp-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: -0.015em;
@@ -622,7 +622,7 @@
 }
 
 .global-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(1.8rem, 2.8vw, 2.4rem);
   font-weight: 800;
   letter-spacing: -0.025em;
@@ -652,7 +652,7 @@
   background-color: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(131, 221, 226, 0.25);
   border-radius: 9999px;
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.04em;

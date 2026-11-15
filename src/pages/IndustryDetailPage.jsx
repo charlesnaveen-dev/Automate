@@ -1,8 +1,5 @@
-import React, { useState, useRef } from 'react';
-import {
-  ChevronDown,
-  ChevronRight
-} from 'lucide-react';
+import React, { useRef } from 'react';
+import { ChevronRight } from 'lucide-react';
 import { useRouter } from '../router/RouterContext';
 import { Link } from '../router/Router';
 import { usePageMetadata } from '../hooks/usePageMetadata';
@@ -13,647 +10,746 @@ import Button from '../components/Button';
 import { INDUSTRIES_DATA } from '../data/industriesData';
 import './IndustryDetailPage.css';
 
-// 12 Curated Industry Configurations (Genuinely distinct content, realistic business challenges, real software stacks)
+// 12 Curated Industry Configurations
+// Natural writing, real-world operational bottlenecks, practical automation systems, and clear Before / After outcomes.
 const INDUSTRY_DETAILS = {
   legal: {
-    archetype: 'editorial',
-    heroHeadline: 'Intelligent Client Intake & Practice Automation for Law Firms.',
+    heroHeadline: 'Intelligent Client Intake & Practice Automation for Law Firms',
     heroSubhead: 'Capture prospective matters 24/7, pre-screen conflict parameters, and automate retainer workflows so attorneys focus on billable casework.',
     heroAlign: 'left',
+    challengeHeadline: 'Everyday operational bottlenecks that cost law firms billable time',
     challenges: [
       {
-        title: 'Missed Inbound Case Enquiries',
-        desc: 'Urgent prospective client calls arrive while attorneys are in court, depositions, or client meetings. Callers rarely leave voicemails and quickly contact competing firms.',
+        title: 'Unanswered case enquiries',
+        desc: 'Prospective clients calling with urgent legal matters often reach voicemail when attorneys are in court, depositions, or client conferences. Callers rarely leave detailed messages and immediately ring competing firms.'
       },
       {
-        title: 'Conflict Checking & Intake Delays',
-        desc: 'Manual conflict-of-interest checking and lengthy intake questionnaires delay retainer agreements by days, slowing down case onboarding.',
+        title: 'Intake and conflict checking delays',
+        desc: 'Staff spend valuable hours manually gathering case facts and cross-referencing party names against active matter databases before consultations can even be scheduled.'
       },
       {
-        title: 'Non-Billable Administrative Drag',
-        desc: 'Senior attorneys and paralegals spend valuable hours answering routine status calls, copying document dates into practice systems, and chasing signatures.',
-      },
+        title: 'Routine status inquiries',
+        desc: 'Clients frequently call asking for basic hearing dates, filing confirmations, or document status, pulling paralegals away from active casework.'
+      }
     ],
+    deliverHeadline: 'Practical automation systems engineered for law firms',
     deliverables: [
       {
-        id: 'voice-receptionist',
-        title: '24/7 Voice AI Legal Receptionist',
-        lead: 'Answers prospective client calls within two rings with natural professional cadence.',
-        desc: 'Captures caller details, matter type, and preliminary incident facts. Formats a structured brief and immediately alerts the intake team or on-duty attorney.',
-        stack: ['Twilio Voice', 'Clio', 'PracticePanther', 'Slack'],
+        title: '24/7 client intake and screening',
+        desc: 'Answers prospective client calls and web enquiries within two rings, gathering matter details, incident timelines, and caller contact information. Formats a clear case summary and immediately alerts the intake coordinator or relevant attorney.',
+        compatibility: 'Connects with your existing practice management software, calendar, and phone system, so your team can work within their familiar tools.'
       },
       {
-        id: 'conflict-screening',
-        title: 'Automated Conflict & Intake Screening',
-        lead: 'Cross-checks prospective party names against active matter databases instantly.',
-        desc: 'Flags potential conflict parameters before consultations occur and dispatches custom digital intake questionnaires tailored to the specific practice area.',
-        stack: ['Clio', 'LexisNexis', 'Custom DB', 'Email'],
+        title: 'Consultation scheduling and retainer preparation',
+        desc: 'Coordinates initial consultations based on real-time attorney calendar availability and prepares standardized engagement agreements upon approval. Helps firms secure new casework faster without days of administrative back-and-forth.',
+        compatibility: 'Fits into the document signing and calendar platforms your firm already uses, keeping your client onboarding process smooth.'
       },
       {
-        id: 'retainer-dispatch',
-        title: 'Instant Retainer Generation & Practice Sync',
-        lead: 'Pre-fills engagement documentation and locks consultations into calendars.',
-        desc: 'Upon attorney approval, automatically generates retainer agreements via DocuSign and creates new matter files with all collected caller notes in your practice management software.',
-        stack: ['DocuSign', 'Clio Manage', 'Outlook 365', 'Google Calendar'],
+        title: 'Client status and matter updates',
+        desc: 'Provides verified answers to routine client questions regarding case filing milestones, upcoming court dates, and required document checklists. Keeps clients informed while protecting attorneys\' focused working hours.',
+        compatibility: 'Works alongside your existing client communication channels and case records without requiring any software replacement.'
+      }
+    ],
+    valueHeadline: 'What changes for your firm',
+    beforeAfter: [
+      {
+        before: 'Urgent prospective client calls reach voicemail during court appearances and after hours.',
+        after: 'Prospective matters receive an immediate, professional response day or night.'
       },
-    ],
-    benefits: [
-      { title: 'Zero Missed Case Opportunities', desc: 'Every prospective caller is greeted professionally, capturing high-intent matters around the clock.' },
-      { title: 'Faster Time-to-Retainer', desc: 'Pre-screened intakes and automated agreement generation reduce client acquisition friction.' },
-      { title: 'More Billable Attorney Hours', desc: 'Staff spend less time answering routine status questions and more time focusing on client casework.' },
-      { title: 'Airtight Practice Records', desc: 'Complete caller summaries, intake transcripts, and signed documents logged directly into your case file.' },
-    ],
+      {
+        before: 'Staff spend hours manually typing caller notes and cross-referencing conflict databases.',
+        after: 'Attorneys receive pre-screened matter briefs with consultation appointments booked on live calendars.'
+      },
+      {
+        before: 'Retainer agreements require days of drafting, back-and-forth emails, and manual follow-ups.',
+        after: 'Standard engagement letters are generated and dispatched promptly upon consultation approval.'
+      },
+      {
+        before: 'Paralegals lose valuable hours answering routine status check-ins from existing clients.',
+        after: 'Routine updates are shared automatically, keeping clients informed while freeing staff for billable work.'
+      }
+    ]
   },
+
   'real-estate': {
-    archetype: 'spacious',
-    heroHeadline: 'Instant Lead Capture & Showing Coordination for Real Estate Teams.',
+    heroHeadline: 'Instant Lead Capture & Showing Coordination for Real Estate Teams',
     heroSubhead: 'Engage portal inquiries and yard-sign calls within seconds. Automate buyer qualification, financing verification, and private viewing schedules.',
     heroAlign: 'left',
+    challengeHeadline: 'Common operational bottlenecks that slow down real estate teams',
     challenges: [
       {
-        title: 'Lead Leakage Outside Business Hours',
-        desc: 'High-intent buyers calling from property yard signs or Zillow listings outside business hours dial competing listing agents when unanswered.',
+        title: 'Lead leakage outside business hours',
+        desc: 'Buyers calling from property yard signs or online listings after hours frequently reach voicemail. Most call competing listing agents rather than waiting for a callback.'
       },
       {
-        title: 'Repetitive Property Availability Questions',
-        desc: 'Agents lose hours each week repeating basic pricing, HOA terms, and open house times instead of negotiating active offers.',
+        title: 'Repetitive property availability questions',
+        desc: 'Agents spend hours each week answering identical questions about price reductions, HOA restrictions, and open house schedules instead of negotiating active deals.'
       },
       {
-        title: 'Fragmented Showing Coordination',
-        desc: 'Playing phone tag between prospective buyers, buyer agents, and listing homeowners creates scheduling friction and missed viewings.',
-      },
+        title: 'Showing coordination delays',
+        desc: 'Coordinating private viewing times between prospective buyers, buyer agents, and homeowners involves endless phone tag and calendar conflicts.'
+      }
     ],
+    deliverHeadline: 'Practical automation systems engineered for real estate teams',
     deliverables: [
       {
-        id: 'buyer-triage',
-        title: 'Instant Buyer & Seller Qualification',
-        lead: 'Answers property calls and portal inquiries within 10 seconds 24/7.',
-        desc: 'Inquires about buyer timeline, pre-approval status, and price range. Scores buyer intent and stages hot prospects directly for immediate agent call-back.',
-        stack: ['Twilio Voice', 'Follow Up Boss', 'Salesforce', 'Gmail'],
+        title: '24/7 buyer and seller enquiry assistant',
+        desc: 'Answers listing calls and digital enquiries within seconds, day or night. Answers common property questions, qualifies buyer timelines and financing, and routes serious prospects directly to the listing agent.',
+        compatibility: 'Connects with your existing real estate CRM, email, and phone system so leads populate directly where your team works.'
       },
       {
-        id: 'showing-coordinator',
-        title: 'Conversational Viewing Coordinator',
-        lead: 'Negotiates property showing times directly against agent availability.',
-        desc: 'Checks live calendar slots, sends address confirmation via SMS with lockbox or parking instructions, and coordinates reschedule requests automatically.',
-        stack: ['Google Calendar', 'Outlook 365', 'ShowingTime', 'SMS'],
+        title: 'Automated property showing coordinator',
+        desc: 'Checks agent and property availability to book private viewings and open house visits automatically. Sends immediate calendar confirmations, directions, and access instructions to confirmed visitors.',
+        compatibility: 'Syncs directly with your current scheduling software and calendar tools without requiring manual data entry.'
       },
       {
-        id: 'crm-enrichment',
-        title: 'Automated CRM Record Hygiene & MLS Alerts',
-        lead: 'Synchronizes buyer preferences with automated MLS listing feeds.',
-        desc: 'Logs full call transcripts and buyer criteria into Follow Up Boss or kvCORE, triggering automated property match updates with zero manual data entry.',
-        stack: ['Follow Up Boss', 'kvCORE', 'HubSpot', 'Zapier'],
+        title: 'CRM updates and lead follow-up pipeline',
+        desc: 'Automatically logs conversation notes, buyer preferences, and property criteria directly into your database. Dispatches relevant new property alerts to keep prospective buyers engaged.',
+        compatibility: 'Works with your existing contact management and messaging tools, keeping your pipeline organized in real time.'
+      }
+    ],
+    valueHeadline: 'What changes for your real estate team',
+    beforeAfter: [
+      {
+        before: 'Evening and weekend listing enquiries often reach voicemail and turn cold.',
+        after: 'Every prospective buyer receives immediate answers and viewing options 24/7.'
       },
-    ],
-    benefits: [
-      { title: 'Immediate Response Advantage', desc: 'Engage prospective buyers while their interest is at peak, before they browse other listings.' },
-      { title: 'Higher Showing Conversion', desc: 'Frictionless calendar scheduling leads to more confirmed private showings and open house attendees.' },
-      { title: 'Clean, Consistent CRM Pipeline', desc: 'Every caller note, budget parameter, and viewing appointment automatically populated in your CRM.' },
-      { title: 'More Time in Front of Clients', desc: 'Eliminate administrative phone tag so agents can focus on showings, listings, and closing deals.' },
-    ],
+      {
+        before: 'Agents spend hours each week repeating basic property details and HOA guidelines.',
+        after: 'Common questions are answered automatically, freeing agents to focus on client negotiations.'
+      },
+      {
+        before: 'Private showing schedules require repeated phone tag between buyers and property owners.',
+        after: 'Viewings are coordinated and confirmed automatically based on live availability.'
+      },
+      {
+        before: 'Lead details and caller notes are manually typed into the CRM when agents find spare time.',
+        after: 'Complete prospect criteria and conversation summaries are synchronized into your CRM immediately.'
+      }
+    ]
   },
+
   healthcare: {
-    archetype: 'reassuring',
-    heroHeadline: 'Patient Communication & Intake Automation for Modern Practices.',
+    heroHeadline: 'Patient Communication & Intake Automation for Modern Practices',
     heroSubhead: 'Reduce front-desk telephone volume, streamline patient intake, and coordinate appointment scheduling with privacy-conscious workflows.',
     heroAlign: 'left',
+    challengeHeadline: 'Daily operational bottlenecks that burden clinic front-desk teams',
     challenges: [
       {
-        title: 'Front-Desk Phone Burnout',
-        desc: 'Receptionists are constantly interrupted by routine calls for business hours, driving directions, and basic service inquiries while patients wait at the counter.',
+        title: 'High telephone volume at reception',
+        desc: 'Receptionists are tied up on the phone answering routine questions about clinic hours, directions, and parking while patients waiting in the clinic stand in line.'
       },
       {
-        title: 'Patient No-Shows & Last-Minute Drops',
-        desc: 'Unfilled cancellations leave practitioner calendars empty because manual patient recall calling is time-consuming and inconsistent.',
+        title: 'Unfilled appointment cancellations',
+        desc: 'When patients cancel last minute, administrative staff rarely have time to manually contact waitlisted patients, leaving expensive clinical provider hours empty.'
       },
       {
-        title: 'Manual Paperwork & Intake Delays',
-        desc: 'Patients filling out paper forms in the waiting room delays provider schedules and requires staff to manually transcribe insurance details into the EHR.',
-      },
+        title: 'Waiting room paperwork delays',
+        desc: 'Patients arriving and filling out paper intake clipboards causes appointment start delays and forces staff into repetitive manual data entry.'
+      }
     ],
+    deliverHeadline: 'Practical automation systems engineered for healthcare clinics',
     deliverables: [
       {
-        id: 'patient-receptionist',
-        title: '24/7 Patient Phone Receptionist',
-        lead: 'Handles routine patient inquiries and scheduling calls within two rings.',
-        desc: 'Answers practice FAQs, gathers insurance details, and guides callers through appointment options with calm, natural conversational cadence.',
-        stack: ['Twilio Voice', 'AthenaHealth', 'Epic', 'Kareo'],
+        title: 'Conversational phone reception assistant',
+        desc: 'Answers routine patient telephone enquiries within two rings, providing clinic hours, directions, and pre-visit guidelines. Handles high call volumes during peak morning hours without putting callers on hold.',
+        compatibility: 'Connects with your existing phone service and practice software using privacy-conscious, secure connections.'
       },
       {
-        id: 'appointment-booking',
-        title: 'Self-Service Booking & Cancellation Recovery',
-        lead: 'Coordinates calendar slots directly with practice scheduling software.',
-        desc: 'Books appointments into provider schedules and automatically contacts waitlisted patients via SMS when cancellations open new appointment slots.',
-        stack: ['Google Calendar', 'AthenaHealth', 'DrChrono', 'SMS'],
+        title: 'Appointment scheduling and cancellation recovery',
+        desc: 'Coordinates appointment bookings within physician availability rules and automatically reaches out to waitlisted patients when cancellations occur. Keeps practitioner calendars booked without front-desk phone tag.',
+        compatibility: 'Works with your existing clinic calendar and practice management software without replacing current scheduling tools.'
       },
       {
-        id: 'digital-intake',
-        title: 'Automated Digital Intake Dispatch',
-        lead: 'Dispatches secure digital intake links prior to the appointment window.',
-        desc: 'Sends pre-visit questionnaires and collects photo IDs before patients arrive, pushing verified medical history directly into your practice records.',
-        stack: ['DocuSign', 'Jotform HIPAA', 'EHR Direct Sync'],
+        title: 'Digital intake and pre-visit preparation',
+        desc: 'Dispatches mobile-friendly pre-visit intake forms and insurance verification requests prior to appointment arrival. Collects necessary details beforehand so patients can see their doctor on time.',
+        compatibility: 'Integrates with your existing patient records and communication channels via secure APIs.'
+      }
+    ],
+    valueHeadline: 'What changes for your clinic',
+    beforeAfter: [
+      {
+        before: 'Receptionists juggle ringing telephones while in-person patients wait at the front counter.',
+        after: 'Routine phone calls are handled automatically, allowing staff to give full attention to patients in the clinic.'
       },
-    ],
-    benefits: [
-      { title: 'Front-Desk Staff Relief', desc: 'Free receptionists from repetitive telephone calls so they can provide attentive care to in-person patients.' },
-      { title: 'Lower No-Show Rates', desc: 'Automated multi-channel appointment confirmations and easy conversational rescheduling prevent empty calendar slots.' },
-      { title: 'Smoother Clinic Flow', desc: 'Pre-visit digital intake completion eliminates waiting room paperwork bottlenecks and provider delays.' },
-      { title: 'Strict Privacy Standards', desc: 'All conversational and document pipelines engineered with confidential zero-data-retention boundaries.' },
-    ],
+      {
+        before: 'Last-minute cancellations leave expensive clinical provider appointment slots empty.',
+        after: 'Waitlisted patients are automatically notified of openings, keeping schedules full.'
+      },
+      {
+        before: 'Patients fill out clipboards in the waiting room, causing schedule delays and manual data entry.',
+        after: 'Patients complete digital intake before arriving, allowing visits to start promptly.'
+      },
+      {
+        before: 'Front-desk staff spend hours playing phone tag to confirm upcoming appointments.',
+        after: 'Multi-channel reminders confirm visits automatically and allow easy conversational rescheduling.'
+      }
+    ]
   },
+
   'home-services': {
-    archetype: 'practical',
-    heroHeadline: '24/7 Emergency Dispatch & Job Booking for Trade Contractors.',
+    heroHeadline: '24/7 Emergency Dispatch & Job Booking for Trade Contractors',
     heroSubhead: 'Never miss an urgent heating, plumbing, or electrical emergency. Qualify caller location, check service territory, and dispatch on-call technicians.',
     heroAlign: 'left',
+    challengeHeadline: 'Everyday operational bottlenecks that cost trade contractors revenue',
     challenges: [
       {
-        title: 'Urgent After-Hours Emergency Leakage',
-        desc: 'Homeowners with bursting pipes or failed heating call after 6 PM. If nobody answers, they immediately call the next contractor on Google.',
+        title: 'Missed emergency calls after hours',
+        desc: 'Homeowners facing broken heating or burst pipes call after 6 PM. If nobody answers immediately, they dial the next trade business on Google.'
       },
       {
-        title: 'Technicians Interrupted on Job Sites',
-        desc: 'Owner-operators and technicians waste billable time answering phone calls while under sinks, on roofs, or inside electrical panels.',
+        title: 'Technicians interrupted on active jobs',
+        desc: 'Field contractors and lead technicians lose focus and billable time climbing out from crawl spaces or ladders to answer scheduling questions.'
       },
       {
-        title: 'Manual Dispatch Transcription Drag',
-        desc: 'Copying job notes, addresses, and equipment model numbers from voicemail into dispatch software leads to clerical errors and scheduling conflicts.',
-      },
+        title: 'Disorganized dispatch and job notes',
+        desc: 'Voicemail transcriptions and handwritten notes lead to missing addresses, incomplete job scopes, and scheduling mix-ups.'
+      }
     ],
+    deliverHeadline: 'Practical automation systems engineered for trade businesses',
     deliverables: [
       {
-        id: 'emergency-dispatch',
-        title: '24/7 Emergency Voice Receptionist',
-        lead: 'Answers urgent homeowner calls within two rings day or night.',
-        desc: 'Determines whether the issue is an emergency, gathers the service address, and immediately alerts your on-call technician roster with a concise spoken brief.',
-        stack: ['Twilio Voice', 'ServiceTitan', 'Housecall Pro', 'Slack'],
+        title: '24/7 emergency call triage and dispatch',
+        desc: 'Answers incoming emergency calls within two rings day or night, determines the nature of the issue, and captures the service address. Immediately notifies the on-call technician with a concise job brief.',
+        compatibility: 'Connects with your existing field service software, phone system, and team messaging channels.'
       },
       {
-        id: 'routine-booking',
-        title: 'Conversational Job Booking & Calendar Sync',
-        lead: 'Books routine estimates and tune-ups directly into dispatch software.',
-        desc: 'Checks zip code territory coverage, quotes standard diagnostic fees, and schedules appointment arrival windows straight into ServiceTitan or Jobber.',
-        stack: ['ServiceTitan', 'Housecall Pro', 'Jobber', 'Google Calendar'],
+        title: 'Automated routine booking and territory screening',
+        desc: 'Checks caller zip codes against your service area, explains standard diagnostic fees, and books routine arrival windows. Coordinates technician schedules without manual office intervention.',
+        compatibility: 'Fits into your current dispatch calendar and CRM platforms via standard webhooks and API connections.'
       },
       {
-        id: 'post-service-followup',
-        title: 'Automated Job Follow-Up & Review Request',
-        lead: 'Triggers customer satisfaction check-ins and review generation.',
-        desc: 'Sends automated SMS check-ins once a technician completes a work order, inviting satisfied homeowners to leave Google reviews while the experience is fresh.',
-        stack: ['ServiceTitan', 'Twilio SMS', 'Google Business Profile'],
+        title: 'Job completion check-ins and review requests',
+        desc: 'Sends friendly follow-up messages once a work order is marked complete, confirming customer satisfaction and requesting Google reviews while the good experience is fresh.',
+        compatibility: 'Works with your existing customer records and messaging tools without changing how technicians work on-site.'
+      }
+    ],
+    valueHeadline: 'What changes for your service business',
+    beforeAfter: [
+      {
+        before: 'Urgent evening and weekend emergency calls go to voicemail and callers contact competing contractors.',
+        after: 'Emergency calls are answered immediately 24/7, capturing profitable after-hours jobs.'
       },
-    ],
-    benefits: [
-      { title: 'Capture High-Margin Emergency Jobs', desc: 'Answer every after-hours call promptly and book emergency revenue that rivals miss.' },
-      { title: 'Uninterrupted Field Technicians', desc: 'Technicians stay focused on billable on-site repairs without constant phone distractions.' },
-      { title: 'Direct Field Software Integration', desc: 'Every service address, customer note, and appointment booked directly into your dispatch board.' },
-      { title: 'Higher Review Generation', desc: 'Automated post-job review requests build strong local search reputation consistently.' },
-    ],
+      {
+        before: 'Field technicians are repeatedly interrupted by phone calls while on active job sites.',
+        after: 'Office and scheduling calls are handled automatically so technicians stay focused on billable work.'
+      },
+      {
+        before: 'Incomplete customer voicemails cause address errors and dispatch confusion.',
+        after: 'Detailed service notes, zip codes, and arrival preferences are logged cleanly into your dispatch software.'
+      },
+      {
+        before: 'Asking for customer reviews happens haphazardly when the office finds spare time.',
+        after: 'Automated satisfaction follow-ups generate consistent positive reviews from happy customers.'
+      }
+    ]
   },
+
   'financial-services': {
-    archetype: 'editorial',
-    heroHeadline: 'Document Collection & Client Workflow Automation for Financial Firms.',
+    heroHeadline: 'Document Collection & Client Workflow Automation for Financial Firms',
     heroSubhead: 'Eliminate manual tax-season document chasing, automate client onboarding reminders, and synchronize accounting ledgers in real time.',
     heroAlign: 'left',
+    challengeHeadline: 'Daily administrative bottlenecks that burden financial and accounting teams',
     challenges: [
       {
-        title: 'Tax Season Document Chasing Drag',
-        desc: 'Accountants lose hundreds of hours sending repetitive emails reminding clients to upload missing W-2s, 1099s, and bank statements.',
+        title: 'Time-consuming document chasing',
+        desc: 'Accountants spend valuable hours during peak seasons sending repetitive emails reminding clients to submit tax forms, receipts, and bank statements.'
       },
       {
-        title: 'Manual Data Re-Entry into Ledgers',
-        desc: 'Re-keying invoice numbers, payroll summaries, and expense receipts between client portals and accounting tools introduces errors and slows turnarounds.',
+        title: 'Manual data re-entry into ledgers',
+        desc: 'Copying numbers between client statements, spreadsheets, and accounting software takes hours and creates opportunities for clerical errors.'
       },
       {
-        title: 'Fragmented Client Communication',
-        desc: 'Client questions about filing status and estimated tax deadlines get lost across email threads, text messages, and phone voicemails.',
-      },
+        title: 'Fragmented client status inquiries',
+        desc: 'Clients repeatedly email and call asking whether their files were received or when their return will be ready, interrupting focused advisory work.'
+      }
     ],
+    deliverHeadline: 'Practical automation systems engineered for financial practices',
     deliverables: [
       {
-        id: 'document-collection',
-        title: 'Automated Client Document Chasing Pipeline',
-        lead: 'Intelligent multi-channel reminders tailored to missing tax items.',
-        desc: 'Identifies missing client files, sends scheduled polite SMS and email upload links, and verifies file formats before notifying the CPA.',
-        stack: ['Karbon', 'Canopy', 'DocuSign', 'AWS S3'],
+        title: 'Automated client document collection',
+        desc: 'Tracks missing tax documents and sends scheduled, polite reminders with secure upload links. Verifies file formats automatically so your team doesn\'t spend hours chasing paperwork.',
+        compatibility: 'Connects with your existing document management tools, practice software, and client communication channels.'
       },
       {
-        id: 'ledger-reconciliation',
-        title: 'Invoice Extraction & Ledger Reconciliation',
-        lead: 'Extracts line items from invoices and matches accounting entries.',
-        desc: 'Parses complex multi-page PDF statements, matches transactions against open accounting ledgers, and flags reconciliation exceptions automatically.',
-        stack: ['QuickBooks Online', 'Xero', 'Stripe', 'PostgreSQL'],
+        title: 'Statement parsing and ledger synchronization',
+        desc: 'Extracts relevant line items, invoice details, and receipts from client uploads and matches them against open ledger entries. Highlights exceptions for human review instead of requiring full manual data entry.',
+        compatibility: 'Fits into your current bookkeeping and accounting software ecosystem via secure APIs.'
       },
       {
-        id: 'client-status-copilot',
-        title: 'Client Status & Deadline Communication Assistant',
-        lead: 'Answers frequent client status inquiries with verified account facts.',
-        desc: 'Grounded copilot that answers client questions regarding tax filing deadlines, required documentation checklists, and appointment openings.',
-        stack: ['Google Workspace', 'Outlook 365', 'Slack', 'Internal CRM'],
+        title: 'Client status and deadline assistant',
+        desc: 'Answers frequent client questions regarding filing deadlines, documentation checklists, and processing stages. Keeps clients informed while protecting advisors\' focused working hours.',
+        compatibility: 'Works with your existing client email, messaging, and practice portals without requiring platform migration.'
+      }
+    ],
+    valueHeadline: 'What changes for your financial team',
+    beforeAfter: [
+      {
+        before: 'Advisors spend hours sending manual reminder emails for missing tax documents and statements.',
+        after: 'Automated reminders collect required client files weeks ahead of statutory filing deadlines.'
       },
-    ],
-    benefits: [
-      { title: 'Faster Document Turnaround', desc: 'Automated reminders collect required tax and advisory files weeks ahead of filing deadlines.' },
-      { title: 'Reduced Clerical Re-Entry', desc: 'Extract and validate financial figures directly from client PDFs without manual transcription.' },
-      { title: 'Defensible Audit Records', desc: 'Every document upload, client confirmation, and ledger reconciliation logged permanently.' },
-      { title: 'Tax Season Sanity for Staff', desc: 'Remove repetitive administrative chase work so CPAs can focus on high-value advisory services.' },
-    ],
+      {
+        before: 'Staff manually type numbers from invoices and bank statements into accounting ledgers.',
+        after: 'Uploaded documents are parsed and reconciled automatically, with staff only reviewing exceptions.'
+      },
+      {
+        before: 'Clients send repetitive emails asking whether their documents were received or when returns will be ready.',
+        after: 'Clients receive clear automated confirmations and status updates as work moves through milestones.'
+      },
+      {
+        before: 'Tax season creates extreme administrative overtime and burnout for senior accounting staff.',
+        after: 'Repetitive administrative chase work is eliminated, allowing accountants to focus on advisory clients.'
+      }
+    ]
   },
+
   insurance: {
-    archetype: 'analytical',
-    heroHeadline: 'Intelligent Intake & Policy Renewal Automation for Insurance Agencies.',
+    heroHeadline: 'Intelligent Intake & Policy Renewal Automation for Insurance Agencies',
     heroSubhead: 'Streamline First Notice of Loss (FNOL) intake, automate proactive policy renewal reminders, and collect quote parameters around the clock.',
     heroAlign: 'left',
+    challengeHeadline: 'Operational bottlenecks that slow down insurance agency growth',
     challenges: [
       {
-        title: 'High Call Volumes During Claim Events',
-        desc: 'Policyholders reporting accidents or property damage encounter long hold times, creating anxiety and frustration during stressful moments.',
+        title: 'Unanswered calls during peak claim events',
+        desc: 'Policyholders calling to report accident or storm damage encounter busy lines or hold times, causing frustration during high-stress situations.'
       },
       {
-        title: 'Time-Consuming Pre-Quote Applications',
-        desc: 'Agents spend significant time collecting basic vehicle VINs, property square footage, and driver histories instead of comparing and closing policies.',
+        title: 'Slow pre-quote information gathering',
+        desc: 'Agents spend significant phone time manually collecting vehicle VINs, property square footage, and driver histories before running underwriting quotes.'
       },
       {
-        title: 'Silent Policyholder Lapse & Churn',
-        desc: 'Clients whose policies are up for renewal shop elsewhere because the agency failed to reach out proactively with updated rate options.',
-      },
+        title: 'Silent policyholder churn at renewal',
+        desc: 'Clients whose policies approach renewal shop elsewhere because the agency lacked the administrative time to reach out proactively with updated options.'
+      }
     ],
+    deliverHeadline: 'Practical automation systems engineered for insurance agencies',
     deliverables: [
       {
-        id: 'fnol-intake',
-        title: '24/7 First Notice of Loss (FNOL) Voice Assistant',
-        lead: 'Captures claim details with compassionate, structured conversational dialogue.',
-        desc: 'Records date of incident, police report numbers, photos, and caller contact details, staging an organized claim file for immediate adjuster review.',
-        stack: ['Twilio Voice', 'Applied Epic', 'AMS360', 'Email'],
+        title: 'First notice of loss (FNOL) intake assistant',
+        desc: 'Gathers claim details with structured, calm conversational dialogue around the clock. Collects incident dates, police report references, and caller details, preparing an organized claim summary for adjusters.',
+        compatibility: 'Connects with your existing agency management system, phone platform, and email notifications.'
       },
       {
-        id: 'quote-gathering',
-        title: 'Pre-Quote Intake & Risk Parameter Collection',
-        lead: 'Gathers required policy application details conversationally.',
-        desc: 'Collects driver histories, property specs, and prior coverage limits via phone or web assistant, pushing validated schemas directly into your rating tool.',
-        stack: ['EZLynx', 'Applied Epic', 'HawkSoft', 'HubSpot'],
+        title: 'Pre-quote intake and risk parameter collection',
+        desc: 'Collects property specifications, driver records, and coverage limits conversationally before quoting. Structures the data cleanly so agents can review and submit policies without repetitive data gathering.',
+        compatibility: 'Fits into the agency management software and rating platforms your team already uses.'
       },
       {
-        id: 'renewal-pipeline',
-        title: 'Automated Policy Renewal Outreach Pipeline',
-        lead: 'Proactively contacts policyholders 45 days prior to expiration.',
-        desc: 'Reviews upcoming renewals, sends personalized check-in messages, identifies coverage changes, and schedules review consultations automatically.',
-        stack: ['Applied Epic', 'Twilio SMS', 'Outlook 365', 'Calendly'],
+        title: 'Proactive policy renewal pipeline',
+        desc: 'Identifies policies reaching expiration dates and dispatches personalized review check-ins automatically. Gathers updated coverage needs and schedules review calls before clients look elsewhere.',
+        compatibility: 'Works with your existing customer database and messaging channels without disrupting daily agency operations.'
+      }
+    ],
+    valueHeadline: 'What changes for your insurance agency',
+    beforeAfter: [
+      {
+        before: 'Policyholders reporting urgent claims wait on hold during major regional weather events.',
+        after: 'Every claim call receives an immediate, structured intake with full notes forwarded to agents.'
       },
-    ],
-    benefits: [
-      { title: 'Immediate Incident Support', desc: 'Policyholders receive calm, structured claim intake within two rings, even during major regional storms.' },
-      { title: 'Accelerated Quote Turnarounds', desc: 'Agents receive complete, pre-validated risk parameters ready for underwriting submission.' },
-      { title: 'Higher Book Retention', desc: 'Proactive renewal check-ins protect valuable client relationships before policyholders shop elsewhere.' },
-      { title: 'Agency Management System Sync', desc: 'All caller transcripts, policy numbers, and incident briefs automatically appended to client records.' },
-    ],
+      {
+        before: 'Producers spend hours on basic data collection before they can begin underwriting quotes.',
+        after: 'Pre-validated risk parameters arrive ready for rating, allowing producers to close more policies.'
+      },
+      {
+        before: 'Policies renew quietly or lapse without proactive outreach, losing valuable agency book value.',
+        after: 'Proactive check-ins contact policyholders 45 days in advance, strengthening long-term retention.'
+      },
+      {
+        before: 'Client notes and policy numbers are scattered across voicemails, sticky notes, and inboxes.',
+        after: 'All customer communications and intake records are synced directly into client files.'
+      }
+    ]
   },
+
   construction: {
-    archetype: 'practical',
-    heroHeadline: 'Field-to-Office Coordination & Documentation for Commercial Builders.',
+    heroHeadline: 'Field-to-Office Coordination & Documentation for Commercial Builders',
     heroSubhead: 'Connect job-site superintendents with back-office accounting. Automate RFI logging, subcontractor compliance verification, and delivery slip matching.',
     heroAlign: 'left',
+    challengeHeadline: 'Operational friction points between job sites and construction offices',
     challenges: [
       {
-        title: 'Field RFIs Lost in Text Messages',
-        desc: 'Superintendents text critical architectural questions from the job site, resulting in delayed project manager responses and costly schedule delays.',
+        title: 'Field RFIs lost in text messages',
+        desc: 'Superintendents text urgent technical questions from job sites, which get buried in project manager inboxes, causing trade delays on-site.'
       },
       {
-        title: 'Subcontractor Insurance Compliance Risks',
-        desc: 'Subcontractors arriving on-site with expired certificates of insurance (COI) expose general contractors to severe liability and stop-work orders.',
+        title: 'Subcontractor compliance and insurance lapses',
+        desc: 'Subcontractors arriving on-site with expired certificates of insurance expose general contractors to liability and potential stop-work notices.'
       },
       {
-        title: 'Lost Material Delivery Slips',
-        desc: 'Paper delivery receipts left in job trailers cause delayed billing reconciliations, disputed vendor invoices, and inaccurate job-costing reports.',
-      },
+        title: 'Missing job-site delivery slips',
+        desc: 'Paper delivery slips left in job trailers cause delayed billing reconciliations, disputed material invoices, and inaccurate job costing.'
+      }
     ],
+    deliverHeadline: 'Practical automation systems engineered for general contractors',
     deliverables: [
       {
-        id: 'field-rfi',
-        title: 'Voice-to-RFI Field Capture Pipeline',
-        lead: 'Superintendents dictate RFIs directly from their smartphone.',
-        desc: 'Transcribes field voice notes, extracts drawing spec numbers, attaches site photos, and logs formal RFIs directly into Procore or Buildertrend.',
-        stack: ['Procore', 'Buildertrend', 'Twilio Voice', 'Slack'],
+        title: 'Voice-to-RFI field capture',
+        desc: 'Allows superintendents to speak field questions and scope clarifications directly on-site. Transcribes notes, extracts drawing spec references, and formats formal RFIs for project manager review.',
+        compatibility: 'Connects with your existing construction management platform, messaging tools, and email.'
       },
       {
-        id: 'subcontractor-compliance',
-        title: 'Automated Subcontractor Compliance Tracking',
-        lead: 'Tracks COI expiration dates and dispatches renewal requests.',
-        desc: 'Monitors subcontractor insurance and license deadlines, alerts sub-tier vendors 30 days before expiration, and updates site access clearance automatically.',
-        stack: ['Procore', 'Email', 'Airtable', 'DocuSign'],
+        title: 'Automated subcontractor compliance tracking',
+        desc: 'Monitors insurance certificate and license expiration dates across all active trades. Automatically dispatches renewal requests 30 days before expiration to maintain site compliance.',
+        compatibility: 'Fits into your existing vendor records and document management systems without manual administrative overhead.'
       },
       {
-        id: 'delivery-matching',
-        title: 'Delivery Slip & Material Invoice Reconciliation',
-        lead: 'Matches scanned job-site delivery tickets against supplier invoices.',
-        desc: 'Field staff photograph delivery receipts, which are parsed and matched against purchase orders in accounting to verify material quantities before payment.',
-        stack: ['QuickBooks Enterprise', 'Sage 300', 'Procore', 'AWS S3'],
+        title: 'Delivery slip and invoice reconciliation',
+        desc: 'Captures photos of field delivery receipts, extracts supplier item quantities, and matches them against purchase orders before vendor invoices are approved for payment.',
+        compatibility: 'Works alongside your existing accounting and construction software via standard integrations.'
+      }
+    ],
+    valueHeadline: 'What changes for your construction company',
+    beforeAfter: [
+      {
+        before: 'Critical job-site questions get lost in text chains, holding up trade crews for days.',
+        after: 'Field RFIs are transcribed, formatted, and delivered to project managers immediately.'
       },
-    ],
-    benefits: [
-      { title: 'Faster Job-Site Decisions', desc: 'Superintendents capture critical field questions in seconds, eliminating communication bottlenecks with architects.' },
-      { title: 'Airtight Subcontractor Compliance', desc: 'Never risk project liability or audit fines from expired subcontractor insurance certificates.' },
-      { title: 'Accurate Real-Time Job Costing', desc: 'Material delivery slips reconciled promptly to maintain precise project budget visibility.' },
-      { title: 'Seamless Construction Stack Sync', desc: 'Direct bidirectional sync across Procore, accounting ledgers, and field communication channels.' },
-    ],
+      {
+        before: 'Subcontractors arrive on-site with expired insurance policies, creating liability risks.',
+        after: 'Automated expiration tracking alerts trade partners well before policies expire.'
+      },
+      {
+        before: 'Paper delivery tickets get crumpled or lost in job trailers, delaying accurate job costing.',
+        after: 'Receipts photographed in the field are digitized and reconciled with purchase orders in real time.'
+      },
+      {
+        before: 'Project managers spend evenings typing up job notes and compiling daily logs manually.',
+        after: 'Field notes and logs are organized automatically, keeping office and field teams synchronized.'
+      }
+    ]
   },
+
   'property-management': {
-    archetype: 'operations',
-    heroHeadline: '24/7 Tenant Maintenance Triage & Leasing Coordination.',
+    heroHeadline: '24/7 Tenant Maintenance Triage & Leasing Coordination',
     heroSubhead: 'Triage urgent tenant maintenance requests day or night, page emergency vendors, and automate prospective tenant self-guided showing bookings.',
     heroAlign: 'left',
+    challengeHeadline: 'Everyday operational bottlenecks that overwhelm property managers',
     challenges: [
       {
-        title: 'Nighttime Emergency Phone Overload',
-        desc: 'Property managers are woken up by late-night phone calls for minor non-urgent issues like blown lightbulbs instead of genuine water or gas leaks.',
+        title: 'Late-night maintenance phone overload',
+        desc: 'Property managers are interrupted after hours for minor non-urgent issues like squeaky doors instead of genuine plumbing or heating emergencies.'
       },
       {
-        title: 'Vendor Coordination Delays',
-        desc: 'Dispatching maintenance contractors requires endless back-and-forth calling between tenants, vendors, and property managers to confirm access windows.',
+        title: 'Endless vendor and tenant scheduling phone tag',
+        desc: 'Coordinating contractor repair visits requires repeated back-and-forth calls between tenants, maintenance staff, and property managers.'
       },
       {
-        title: 'Unanswered Prospective Tenant Inquiries',
-        desc: 'Prospective renters calling about open listings during work hours get voicemail, resulting in high vacancy days and lost lease revenue.',
-      },
+        title: 'Unanswered prospective renter inquiries',
+        desc: 'Potential tenants calling about open units during busy office hours reach voicemail, increasing days on market and delaying lease revenue.'
+      }
     ],
+    deliverHeadline: 'Practical automation systems engineered for property management',
     deliverables: [
       {
-        id: 'maintenance-triage',
-        title: '24/7 Voice & SMS Maintenance Triage',
-        lead: 'Differentiates true property emergencies from routine repairs.',
-        desc: 'Guides tenants through troubleshooting (e.g., garbage disposal resets), captures photos via SMS, and pages emergency vendors only when urgent thresholds are met.',
-        stack: ['Twilio Voice', 'AppFolio', 'Buildium', 'SMS'],
+        title: '24/7 maintenance triage and emergency escalation',
+        desc: 'Distinguishes true maintenance emergencies from routine service requests day or night. Captures photos and issue descriptions, guides tenants through initial troubleshooting, and alerts on-call vendors when necessary.',
+        compatibility: 'Connects with your existing property management platform, phone system, and vendor notification channels.'
       },
       {
-        id: 'leasing-booking',
-        title: 'Autonomous Leasing Tour & Inbound Coordinator',
-        lead: 'Books prospective tenant viewings directly into leasing calendars.',
-        desc: 'Answers pricing, pet policy, and parking questions from listing callers, pre-screens applicant move-in dates, and schedules self-guided or agent-led tours.',
-        stack: ['AppFolio', 'Google Calendar', 'Tenant Turner', 'SMS'],
+        title: 'Autonomous leasing tour coordinator',
+        desc: 'Answers questions regarding unit pricing, pet rules, and utility policies 24/7. Pre-screens applicant move-in timelines and books self-guided or agent-led showing appointments automatically.',
+        compatibility: 'Syncs directly with your current leasing calendars and listing management software.'
       },
       {
-        id: 'vendor-dispatch',
-        title: 'Automated Work Order & Vendor Dispatch',
-        lead: 'Pushes categorized work orders directly to approved contractor rosters.',
-        desc: 'Creates formal work orders in AppFolio or Buildium with tenant notes, notifies approved vendors with spending caps, and requests completion photos.',
-        stack: ['AppFolio', 'Buildium', 'Yardi', 'Email'],
+        title: 'Work order dispatch and vendor coordination',
+        desc: 'Automatically generates categorized work orders from tenant requests, notifies approved contractors, and collects confirmation updates upon job completion.',
+        compatibility: 'Fits into the property management systems your team already relies on without requiring software migration.'
+      }
+    ],
+    valueHeadline: 'What changes for your property management team',
+    beforeAfter: [
+      {
+        before: 'Managers get woken up by late-night phone calls for minor non-urgent maintenance issues.',
+        after: 'Emergencies are routed to on-call contractors, while routine repairs are logged cleanly for morning review.'
       },
-    ],
-    benefits: [
-      { title: 'Peaceful Nights for Managers', desc: 'True emergencies are routed to on-call contractors, while routine repair requests are logged for morning review.' },
-      { title: 'Faster Tenant Issue Resolution', desc: 'Structured maintenance triage and automated vendor dispatch reduce tenant ticket turnaround times.' },
-      { title: 'Shorter Unit Vacancy Times', desc: 'Every prospective renter inquiry answered immediately with frictionless viewing scheduling.' },
-      { title: 'Complete Property Management Record', desc: 'Every tenant call transcript, photo, and work order permanently stored in your property software.' },
-    ],
+      {
+        before: 'Coordinating repair access requires endless phone calls between tenants and vendors.',
+        after: 'Work orders and access windows are coordinated automatically, keeping everyone informed.'
+      },
+      {
+        before: 'Prospective renters calling about vacancies reach voicemail and browse competing listings.',
+        after: 'Inquiries receive immediate answers with viewing appointments booked on live calendars 24/7.'
+      },
+      {
+        before: 'Maintenance notes and tenant communications are scattered across voicemails and text messages.',
+        after: 'Every tenant request, photo, and work order update is logged permanently in your property software.'
+      }
+    ]
   },
+
   'professional-services': {
-    archetype: 'editorial',
-    heroHeadline: 'Lead Qualification & Project Onboarding for Advisory Firms.',
+    heroHeadline: 'Lead Qualification & Project Onboarding for Advisory Firms',
     heroSubhead: 'Pre-screen inbound prospective clients, automate proposal generation, and provision new project workspaces the moment agreements are executed.',
     heroAlign: 'left',
+    challengeHeadline: 'Operational bottlenecks that drain billable hours in advisory firms',
     challenges: [
       {
-        title: 'Partners Bogged Down by Unqualified Calls',
-        desc: 'Senior consultants spend billable hours on discovery calls with prospective clients whose budgets, timelines, or scopes fall outside firm criteria.',
+        title: 'Senior consultants bogged down by unqualified calls',
+        desc: 'Partners spend billable hours on initial discovery calls with prospects whose budgets, timelines, or requirements do not match firm services.'
       },
       {
-        title: 'Proposal & Scope of Work Bottlenecks',
-        desc: 'Drafting standard proposals and statements of work takes days of back-and-forth email editing, stalling momentum on hot deals.',
+        title: 'Proposal and scope of work delays',
+        desc: 'Preparing standard proposals and engagement scopes takes days of back-and-forth editing, slowing down sales momentum on high-intent deals.'
       },
       {
-        title: 'Disjointed Project Kickoff Administration',
-        desc: 'Once a contract is signed, project managers manually create Slack channels, Notion workspaces, and billing accounts, delaying kickoff meetings.',
-      },
+        title: 'Slow project onboarding administration',
+        desc: 'Once a client signs an agreement, manually setting up communication channels, project folders, and billing records delays project kickoff meetings.'
+      }
     ],
+    deliverHeadline: 'Practical automation systems engineered for advisory firms',
     deliverables: [
       {
-        id: 'inbound-screening',
-        title: 'Consultative Inbound Lead Qualification Assistant',
-        lead: 'Screens inbound prospective clients against firm capability criteria.',
-        desc: 'Gathers prospect business challenges, estimated budgets, and project timelines. Routes qualified opportunities to the appropriate practice partner.',
-        stack: ['HubSpot', 'Salesforce', 'Typeform', 'Slack'],
+        title: 'Consultative inbound lead qualification',
+        desc: 'Pre-screens prospective clients against firm criteria, gathering project scope, timeline, and budget parameters conversationally. Routes qualified opportunities to the right practice partner with a structured brief.',
+        compatibility: 'Connects with your existing CRM, calendar tools, and internal communication channels.'
       },
       {
-        id: 'sow-automation',
-        title: 'Automated SOW & Proposal Generation',
-        lead: 'Transforms discovery intake summaries into structured proposals.',
-        desc: 'Extracts agreed project deliverables, standard terms, and pricing tables into formatted client agreements for partner review and DocuSign dispatch.',
-        stack: ['DocuSign', 'PandaDoc', 'Google Docs', 'HubSpot'],
+        title: 'Automated proposal and agreement generation',
+        desc: 'Converts discovery meeting summaries and standard scope templates into formatted client proposals. Prepares engagement documents for partner review and dispatch within minutes.',
+        compatibility: 'Fits into your existing document signing tools and project software via standard APIs.'
       },
       {
-        id: 'workspace-provisioning',
-        title: 'Contract-to-Kickoff Workspace Provisioning',
-        lead: 'Signed agreements trigger instant client workspace creation.',
-        desc: 'Automatically provisions Slack Connect channels, creates Asana or Linear project boards from templates, and schedules kickoff calls with stakeholders.',
-        stack: ['Slack', 'Asana', 'Linear', 'Notion', 'Google Drive'],
+        title: 'Contract-to-kickoff workspace provisioning',
+        desc: 'Signed client contracts automatically trigger initial workspace setup, project templates, and kickoff scheduling with key stakeholders.',
+        compatibility: 'Works with your existing project management, storage, and communication platforms without disruption.'
+      }
+    ],
+    valueHeadline: 'What changes for your consultancy',
+    beforeAfter: [
+      {
+        before: 'Partners spend billable hours on introductory calls with unqualified leads.',
+        after: 'Pre-screening ensures partners spend time only with qualified prospective clients who fit firm criteria.'
       },
-    ],
-    benefits: [
-      { title: 'More Billable Partner Time', desc: 'Filter out mismatched inquiries so partners invest their time only on high-value, qualified client prospects.' },
-      { title: 'Faster Deal-to-Kickoff Speed', desc: 'Pre-filled proposals and automated contract signing eliminate days of administrative turnaround.' },
-      { title: 'Consistent Client Onboarding Experience', desc: 'Every client receives prompt, polished, and standardized project setups from day one.' },
-      { title: 'Zero Administrative Handoff Gaps', desc: 'Project managers step into pre-configured workspaces with complete discovery context ready to execute.' },
-    ],
+      {
+        before: 'Drafting proposals and scopes of work takes days of administrative back-and-forth.',
+        after: 'Standard proposals are assembled and dispatched promptly, keeping client momentum high.'
+      },
+      {
+        before: 'Setting up client folders, boards, and channels delays project start dates by days.',
+        after: 'Signed agreements immediately trigger organized project workspaces ready for kickoff.'
+      },
+      {
+        before: 'Discovery notes and client background details are lost during handoffs from sales to delivery teams.',
+        after: 'Delivery teams receive complete, organized intake context before their first client meeting.'
+      }
+    ]
   },
+
   automotive: {
-    archetype: 'practical',
-    heroHeadline: 'Service Booking & Real-Time Vehicle Status Automation.',
+    heroHeadline: 'Service Booking & Real-Time Vehicle Status Automation',
     heroSubhead: 'Fill your service bays around the clock. Answer repair inquiries, coordinate calendar bookings, and send automated vehicle status updates to customers.',
     heroAlign: 'left',
+    challengeHeadline: 'Daily operational bottlenecks that overwhelm service drive teams',
     challenges: [
       {
-        title: 'Service Advisors Overwhelmed by Phone Calls',
-        desc: 'Advisors are constantly interrupted by phone inquiries while greeting walk-in customers and writing up repair estimates at the service counter.',
+        title: 'Service advisors constantly interrupted by ringing phones',
+        desc: 'Advisors get pulled away while greeting walk-in customers and writing up repair estimates at the service counter.'
       },
       {
-        title: 'Customers Anxiously Calling for Repair Updates',
-        desc: 'Vehicle owners repeatedly call throughout the afternoon asking if their car is ready, pulling technicians away from active repair bays.',
+        title: 'Customers repeatedly calling for vehicle status updates',
+        desc: 'Drivers anxiously call throughout the day asking if their vehicle is ready, taking technicians away from active repair work.'
       },
       {
-        title: 'Missed After-Hours Service Inquiries',
-        desc: 'Commuters whose check engine lights come on in the evening or over the weekend call for appointments and reach closed voicemails.',
-      },
+        title: 'Unanswered after-hours repair enquiries',
+        desc: 'Drivers whose check engine lights illuminate on evenings or weekends call for appointments and reach closed shop voicemails.'
+      }
     ],
+    deliverHeadline: 'Practical automation systems engineered for automotive service centers',
     deliverables: [
       {
-        id: 'service-scheduler',
-        title: '24/7 Automotive Phone Service Scheduler',
-        lead: 'Answers repair and maintenance calls within two rings day or night.',
-        desc: 'Gathers vehicle make, model, year, and service concern (oil change, brake inspection, diagnostics). Books available service drop-off windows.',
-        stack: ['Twilio Voice', 'Tekmetric', 'Shop-Ware', 'Mitchell 1'],
+        title: '24/7 phone service booking assistant',
+        desc: 'Answers customer calls within two rings day or night, gathers vehicle make, model, year, and service needs, and books drop-off arrival windows.',
+        compatibility: 'Connects with your existing shop management software and calendar dispatch systems.'
       },
       {
-        id: 'vehicle-status-sms',
-        title: 'Automated Vehicle Status & Authorization SMS',
-        lead: 'Sends real-time inspection updates and digital approval links.',
-        desc: 'Notifies customers when diagnostic inspections are complete, sends links to approve repair estimates, and texts pickup notifications when vehicles are ready.',
-        stack: ['Twilio SMS', 'Tekmetric', 'Shop-Ware'],
+        title: 'Automated vehicle status and estimate approvals',
+        desc: 'Keeps vehicle owners updated with clear SMS inspection milestones and sends digital estimate approval links directly to their phones.',
+        compatibility: 'Fits into the shop software and messaging channels your team already uses.'
       },
       {
-        id: 'service-recall',
-        title: 'Preventative Maintenance & Service Recall Assistant',
-        lead: 'Contacts past customers when seasonal service is due.',
-        desc: 'Analyzes historical service records and dispatches personalized reminders for mileage milestones (tire rotations, brake checks, fluids).',
-        stack: ['Shop Management Sync', 'Twilio SMS', 'Email'],
+        title: 'Scheduled maintenance and recall outreach',
+        desc: 'Contacts past customers when recommended mileage intervals or seasonal services are approaching, offering quick one-tap booking.',
+        compatibility: 'Works with your existing customer databases and communication tools without changing shop floor routines.'
+      }
+    ],
+    valueHeadline: 'What changes for your service center',
+    beforeAfter: [
+      {
+        before: 'Service writers juggle ringing telephones while walk-in customers wait at the service counter.',
+        after: 'Routine appointment booking calls are handled automatically, giving advisors time for customers in the shop.'
       },
-    ],
-    benefits: [
-      { title: 'Higher Service Bay Utilization', desc: 'Capture drop-off appointments around the clock so morning service schedules are fully booked.' },
-      { title: 'Advisors Focused on Customers', desc: 'Free service writers from constant phone interruptions so they can focus on in-shop customer relationships.' },
-      { title: 'Faster Estimate Approvals', desc: 'Digital estimate links with clear photos and descriptions enable customers to approve repairs quickly.' },
-      { title: 'Transparent Customer Experience', desc: 'Automated repair milestone notifications keep customers informed and build lasting shop loyalty.' },
-    ],
+      {
+        before: 'Customers call repeatedly asking for updates, pulling technicians away from active repair bays.',
+        after: 'Proactive milestone text messages keep customers informed as vehicles move through service stages.'
+      },
+      {
+        before: 'Weekend and evening service appointment inquiries go to voicemail and callers look for other shops.',
+        after: 'Service drop-off slots are booked 24/7, keeping morning repair bays operating at full capacity.'
+      },
+      {
+        before: 'Reviewing paper inspection sheets and calling customers for repair authorizations takes hours.',
+        after: 'Customers receive digital inspection summaries and approve additional work quickly on their phones.'
+      }
+    ]
   },
+
   'it-services': {
-    archetype: 'analytical',
-    heroHeadline: 'Tier-1 Support Triage & Client Ticket Automation for MSPs.',
+    heroHeadline: 'Tier-1 Support Triage & Client Ticket Automation for MSPs',
     heroSubhead: 'Categorize incoming support requests, automate password reset and access workflows, and escalate critical outages to on-call engineers.',
     heroAlign: 'left',
+    challengeHeadline: 'Operational bottlenecks that consume managed service provider bandwidth',
     challenges: [
       {
-        title: 'Senior Engineers Drowning in Tier-1 Tickets',
-        desc: 'High-salary systems engineers spend hours each day handling routine password resets, software access requests, and basic email setup issues.',
+        title: 'Senior engineers drowning in Tier-1 tickets',
+        desc: 'High-salary systems engineers spend valuable hours handling routine password resets, basic access requests, and recurring setup questions.'
       },
       {
-        title: 'Unformatted Tickets Missing Critical Context',
-        desc: 'Users submit vague tickets like "my computer isn\'t working", requiring technicians to spend hours asking follow-up questions before troubleshooting can begin.',
+        title: 'Tickets submitted without necessary diagnostic context',
+        desc: 'Users send vague support emails like "the network is slow", requiring technicians to spend hours asking follow-up questions before troubleshooting can begin.'
       },
       {
-        title: 'Off-Hours Outage Escalation Gaps',
-        desc: 'Critical client server or network downtimes occurring on weekends risk breaching SLA commitments if email alerts go unnoticed.',
-      },
+        title: 'Off-hours outage escalation gaps',
+        desc: 'Critical client server or network alerts occurring over weekends risk exceeding SLA response commitments if email notifications are overlooked.'
+      }
     ],
+    deliverHeadline: 'Practical automation systems engineered for IT and managed service providers',
     deliverables: [
       {
-        id: 'tier1-copilot',
-        title: 'Autonomous Tier-1 Inbound Support Assistant',
-        lead: 'Gathers device IDs, error codes, and issue details conversationally.',
-        desc: 'Interviews users via phone or chat to capture structured diagnostic context, attempts automated resolution for common workflows, or routes pre-formatted tickets.',
-        stack: ['ConnectWise Manage', 'Autotask', 'Zendesk', 'Slack'],
+        title: 'Autonomous Tier-1 support and diagnostic assistant',
+        desc: 'Gathers device names, error codes, and screenshots conversationally. Gathers complete diagnostic context before generating a pre-formatted ticket for the helpdesk.',
+        compatibility: 'Connects with your existing PSA software, ticketing tools, and team communication channels.'
       },
       {
-        id: 'knowledge-retrieval',
-        title: 'Internal SOP & Client Runbook Copilot',
-        lead: 'Queries thousands of pages of client network architecture documentation.',
-        desc: 'Enables helpdesk technicians to query client-specific IP schemes, VPN setups, and vendor contacts in natural language with verified source citations.',
-        stack: ['IT Glue', 'Hudu', 'Notion', 'Internal Vector DB'],
+        title: 'SOP and runbook knowledge assistant',
+        desc: 'Allows technicians to query client-specific network documentation, IP tables, and configuration runbooks in natural language with verified citations.',
+        compatibility: 'Fits into your existing documentation platforms and internal knowledge bases securely.'
       },
       {
-        id: 'sla-escalation',
-        title: 'SLA-Gated Emergency Outage Escalation',
-        lead: 'Directly pages on-call engineering rosters for priority incidents.',
-        desc: 'Monitors inbound ticket urgency and monitoring webhooks, alerting on-call technicians via phone call and SMS when priority thresholds are breached.',
-        stack: ['PagerDuty', 'Opsgenie', 'Slack', 'ConnectWise'],
+        title: 'SLA-gated critical outage escalation',
+        desc: 'Monitors incoming priority alert webhooks and support calls, verifying outage criteria and alerting the on-call engineer via phone and SMS when SLAs are at risk.',
+        compatibility: 'Works with your current on-call schedules and alert systems without requiring new software.'
+      }
+    ],
+    valueHeadline: 'What changes for your MSP',
+    beforeAfter: [
+      {
+        before: 'Senior engineers lose hours each day handling repetitive Tier-1 questions and password resets.',
+        after: 'Common requests are handled automatically, freeing engineers for billable project work.'
       },
-    ],
-    benefits: [
-      { title: 'Drastically Lower Tier-1 Ticket Volume', desc: 'Routine access requests and common questions resolved automatically without technician touches.' },
-      { title: 'Higher Technician Retention & Morale', desc: 'Engineers focus on complex infrastructure projects rather than answering repetitive password reset calls.' },
-      { title: 'Guaranteed SLA Adherence', desc: 'Structured intake and automated escalation ensure critical client outages are acknowledged within minutes.' },
-      { title: 'PSA Stack Synchronization', desc: 'Every user interaction, diagnostic trace, and resolution note logged directly into ConnectWise or Autotask.' },
-    ],
+      {
+        before: 'Support tickets arrive missing basic device details, operating system versions, and error codes.',
+        after: 'Every ticket arrives pre-formatted with full diagnostic context ready for immediate troubleshooting.'
+      },
+      {
+        before: 'Weekend outage alerts risk sitting unacknowledged in general email queues.',
+        after: 'Critical SLA-impacting incidents trigger immediate escalation to on-call technicians.'
+      },
+      {
+        before: 'Technicians spend time searching through multiple documentation portals to find client IP schemes.',
+        after: 'Verified network runbook details are retrieved in seconds directly within team chat.'
+      }
+    ]
   },
+
   'ecommerce-logistics': {
-    archetype: 'spacious',
-    heroHeadline: 'Order Tracking & Fulfillment Exception Automation.',
+    heroHeadline: 'Order Tracking & Fulfillment Exception Automation',
     heroSubhead: 'Automate "Where is my order?" inquiries, streamline returns processing, and coordinate shipping exception alerts across multiple warehouses.',
     heroAlign: 'left',
+    challengeHeadline: 'Daily operational bottlenecks that burden growing e-commerce brands',
     challenges: [
       {
-        title: 'Support Queues Flooded with Tracking Requests',
-        desc: 'Up to 60% of customer support volume during peak shopping periods consists of routine questions asking for package tracking numbers and delivery estimates.',
+        title: 'Repetitive order status inquiries',
+        desc: 'Support inboxes are overwhelmed with routine order status and package tracking questions, slowing down urgent customer inquiries.'
       },
       {
-        title: 'Friction in Returns & Exchanges',
-        desc: 'Customers asking for returns wait days for support representatives to look up orders, generate return labels, and explain return window policies.',
+        title: 'High return and exchange processing friction',
+        desc: 'Customers seeking size exchanges or return labels email back and forth with staff, creating administrative overhead and return delays.'
       },
       {
-        title: 'Carrier Shipping Exceptions Discovered Too Late',
-        desc: 'Packages stuck in transit or damaged by carriers are noticed only after angry customers reach out to complain, increasing refund and chargeback rates.',
-      },
+        title: 'Delayed carrier exception resolution',
+        desc: 'Delivery exceptions and incorrect addresses are identified only after packages are returned to the warehouse, leading to frustrated buyers and re-shipping costs.'
+      }
     ],
+    deliverHeadline: 'Practical automation systems engineered for online retail',
     deliverables: [
       {
-        id: 'order-tracking',
-        title: 'Instant Order Status & Tracking Assistant',
-        lead: 'Answers customer delivery questions in seconds across web and phone.',
-        desc: 'Queries live carrier tracking APIs (FedEx, UPS, USPS, DHL) and order systems to provide real-time location, delivery dates, and carrier links.',
-        stack: ['Shopify', 'ShipStation', 'Gorgias', 'Zendesk'],
+        title: '24/7 order tracking and status assistant',
+        desc: 'Provides instant tracking updates, carrier delivery estimates, and address clarifications across chat, email, and messaging without manual staff intervention.',
+        compatibility: 'Connects with your existing e-commerce storefront, shipping carriers, and helpdesk tools.'
       },
       {
-        id: 'returns-portal',
-        title: 'Automated Returns & Exchange Coordinator',
-        lead: 'Guides customers through return policy verification and label generation.',
-        desc: 'Checks purchase eligibility, generates prepaid return shipping labels via ShipStation, and logs return inventory manifests into warehouse management.',
-        stack: ['Shopify', 'ShipStation', 'Loop Returns', 'Klaviyo'],
+        title: 'Automated returns and exchange processing',
+        desc: 'Guides customers through return reasons, verifies policy eligibility, and generates shipping labels or store credits automatically.',
+        compatibility: 'Fits into your existing inventory management and order platforms via standard APIs.'
       },
       {
-        id: 'exception-alerting',
-        title: 'Proactive Shipping Exception Detection',
-        lead: 'Monitors transit delays and alerts customers before they complain.',
-        desc: 'Tracks package delivery exceptions in real time, automatically emailing customers with updated delivery timelines and support reassurance.',
-        stack: ['AfterShip', 'Shopify', 'Klaviyo', 'Twilio SMS'],
+        title: 'Proactive shipping exception and alert pipeline',
+        desc: 'Detects carrier delivery delays or address discrepancies and alerts customers proactively with resolution options before packages bounce.',
+        compatibility: 'Works with your current warehouse and customer messaging systems without platform changes.'
+      }
+    ],
+    valueHeadline: 'What changes for your e-commerce operations',
+    beforeAfter: [
+      {
+        before: 'Customer support agents spend most of their day answering repetitive order tracking questions.',
+        after: 'Order tracking queries are answered automatically, freeing agents to handle complex customer issues.'
       },
-    ],
-    benefits: [
-      { title: 'Zero Wait Times for Order Inquiries', desc: 'Customers receive immediate, verified package tracking status 24 hours a day with zero support backlog.' },
-      { title: 'Frictionless Returns & Exchange Flow', desc: 'Pre-validated return policies and automated label generation preserve client trust and encourage repeat purchases.' },
-      { title: 'Lower Support Payroll Overheads', desc: 'Handle seasonal order surges and holiday shopping peaks without hiring temporary support staff.' },
-      { title: 'Full E-commerce Ecosystem Integration', desc: 'Direct synchronization across Shopify, Gorgias, ShipStation, and customer communication channels.' },
-    ],
-  },
+      {
+        before: 'Returns and exchange requests require multiple emails to issue return labels and verify items.',
+        after: 'Customers initiate and receive return labels self-service in seconds within store policy rules.'
+      },
+      {
+        before: 'Shipping exceptions go unnoticed until upset customers reach out to inquire about late packages.',
+        after: 'Proactive tracking updates notify customers of carrier delays before they have to ask.'
+      },
+      {
+        before: 'Peak holiday volume creates massive support backlogs and slow customer response times.',
+        after: 'Influxes of seasonal questions are absorbed automatically without needing temporary customer service hires.'
+      }
+    ]
+  }
 };
 
 export default function IndustryDetailPage({ industryId }) {
   const { currentPath } = useRouter();
+  const slug = industryId || currentPath.replace(/^\/industries\//, '').replace(/\/$/, '') || 'legal';
   const pageRef = useRef(null);
 
-  // Resolve slug from props or router path
-  const slug = industryId || currentPath.replace(/^\/industries\//, '').replace(/\/$/, '');
   const industryMeta = INDUSTRIES_DATA.find((item) => item.id === slug) || INDUSTRIES_DATA[0];
   const config = INDUSTRY_DETAILS[slug] || INDUSTRY_DETAILS.legal;
 
-  const [expandedDeliverable, setExpandedDeliverable] = useState(0);
-
   usePageMetadata({
-    title: `${industryMeta.name} — AI & Automation Solutions | Hutomate`,
-    description: config.heroSubhead || industryMeta.solution,
-    path: `/industries/${slug}`,
+    title: `${industryMeta.name} — AI & Automation Systems | Hutomate`,
+    description: config.heroSubhead,
+    path: `/industries/${slug}`
   });
 
   useScrollReveal();
 
   useGsapContext(pageRef, (context, isReducedMotion) => {
     if (isReducedMotion) {
-      gsap.set('.ind-detail-hero-bg, .ind-detail-hero-content > *', { opacity: 1, y: 0 });
+      gsap.set('.ind-detail-hero-content > *', { opacity: 1, y: 0 });
       return;
     }
 
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
     tl.fromTo(
-      '.ind-detail-hero-bg',
-      { scale: 1.05, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out' }
+      '.ind-detail-breadcrumb',
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.4 }
     )
-      .fromTo(
-        '.ind-detail-breadcrumb',
-        { opacity: 0, y: 12 },
-        { opacity: 1, y: 0, duration: 0.5 },
-        '-=0.8'
-      )
       .fromTo(
         '.ind-detail-hero-headline',
         { opacity: 0, y: 22 },
-        { opacity: 1, y: 0, duration: 0.7 },
-        '-=0.45'
+        { opacity: 1, y: 0, duration: 0.65 },
+        '-=0.25'
       )
       .fromTo(
         '.ind-detail-hero-subhead',
         { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        '-=0.4'
+        { opacity: 1, y: 0, duration: 0.55 },
+        '-=0.35'
       )
       .fromTo(
         '.ind-detail-hero-actions',
@@ -663,14 +759,10 @@ export default function IndustryDetailPage({ industryId }) {
       );
   }, [slug]);
 
-  const toggleDeliverable = (idx) => {
-    setExpandedDeliverable(expandedDeliverable === idx ? -1 : idx);
-  };
-
   return (
-    <div className={`ind-detail-page archetype-${config.archetype}`} ref={pageRef}>
+    <div className="ind-detail-page" ref={pageRef}>
       {/* =========================================================================
-          SECTION 01: HERO — FULL-COVER PHOTOGRAPHY
+          SECTION 01: HERO — FULL-COVER PHOTOGRAPHY WITH METICULOUS OVERLAY
           ========================================================================= */}
       <section className="ind-detail-hero-section" aria-label={`${industryMeta.name} Overview`}>
         <div className="ind-detail-hero-bg-wrapper" aria-hidden="true">
@@ -686,7 +778,6 @@ export default function IndustryDetailPage({ industryId }) {
 
         <div className="container ind-detail-hero-container">
           <div className={`ind-detail-hero-content align-${config.heroAlign || 'left'}`}>
-            {/* Clean Breadcrumb Navigation */}
             <nav className="ind-detail-breadcrumb" aria-label="Breadcrumb">
               <Link to="/industries" className="ind-crumb-link">Industries</Link>
               <ChevronRight size={13} className="ind-crumb-sep" aria-hidden="true" />
@@ -714,26 +805,24 @@ export default function IndustryDetailPage({ industryId }) {
       </section>
 
       {/* =========================================================================
-          SECTION 02: THE CHALLENGE — SECTOR OPERATIONAL REALITY
+          SECTION 02: THE OPERATIONAL CHALLENGE
+          Three horizontal editorial rows with thin dividers and clear typography
           ========================================================================= */}
-      <section className="ind-detail-challenge-section" aria-label="Operational Challenges">
+      <section className="ind-detail-challenge-section" aria-label="The Operational Challenge">
         <div className="container">
-          <div className="ind-detail-challenge-header reveal-on-scroll">
+          <div className="ind-detail-section-header reveal-on-scroll">
             <span className="ind-detail-kicker">THE OPERATIONAL CHALLENGE</span>
             <h2 className="ind-detail-heading">
-              Why traditional workflows create friction in {industryMeta.name.toLowerCase()}.
+              {config.challengeHeadline}
             </h2>
-            <p className="ind-detail-lead">
-              Businesses in this sector face distinct operational pressures: high client expectations, specialized software tools, and administrative tasks that consume valuable team bandwidth.
-            </p>
           </div>
 
-          <div className="ind-detail-challenges-grid reveal-on-scroll">
+          <div className="ind-challenge-editorial-list reveal-on-scroll">
             {config.challenges.map((ch, idx) => (
-              <div key={idx} className="ind-detail-challenge-card">
-                <span className="ind-challenge-idx">0{idx + 1}</span>
-                <h3 className="ind-challenge-card-title">{ch.title}</h3>
-                <p className="ind-challenge-card-desc">{ch.desc}</p>
+              <div key={idx} className="ind-challenge-row">
+                <span className="ind-challenge-num">0{idx + 1}</span>
+                <h3 className="ind-challenge-title">{ch.title}</h3>
+                <p className="ind-challenge-desc">{ch.desc}</p>
               </div>
             ))}
           </div>
@@ -741,100 +830,72 @@ export default function IndustryDetailPage({ industryId }) {
       </section>
 
       {/* =========================================================================
-          SECTION 03: WHAT WE DELIVER — INTERACTIVE SOLUTION MODULES
+          SECTION 03: WHAT WE DELIVER
+          Three vertically stacked, fully visible service rows (open by default)
+          with natural software compatibility messaging
           ========================================================================= */}
       <section className="ind-detail-deliver-section" aria-label="What We Deliver">
         <div className="container">
-          <div className="ind-detail-deliver-header reveal-on-scroll">
+          <div className="ind-detail-section-header reveal-on-scroll">
             <span className="ind-detail-kicker">WHAT WE DELIVER</span>
             <h2 className="ind-detail-heading">
-              Tailored automation systems for {industryMeta.name.toLowerCase()}.
+              {config.deliverHeadline}
             </h2>
-            <p className="ind-detail-lead">
-              Explore our core automation architectures designed specifically around your industry&apos;s workflow, software platforms, and communication rules.
-            </p>
           </div>
 
-          <div className="ind-detail-accordion-wrap reveal-on-scroll">
-            {config.deliverables.map((item, idx) => {
-              const isExpanded = expandedDeliverable === idx;
-              return (
-                <div
-                  key={item.id}
-                  className={`ind-detail-accordion-item ${isExpanded ? 'is-active' : ''}`}
-                >
-                  <button
-                    type="button"
-                    className="ind-detail-accordion-trigger"
-                    onClick={() => toggleDeliverable(idx)}
-                    aria-expanded={isExpanded}
-                    aria-controls={`deliverable-detail-${item.id}`}
-                  >
-                    <div className="ind-detail-trigger-left">
-                      <span className="ind-detail-item-num">0{idx + 1}</span>
-                      <h3 className="ind-detail-item-title">{item.title}</h3>
-                    </div>
-                    <div className="ind-detail-chevron-wrap" aria-hidden="true">
-                      <ChevronDown
-                        size={20}
-                        className={`ind-detail-chevron ${isExpanded ? 'is-rotated' : ''}`}
-                      />
-                    </div>
-                  </button>
-
-                  <div
-                    id={`deliverable-detail-${item.id}`}
-                    className={`ind-detail-accordion-drawer ${isExpanded ? 'is-open' : ''}`}
-                  >
-                    <div className="ind-detail-drawer-inner">
-                      <p className="ind-drawer-lead">{item.lead}</p>
-                      <p className="ind-drawer-desc">{item.desc}</p>
-
-                      <div className="ind-drawer-stack-row">
-                        <span className="ind-stack-label">Supported Tech Stack:</span>
-                        <div className="ind-stack-tags">
-                          {item.stack.map((tool, tIdx) => (
-                            <span key={tIdx} className="ind-stack-chip">
-                              {tool}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+          <div className="ind-deliver-editorial-list reveal-on-scroll">
+            {config.deliverables.map((item, idx) => (
+              <div key={idx} className="ind-deliver-row">
+                <div className="ind-deliver-left">
+                  <span className="ind-deliver-num">0{idx + 1}</span>
+                  <h3 className="ind-deliver-title">{item.title}</h3>
                 </div>
-              );
-            })}
+                <div className="ind-deliver-body">
+                  <p className="ind-deliver-desc">{item.desc}</p>
+                  <p className="ind-deliver-compatibility">
+                    <span className="ind-compat-label">Software compatibility: </span>
+                    {item.compatibility}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          SECTION 04: WHY IT MATTERS — MEASURABLE BUSINESS VALUE
+          SECTION 04: PRACTICAL BUSINESS VALUE
+          Simple two-column Before / After comparison with aligned points
           ========================================================================= */}
-      <section className="ind-detail-matters-section" aria-label="Why It Matters">
+      <section className="ind-detail-value-section" aria-label="Practical Business Value">
         <div className="container">
-          <div className="ind-detail-matters-header reveal-on-scroll">
+          <div className="ind-detail-section-header reveal-on-scroll">
             <span className="ind-detail-kicker">PRACTICAL BUSINESS VALUE</span>
             <h2 className="ind-detail-heading">
-              Measurable operational improvements, zero speculative claims.
+              {config.valueHeadline}
             </h2>
-            <p className="ind-detail-lead">
-              Our systems focus on removing day-to-day friction: faster response times, fewer manual handoffs, and reliable coordination across your software stack.
-            </p>
           </div>
 
-          <div className="ind-detail-benefits-grid reveal-on-scroll">
-            {config.benefits.map((ben, idx) => (
-              <div key={idx} className="ind-detail-benefit-card">
-                <div className="ind-benefit-top">
-                  <span className="ind-benefit-index">0{idx + 1}</span>
-                  <div className="ind-benefit-line" aria-hidden="true" />
+          <div className="ind-comparison-table reveal-on-scroll">
+            <div className="ind-comparison-headers">
+              <div className="ind-comp-col-header ind-comp-before-head">Before</div>
+              <div className="ind-comp-col-header ind-comp-after-head">After</div>
+            </div>
+
+            <div className="ind-comparison-rows">
+              {config.beforeAfter.map((item, idx) => (
+                <div key={idx} className="ind-comparison-row">
+                  <div className="ind-comp-cell ind-comp-before">
+                    <span className="ind-comp-mobile-tag" aria-hidden="true">Before</span>
+                    <p className="ind-comp-text">{item.before}</p>
+                  </div>
+                  <div className="ind-comp-cell ind-comp-after">
+                    <span className="ind-comp-mobile-tag" aria-hidden="true">After</span>
+                    <p className="ind-comp-text">{item.after}</p>
+                  </div>
                 </div>
-                <h3 className="ind-benefit-card-title">{ben.title}</h3>
-                <p className="ind-benefit-card-desc">{ben.desc}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -854,7 +915,7 @@ export default function IndustryDetailPage({ industryId }) {
               Share your current workflow and software tools with our engineering team. We&apos;ll evaluate where intelligent automation can eliminate manual friction and drive immediate efficiency.
             </p>
             <div className="ind-detail-final-actions">
-              <Button variant="primary" size="lg" arrow href="/contact">
+              <Button variant="primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
               <Button variant="secondary" size="lg" href="/industries">

@@ -79,7 +79,7 @@
 }
 
 .cap-eyebrow-text {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -89,7 +89,7 @@
 
 /* Main Heading */
 .cap-main-heading {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: clamp(2.2rem, 3.6vw, 3.3rem);
   font-weight: 800;
   line-height: 1.18;
@@ -315,7 +315,7 @@
 }
 
 .cap-card-num {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, 'Inter', sans-serif);
   font-size: 1.15rem;
   font-weight: 750;
   line-height: 1;
@@ -424,7 +424,7 @@
 }
 
 .cap-card-title {
-  font-family: var(--font-family-headings, 'Manrope', sans-serif);
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: 1.45rem;
   font-weight: 800;
   line-height: 1.25;

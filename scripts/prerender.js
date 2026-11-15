@@ -141,7 +141,7 @@ const ROUTES = [
   {
     path: '/security',
     title: 'Enterprise Security & Privacy Standards | Hutomate',
-    description: "Learn about Hutomate's enterprise-grade security practices, zero-retention data privacy guarantees, SOC-2 compliance alignment, and encryption standards.",
+    description: "Learn about Hutomate's enterprise-grade security practices, strict client confidentiality, compliance alignment, and encryption standards.",
   },
   {
     path: '/faq',
@@ -161,7 +161,7 @@ const ROUTES = [
   {
     path: '/privacy',
     title: 'Privacy Policy | Hutomate',
-    description: "Hutomate's privacy policy outlining how we handle data, maintain zero-retention privacy guarantees, and protect client information.",
+    description: "Hutomate's privacy policy outlining our data collection, processing standards, client confidentiality, and data protection practices.",
   },
   {
     path: '/terms',

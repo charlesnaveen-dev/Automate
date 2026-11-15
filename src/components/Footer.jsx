@@ -31,8 +31,8 @@ export default function Footer() {
             </p>
 
             <div className="footer-region-badge">
-              <Globe size={14} className="footer-badge-icon" aria-hidden="true" />
-              <span>Serving USA, UK, Australia &amp; Worldwide</span>
+              <Globe size={13} className="footer-badge-icon" aria-hidden="true" />
+              <span>Working with businesses worldwide</span>
             </div>
           </div>
 
@@ -79,7 +79,7 @@ export default function Footer() {
             <h4 className="footer-col-title">Get In Touch</h4>
             <ul className="footer-links-list">
               <li>
-                <Link to="/contact" className="footer-link">Discuss Your Project →</Link>
+                <Link to="/start-project" className="footer-link">Discuss Your Project →</Link>
               </li>
               <li>
                 <Link to="/contact" className="footer-link">Contact Us</Link>
@@ -101,13 +101,13 @@ export default function Footer() {
         {/* Bottom Bar: Copyright & Back to Top */}
         <div className="footer-bottom">
           <p className="footer-copyright">
-            © {CURRENT_YEAR} Hutomate. All rights reserved. Custom AI Automation &amp; Systems Implementation.
+            © {CURRENT_YEAR} Hutomate. All rights reserved.
           </p>
 
           <div className="footer-bottom-actions">
             <div className="footer-status-pill">
               <span className="footer-status-dot" aria-hidden="true" />
-              <span>Custom Implementations Scoped &amp; Built to Order</span>
+              <span>Technology built around your business</span>
             </div>
 
             <button

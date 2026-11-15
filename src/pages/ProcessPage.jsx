@@ -177,7 +177,7 @@ export default function ProcessPage() {
             </p>
 
             <div className="proc-hero-actions">
-              <Button variant="primary" size="md" arrow href="/contact">
+              <Button variant="primary" size="md" arrow href="/start-project">
                 Discuss Your Project
               </Button>
               <Button variant="secondary" size="md" href="/capabilities">

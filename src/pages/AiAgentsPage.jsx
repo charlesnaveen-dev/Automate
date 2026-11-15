@@ -174,13 +174,16 @@ export default function AiAgentsPage() {
           ========================================================================= */}
       <section className="agent-hero-section" aria-label="AI Agents Hero">
         <div className="agent-hero-bg-wrapper" aria-hidden="true">
-          <img
-            src="/images/hero-ai-agents.jpg"
-            alt=""
-            className="agent-hero-bg"
-            loading="eager"
-            decoding="sync"
-          />
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/images/hero-ai-agents-mobile.jpg" />
+            <img
+              src="/images/hero-ai-agents.jpg"
+              alt=""
+              className="agent-hero-bg"
+              loading="eager"
+              decoding="sync"
+            />
+          </picture>
           <div className="agent-hero-overlay" />
           <div className="agent-hero-vignette" />
         </div>
@@ -201,7 +204,7 @@ export default function AiAgentsPage() {
             </p>
 
             <div className="agent-hero-ctas">
-              <Button variant="primary" size="lg" arrow href="/contact">
+              <Button variant="primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
               <Button variant="secondary" size="lg" href="/process">
@@ -380,7 +383,7 @@ export default function AiAgentsPage() {
               Share your current operational workflows with our engineering team. We assess technical feasibility, software stack compatibility, and projected return on investment.
             </p>
             <div className="agent-final-actions">
-              <Button variant="primary" size="lg" arrow href="/contact">
+              <Button variant="primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
               <Button variant="secondary" size="lg" href="/process">

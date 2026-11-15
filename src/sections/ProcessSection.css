@@ -10,7 +10,7 @@
   background-color: var(--color-bg-secondary, #F0EEE8);
   color: var(--color-text-primary, #111111);
   padding: clamp(80px, 9vw, 140px) 0;
-  font-family: var(--font-family-primary, 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-family: var(--font-family-primary, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
   overflow: hidden;
   box-sizing: border-box;
 }
