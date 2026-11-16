@@ -664,6 +664,17 @@
 }
 
 @media (max-width: 640px) {
+  .about-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .about-hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .about-problems-grid,
   .about-pillars-grid {
     grid-template-columns: 1fr;

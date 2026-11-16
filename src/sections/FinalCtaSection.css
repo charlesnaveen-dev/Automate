@@ -148,6 +148,17 @@
 }
 
 @media (max-width: 640px) {
+  .final-cta-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .final-cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .final-cta-trust-strip {
     flex-direction: column;
     gap: 10px;

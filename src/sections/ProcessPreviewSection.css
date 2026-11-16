@@ -224,6 +224,10 @@
     grid-template-columns: 1fr;
     gap: 20px;
   }
+  .process-header-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
   .process-phases-track {
     grid-template-columns: 1fr;
   }

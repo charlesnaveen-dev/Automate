@@ -359,6 +359,17 @@
     margin-bottom: 28px;
   }
 
+  .statement-actions-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .statement-actions-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .pillar-architectural-row {
     grid-template-columns: 50px 1fr;
     padding: 28px 8px;
@@ -370,6 +381,23 @@
 
   .pillar-num-cell {
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pillar-architectural-row {
+    grid-template-columns: 36px 1fr;
+    gap: 8px;
+    padding: 24px 0;
+  }
+
+  .pillar-content-cell {
+    padding-right: 0;
+  }
+
+  .pillar-meta-row {
+    flex-wrap: wrap;
+    gap: 8px;
   }
 }
 

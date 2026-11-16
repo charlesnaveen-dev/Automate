@@ -120,7 +120,10 @@
   color: var(--color-mist-grey, #E2EAEC);
   text-decoration: none;
   transition: color var(--transition-fast, 150ms ease), transform var(--transition-fast, 150ms ease);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 0;
+  min-height: 36px;
 }
 
 .footer-link:hover {
@@ -183,7 +186,9 @@
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(226, 234, 236, 0.15);
   border-radius: var(--radius-sm, 6px);
-  padding: 6px 12px;
+  padding: 8px 14px;
+  min-height: 44px;
+  box-sizing: border-box;
   cursor: pointer;
   transition: all var(--transition-fast, 150ms ease);
 }

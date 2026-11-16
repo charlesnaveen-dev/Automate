@@ -95,5 +95,11 @@
     flex-direction: column;
     width: 100%;
     align-items: stretch;
+    gap: 12px;
+  }
+
+  .page-header-actions .btn {
+    width: 100%;
+    justify-content: center;
   }
 }

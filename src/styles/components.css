@@ -141,6 +141,8 @@
   line-height: 1;
   letter-spacing: -0.01em;
   padding: 13px 26px;
+  min-height: 44px;
+  box-sizing: border-box;
   border-radius: var(--radius-full, 9999px);
   border: 1px solid transparent;
   cursor: pointer;
