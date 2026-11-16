@@ -1,120 +1,111 @@
-import React, { useState, useRef } from 'react';
-import { ChevronDown } from 'lucide-react';
+import React, { useRef } from 'react';
+import {
+  RefreshCw,
+  GitMerge,
+  FileText,
+  ArrowRightLeft,
+  Receipt,
+  CheckSquare,
+  CheckCircle2,
+  Activity,
+} from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useGsapContext } from '../animations/useGsapContext';
 import gsap from 'gsap';
 import Button from '../components/Button';
+import WhyItMattersSection from '../components/WhyItMattersSection';
 import './WorkflowAutomationPage.css';
 
-const WORKFLOW_DELIVERABLES = [
+const SIX_WORKFLOW_CAPABILITIES = [
   {
-    id: 'crm-erp-sync',
     num: '01',
-    title: 'Bidirectional CRM & ERP Synchronization',
-    domain: 'Data Consistency',
-    lead: 'Continuous real-time data sync across client records, invoices, and operational databases.',
-    desc: 'Eliminates dual entry and mismatched customer records between platforms like Salesforce, HubSpot, QuickBooks, and internal Postgres databases with automatic conflict resolution and deduplication.',
-    specs: [
-      { label: 'Latency', value: 'Sub-second event propagation' },
-      { label: 'Conflict Policy', value: 'Deterministic timestamp and precedence rules' },
-      { label: 'Deduplication', value: 'Cryptographic payload hashing and entity matching' },
-    ],
-    systems: ['HubSpot', 'Salesforce', 'QuickBooks', 'PostgreSQL', 'Stripe'],
+    icon: RefreshCw,
+    title: 'Cross-Platform Data Synchronization',
+    desc: 'Synchronizes records across your CRM, ERP, and internal databases in real time without human intervention.',
   },
   {
-    id: 'client-onboarding',
     num: '02',
-    title: 'Automated Client Onboarding Pipelines',
-    domain: 'Lifecycle Execution',
-    lead: 'Contract execution triggers instant, end-to-end client workspace provisioning.',
-    desc: 'When a contract is signed, the pipeline automatically generates invoices, creates team Slack connect channels, provisions Google Drive folders, and dispatches customized welcome sequences.',
-    specs: [
-      { label: 'Trigger Event', value: 'DocuSign or PandaDoc signature webhook' },
-      { label: 'Task Execution', value: 'Multi-system parallel provisioning' },
-      { label: 'Notification', value: 'Internal Slack broadcast and client confirmation' },
-    ],
-    systems: ['DocuSign', 'Slack', 'Google Workspace', 'Linear', 'Asana'],
+    icon: GitMerge,
+    title: 'Multi-Step Onboarding Triggers',
+    desc: 'Triggers account provisioning, welcome sequences, contract requests, and setup steps when new clients sign up.',
   },
   {
-    id: 'financial-reconciliation',
     num: '03',
-    title: 'Financial Reconciliation & Ledger Sync',
-    domain: 'Finance & Accounting',
-    lead: 'Matches payment gateway receipts against open invoices with exception detection.',
-    desc: 'Automatically pairs incoming Stripe, bank wire, or credit card transactions with open accounting invoices, recording ledger entries and alerting finance leads only when discrepancies arise.',
-    specs: [
-      { label: 'Matching Accuracy', value: 'Multi-field reference and amount validation' },
-      { label: 'Exception Handling', value: 'Auto-quarantine with dedicated Slack alert' },
-      { label: 'Audit Trail', value: 'Complete bank transaction reference logging' },
-    ],
-    systems: ['Stripe', 'QuickBooks', 'Xero', 'NetSuite', 'Bank Feeds'],
+    icon: FileText,
+    title: 'Automated Document Generation',
+    desc: 'Populates contracts, proposals, NDAs, and receipts from business inputs and stages them for electronic signature.',
   },
   {
-    id: 'approval-workflows',
     num: '04',
-    title: 'Multi-Stage Approval & Governance Flows',
-    domain: 'Operations & Compliance',
-    lead: 'Interactive Slack and email approvals that route high-value items with complete audit trails.',
-    desc: 'Replaces scattered email threads with interactive approval buttons in Slack or Teams. Escalates unacknowledged requests and logs all approvals for compliance.',
-    specs: [
-      { label: 'Interface', value: 'Interactive Slack buttons and secure token links' },
-      { label: 'Timeout Protocol', value: 'Automated manager escalation after SLA breach' },
-      { label: 'Audit Records', value: 'Timestamped signature logging' },
-    ],
-    systems: ['Slack', 'Microsoft Teams', 'Gmail', 'Enterprise ERP'],
+    icon: ArrowRightLeft,
+    title: 'Lead Routing & Assignment',
+    desc: 'Parses incoming enquiries from web forms or email, evaluates territory rules, and assigns them to the right reps.',
+  },
+  {
+    num: '05',
+    icon: Receipt,
+    title: 'Invoice & Payment Workflows',
+    desc: 'Automatically matches invoices to purchase orders, triggers payment reminders, and logs reconciliation in accounting tools.',
+  },
+  {
+    num: '06',
+    icon: CheckSquare,
+    title: 'Notifications & Task Management',
+    desc: 'Alerts team members in Slack or Teams when milestones occur and creates structured tracking tickets automatically.',
   },
 ];
 
-const COMPARISONS = [
+const CHALLENGES = [
   {
-    manual: 'Manual copy-pasting customer records between CRM and billing',
-    automated: 'Instant bidirectional sync with automated schema validation',
+    num: '01',
+    title: 'Repetitive Data Re-entry',
+    desc: 'Employees spend valuable hours manually copying data from emails, forms, and spreadsheets into your CRM and billing tools.',
   },
   {
-    manual: '48-hour email delays before onboarding a newly signed client',
-    automated: 'Sub-second provisioning of accounts, folders, and invoices',
+    num: '02',
+    title: 'Delayed Hand-offs Between Teams',
+    desc: 'When sales closes a deal or a customer signs a contract, operational steps stall while waiting for manual email forwarding.',
   },
   {
-    manual: 'Fragile DIY automations that silently drop events when APIs change',
-    automated: 'Engineered retry shields with exponential backoff and dead-letter queues',
+    num: '03',
+    title: 'Human Copy-Paste Mistakes',
+    desc: 'Manual data transcription inevitably leads to typos, wrong client details, missed invoices, and mismatched operational records.',
   },
   {
-    manual: 'Scattered spreadsheets and missed payments needing manual chase',
-    automated: 'Automated ledger reconciliation with real-time exception notifications',
+    num: '04',
+    title: 'Fragile DIY Automations',
+    desc: 'Simple no-code automations often fail silently when software updates, leaving your team to diagnose and repair broken workflows unexpectedly.',
   },
 ];
 
-const BENEFITS = [
+const WHY_IT_MATTERS_BENEFITS = [
   {
-    tag: 'EFFICIENCY',
-    title: 'Automated Data Ingestion',
-    desc: 'Eliminates repetitive manual copy-pasting between business tools with automated schema validation and strict deduplication.',
+    num: '01',
+    icon: ArrowRightLeft,
+    title: 'Faster Operations',
+    desc: 'Automate repetitive tasks and eliminate manual data entry across your business tools.',
   },
   {
-    tag: 'VELOCITY',
-    title: 'Real-Time Event Propagation',
-    desc: 'Business events trigger immediate coordinated actions across all connected platforms without polling delays.',
+    num: '02',
+    icon: CheckCircle2,
+    title: 'Better Data Accuracy',
+    desc: 'Keep customer records and business information consistent across connected platforms.',
   },
   {
-    tag: 'RESILIENCE',
-    title: 'Built-in Fault Tolerance',
-    desc: 'Exponential backoff retries, dead-letter queues, and health checks prevent lost client transactions during third-party downtime.',
-  },
-  {
-    tag: 'OBSERVABILITY',
-    title: 'End-to-End Visibility',
-    desc: 'Centralized telemetry tracks pipeline status, throughput, and error rates so operations teams maintain complete oversight.',
+    num: '03',
+    icon: Activity,
+    title: 'Real-Time Execution',
+    desc: 'Trigger actions automatically when events occur and keep workflows moving without unnecessary delays.',
   },
 ];
 
 export default function WorkflowAutomationPage() {
-  const [expandedIndex, setExpandedIndex] = useState(0);
   const pageRef = useRef(null);
 
   usePageMetadata({
-    title: 'Workflow Automation — Connected Business Systems | Hutomate',
-    description: 'Connect fragmented applications, eliminate manual data handoffs, and deploy deterministic event-driven automation pipelines.',
+    title: 'Workflow Automation & Connected Operations | Hutomate',
+    description: 'Connect your business software stack and eliminate manual friction with resilient, enterprise-grade automated workflows.',
     path: '/capabilities/workflow-automation',
   });
 
@@ -135,71 +126,80 @@ export default function WorkflowAutomationPage() {
     )
       .fromTo(
         '.wf-hero-label',
-        { opacity: 0, y: 16 },
+        { opacity: 0, y: 15 },
         { opacity: 1, y: 0, duration: 0.6 },
         '-=0.8'
       )
       .fromTo(
         '.wf-hero-headline',
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.7 },
-        '-=0.45'
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        '-=0.5'
       )
       .fromTo(
-        '.wf-hero-desc',
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        '-=0.4'
+        '.wf-hero-lead',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        '-=0.6'
       )
       .fromTo(
-        '.wf-hero-ctas',
-        { opacity: 0, y: 14 },
-        { opacity: 1, y: 0, duration: 0.55 },
-        '-=0.35'
+        '.wf-hero-actions',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        '-=0.6'
       );
-  }, []);
-
-  const toggleAccordion = (index) => {
-    setExpandedIndex(expandedIndex === index ? -1 : index);
-  };
+  });
 
   return (
-    <div className="wf-page-redesign" ref={pageRef}>
+    <div className="wf-page" ref={pageRef}>
       {/* =========================================================================
-          SECTION 01: HERO — FULL-COVER PHOTOGRAPHY
+          SECTION 01: HERO SECTION
           ========================================================================= */}
       <section className="wf-hero-section" aria-label="Workflow Automation Hero">
-        <div className="wf-hero-bg-wrapper" aria-hidden="true">
+        <div className="wf-hero-bg-container" aria-hidden="true">
           <picture>
-            <source media="(max-width: 640px)" srcSet="/images/hero-workflow-automation-mobile.jpg" />
+            <source
+              media="(max-width: 767px)"
+              srcSet="/images/hero-workflow-automation-mobile.webp"
+              type="image/webp"
+            />
+            <source
+              media="(max-width: 767px)"
+              srcSet="/images/hero-workflow-automation-mobile.jpg"
+              type="image/jpeg"
+            />
+            <source
+              srcSet="/images/hero-workflow-automation.webp"
+              type="image/webp"
+            />
             <img
               src="/images/hero-workflow-automation.jpg"
-              alt=""
+              alt="Hutomate enterprise workflow automation architecture"
               className="wf-hero-bg"
+              width="1920"
+              height="1080"
               loading="eager"
-              decoding="sync"
+              fetchPriority="high"
             />
           </picture>
           <div className="wf-hero-overlay" />
-          <div className="wf-hero-vignette" />
         </div>
 
         <div className="container wf-hero-container">
           <div className="wf-hero-content">
             <div className="wf-hero-label">
-              <span className="wf-hero-beacon" aria-hidden="true" />
-              <span>CAPABILITY 02 // CONNECTED OPERATIONS</span>
+              <span>WORKFLOW AUTOMATION</span>
             </div>
 
             <h1 className="wf-hero-headline">
-              Connect business tools and eliminate manual operational bottlenecks.
+              Automated workflows that connect your software and eliminate manual tasks.
             </h1>
 
-            <p className="wf-hero-desc">
-              We architect robust, event-driven automation pipelines that eliminate manual data re-entry, coordinate multi-system processes, and keep your software stack synchronized in real time.
+            <p className="wf-hero-lead">
+              We connect your CRM, billing, project management, and communication tools into reliable, automated pipelines. Information flows instantly between teams without manual data re-entry.
             </p>
 
-            <div className="wf-hero-ctas">
+            <div className="wf-hero-actions">
               <Button variant="primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
@@ -212,131 +212,74 @@ export default function WorkflowAutomationPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 02: THE CHALLENGE — ASYMMETRIC FRICTION MATRIX
+          SECTION 02: THE CHALLENGE
           ========================================================================= */}
       <section className="wf-challenge-section" aria-label="The Challenge">
         <div className="container">
           <div className="wf-challenge-grid">
             <div className="wf-challenge-left reveal-on-scroll">
-              <span className="wf-section-kicker">THE INTEGRATION GAP</span>
+              <span className="wf-section-kicker">THE CHALLENGE</span>
               <h2 className="wf-challenge-heading">
-                Modern businesses run on dozens of SaaS tools. The handoffs between them are broken.
+                Disconnected software tools create costly manual delays between your teams.
               </h2>
               <p className="wf-challenge-lead">
-                Sales closes a deal, but fulfillment, billing, and project teams operate on separate systems with delayed or mismatched records. Manual handoffs create silent errors and slow down operational velocity.
+                Most businesses rely on separate software for sales, invoicing, project management, and customer support. When these tools do not communicate with each other, staff waste hours re-entering data and chasing status updates.
               </p>
-              <div className="wf-challenge-stat-badge">
-                <span className="wf-stat-value">Zero-Drop</span>
-                <span className="wf-stat-label">Architecture: Guaranteed payload delivery with automated retries</span>
+              <div className="wf-challenge-benefit">
+                <div className="wf-benefit-header">
+                  <span className="wf-benefit-badge" aria-hidden="true" />
+                  <span className="wf-benefit-title">Automated Multi-System Coordination</span>
+                </div>
+                <p className="wf-benefit-text">
+                  Connected workflows pass information instantly between your software tools, eliminating manual data entry and preventing human handoff errors.
+                </p>
               </div>
             </div>
 
             <div className="wf-challenge-right reveal-on-scroll">
-              <div className="wf-comparison-card">
-                <div className="wf-comparison-header">
-                  <span className="wf-col-label manual">Manual Friction</span>
-                  <span className="wf-col-label automated">Engineered Pipeline</span>
+              {CHALLENGES.map((ch, idx) => (
+                <div key={idx} className="wf-challenge-card">
+                  <span className="wf-challenge-num">{ch.num}</span>
+                  <h3 className="wf-challenge-title">{ch.title}</h3>
+                  <p className="wf-challenge-desc">{ch.desc}</p>
                 </div>
-                <div className="wf-comparison-rows">
-                  {COMPARISONS.map((comp, idx) => (
-                    <div key={idx} className="wf-comp-row">
-                      <div className="wf-comp-cell manual">
-                        <span className="wf-comp-dot red" aria-hidden="true" />
-                        <p>{comp.manual}</p>
-                      </div>
-                      <div className="wf-comp-cell automated">
-                        <span className="wf-comp-dot green" aria-hidden="true" />
-                        <p>{comp.automated}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          SECTION 03: WHAT WE DELIVER — INTERACTIVE PIPELINE ACCORDION
+          SECTION 03: WHAT WORKFLOW AUTOMATION CAN DO — 6-CARD CAPABILITY GRID
           ========================================================================= */}
-      <section className="wf-deliver-section" aria-label="What We Deliver">
+      <section className="wf-showcase-section" aria-label="What Workflow Automation Can Do">
         <div className="container">
-          <div className="wf-deliver-header reveal-on-scroll">
-            <span className="wf-section-kicker">WHAT WE DELIVER</span>
-            <h2 className="wf-section-heading">
-              Resilient pipelines engineered for zero data loss.
-            </h2>
-            <p className="wf-section-subhead">
-              Fault-tolerant workflows that connect fragmented applications with schema typing, retries, and real-time observability.
-            </p>
+          <div className="wf-showcase-header reveal-on-scroll">
+            <span className="wf-section-kicker">WHAT WORKFLOW AUTOMATION CAN DO</span>
+            <div className="wf-showcase-header-split">
+              <h2 className="wf-section-heading">
+                Connected Systems, Handled Automatically
+              </h2>
+              <p className="wf-section-subhead">
+                Connect your tools and automate routine steps, so work moves forward without manual delay.
+              </p>
+            </div>
           </div>
 
-          <div className="wf-accordion-wrap reveal-on-scroll">
-            {WORKFLOW_DELIVERABLES.map((item, idx) => {
-              const isExpanded = expandedIndex === idx;
+          <div className="wf-six-grid reveal-on-scroll">
+            {SIX_WORKFLOW_CAPABILITIES.map((cap, idx) => {
+              const IconComp = cap.icon;
               return (
-                <div
-                  key={item.id}
-                  className={`wf-accordion-item ${isExpanded ? 'is-active' : ''}`}
-                >
-                  <button
-                    type="button"
-                    className="wf-accordion-trigger"
-                    onClick={() => toggleAccordion(idx)}
-                    aria-expanded={isExpanded}
-                    aria-controls={`wf-deliverable-${item.id}`}
-                  >
-                    <div className="wf-accordion-trigger-left">
-                      <span className="wf-item-num">{item.num}</span>
-                      <div className="wf-item-title-wrap">
-                        <span className="wf-item-domain">{item.domain}</span>
-                        <h3 className="wf-item-title">{item.title}</h3>
-                      </div>
+                <article key={idx} className="wf-six-card">
+                  <div className="wf-six-card-top">
+                    <div className="wf-six-icon-box" aria-hidden="true">
+                      <IconComp size={22} className="wf-six-icon" />
                     </div>
-                    <div className="wf-accordion-icon-wrap" aria-hidden="true">
-                      <ChevronDown
-                        size={20}
-                        className={`wf-chevron ${isExpanded ? 'is-rotated' : ''}`}
-                      />
-                    </div>
-                  </button>
-
-                  <div
-                    id={`wf-deliverable-${item.id}`}
-                    className={`wf-accordion-drawer ${isExpanded ? 'is-open' : ''}`}
-                  >
-                    <div className="wf-drawer-inner">
-                      <div className="wf-drawer-grid">
-                        <div className="wf-drawer-main">
-                          <p className="wf-drawer-lead">{item.lead}</p>
-                          <p className="wf-drawer-desc">{item.desc}</p>
-
-                          <div className="wf-drawer-systems">
-                            <span className="wf-systems-label">Integrated Ecosystem:</span>
-                            <div className="wf-systems-tags">
-                              {item.systems.map((sys, sIdx) => (
-                                <span key={sIdx} className="wf-sys-pill">
-                                  {sys}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="wf-drawer-specs">
-                          <span className="wf-specs-title">Pipeline Architecture</span>
-                          {item.specs.map((sp, spIdx) => (
-                            <div key={spIdx} className="wf-spec-row">
-                              <span className="wf-spec-key">{sp.label}</span>
-                              <span className="wf-spec-val">{sp.value}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+                    <span className="wf-six-num">{cap.num}</span>
                   </div>
-                </div>
+                  <h3 className="wf-six-title">{cap.title}</h3>
+                  <p className="wf-six-desc">{cap.desc}</p>
+                </article>
               );
             })}
           </div>
@@ -344,48 +287,28 @@ export default function WorkflowAutomationPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 04: WHY IT MATTERS — 4-QUADRANT PRECISION GRID
+          SECTION 04: WHY IT MATTERS — MINIMAL BUSINESS BENEFITS
           ========================================================================= */}
-      <section className="wf-matters-section" aria-label="Why It Matters">
-        <div className="container">
-          <div className="wf-matters-header reveal-on-scroll">
-            <span className="wf-section-kicker">WHY IT MATTERS</span>
-            <h2 className="wf-section-heading">
-              Engineered reliability for mission-critical operations.
-            </h2>
-            <p className="wf-section-subhead">
-              We design every pipeline to be fault-tolerant, idempotent, and observable so your business never drops a critical transaction.
-            </p>
-          </div>
-
-          <div className="wf-quadrant-grid reveal-on-scroll">
-            {BENEFITS.map((ben, idx) => (
-              <div key={idx} className="wf-quadrant-cell">
-                <div className="wf-quadrant-top">
-                  <span className="wf-quadrant-tag">{ben.tag}</span>
-                  <span className="wf-quadrant-index">0{idx + 1}</span>
-                </div>
-                <h3 className="wf-quadrant-title">{ben.title}</h3>
-                <p className="wf-quadrant-desc">{ben.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WhyItMattersSection
+        kicker="WHY IT MATTERS"
+        heading="Operational speed without manual data friction."
+        subhead="Connect your business tools, reduce repetitive data entry, and automate routine processes so information moves between systems reliably."
+        benefits={WHY_IT_MATTERS_BENEFITS}
+      />
 
       {/* =========================================================================
-          SECTION 05: FINAL CTA — PREMIUM DARK NAVY COMPOSITION
+          SECTION 05: FINAL CTA
           ========================================================================= */}
-      <section className="wf-final-cta-section" aria-label="Discuss Your Workflow Automation Project">
+      <section className="wf-final-cta-section" aria-label="Discuss Your Automation Project">
         <div className="wf-final-cta-bloom" aria-hidden="true" />
         <div className="container">
           <div className="wf-final-cta-inner reveal-on-scroll">
-            <span className="wf-final-kicker">ARCHITECT YOUR PIPELINES</span>
+            <span className="wf-final-kicker">AUTOMATE YOUR WORKFLOWS</span>
             <h2 className="wf-final-heading">
-              Ready to connect your business software and eliminate operational friction?
+              Ready to eliminate repetitive data re-entry across your tools?
             </h2>
             <p className="wf-final-desc">
-              Talk with our engineering team about your current tool stack. We identify integration bottlenecks and design a reliable automation roadmap.
+              Share your current software stack and manual handoffs with our engineering team. We'll identify where automated pipelines can save your staff hours each week.
             </p>
             <div className="wf-final-actions">
               <Button variant="primary" size="lg" arrow href="/start-project">

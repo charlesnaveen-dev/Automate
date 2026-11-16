@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, ShieldCheck, Cpu, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from '../router/Router';
 import './CapabilitiesFinalCta.css';
 
@@ -18,7 +18,6 @@ export default function CapabilitiesFinalCta() {
                 ------------------------------------------------------------------ */}
             <div className="cap-cta-copy-col">
               <div className="cap-cta-badge">
-                <span className="cap-cta-beacon" aria-hidden="true" />
                 <span>START YOUR TRANSFORMATION</span>
               </div>
 
@@ -41,24 +40,6 @@ export default function CapabilitiesFinalCta() {
                 <Link to="/process" className="cap-cta-btn cap-cta-btn--secondary">
                   <span>See Our Process</span>
                 </Link>
-              </div>
-
-              {/* Trust Indicators */}
-              <div className="cap-cta-trust-row">
-                <div className="cap-trust-item">
-                  <Clock size={13} className="cap-trust-icon" aria-hidden="true" />
-                  <span>24-Hour Review</span>
-                </div>
-                <span className="cap-trust-divider" aria-hidden="true">•</span>
-                <div className="cap-trust-item">
-                  <ShieldCheck size={13} className="cap-trust-icon" aria-hidden="true" />
-                  <span>Strict Confidentiality</span>
-                </div>
-                <span className="cap-trust-divider" aria-hidden="true">•</span>
-                <div className="cap-trust-item">
-                  <Cpu size={13} className="cap-trust-icon" aria-hidden="true" />
-                  <span>Client-Owned Code</span>
-                </div>
               </div>
             </div>
 
@@ -126,18 +107,6 @@ export default function CapabilitiesFinalCta() {
                   <div className="cap-brand-label-lockup">
                     <span className="cap-brand-tagline">INTELLIGENT SYSTEMS</span>
                   </div>
-                </div>
-
-                {/* Layer 4: Floating Satellite Badge (Top Right) */}
-                <div className="cap-brand-chip cap-brand-chip--top">
-                  <span className="cap-chip-dot" />
-                  <span className="cap-chip-text">System Active</span>
-                </div>
-
-                {/* Layer 5: Floating Satellite Badge (Bottom Left) */}
-                <div className="cap-brand-chip cap-brand-chip--bottom">
-                  <ShieldCheck size={13} className="cap-chip-icon" />
-                  <span className="cap-chip-text">Deterministic Guardrails</span>
                 </div>
               </div>
             </div>

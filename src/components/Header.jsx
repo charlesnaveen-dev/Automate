@@ -20,7 +20,32 @@ export default function Header() {
   const [isMobileCapabilitiesOpen, setIsMobileCapabilitiesOpen] = useState(false);
   const toggleBtnRef = useRef(null);
   const dropdownRef = useRef(null);
+  const closeTimerRef = useRef(null);
   const { currentPath } = useRouter();
+
+  // Clear debounce timer on unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    };
+  }, []);
+
+  const handleDropdownMouseEnter = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setIsCapabilitiesOpen(true);
+  };
+
+  const handleDropdownMouseLeave = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+    }
+    closeTimerRef.current = setTimeout(() => {
+      setIsCapabilitiesOpen(false);
+    }, 180);
+  };
 
   // Monitor scroll for subtle frosted-glass background
   useEffect(() => {
@@ -100,8 +125,13 @@ export default function Header() {
             <li
               className={`nav-item nav-item-dropdown ${isCapabilitiesActive ? 'is-active' : ''}`}
               ref={dropdownRef}
-              onMouseEnter={() => setIsCapabilitiesOpen(true)}
-              onMouseLeave={() => setIsCapabilitiesOpen(false)}
+              onMouseEnter={handleDropdownMouseEnter}
+              onMouseLeave={handleDropdownMouseLeave}
+              onKeyDown={(e) => {
+                if (e.key === 'Escape') {
+                  setIsCapabilitiesOpen(false);
+                }
+              }}
             >
               <div className="nav-dropdown-trigger-wrap">
                 <Link
@@ -120,13 +150,23 @@ export default function Header() {
                     e.stopPropagation();
                     setIsCapabilitiesOpen((prev) => !prev);
                   }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setIsCapabilitiesOpen((prev) => !prev);
+                    }
+                  }}
                 >
                   <ChevronDown size={14} className={`chevron-icon ${isCapabilitiesOpen ? 'rotate-180' : ''}`} />
                 </button>
               </div>
 
               {/* Dropdown Menu */}
-              <div className={`nav-dropdown-menu ${isCapabilitiesOpen ? 'is-open' : ''}`}>
+              <div
+                className={`nav-dropdown-menu ${isCapabilitiesOpen ? 'is-open' : ''}`}
+                onMouseEnter={handleDropdownMouseEnter}
+                onMouseLeave={handleDropdownMouseLeave}
+              >
                 <div className="nav-dropdown-inner">
                   <div className="dropdown-overview-link">
                     <Link to="/capabilities" className="dropdown-overview-anchor" onClick={handleLinkClick}>

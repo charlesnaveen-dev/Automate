@@ -137,7 +137,6 @@ export default function HeroSection() {
         <div className="hero-editorial-wrap">
           {/* Introductory label */}
           <div className="hero-eyebrow-pill">
-            <span className="eyebrow-beacon" aria-hidden="true" />
             <span className="eyebrow-text">AI SYSTEMS · INTELLIGENT AUTOMATION</span>
           </div>
 

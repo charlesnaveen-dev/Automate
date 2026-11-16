@@ -99,7 +99,6 @@ export default function AboutPage() {
           <div className="about-hero-grid">
             <div className="about-hero-text reveal-on-scroll">
               <div className="about-eyebrow-pill">
-                <span className="about-eyebrow-dot" />
                 <span className="about-eyebrow-text">ABOUT HUTOMATE</span>
               </div>
 
@@ -130,10 +129,6 @@ export default function AboutPage() {
                   className="about-hero-image"
                   loading="eager"
                 />
-                <div className="about-image-card-caption">
-                  <span className="caption-dot" />
-                  <span>Practical AI engineering &amp; implementation</span>
-                </div>
               </div>
             </div>
           </div>
@@ -221,14 +216,13 @@ export default function AboutPage() {
             <div className="about-why-media reveal-on-scroll">
               <div className="about-why-image-wrap">
                 <img
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
-                  alt="Modern architectural workspace"
+                  src="/images/why-hutomate-engineering.webp"
+                  alt="Senior systems engineers reviewing software architecture and automated workflows"
                   className="about-why-image"
                   loading="lazy"
                 />
                 <div className="about-why-overlay" />
                 <div className="about-why-tagline">
-                  <div className="tagline-dot" />
                   <span>Disciplined Engineering Over Speculative Hype</span>
                 </div>
               </div>

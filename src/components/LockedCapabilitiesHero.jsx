@@ -99,7 +99,6 @@ export default function LockedCapabilitiesHero() {
         <div className="container">
           <div className="cap-home-header">
             <div className="cap-home-eyebrow" ref={eyebrowRef}>
-              <span className="cap-eyebrow-beacon" aria-hidden="true" />
               <span className="cap-eyebrow-text">CORE CAPABILITIES</span>
             </div>
 

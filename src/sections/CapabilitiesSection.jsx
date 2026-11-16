@@ -395,7 +395,6 @@ export default function CapabilitiesSection() {
         {/* Section Header */}
         <div className="cap-header-center">
           <div className="cap-eyebrow-pill">
-            <span className="cap-eyebrow-dot" />
             <span className="cap-eyebrow-text">CORE CAPABILITIES</span>
           </div>
 

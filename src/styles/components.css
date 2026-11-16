@@ -91,15 +91,6 @@
   line-height: 1;
 }
 
-.section-label::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--color-accent-cyan, #83DDE2);
-}
-
 .section-heading {
   font-family: var(--font-family-headings, 'Inter', sans-serif);
   font-size: var(--font-size-h1, clamp(2.15rem, 3.6vw, 3.1rem));

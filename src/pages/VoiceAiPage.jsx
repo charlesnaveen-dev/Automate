@@ -1,117 +1,109 @@
-import React, { useState, useRef } from 'react';
-import { ChevronDown } from 'lucide-react';
+import React, { useRef } from 'react';
+import {
+  PhoneCall,
+  MessageSquare,
+  UserCheck,
+  Calendar,
+  PhoneForwarded,
+  BellRing,
+} from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useGsapContext } from '../animations/useGsapContext';
 import gsap from 'gsap';
 import Button from '../components/Button';
+import WhyItMattersSection from '../components/WhyItMattersSection';
 import './VoiceAiPage.css';
 
-const VOICE_DELIVERABLES = [
+const SIX_VOICE_CAPABILITIES = [
   {
-    id: 'inbound-receptionist',
     num: '01',
-    title: '24/7 Autonomous Inbound Receptionist',
-    category: 'Inbound Telephony',
-    lead: 'Answers every call within two rings with natural inflection and clear service guidance.',
-    desc: 'Greets callers warmly, clarifies inquiry details, answers complex business FAQs using verified company documentation, and gathers required caller intake data without placing callers on hold.',
-    specs: [
-      { label: 'Turnaround Latency', value: '<300ms streaming speech synthesis' },
-      { label: 'Speech Model', value: 'Neural conversational voice engine' },
-      { label: 'Telephony Standard', value: 'SIP trunk, WebRTC, direct PBX forwarding' },
-    ],
-    systems: ['Twilio Voice', 'Vonage', 'Amazon Chime', 'Custom PBX'],
+    icon: PhoneCall,
+    title: 'Answer Inbound Calls',
+    desc: 'Picks up instantly, answers questions warmly, and provides 24/7 front-desk coverage.',
   },
   {
-    id: 'calendar-booking',
     num: '02',
-    title: 'Conversational Calendar Booking Engine',
-    category: 'Appointment Scheduling',
-    lead: 'Negotiates available appointment slots conversationally over the phone.',
-    desc: 'Checks live practitioner or representative availability in real time, suggests open slots that fit caller preferences, confirms appointments, and immediately dispatches SMS and email calendar invites.',
-    specs: [
-      { label: 'Calendar Sync', value: 'Live bidirectional availability lookup' },
-      { label: 'Timezone Handling', value: 'Automatic caller area-code detection' },
-      { label: 'Confirmation', value: 'Instant SMS invite with rescheduling link' },
-    ],
-    systems: ['Google Calendar', 'Outlook 365', 'Clio', 'ServiceTitan', 'Calendly'],
+    icon: MessageSquare,
+    title: 'Handle Customer Enquiries',
+    desc: 'Responds to FAQs about pricing, business hours, services, and location with verified details.',
   },
   {
-    id: 'emergency-transfer',
     num: '03',
-    title: 'Emergency Triage & Warm Live Transfer',
-    category: 'Safety & Escalation',
-    lead: 'Identifies high-urgency callers and seamlessly connects them to live on-duty staff.',
-    desc: 'Calibrated intent classifiers detect emergency keywords, distress, or complex edge cases. Reassures the caller and executes a warm SIP transfer with spoken context to on-call technicians or attorneys.',
-    specs: [
-      { label: 'Triage Speed', value: 'Immediate heuristic priority routing' },
-      { label: 'Transfer Mode', value: 'Warm transfer with whispered context brief' },
-      { label: 'Fallback Logic', value: 'Simultaneous SMS and push alerting if line busy' },
-    ],
-    systems: ['Twilio SIP', 'RingCentral', 'Dialpad', 'PagerDuty'],
+    icon: UserCheck,
+    title: 'Qualify Incoming Leads',
+    desc: 'Collects caller needs, timeline, and budget, directing high-priority prospects to sales teams.',
   },
   {
-    id: 'crm-transcript-logging',
     num: '04',
-    title: 'Post-Call CRM & Transcript Logging',
-    category: 'Data Extraction',
-    lead: 'Dispatches structured summaries and extracted entity fields to your CRM seconds after hangup.',
-    desc: 'Every call generates a timestamped audio transcript, bulleted executive summary, extracted client intent, and categorized action items pushed directly into your CRM contact record.',
-    specs: [
-      { label: 'Output Schema', value: 'Structured JSON with sentiment tags' },
-      { label: 'Delivery Time', value: '<5 seconds post-call webhook execution' },
-      { label: 'Compliance', value: 'Optional automated PII redaction' },
-    ],
-    systems: ['HubSpot', 'Salesforce', 'Slack', 'Zendesk', 'PostgreSQL'],
+    icon: Calendar,
+    title: 'Book & Schedule Appointments',
+    desc: 'Coordinates calendar availability in real time, reserves slots, and sends instant calendar invitations.',
+  },
+  {
+    num: '05',
+    icon: PhoneForwarded,
+    title: 'Transfer Calls to Teams',
+    desc: 'Identifies urgent inquiries and smoothly routes callers to on-duty specialists with contextual briefing.',
+  },
+  {
+    num: '06',
+    icon: BellRing,
+    title: 'Send Follow-ups & Notifications',
+    desc: 'Logs call notes to CRM, dispatches confirmation texts or emails, and triggers necessary tasks.',
   },
 ];
 
 const CHALLENGES = [
   {
     num: '01',
-    title: 'The Voicemail Abandonment Abyss',
-    desc: 'Over 80% of prospective clients who reach voicemail hang up immediately and dial your direct competitor instead.',
+    title: 'Missed Calls During Busy Hours',
+    desc: 'When your phone lines are occupied, prospective clients hang up rather than waiting on hold or leaving a voicemail.',
   },
   {
     num: '02',
-    title: 'Front-Desk Interruption & Burnout',
-    desc: 'Staff waste hours answering repetitive inquiries about hours, directions, and pricing instead of serving in-person clients.',
+    title: 'Front Desk Interrupted by Routine Questions',
+    desc: 'Staff spend hours answering common questions about hours, services, and pricing instead of serving in-person clients.',
   },
   {
     num: '03',
-    title: 'After-Hours Emergency Blindspots',
-    desc: 'High-value inquiries arriving evenings or weekends are missed entirely or wake off-duty team members for non-urgent questions.',
+    title: 'After-Hours Inquiries Go Unanswered',
+    desc: 'Calls received in the evening or over weekends often go to voicemail, causing urgent requests and high-value leads to go cold.',
+  },
+  {
+    num: '04',
+    title: 'Inconsistent Call Notes & Delayed Follow-Up',
+    desc: 'Important details from telephone conversations are easily forgotten or entered into your CRM with delays and errors.',
   },
 ];
 
-const BENEFITS = [
+const WHY_IT_MATTERS_BENEFITS = [
   {
     num: '01',
-    metric: 'Instant',
-    title: 'Zero Hold Times & Instant Answering',
-    desc: 'Every call is answered within two rings around the clock, capturing high-intent prospects before they look elsewhere.',
+    icon: PhoneCall,
+    title: 'Always-On Call Handling',
+    desc: 'Respond to incoming calls and customer enquiries even when your team is unavailable.',
   },
   {
     num: '02',
-    metric: '<300ms',
-    title: 'Natural Conversational Cadence',
-    desc: 'Sub-second neural voice synthesis and turn-taking that feels respectful, clear, and professional without robotic stutter.',
+    icon: UserCheck,
+    title: 'Fewer Missed Opportunities',
+    desc: 'Capture customer details, understand enquiries, and route potential leads to the right team.',
   },
   {
     num: '03',
-    metric: 'Automated',
-    title: 'Direct Calendar & CRM Sync',
-    desc: 'Appointments booked directly into your schedule with structured call notes logged into your CRM before you speak.',
+    icon: Calendar,
+    title: 'Faster Appointment Scheduling',
+    desc: 'Check availability, arrange appointments, and send confirmations without unnecessary back-and-forth.',
   },
 ];
 
 export default function VoiceAiPage() {
-  const [expandedIndex, setExpandedIndex] = useState(0);
   const pageRef = useRef(null);
 
   usePageMetadata({
-    title: 'Voice AI & Conversational Telephony | Hutomate',
-    description: 'Sub-300ms neural voice agents for 24/7 inbound reception, appointment booking, and seamless live human handoffs.',
+    title: 'Enterprise Voice AI Agents — Sub-Second Telephony | Hutomate',
+    description: 'Deploy conversational Voice AI agents with low latency, natural cadence, and seamless appointment booking across your phone systems.',
     path: '/capabilities/voice-ai',
   });
 
@@ -132,71 +124,80 @@ export default function VoiceAiPage() {
     )
       .fromTo(
         '.voice-hero-label',
-        { opacity: 0, y: 16 },
+        { opacity: 0, y: 15 },
         { opacity: 1, y: 0, duration: 0.6 },
         '-=0.8'
       )
       .fromTo(
         '.voice-hero-headline',
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.7 },
-        '-=0.45'
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        '-=0.5'
       )
       .fromTo(
-        '.voice-hero-desc',
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        '-=0.4'
+        '.voice-hero-lead',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        '-=0.6'
       )
       .fromTo(
-        '.voice-hero-ctas',
-        { opacity: 0, y: 14 },
-        { opacity: 1, y: 0, duration: 0.55 },
-        '-=0.35'
+        '.voice-hero-actions',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        '-=0.6'
       );
-  }, []);
-
-  const toggleAccordion = (index) => {
-    setExpandedIndex(expandedIndex === index ? -1 : index);
-  };
+  });
 
   return (
-    <div className="voice-page-redesign" ref={pageRef}>
+    <div className="voice-page" ref={pageRef}>
       {/* =========================================================================
-          SECTION 01: HERO — FULL-COVER PHOTOGRAPHY
+          SECTION 01: HERO SECTION
           ========================================================================= */}
       <section className="voice-hero-section" aria-label="Voice AI Hero">
-        <div className="voice-hero-bg-wrapper" aria-hidden="true">
+        <div className="voice-hero-bg-container" aria-hidden="true">
           <picture>
-            <source media="(max-width: 640px)" srcSet="/images/hero-voice-ai-mobile.jpg" />
+            <source
+              media="(max-width: 767px)"
+              srcSet="/images/hero-voice-ai-mobile.webp"
+              type="image/webp"
+            />
+            <source
+              media="(max-width: 767px)"
+              srcSet="/images/hero-voice-ai-mobile.jpg"
+              type="image/jpeg"
+            />
+            <source
+              srcSet="/images/hero-voice-ai.webp"
+              type="image/webp"
+            />
             <img
               src="/images/hero-voice-ai.jpg"
-              alt=""
+              alt="Hutomate enterprise Voice AI communications center"
               className="voice-hero-bg"
+              width="1920"
+              height="1080"
               loading="eager"
-              decoding="sync"
+              fetchPriority="high"
             />
           </picture>
           <div className="voice-hero-overlay" />
-          <div className="voice-hero-vignette" />
         </div>
 
         <div className="container voice-hero-container">
           <div className="voice-hero-content">
             <div className="voice-hero-label">
-              <span className="voice-hero-beacon" aria-hidden="true" />
-              <span>CAPABILITY 03 // CONVERSATIONAL TELEPHONY</span>
+              <span>AI RECEPTIONISTS</span>
             </div>
 
             <h1 className="voice-hero-headline">
-              Intelligent voice systems that handle natural phone conversations.
+              Conversational voice agents that speak naturally and handle phone calls.
             </h1>
 
-            <p className="voice-hero-desc">
-              Conversational voice workflows that answer incoming phone calls, qualify caller intent, answer complex questions, and book appointments directly into your calendar around the clock.
+            <p className="voice-hero-lead">
+              We engineer low-latency Voice AI systems that answer inbound phone inquiries, qualify callers, schedule calendar appointments, and route urgent cases to on-call specialists—24/7 with zero hold times.
             </p>
 
-            <div className="voice-hero-ctas">
+            <div className="voice-hero-actions">
               <Button variant="primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
@@ -209,34 +210,35 @@ export default function VoiceAiPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 02: THE CHALLENGE — EDITORIAL SPLIT
+          SECTION 02: THE CHALLENGE
           ========================================================================= */}
       <section className="voice-challenge-section" aria-label="The Challenge">
         <div className="container">
           <div className="voice-challenge-grid">
             <div className="voice-challenge-left reveal-on-scroll">
-              <span className="voice-section-kicker">THE SILENT LOSS</span>
+              <span className="voice-section-kicker">THE CHALLENGE</span>
               <h2 className="voice-challenge-heading">
-                Every unanswered phone call is an immediate transfer to your competitor.
+                Missed phone calls mean missed revenue and frustrated customers.
               </h2>
               <p className="voice-challenge-lead">
-                Prospective clients rarely leave voicemails. If their call is placed on hold or goes to a voicemail machine, they immediately hang up and call the next provider on Google.
+                When customers call, they expect immediate answers. Busy phone lines, long hold times, and after-hours voicemail often mean prospective clients hang up and call a competitor instead.
               </p>
-              <div className="voice-challenge-callout">
-                <span className="voice-callout-num">80%+</span>
-                <span className="voice-callout-text">
-                  Of prospective business callers hang up without leaving a voicemail when unanswered.
-                </span>
+              <div className="voice-challenge-benefit">
+                <div className="voice-benefit-header">
+                  <span className="voice-benefit-badge" aria-hidden="true" />
+                  <span className="voice-benefit-title">Every Call Answered Instantly</span>
+                </div>
+                <p className="voice-benefit-text">
+                  Voice AI ensures callers speak with an intelligent representative immediately, answering questions and booking consultations 24 hours a day.
+                </p>
               </div>
             </div>
 
             <div className="voice-challenge-right reveal-on-scroll">
               {CHALLENGES.map((ch, idx) => (
                 <div key={idx} className="voice-challenge-card">
-                  <div className="voice-challenge-header">
-                    <span className="voice-challenge-num">{ch.num}</span>
-                    <h3 className="voice-challenge-title">{ch.title}</h3>
-                  </div>
+                  <span className="voice-challenge-num">{ch.num}</span>
+                  <h3 className="voice-challenge-title">{ch.title}</h3>
                   <p className="voice-challenge-desc">{ch.desc}</p>
                 </div>
               ))}
@@ -246,85 +248,36 @@ export default function VoiceAiPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 03: WHAT WE DELIVER — INTERACTIVE VOICE ACCORDION
+          SECTION 03: WHAT OUR AI RECEPTIONISTS CAN DO — 6-CARD CAPABILITY GRID
           ========================================================================= */}
-      <section className="voice-deliver-section" aria-label="What We Deliver">
+      <section className="voice-showcase-section" aria-label="What Our AI Receptionists Can Do">
         <div className="container">
-          <div className="voice-deliver-header reveal-on-scroll">
-            <span className="voice-section-kicker">WHAT WE DELIVER</span>
-            <h2 className="voice-section-heading">
-              Enterprise telephony with sub-second conversational cadence.
-            </h2>
-            <p className="voice-section-subhead">
-              Speech recognition, intent triage, and appointment booking engineered for natural, low-latency phone dialogue.
-            </p>
+          <div className="voice-showcase-header reveal-on-scroll">
+            <span className="voice-section-kicker">WHAT OUR AI RECEPTIONISTS CAN DO</span>
+            <div className="voice-showcase-header-split">
+              <h2 className="voice-section-heading">
+                Real Calls, Handled by AI
+              </h2>
+              <p className="voice-section-subhead">
+                Let AI answer incoming calls and schedule appointments, so your team never misses an opportunity.
+              </p>
+            </div>
           </div>
 
-          <div className="voice-accordion-wrap reveal-on-scroll">
-            {VOICE_DELIVERABLES.map((item, idx) => {
-              const isExpanded = expandedIndex === idx;
+          <div className="voice-six-grid reveal-on-scroll">
+            {SIX_VOICE_CAPABILITIES.map((cap, idx) => {
+              const IconComp = cap.icon;
               return (
-                <div
-                  key={item.id}
-                  className={`voice-accordion-item ${isExpanded ? 'is-active' : ''}`}
-                >
-                  <button
-                    type="button"
-                    className="voice-accordion-trigger"
-                    onClick={() => toggleAccordion(idx)}
-                    aria-expanded={isExpanded}
-                    aria-controls={`voice-deliverable-${item.id}`}
-                  >
-                    <div className="voice-accordion-trigger-left">
-                      <span className="voice-item-num">{item.num}</span>
-                      <div className="voice-item-title-wrap">
-                        <span className="voice-item-cat">{item.category}</span>
-                        <h3 className="voice-item-title">{item.title}</h3>
-                      </div>
+                <article key={idx} className="voice-six-card">
+                  <div className="voice-six-card-top">
+                    <div className="voice-six-icon-box" aria-hidden="true">
+                      <IconComp size={22} className="voice-six-icon" />
                     </div>
-                    <div className="voice-accordion-icon-wrap" aria-hidden="true">
-                      <ChevronDown
-                        size={20}
-                        className={`voice-chevron ${isExpanded ? 'is-rotated' : ''}`}
-                      />
-                    </div>
-                  </button>
-
-                  <div
-                    id={`voice-deliverable-${item.id}`}
-                    className={`voice-accordion-drawer ${isExpanded ? 'is-open' : ''}`}
-                  >
-                    <div className="voice-drawer-inner">
-                      <div className="voice-drawer-grid">
-                        <div className="voice-drawer-main">
-                          <p className="voice-drawer-lead">{item.lead}</p>
-                          <p className="voice-drawer-desc">{item.desc}</p>
-
-                          <div className="voice-drawer-systems">
-                            <span className="voice-systems-label">Telephony &amp; App Integration:</span>
-                            <div className="voice-systems-tags">
-                              {item.systems.map((sys, sIdx) => (
-                                <span key={sIdx} className="voice-sys-pill">
-                                  {sys}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="voice-drawer-specs">
-                          <span className="voice-specs-title">Telephony Specifications</span>
-                          {item.specs.map((sp, spIdx) => (
-                            <div key={spIdx} className="voice-spec-row">
-                              <span className="voice-spec-key">{sp.label}</span>
-                              <span className="voice-spec-val">{sp.value}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+                    <span className="voice-six-num">{cap.num}</span>
                   </div>
-                </div>
+                  <h3 className="voice-six-title">{cap.title}</h3>
+                  <p className="voice-six-desc">{cap.desc}</p>
+                </article>
               );
             })}
           </div>
@@ -332,48 +285,28 @@ export default function VoiceAiPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 04: WHY IT MATTERS — 3-COLUMN EDITORIAL CARDS
+          SECTION 04: WHY IT MATTERS — MINIMAL BUSINESS BENEFITS
           ========================================================================= */}
-      <section className="voice-matters-section" aria-label="Why It Matters">
-        <div className="container">
-          <div className="voice-matters-header reveal-on-scroll">
-            <span className="voice-section-kicker">WHY IT MATTERS</span>
-            <h2 className="voice-section-heading">
-              Immediate call capture that converts inquiries into scheduled appointments.
-            </h2>
-            <p className="voice-section-subhead">
-              We eliminate missed calls and reduce front-desk telephone load while maintaining a warm, professional customer experience.
-            </p>
-          </div>
-
-          <div className="voice-pillars-grid reveal-on-scroll">
-            {BENEFITS.map((ben, idx) => (
-              <div key={idx} className="voice-pillar-card">
-                <div className="voice-pillar-top">
-                  <span className="voice-pillar-num">0{idx + 1}</span>
-                  <span className="voice-pillar-metric">{ben.metric}</span>
-                </div>
-                <h3 className="voice-pillar-title">{ben.title}</h3>
-                <p className="voice-pillar-desc">{ben.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WhyItMattersSection
+        kicker="WHY IT MATTERS"
+        heading="Every conversation deserves a timely response."
+        subhead="AI receptionists help businesses handle incoming calls, respond to enquiries, qualify opportunities, and schedule appointments without depending entirely on manual availability."
+        benefits={WHY_IT_MATTERS_BENEFITS}
+      />
 
       {/* =========================================================================
-          SECTION 05: FINAL CTA — PREMIUM DARK NAVY COMPOSITION
+          SECTION 05: FINAL CTA
           ========================================================================= */}
       <section className="voice-final-cta-section" aria-label="Discuss Your Voice AI Project">
         <div className="voice-final-cta-bloom" aria-hidden="true" />
         <div className="container">
           <div className="voice-final-cta-inner reveal-on-scroll">
-            <span className="voice-final-kicker">UPGRADE YOUR PHONE OPERATIONS</span>
+            <span className="voice-final-kicker">UPGRADE YOUR TELEPHONY</span>
             <h2 className="voice-final-heading">
-              Ready to capture every call and automate appointment booking?
+              Ready to answer every business call without growing headcount?
             </h2>
             <p className="voice-final-desc">
-              Schedule a consultation with our voice engineering team. We review your call flows, phone setup, and calendar integration needs.
+              Share your current call volume and software tools with our engineering team. We'll evaluate how Voice AI can handle routine inquiries and schedule appointments automatically.
             </p>
             <div className="voice-final-actions">
               <Button variant="primary" size="lg" arrow href="/start-project">

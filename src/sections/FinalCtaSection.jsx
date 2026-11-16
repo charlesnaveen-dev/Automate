@@ -14,7 +14,6 @@ export default function FinalCtaSection() {
         <div className="final-cta-card reveal-on-scroll">
           <div className="final-cta-content">
             <div className="final-cta-badge">
-              <span className="cta-beacon" aria-hidden="true" />
               <span>START A CONVERSATION</span>
             </div>
 

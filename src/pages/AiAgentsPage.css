@@ -13,6 +13,7 @@
   width: 100%;
   background-color: var(--color-pure-white, #FFFFFF);
   color: var(--color-charcoal, #17252B);
+  font-family: var(--font-family-body, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
   overflow-x: hidden;
 }
 
@@ -27,21 +28,15 @@
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
-  padding: clamp(60px, 8vh, 100px) 0;
+  padding: clamp(64px, 8.5vh, 104px) 0;
+  background-color: var(--color-midnight, #071923);
 }
 
 .agent-hero-section::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 48px;
-  background: linear-gradient(to bottom, transparent, var(--color-cloud-white, #F4F7F7));
-  z-index: 5;
-  pointer-events: none;
+  display: none;
 }
 
+.agent-hero-bg-container,
 .agent-hero-bg-wrapper {
   position: absolute;
   inset: 0;
@@ -51,6 +46,7 @@
   overflow: hidden;
 }
 
+.agent-hero-bg-container picture,
 .agent-hero-bg-wrapper picture {
   display: block;
   width: 100%;
@@ -107,7 +103,7 @@
 }
 
 .agent-hero-content {
-  max-width: 820px;
+  max-width: 780px;
 }
 
 .agent-hero-label {
@@ -119,7 +115,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-accent-cyan, #83DDE2);
+  color: var(--color-accent-cyan, #76D4D6);
   margin-bottom: clamp(16px, 2.5vw, 24px);
   padding: 0;
   background: transparent;
@@ -128,36 +124,31 @@
   backdrop-filter: none;
 }
 
-.agent-hero-beacon {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: var(--color-accent-cyan, #83DDE2);
-  box-shadow: 0 0 10px var(--color-accent-cyan, #83DDE2);
-}
-
 .agent-hero-headline {
   font-family: var(--font-family-headings, 'Inter', -apple-system, sans-serif);
-  font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+  font-size: clamp(2.35rem, 4.4vw, 3.65rem);
   font-weight: 800;
-  line-height: 1.12;
+  line-height: 1.15;
   letter-spacing: -0.035em;
   color: #FFFFFF;
-  margin: 0 0 clamp(20px, 3vw, 28px) 0;
+  margin: 0 0 clamp(18px, 2.5vw, 26px) 0;
   text-wrap: balance;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
 }
 
+.agent-hero-lead,
 .agent-hero-desc {
   font-family: var(--font-family-body, 'Inter', sans-serif);
-  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
-  line-height: 1.62;
-  color: var(--color-mist-grey, #E2EAEC);
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+  line-height: 1.65;
+  color: rgba(240, 244, 248, 0.9);
   max-width: 660px;
-  margin: 0 0 clamp(32px, 4vw, 44px) 0;
+  margin: 0 0 clamp(28px, 4vh, 38px) 0;
+  text-wrap: pretty;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
+.agent-hero-actions,
 .agent-hero-ctas {
   display: flex;
   align-items: center;
@@ -171,15 +162,21 @@
 .agent-challenge-section {
   position: relative;
   background-color: var(--color-cloud-white, #F3F7F7);
-  padding: clamp(72px, 9vh, 112px) 0;
+  padding: clamp(76px, 9vh, 116px) 0;
   border-bottom: 1px solid var(--color-border, #E2EAEC);
+  font-family: var(--font-family-body, 'Inter', sans-serif);
 }
 
 .agent-challenge-grid {
   display: grid;
   grid-template-columns: 1fr 1.25fr;
-  gap: clamp(36px, 5vw, 64px);
-  align-items: center;
+  gap: clamp(40px, 5.5vw, 68px);
+  align-items: start;
+}
+
+.agent-challenge-left {
+  position: sticky;
+  top: calc(var(--header-height, 80px) + 32px);
 }
 
 .agent-section-kicker {
@@ -189,54 +186,77 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-deep-teal, #167C80);
-  margin-bottom: 14px;
-  display: block;
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .agent-challenge-heading {
   font-family: var(--font-family-headings, 'Inter', sans-serif);
-  font-size: clamp(2.1rem, 3.4vw, 3rem);
-  font-weight: 800;
-  line-height: 1.18;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.95rem, 2.75vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
   color: var(--color-charcoal, #17252B);
   margin: 0 0 20px 0;
+  text-wrap: balance;
 }
 
 .agent-challenge-lead {
   font-family: var(--font-family-body, 'Inter', sans-serif);
-  font-size: clamp(1rem, 1.15vw, 1.125rem);
-  line-height: 1.65;
-  color: var(--color-slate-grey, #40545C);
+  font-size: 15px;
+  line-height: 1.68;
+  color: #40545C;
   margin: 0 0 32px 0;
+  max-width: 520px;
 }
 
-.agent-challenge-metric-callout {
+/* Meaningful business benefit callout box */
+.agent-challenge-benefit {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 22px;
+  background-color: #FFFFFF;
+  border: 1px solid #DCE5E7;
+  border-left: 3px solid var(--color-deep-teal, #167C80);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(7, 25, 35, 0.03);
+  max-width: 520px;
+}
+
+.agent-benefit-header {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 24px;
-  background-color: #FFFFFF;
-  border: 1px solid var(--color-border, #E2EAEC);
-  border-left: 4px solid var(--color-deep-teal, #167C80);
-  border-radius: var(--radius-sm, 6px);
-  box-shadow: 0 4px 16px rgba(11, 32, 41, 0.04);
+  gap: 8px;
 }
 
-.agent-metric-number {
+.agent-benefit-badge {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-deep-teal, #167C80);
+  flex-shrink: 0;
+}
+
+.agent-benefit-title {
   font-family: var(--font-family-headings, 'Inter', sans-serif);
-  font-size: clamp(2.4rem, 3.6vw, 3.2rem);
-  font-weight: 800;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--color-deep-teal, #167C80);
-  line-height: 1;
 }
 
-.agent-metric-caption {
+.agent-benefit-text {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
   font-size: 13.5px;
-  line-height: 1.5;
-  color: var(--color-slate-grey, #40545C);
+  line-height: 1.55;
+  color: #40545C;
+  margin: 0;
 }
 
+/* Right column: 4 restrained challenge cards */
 .agent-challenge-right {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -245,368 +265,174 @@
 
 .agent-challenge-card {
   background-color: #FFFFFF;
-  border: 1px solid var(--color-border, #E2EAEC);
-  border-radius: var(--radius-sm, 6px);
-  padding: clamp(20px, 2.5vw, 28px);
-  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  border: 1px solid #DCE5E7;
+  border-radius: 6px;
+  padding: clamp(24px, 2.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 1px 2px rgba(11, 32, 41, 0.02);
 }
 
 .agent-challenge-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(22, 124, 128, 0.35);
-  box-shadow: 0 8px 24px rgba(11, 32, 41, 0.06);
-}
-
-.agent-challenge-card-header {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  margin-bottom: 10px;
+  border-color: rgba(22, 124, 128, 0.4);
+  box-shadow: 0 6px 20px rgba(11, 32, 41, 0.05);
 }
 
 .agent-challenge-num {
-  font-family: var(--font-family-mono, 'Inter', sans-serif);
-  font-size: 13px;
+  font-family: var(--font-family-mono, 'Inter', monospace);
+  font-size: 11px;
   font-weight: 700;
+  letter-spacing: 0.12em;
   color: var(--color-deep-teal, #167C80);
+  margin-bottom: 12px;
+  display: inline-block;
 }
 
 .agent-challenge-title {
   font-family: var(--font-family-headings, 'Inter', sans-serif);
-  font-size: 1.15rem;
+  font-size: 1.0625rem;
   font-weight: 700;
   color: var(--color-charcoal, #17252B);
-  margin: 0;
+  line-height: 1.35;
   letter-spacing: -0.015em;
+  margin: 0 0 10px 0;
+  min-height: 2.7em;
 }
 
 .agent-challenge-desc {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--color-slate-grey, #40545C);
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 14px;
+  line-height: 1.62;
+  color: #40545C;
   margin: 0;
 }
 
 /* =============================================================================
-   SECTION 03: WHAT WE DELIVER — INTERACTIVE ACCORDION
+   SECTION 03: WHAT OUR AI AGENTS CAN DO — 6-CARD CAPABILITY GRID
    ============================================================================= */
-.agent-deliver-section {
+.agent-showcase-section {
   position: relative;
   background-color: #FFFFFF;
-  padding: clamp(72px, 9vh, 112px) 0;
+  padding: clamp(72px, 8.5vh, 108px) 0;
   border-bottom: 1px solid var(--color-border, #E2EAEC);
+  scroll-margin-top: calc(var(--header-height, 80px) + 24px);
 }
 
-.agent-deliver-header {
-  max-width: 820px;
-  margin-bottom: clamp(28px, 3.5vh, 44px);
+.agent-showcase-header {
+  margin-bottom: clamp(36px, 5vh, 56px);
+}
+
+.agent-showcase-header-split {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
 }
 
 .agent-section-heading {
-  font-family: var(--font-family-headings, 'Inter', sans-serif);
-  font-size: clamp(2.1rem, 3.4vw, 2.9rem);
-  font-weight: 800;
-  line-height: 1.18;
-  letter-spacing: -0.03em;
+  font-family: var(--font-family-headings, 'Inter', -apple-system, sans-serif);
+  font-size: clamp(2rem, 3.6vw, 2.85rem);
+  font-weight: 750;
   color: var(--color-charcoal, #17252B);
-  margin: 0 0 16px 0;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+  margin: 0;
+  max-width: 520px;
 }
 
 .agent-section-subhead {
-  font-size: clamp(1rem, 1.15vw, 1.125rem);
-  line-height: 1.62;
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: clamp(1rem, 1.25vw, 1.125rem);
   color: var(--color-slate-grey, #40545C);
+  line-height: 1.62;
   margin: 0;
+  max-width: 500px;
 }
 
-.agent-accordion-wrap {
+/* 6-Card Grid: 3 columns on desktop, 2 on tablet, 1 on mobile */
+.agent-six-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.5vw, 28px);
+}
+
+.agent-six-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2EAEC;
+  border-radius: 14px;
+  padding: clamp(26px, 3vw, 34px);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s ease,
+              box-shadow 0.22s ease;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(7, 25, 35, 0.02);
 }
 
-.agent-accordion-item {
-  background-color: var(--color-cloud-white, #F3F7F7);
-  border: 1px solid var(--color-border, #E2EAEC);
-  border-radius: var(--radius-sm, 6px);
-  overflow: hidden;
-  transition: border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
-}
-
-.agent-accordion-item.is-active {
-  background-color: #FFFFFF;
+.agent-six-card:hover {
+  transform: translateY(-3px);
   border-color: var(--color-deep-teal, #167C80);
-  box-shadow: 0 8px 30px rgba(11, 32, 41, 0.07);
+  box-shadow: 0 14px 36px -8px rgba(7, 25, 35, 0.08), 0 4px 12px rgba(7, 25, 35, 0.02);
 }
 
-.agent-accordion-trigger {
-  width: 100%;
+.agent-six-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: clamp(20px, 2.5vw, 28px);
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  gap: 20px;
-  box-sizing: border-box;
+  margin-bottom: 22px;
 }
 
-.agent-accordion-trigger-left {
-  display: flex;
-  align-items: center;
-  gap: clamp(16px, 2vw, 28px);
-}
-
-.agent-item-num {
-  font-family: var(--font-family-mono, 'Inter', sans-serif);
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--color-deep-teal, #167C80);
-  padding: 6px 12px;
+.agent-six-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
   background: rgba(22, 124, 128, 0.08);
-  border-radius: 4px;
-}
-
-.agent-item-title-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.agent-item-category {
-  font-family: var(--font-family-mono, 'Inter', sans-serif);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-muted-grey, #71838A);
-}
-
-.agent-item-title {
-  font-family: var(--font-family-headings, 'Inter', sans-serif);
-  font-size: clamp(1.15rem, 1.5vw, 1.45rem);
-  font-weight: 700;
-  color: var(--color-charcoal, #17252B);
-  margin: 0;
-  letter-spacing: -0.02em;
-}
-
-.agent-accordion-icon-wrap {
-  width: 36px;
-  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background: rgba(11, 32, 41, 0.04);
-  color: var(--color-charcoal, #17252B);
-  flex-shrink: 0;
-  transition: background-color 200ms ease, color 200ms ease;
+  color: var(--color-deep-teal, #167C80);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.agent-accordion-item.is-active .agent-accordion-icon-wrap {
+.agent-six-card:hover .agent-six-icon-box {
   background: var(--color-deep-teal, #167C80);
   color: #FFFFFF;
 }
 
-.agent-chevron {
-  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.agent-chevron.is-rotated {
-  transform: rotate(180deg);
-}
-
-.agent-accordion-drawer {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.agent-accordion-drawer.is-open {
-  grid-template-rows: 1fr;
-}
-
-.agent-drawer-inner {
-  overflow: hidden;
-}
-
-.agent-drawer-grid {
-  padding: 0 clamp(20px, 2.5vw, 28px) clamp(24px, 3vw, 32px);
-  border-top: 1px solid var(--color-border, #E2EAEC);
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: clamp(24px, 4vw, 48px);
-  align-items: flex-start;
-  margin-top: 6px;
-  padding-top: 20px;
-}
-
-.agent-drawer-lead {
-  font-size: 15.5px;
-  font-weight: 600;
-  line-height: 1.55;
-  color: var(--color-charcoal, #17252B);
-  margin: 0 0 12px 0;
-}
-
-.agent-drawer-desc {
-  font-size: 14.5px;
-  line-height: 1.65;
-  color: var(--color-slate-grey, #40545C);
-  margin: 0 0 24px 0;
-}
-
-.agent-drawer-systems {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.agent-systems-label {
-  font-family: var(--font-family-mono, 'Inter', sans-serif);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-muted-grey, #71838A);
-}
-
-.agent-systems-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.agent-sys-pill {
-  font-family: var(--font-family-mono, 'Inter', sans-serif);
+.agent-six-num {
+  font-family: var(--font-family-mono, monospace);
   font-size: 12px;
-  color: var(--color-charcoal, #17252B);
-  background: var(--color-cloud-white, #F3F7F7);
-  border: 1px solid var(--color-border, #E2EAEC);
-  padding: 4px 10px;
-  border-radius: 4px;
-}
-
-.agent-drawer-specs {
-  background: var(--color-cloud-white, #F3F7F7);
-  border: 1px solid var(--color-border, #E2EAEC);
-  border-radius: var(--radius-sm, 6px);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.agent-specs-title {
-  font-family: var(--font-family-mono, 'Inter', sans-serif);
-  font-size: 11px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-deep-teal, #167C80);
-  border-bottom: 1px solid var(--color-border, #E2EAEC);
-  padding-bottom: 8px;
+  letter-spacing: 0.08em;
+  color: #71838A;
 }
 
-.agent-spec-row {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.agent-spec-key {
-  font-size: 11.5px;
-  color: var(--color-muted-grey, #71838A);
-}
-
-.agent-spec-val {
-  font-size: 13.5px;
-  font-weight: 600;
+.agent-six-title {
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
   color: var(--color-charcoal, #17252B);
+  line-height: 1.35;
+  letter-spacing: -0.018em;
+  margin: 0 0 10px 0;
+}
+
+.agent-six-desc {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 14.5px;
+  color: var(--color-slate-grey, #40545C);
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* =============================================================================
-   SECTION 04: WHY IT MATTERS — MINIMAL BENEFITS STREAM
+   SECTION 04: WHY IT MATTERS
+   Handled by shared component: WhyItMattersSection (.matters-*)
    ============================================================================= */
-.agent-matters-section {
-  position: relative;
-  background-color: var(--color-cloud-white, #F3F7F7);
-  min-height: clamp(520px, 65vh, 700px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(72px, 8.5vh, 104px) 0;
-  border-bottom: 1px solid var(--color-border, #E2EAEC);
-  box-sizing: border-box;
-}
-
-.agent-matters-header {
-  max-width: 780px;
-  margin-bottom: clamp(32px, 4vh, 48px);
-}
-
-.agent-benefits-stream {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(16px, 2.5vw, 28px);
-}
-
-.agent-benefit-item {
-  background-color: #FFFFFF;
-  border: 1px solid var(--color-border, #E2EAEC);
-  border-radius: 12px;
-  padding: clamp(24px, 3vw, 32px);
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 2px 8px rgba(7, 25, 35, 0.03);
-  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
-}
-
-.agent-benefit-item:hover {
-  transform: translateY(-3px);
-  border-color: rgba(22, 124, 128, 0.4);
-  box-shadow: 0 10px 28px rgba(11, 32, 41, 0.06);
-}
-
-.agent-benefit-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.agent-benefit-num {
-  font-family: var(--font-family-mono, 'Inter', sans-serif);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--color-deep-teal, #167C80);
-}
-
-.agent-benefit-indicator {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-deep-teal, #167C80);
-}
-
-.agent-benefit-title {
-  font-family: var(--font-family-headings, 'Inter', sans-serif);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--color-charcoal, #17252B);
-  margin: 0 0 10px 0;
-  letter-spacing: -0.015em;
-}
-
-.agent-benefit-desc {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--color-slate-grey, #40545C);
-  margin: 0;
-}
 
 /* =============================================================================
    SECTION 05: FINAL CTA — PREMIUM DARK NAVY COMPOSITION
@@ -694,20 +520,20 @@
    ============================================================================= */
 @media (max-width: 1366px) {
   .agent-hero-content {
-    max-width: 660px;
+    max-width: 620px;
   }
   .agent-hero-bg {
-    object-position: 80% 28%;
+    object-position: 78% 28%;
   }
 }
 
 @media (max-width: 1024px) {
   .agent-hero-content {
-    max-width: 490px;
+    max-width: 520px;
   }
 
   .agent-hero-bg {
-    object-position: 80% 25%;
+    object-position: 78% 25%;
   }
 
   .agent-challenge-grid {
@@ -715,21 +541,51 @@
     gap: 40px;
   }
 
-  .agent-drawer-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  .agent-challenge-left {
+    position: static;
   }
 
-  .agent-benefits-stream {
+  .agent-challenge-lead,
+  .agent-challenge-benefit {
+    max-width: 100%;
+  }
+
+  .agent-challenge-title {
+    min-height: auto;
+  }
+
+  .agent-six-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .agent-showcase-header-split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
 }
 
 @media (max-width: 640px) {
+  .agent-showcase-section {
+    padding: clamp(48px, 6vh, 64px) 0;
+  }
+
+  .agent-six-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .agent-six-card {
+    padding: 22px 20px;
+  }
   .agent-hero-section {
     min-height: 100svh;
+    min-height: -webkit-fill-available;
+    display: flex;
     align-items: flex-end;
-    padding: clamp(240px, 36vh, 320px) 0 40px 0;
+    padding: clamp(140px, 20vh, 180px) 0 40px 0;
+    box-sizing: border-box;
   }
 
   .agent-hero-content {
@@ -743,35 +599,44 @@
   .agent-hero-overlay {
     background: linear-gradient(
       180deg,
-      rgba(7, 25, 35, 0.1) 0%,
-      rgba(7, 25, 35, 0.45) 240px,
-      rgba(7, 25, 35, 0.88) 360px,
-      rgba(11, 32, 41, 0.98) 100%
+      rgba(7, 25, 35, 0.15) 0%,
+      rgba(7, 25, 35, 0.35) 26%,
+      rgba(7, 25, 35, 0.88) 50%,
+      rgba(7, 25, 35, 0.98) 78%,
+      #071923 100%
     );
+  }
+
+  .agent-hero-headline {
+    font-size: clamp(1.85rem, 7.5vw, 2.35rem);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .agent-hero-desc {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 28px;
   }
 
   .agent-challenge-right {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
-  .agent-benefits-stream {
-    grid-template-columns: 1fr;
+  .agent-challenge-card {
+    padding: 20px;
   }
 
   .agent-hero-ctas,
   .agent-final-actions {
     flex-direction: column;
     width: 100%;
+    gap: 12px;
   }
 
   .agent-hero-ctas .btn,
   .agent-final-actions .btn {
     width: 100%;
-  }
-
-  .agent-challenge-metric-callout {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
   }
 }

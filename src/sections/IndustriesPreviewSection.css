@@ -239,8 +239,8 @@
   left: 380px;
   top: 320px;
   transform: translate(-50%, -50%);
-  width: 176px;
-  height: 176px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   background: #FFFFFF;
   border: 1px solid rgba(11, 48, 56, 0.09);
@@ -262,17 +262,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
   text-align: center;
-}
-
-.ind-hub-symbol-svg {
-  display: block;
 }
 
 .ind-hub-wordmark {
   font-family: var(--font-family-headings, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 750;
   color: #0B2029;
   letter-spacing: -0.035em;

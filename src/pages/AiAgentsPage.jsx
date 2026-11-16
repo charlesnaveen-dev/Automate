@@ -1,119 +1,107 @@
-import React, { useState, useRef } from 'react';
-import { ChevronDown } from 'lucide-react';
+import React, { useRef } from 'react';
+import {
+  MessageSquare,
+  UserCheck,
+  Calendar,
+  FileText,
+  Workflow,
+  RefreshCw,
+  Zap,
+  Brain,
+  ShieldCheck,
+} from 'lucide-react';
 import { usePageMetadata } from '../hooks/usePageMetadata';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useGsapContext } from '../animations/useGsapContext';
 import gsap from 'gsap';
 import Button from '../components/Button';
+import WhyItMattersSection from '../components/WhyItMattersSection';
 import './AiAgentsPage.css';
 
-const DELIVERABLES = [
+const SIX_CAPABILITIES = [
   {
-    id: 'triage-agents',
     num: '01',
-    title: 'Inbound Inquiry & Triage Agents',
-    category: 'Operational Routing',
-    lead: 'Interprets inbound client emails, portal tickets, and web submissions with calibrated intent classification.',
-    desc: 'Extracts critical entities, verifies client accounts against your CRM, and automatically stages formatted draft responses or routes the case to the appropriate specialist with full context.',
-    specs: [
-      { label: 'Latency', value: 'Sub-second classification' },
-      { label: 'Safety Gate', value: 'Confidence scoring with manual fallback' },
-      { label: 'Output Schema', value: 'Structured JSON pushed directly to CRM' },
-    ],
-    systems: ['HubSpot', 'Salesforce', 'Zendesk', 'Gmail', 'Microsoft 365'],
+    icon: MessageSquare,
+    title: 'Answer Customer Questions',
+    desc: 'Responds instantly to common enquiries using your business data, policies, and documents.',
   },
   {
-    id: 'knowledge-copilots',
     num: '02',
-    title: 'Grounded Knowledge Retrieval Copilots',
-    category: 'Context & Retrieval',
-    lead: 'Internal intelligence engines that index proprietary manuals, SOPs, and technical documentation.',
-    desc: 'Empowers employees to query thousands of pages of company guidelines in natural language. Every answer is strictly grounded in verified source documents with line-item citations, eliminating hallucination risks.',
-    specs: [
-      { label: 'Retrieval Model', value: 'Hybrid dense semantic & sparse lexical' },
-      { label: 'Access Control', value: 'Role-based document permission filtering' },
-      { label: 'Citation Depth', value: 'Direct link to exact source paragraphs' },
-    ],
-    systems: ['Notion', 'Confluence', 'Google Drive', 'PostgreSQL', 'SharePoint'],
+    icon: UserCheck,
+    title: 'Qualify & Capture Leads',
+    desc: 'Engages website or chat visitors, collects key details, and routes qualified leads.',
   },
   {
-    id: 'document-extraction',
     num: '03',
-    title: 'Intelligent Document Extraction Pipelines',
-    category: 'Data Normalization',
-    lead: 'Automated processing for multi-page PDFs, contracts, invoices, and structured business forms.',
-    desc: 'Extracts nested line items, financial figures, and contractual terms without manual transcription. Validates extracted schemas against strict business rules before pushing directly into ERPs.',
-    specs: [
-      { label: 'Document Formats', value: 'Scanned PDFs, TIFFs, forms, invoices' },
-      { label: 'Validation Layer', value: 'Automated checksum and schema verification' },
-      { label: 'Throughput', value: 'Concurrent batch extraction at scale' },
-    ],
-    systems: ['QuickBooks', 'Xero', 'Stripe', 'NetSuite', 'AWS S3'],
+    icon: Calendar,
+    title: 'Book Appointments',
+    desc: 'Checks availability, schedules meetings or service visits, and sends confirmations.',
   },
   {
-    id: 'operations-agents',
     num: '04',
-    title: 'Action-Executing Operations Agents',
-    category: 'Tool Execution',
-    lead: 'Sandboxed autonomous agents authorized to execute multi-step operations across internal software.',
-    desc: 'Coordinates cross-platform operations such as provisioning client accounts, generating access tokens, scheduling calendar meetings, and updating stage flags with strict human-in-the-loop oversight.',
-    specs: [
-      { label: 'Execution Scope', value: 'Scoped tokens and whitelisted endpoints' },
-      { label: 'Human Oversight', value: 'Approval gates for sensitive mutations' },
-      { label: 'Audit Logging', value: 'Tamper-evident reasoning telemetry' },
-    ],
-    systems: ['Linear', 'Jira', 'Slack', 'Google Calendar', 'Internal APIs'],
+    icon: FileText,
+    title: 'Work With Your Business Data',
+    desc: 'Finds answers from internal PDFs, contracts, handbooks, and databases.',
+  },
+  {
+    num: '05',
+    icon: Workflow,
+    title: 'Automate Routine Tasks',
+    desc: 'Handles repetitive actions across your tools, including sales, support, and operations.',
+  },
+  {
+    num: '06',
+    icon: RefreshCw,
+    title: 'Keep Records Up to Date',
+    desc: 'Updates CRM, creates tickets, and keeps your business information in sync.',
   },
 ];
 
 const CHALLENGES = [
   {
     num: '01',
-    title: 'Manual Inquiry Triage Drag',
-    desc: 'High-salary teams lose hours every day reading, classifying, and routing customer tickets instead of resolving high-value casework.',
+    title: 'Too Many Repetitive Questions',
+    desc: 'Your team repeatedly answers common customer and employee questions instead of focusing on more important work.',
   },
   {
     num: '02',
-    title: 'Information Trapped in Silos',
-    desc: 'Critical company policies, product manuals, and historical records live in disconnected tools, making accurate answers slow to retrieve.',
+    title: 'Information Across Different Tools',
+    desc: 'Company policies, customer details and documents are stored in different systems, making information difficult to find.',
   },
   {
     num: '03',
-    title: 'Clerical Transcription Errors',
-    desc: 'Copying unstructured text between customer emails, PDFs, and internal databases introduces frequent clerical mistakes and operational delays.',
+    title: 'Manual Work Slows Teams Down',
+    desc: 'Copying information, updating records and routing requests manually creates unnecessary delays.',
   },
   {
     num: '04',
-    title: 'Unchecked Hallucination Risks',
-    desc: 'Deploying off-the-shelf generative chat tools without strict grounding, bounded tool permissions, and human checkpoints creates liabilities.',
+    title: 'Inaccurate AI Responses',
+    desc: 'Generic AI tools without access to reliable company information can provide inaccurate answers. Businesses need controlled access to information and human oversight.',
   },
 ];
 
-const BENEFITS = [
+const WHY_IT_MATTERS_BENEFITS = [
   {
     num: '01',
-    title: '24/7 Backlog-Free Execution',
-    desc: 'Inquiries, forms, and documents are classified and processed continuously around the clock with zero operational delay.',
+    icon: Zap,
+    title: 'Faster Customer Responses',
+    desc: 'Agents handle common questions instantly and route complex issues to the right team, so customers receive timely assistance.',
   },
   {
     num: '02',
-    title: 'Grounded Retrieval Guardrails',
-    desc: 'Every response is strictly bounded by your verified internal documentation, accompanied by direct clickable source citations.',
+    icon: Brain,
+    title: 'Context-Aware Decisions',
+    desc: 'By understanding your business data and context, agents provide relevant answers and take appropriate actions.',
   },
   {
     num: '03',
-    title: 'Guaranteed Human Oversight',
-    desc: 'Staff retain deterministic approval gates on sensitive customer messages, financial transactions, and operational mutations.',
-  },
-  {
-    num: '04',
-    title: 'Immutable Audit Telemetry',
-    desc: 'Every prompt token, grounding citation, tool execution, and state change is permanently logged for security and compliance review.',
+    icon: ShieldCheck,
+    title: 'Consistent Business Operations',
+    desc: 'Automate routine tasks, reduce repetitive work, and maintain reliable processes across your business.',
   },
 ];
 
 export default function AiAgentsPage() {
-  const [expandedIndex, setExpandedIndex] = useState(0);
   const pageRef = useRef(null);
 
   usePageMetadata({
@@ -139,71 +127,80 @@ export default function AiAgentsPage() {
     )
       .fromTo(
         '.agent-hero-label',
-        { opacity: 0, y: 16 },
+        { opacity: 0, y: 15 },
         { opacity: 1, y: 0, duration: 0.6 },
         '-=0.8'
       )
       .fromTo(
         '.agent-hero-headline',
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.7 },
-        '-=0.45'
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        '-=0.5'
       )
       .fromTo(
-        '.agent-hero-desc',
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        '-=0.4'
+        '.agent-hero-lead',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        '-=0.6'
       )
       .fromTo(
-        '.agent-hero-ctas',
-        { opacity: 0, y: 14 },
-        { opacity: 1, y: 0, duration: 0.55 },
-        '-=0.35'
+        '.agent-hero-actions',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        '-=0.6'
       );
-  }, []);
-
-  const toggleAccordion = (index) => {
-    setExpandedIndex(expandedIndex === index ? -1 : index);
-  };
+  });
 
   return (
-    <div className="ai-agents-redesign" ref={pageRef}>
+    <div className="agent-page" ref={pageRef}>
       {/* =========================================================================
-          SECTION 01: HERO — FULL-COVER PHOTOGRAPHY
+          SECTION 01: HERO SECTION
           ========================================================================= */}
       <section className="agent-hero-section" aria-label="AI Agents Hero">
-        <div className="agent-hero-bg-wrapper" aria-hidden="true">
+        <div className="agent-hero-bg-container" aria-hidden="true">
           <picture>
-            <source media="(max-width: 640px)" srcSet="/images/hero-ai-agents-mobile.jpg" />
+            <source
+              media="(max-width: 767px)"
+              srcSet="/images/hero-ai-agents-mobile.webp"
+              type="image/webp"
+            />
+            <source
+              media="(max-width: 767px)"
+              srcSet="/images/hero-ai-agents-mobile.jpg"
+              type="image/jpeg"
+            />
+            <source
+              srcSet="/images/hero-ai-agents.webp"
+              type="image/webp"
+            />
             <img
               src="/images/hero-ai-agents.jpg"
-              alt=""
+              alt="Hutomate autonomous agent technology operations"
               className="agent-hero-bg"
+              width="1920"
+              height="1080"
               loading="eager"
-              decoding="sync"
+              fetchPriority="high"
             />
           </picture>
           <div className="agent-hero-overlay" />
-          <div className="agent-hero-vignette" />
         </div>
 
         <div className="container agent-hero-container">
           <div className="agent-hero-content">
             <div className="agent-hero-label">
-              <span className="agent-hero-beacon" aria-hidden="true" />
-              <span>CAPABILITY 01 // AUTONOMOUS INTELLIGENCE</span>
+              <span>AI AGENTS</span>
             </div>
 
             <h1 className="agent-hero-headline">
               AI agents that understand context, make decisions, and execute business tasks.
             </h1>
 
-            <p className="agent-hero-desc">
+            <p className="agent-hero-lead">
               We engineer autonomous software agents that interpret natural language, retrieve verified company knowledge, and execute multi-step workflows across your business tools—with strict human-in-the-loop oversight.
             </p>
 
-            <div className="agent-hero-ctas">
+            <div className="agent-hero-actions">
               <Button variant="primary" size="lg" arrow href="/start-project">
                 Discuss Your Project
               </Button>
@@ -216,7 +213,7 @@ export default function AiAgentsPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 02: THE CHALLENGE — EDITORIAL SPLIT LAYOUT
+          SECTION 02: THE CHALLENGE
           ========================================================================= */}
       <section className="agent-challenge-section" aria-label="The Challenge">
         <div className="container">
@@ -224,26 +221,27 @@ export default function AiAgentsPage() {
             <div className="agent-challenge-left reveal-on-scroll">
               <span className="agent-section-kicker">THE CHALLENGE</span>
               <h2 className="agent-challenge-heading">
-                Knowledge teams spend 40% of their workday acting as human routers.
+                Your team spends too much time answering the same questions and searching for information.
               </h2>
               <p className="agent-challenge-lead">
-                Without structured agency and guardrails, operators waste hours copying text between client inboxes, checking internal PDF manuals, and manually keying records into CRMs.
+                Customer enquiries, internal documents and repetitive tasks take valuable time away from your team. Important information is often spread across different tools, making it harder to find answers quickly and respond consistently.
               </p>
-              <div className="agent-challenge-metric-callout">
-                <span className="agent-metric-number">40%</span>
-                <span className="agent-metric-caption">
-                  Average employee time consumed by repetitive data triage and manual context-switching between SaaS tools.
-                </span>
+              <div className="agent-challenge-benefit">
+                <div className="agent-benefit-header">
+                  <span className="agent-benefit-badge" aria-hidden="true" />
+                  <span className="agent-benefit-title">Controlled Knowledge Access</span>
+                </div>
+                <p className="agent-benefit-text">
+                  AI agents reference your verified internal documents and policies to provide accurate answers, with built-in human review for sensitive requests.
+                </p>
               </div>
             </div>
 
             <div className="agent-challenge-right reveal-on-scroll">
               {CHALLENGES.map((ch, idx) => (
                 <div key={idx} className="agent-challenge-card">
-                  <div className="agent-challenge-card-header">
-                    <span className="agent-challenge-num">{ch.num}</span>
-                    <h3 className="agent-challenge-title">{ch.title}</h3>
-                  </div>
+                  <span className="agent-challenge-num">{ch.num}</span>
+                  <h3 className="agent-challenge-title">{ch.title}</h3>
                   <p className="agent-challenge-desc">{ch.desc}</p>
                 </div>
               ))}
@@ -253,85 +251,36 @@ export default function AiAgentsPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 03: WHAT WE DELIVER — INTERACTIVE ACCORDION
+          SECTION 03: WHAT OUR AI AGENTS CAN DO — 6-CARD CAPABILITY GRID
           ========================================================================= */}
-      <section className="agent-deliver-section" aria-label="What We Deliver">
+      <section className="agent-showcase-section" aria-label="What Our AI Agents Can Do">
         <div className="container">
-          <div className="agent-deliver-header reveal-on-scroll">
-            <span className="agent-section-kicker">WHAT WE DELIVER</span>
-            <h2 className="agent-section-heading">
-              Autonomous intelligence built for production operations.
-            </h2>
-            <p className="agent-section-subhead">
-              Explore the four core agent architectures we engineer, each calibrated with grounded retrieval, deterministic schemas, and explicit confidence thresholds.
-            </p>
+          <div className="agent-showcase-header reveal-on-scroll">
+            <span className="agent-section-kicker">WHAT OUR AI AGENTS CAN DO</span>
+            <div className="agent-showcase-header-split">
+              <h2 className="agent-section-heading">
+                Real Work, Handled by AI
+              </h2>
+              <p className="agent-section-subhead">
+                Let AI take care of repetitive work, so your team can focus on customers, growth, and bigger goals.
+              </p>
+            </div>
           </div>
 
-          <div className="agent-accordion-wrap reveal-on-scroll">
-            {DELIVERABLES.map((item, idx) => {
-              const isExpanded = expandedIndex === idx;
+          <div className="agent-six-grid reveal-on-scroll">
+            {SIX_CAPABILITIES.map((cap, idx) => {
+              const IconComp = cap.icon;
               return (
-                <div
-                  key={item.id}
-                  className={`agent-accordion-item ${isExpanded ? 'is-active' : ''}`}
-                >
-                  <button
-                    type="button"
-                    className="agent-accordion-trigger"
-                    onClick={() => toggleAccordion(idx)}
-                    aria-expanded={isExpanded}
-                    aria-controls={`deliverable-content-${item.id}`}
-                  >
-                    <div className="agent-accordion-trigger-left">
-                      <span className="agent-item-num">{item.num}</span>
-                      <div className="agent-item-title-wrap">
-                        <span className="agent-item-category">{item.category}</span>
-                        <h3 className="agent-item-title">{item.title}</h3>
-                      </div>
+                <article key={idx} className="agent-six-card">
+                  <div className="agent-six-card-top">
+                    <div className="agent-six-icon-box" aria-hidden="true">
+                      <IconComp size={22} className="agent-six-icon" />
                     </div>
-                    <div className="agent-accordion-icon-wrap" aria-hidden="true">
-                      <ChevronDown
-                        size={20}
-                        className={`agent-chevron ${isExpanded ? 'is-rotated' : ''}`}
-                      />
-                    </div>
-                  </button>
-
-                  <div
-                    id={`deliverable-content-${item.id}`}
-                    className={`agent-accordion-drawer ${isExpanded ? 'is-open' : ''}`}
-                  >
-                    <div className="agent-drawer-inner">
-                      <div className="agent-drawer-grid">
-                        <div className="agent-drawer-main">
-                          <p className="agent-drawer-lead">{item.lead}</p>
-                          <p className="agent-drawer-desc">{item.desc}</p>
-
-                          <div className="agent-drawer-systems">
-                            <span className="agent-systems-label">Compatible Platforms:</span>
-                            <div className="agent-systems-tags">
-                              {item.systems.map((sys, sIdx) => (
-                                <span key={sIdx} className="agent-sys-pill">
-                                  {sys}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="agent-drawer-specs">
-                          <span className="agent-specs-title">Architectural Specifications</span>
-                          {item.specs.map((sp, spIdx) => (
-                            <div key={spIdx} className="agent-spec-row">
-                              <span className="agent-spec-key">{sp.label}</span>
-                              <span className="agent-spec-val">{sp.value}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+                    <span className="agent-six-num">{cap.num}</span>
                   </div>
-                </div>
+                  <h3 className="agent-six-title">{cap.title}</h3>
+                  <p className="agent-six-desc">{cap.desc}</p>
+                </article>
               );
             })}
           </div>
@@ -341,32 +290,12 @@ export default function AiAgentsPage() {
       {/* =========================================================================
           SECTION 04: WHY IT MATTERS — MINIMAL BUSINESS BENEFITS
           ========================================================================= */}
-      <section className="agent-matters-section" aria-label="Why It Matters">
-        <div className="container">
-          <div className="agent-matters-header reveal-on-scroll">
-            <span className="agent-section-kicker">WHY IT MATTERS</span>
-            <h2 className="agent-section-heading">
-              Measurable business outcomes, zero speculative claims.
-            </h2>
-            <p className="agent-section-subhead">
-              We focus on tangible operational gains: eliminating backlog, verifying facts with citations, and keeping human teams firmly in control.
-            </p>
-          </div>
-
-          <div className="agent-benefits-stream reveal-on-scroll">
-            {BENEFITS.map((ben, idx) => (
-              <div key={idx} className="agent-benefit-item">
-                <div className="agent-benefit-top">
-                  <span className="agent-benefit-num">{ben.num}</span>
-                  <div className="agent-benefit-indicator" aria-hidden="true" />
-                </div>
-                <h3 className="agent-benefit-title">{ben.title}</h3>
-                <p className="agent-benefit-desc">{ben.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WhyItMattersSection
+        kicker="WHY IT MATTERS"
+        heading="Faster, smarter, more consistent business operations."
+        subhead="AI agents help you respond faster, make better decisions with context, and keep your business running smoothly — without the manual grind."
+        benefits={WHY_IT_MATTERS_BENEFITS}
+      />
 
       {/* =========================================================================
           SECTION 05: FINAL CTA — PREMIUM DARK NAVY COMPOSITION
