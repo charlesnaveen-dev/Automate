@@ -124,10 +124,11 @@ export default function AboutPage() {
             <div className="about-hero-media reveal-on-scroll reveal-delay-2">
               <div className="about-hero-image-frame">
                 <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+                  src="/images/about-team-hero.jpg"
                   alt="Engineering team collaborating in modern office"
                   className="about-hero-image"
                   loading="eager"
+                  decoding="sync"
                 />
               </div>
             </div>

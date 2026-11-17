@@ -365,118 +365,147 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  background: #FFFFFF;
-  border: 1px solid rgba(11, 48, 56, 0.09);
+  background: var(--color-midnight-navy, #071923);
+  border: 1px solid rgba(131, 221, 226, 0.25);
   border-radius: 16px;
   padding: 14px 18px;
-  box-shadow: 0 4px 18px rgba(11, 48, 56, 0.06);
-  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(7, 25, 35, 0.18);
+  margin-bottom: 14px;
 }
 
 .ind-mobile-brand-icon {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 12px;
-  background: rgba(8, 127, 131, 0.08);
+  background: rgba(131, 221, 226, 0.12);
+  color: var(--color-electric-cyan, #83DDE2);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  border: 1px solid rgba(131, 221, 226, 0.2);
+}
+
+.ind-mobile-network-icon {
+  animation: pulseMesh 3s ease-in-out infinite;
+}
+
+@keyframes pulseMesh {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
 }
 
 .ind-mobile-brand-meta {
   display: flex;
   flex-direction: column;
   text-align: left;
-  gap: 2px;
+  gap: 4px;
 }
 
-.ind-mobile-brand-title {
-  font-family: var(--font-family-headings, 'Inter', sans-serif);
-  font-size: 15px;
-  font-weight: 700;
-  color: #0B2029;
+.ind-mobile-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ind-mobile-mesh-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-electric-cyan, #83DDE2);
+  background: rgba(131, 221, 226, 0.12);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  border: 1px solid rgba(131, 221, 226, 0.2);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .ind-mobile-brand-count {
-  font-family: var(--font-family-mono, 'Inter', sans-serif);
-  font-size: 11px;
-  font-weight: 600;
-  color: #087F83;
-  letter-spacing: 0.02em;
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(226, 234, 236, 0.82);
+  letter-spacing: 0.01em;
 }
 
 .ind-mobile-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 10px;
 }
 
 .ind-mobile-card {
   background: #FFFFFF;
-  border: 1px solid rgba(11, 48, 56, 0.08);
+  border: 1px solid rgba(11, 48, 56, 0.1);
   border-radius: 14px;
-  padding: 14px;
+  padding: 12px 14px;
   text-decoration: none;
   color: inherit;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   text-align: left;
-  gap: 8px;
+  min-height: 88px;
   box-shadow: 0 2px 8px rgba(11, 48, 56, 0.04);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .ind-mobile-card:active,
 .ind-mobile-card.is-active {
-  border-color: #087F83;
-  box-shadow: 0 6px 18px rgba(8, 127, 131, 0.16);
-  transform: translateY(-2px);
+  border-color: var(--color-deep-teal, #167C80);
+  background: rgba(22, 124, 128, 0.03);
+  box-shadow: 0 4px 14px rgba(22, 124, 128, 0.14);
+  transform: scale(0.98);
 }
 
 .ind-mobile-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 8px;
 }
 
 .ind-mobile-card-icon {
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: rgba(8, 127, 131, 0.08);
-  color: #087F83;
+  background: rgba(22, 124, 128, 0.08);
+  color: var(--color-deep-teal, #167C80);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .ind-mobile-card-arrow {
-  color: #71838A;
+  color: #8E9BA0;
   transition: transform 0.15s ease, color 0.15s ease;
 }
 
-.ind-mobile-card:hover .ind-mobile-card-arrow,
+.ind-mobile-card:active .ind-mobile-card-arrow,
 .ind-mobile-card.is-active .ind-mobile-card-arrow {
-  color: #087F83;
-  transform: translateX(3px);
+  color: var(--color-deep-teal, #167C80);
+  transform: translateX(2px);
 }
 
 .ind-mobile-card-title {
   font-family: var(--font-family-body, 'Inter', sans-serif);
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 700;
-  color: #0B2029;
+  color: var(--color-midnight-navy, #071923);
   line-height: 1.25;
 }
 
-.ind-mobile-card-tag {
-  font-family: var(--font-family-mono, 'Inter', sans-serif);
+.ind-mobile-card-sub {
+  font-family: var(--font-mono, monospace);
   font-size: 9.5px;
   font-weight: 600;
-  color: #71838A;
+  color: var(--color-deep-teal, #167C80);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  margin-top: 3px;
+  display: block;
 }
 
 /* =============================================================================
@@ -569,7 +598,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 340px) {
   .ind-mobile-grid {
     grid-template-columns: 1fr;
   }

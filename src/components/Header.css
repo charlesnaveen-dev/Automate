@@ -411,15 +411,16 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 24px;
+  padding: max(20px, env(safe-area-inset-top, 20px)) 20px max(24px, env(safe-area-inset-bottom, 24px)) 20px;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .mobile-nav-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 20px;
+  padding-bottom: 18px;
   border-bottom: 1px solid rgba(226, 234, 236, 0.12);
 }
 
@@ -519,6 +520,53 @@
   min-height: 36px;
   display: inline-flex;
   align-items: center;
+}
+
+/* Trust & Direct Contact in Mobile Drawer */
+.mobile-nav-trust-box {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(22, 124, 128, 0.1);
+  border: 1px solid rgba(131, 221, 226, 0.18);
+}
+
+.mobile-trust-kicker {
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--color-electric-cyan, #83DDE2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.mobile-trust-text {
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(226, 234, 236, 0.85);
+  margin: 0 0 10px 0;
+}
+
+.mobile-trust-contact {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+}
+
+.mobile-contact-label {
+  color: rgba(226, 234, 236, 0.6);
+}
+
+.mobile-contact-link {
+  color: var(--color-electric-cyan, #83DDE2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
 }
 
 .mobile-nav-footer {

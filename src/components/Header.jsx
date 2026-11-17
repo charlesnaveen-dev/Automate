@@ -337,6 +337,20 @@ export default function Header() {
                 </Link>
               </li>
             </ul>
+
+            {/* Enterprise Quick Contact / Trust Strip in Drawer to balance negative space */}
+            <div className="mobile-nav-trust-box">
+              <span className="mobile-trust-kicker">Enterprise Systems Partner</span>
+              <p className="mobile-trust-text">
+                Custom AI agents, workflow automation & deterministic software engineered for global operations.
+              </p>
+              <div className="mobile-trust-contact">
+                <span className="mobile-contact-label">Direct Inquiry:</span>
+                <a href="mailto:hutomate@gmail.com" className="mobile-contact-link">
+                  hutomate@gmail.com
+                </a>
+              </div>
+            </div>
           </nav>
 
           <div className="mobile-nav-footer">

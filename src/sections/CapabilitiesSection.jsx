@@ -298,58 +298,85 @@ const CAPABILITIES = [
   {
     num: '01',
     title: 'AI Agents',
-    description: 'Intelligent systems that understand, decide and execute tasks.',
+    tag: 'Autonomous Intelligence',
+    description: 'Intelligent systems that understand context, make decisions and execute complex tasks across your business software.',
+    features: [
+      'Multi-step workflow execution with verified retrieval',
+      'Direct integration with CRMs, databases & Slack',
+      'Strict human-in-the-loop validation checkpoints',
+    ],
     linkText: 'Explore AI Agents',
     route: '/capabilities/ai-agents',
     visual: <AiAgentsVisual />,
   },
   {
     num: '02',
-    title: 'Workflow Automation',
-    description: 'Connected processes that eliminate repetitive work and improve efficiency.',
-    linkText: 'Explore Automation',
-    route: '/capabilities/workflow-automation',
-    visual: <WorkflowAutomationVisual />,
-  },
-  {
-    num: '03',
-    title: 'Voice AI',
-    description: 'Natural conversations that turn into real actions across your business.',
-    linkText: 'Explore Voice AI',
+    title: 'AI Receptionists',
+    tag: 'Voice AI & Conversational',
+    description: 'Natural voice agents that answer calls 24/7, qualify inquiries, book appointments, and sync data instantly into your systems.',
+    features: [
+      'Sub-500ms low-latency natural voice responses',
+      'Live calendar booking & CRM contact synchronization',
+      'Automated call triage & instant human escalation',
+    ],
+    linkText: 'Explore AI Receptionists',
     route: '/capabilities/voice-ai',
     visual: <VoiceAiVisual />,
   },
   {
+    num: '03',
+    title: 'Workflow Automation',
+    tag: 'Connected Operations',
+    description: 'Connected processes that eliminate repetitive clerical work, bridge siloed software, and dramatically improve team throughput.',
+    features: [
+      'Automated cross-platform document processing',
+      'Real-time data synchronization between disparate SaaS tools',
+      'Exception handling & automated error notifications',
+    ],
+    linkText: 'Explore Workflow Automation',
+    route: '/capabilities/workflow-automation',
+    visual: <WorkflowAutomationVisual />,
+  },
+  {
     num: '04',
-    title: 'Custom AI Solutions',
-    description: 'Purpose-built intelligence for your unique workflows, data and goals.',
-    linkText: 'Explore Solutions',
+    title: 'Integrations & Custom Systems',
+    tag: 'Bespoke AI Engineering',
+    description: 'Purpose-built software architectures tailored to your exact operational realities, proprietary data schemas, and long-term goals.',
+    features: [
+      'Custom LLM pipelines with zero-retention private VPC',
+      'Proprietary API connectors & webhook orchestration',
+      '100% client ownership of all code, workflows & models',
+    ],
+    linkText: 'Explore Custom Solutions',
     route: '/capabilities/custom-ai-solutions',
     visual: <CustomAiVisual />,
   },
 ];
 
 export default function CapabilitiesSection() {
-  // Shared active selection state (null by default so all 4 cards start in normal white state)
-  const [activeCardNum, setActiveCardNum] = useState(null);
+  // Shared active selection state (starts at '01' for rich initial preview)
+  const [activeCardNum, setActiveCardNum] = useState('01');
   const [hoveredCardNum, setHoveredCardNum] = useState(null);
   const [focusedCardNum, setFocusedCardNum] = useState(null);
+
+  const activeMobileCap =
+    CAPABILITIES.find((c) => c.num === activeCardNum) || CAPABILITIES[0];
 
   const handleCardClick = (num, e) => {
     // If clicking directly on the exploration link, allow normal navigation
     if (e.target.closest('.cap-card-link-wrap')) {
       return;
     }
-    // Clicking the card toggles active state: click active card resets to null
+    // Clicking the card sets active state
     e.preventDefault();
-    setActiveCardNum((prev) => (prev === num ? null : num));
+    setActiveCardNum(num);
   };
 
   const handleKeyDown = (num, e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       if (e.target === e.currentTarget) {
         e.preventDefault();
-        setActiveCardNum((prev) => (prev === num ? null : num));
+        setActiveCardNum(num);
       }
     }
   };
@@ -408,13 +435,88 @@ export default function CapabilitiesSection() {
           </p>
         </div>
 
-        {/* Four Cards Grid */}
-        <div className="cap-cards-row" onMouseLeave={() => setHoveredCardNum(null)}>
+        {/* ------------------------------------------------------------------
+            MOBILE INTERACTIVE CAPABILITIES SELECTOR (< 768px)
+            Touch-friendly tab navigation + expanded active capability panel
+            ------------------------------------------------------------------ */}
+        <div className="cap-mobile-interactive-container" aria-label="Mobile Capabilities Selector">
+          {/* 4 Interactive Capability Tabs / Buttons */}
+          <div className="cap-mobile-tabs-grid" role="tablist" aria-label="Select Capability">
+            {CAPABILITIES.map((cap) => {
+              const isActive = activeCardNum === cap.num;
+              return (
+                <button
+                  key={cap.num}
+                  type="button"
+                  role="tab"
+                  id={`cap-tab-${cap.num}`}
+                  aria-selected={isActive}
+                  aria-controls={`cap-panel-${cap.num}`}
+                  onClick={() => setActiveCardNum(cap.num)}
+                  className={`cap-mobile-tab-btn ${isActive ? 'cap-mobile-tab-btn--active' : ''}`}
+                >
+                  <span className="cap-mobile-tab-num">{cap.num}</span>
+                  <span className="cap-mobile-tab-title">{cap.title}</span>
+                  {isActive && <span className="cap-mobile-tab-dot" aria-hidden="true" />}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Expanded Capability Card */}
+          <div
+            id={`cap-panel-${activeMobileCap.num}`}
+            role="tabpanel"
+            aria-labelledby={`cap-tab-${activeMobileCap.num}`}
+            className="cap-mobile-active-card"
+          >
+            {/* Ambient Cyan Glow */}
+            <div className="cap-dark-ambient-wave is-visible" aria-hidden="true" />
+
+            <div className="cap-mobile-card-header">
+              <span className="cap-mobile-card-tag">{activeMobileCap.tag}</span>
+              <span className="cap-mobile-card-index">{activeMobileCap.num} / 04</span>
+            </div>
+
+            {/* Illustration */}
+            <div className="cap-mobile-visual-wrap" aria-hidden="true">
+              {activeMobileCap.visual}
+            </div>
+
+            {/* Details */}
+            <h3 className="cap-mobile-card-title">{activeMobileCap.title}</h3>
+            <p className="cap-mobile-card-desc">{activeMobileCap.description}</p>
+
+            {/* Feature Bullets */}
+            <ul className="cap-mobile-features-list">
+              {activeMobileCap.features.map((feat, idx) => (
+                <li key={idx} className="cap-mobile-feature-item">
+                  <span className="cap-mobile-feature-check">✓</span>
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Direct CTA Link */}
+            <Link
+              to={activeMobileCap.route}
+              className="cap-mobile-card-cta"
+            >
+              <span>{activeMobileCap.linkText}</span>
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+
+        {/* ------------------------------------------------------------------
+            DESKTOP FOUR CARDS GRID (>= 768px)
+            Strictly preserves the approved 4-card horizontal editorial layout
+            ------------------------------------------------------------------ */}
+        <div className="cap-cards-row cap-desktop-cards-row" onMouseLeave={() => setHoveredCardNum(null)}>
           {CAPABILITIES.map((cap) => {
             const isHovered = hoveredCardNum === cap.num;
             const isFocused = focusedCardNum === cap.num;
             const isActive = activeCardNum === cap.num;
-            // Hover or focus highlights the card; when nothing is hovered/focused, active clicked card remains highlighted
             const isHighlighted = isHovered || isFocused || (hoveredCardNum === null && focusedCardNum === null && isActive);
 
             return (

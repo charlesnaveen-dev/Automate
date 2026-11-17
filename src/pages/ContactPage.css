@@ -322,3 +322,55 @@
     order: 2;
   }
 }
+
+@media (max-width: 640px) {
+  .contact-section {
+    padding: 24px 0 44px 0;
+  }
+
+  .contact-layout-grid {
+    gap: 24px;
+  }
+
+  .contact-form-card {
+    padding: 22px 16px;
+    border-radius: 14px;
+  }
+
+  .form-header-area {
+    margin-bottom: 20px;
+  }
+
+  .form-main-heading {
+    font-size: 1.3rem;
+  }
+
+  .form-main-sub {
+    font-size: 13.5px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-input {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .form-submit-group {
+    margin-top: 20px;
+  }
+
+  .contact-info-block {
+    padding: 16px 0;
+  }
+
+  .contact-info-title {
+    font-size: 1rem;
+  }
+
+  .contact-info-desc {
+    font-size: 13.5px;
+  }
+}

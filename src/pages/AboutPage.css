@@ -675,6 +675,19 @@
     justify-content: center;
   }
 
+  .about-hero-image-frame {
+    margin-top: 24px;
+    border-radius: 14px;
+    box-shadow: 0 12px 32px -8px rgba(7, 25, 35, 0.12);
+  }
+
+  .about-hero-image {
+    height: auto;
+    aspect-ratio: 16 / 10;
+    max-height: 240px;
+    object-fit: cover;
+  }
+
   .about-problems-grid,
   .about-pillars-grid {
     grid-template-columns: 1fr;
