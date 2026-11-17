@@ -703,18 +703,19 @@ export default function IndustriesPreviewSection() {
 
         {/* Dedicated Mobile Ecosystem (< 768px Viewport) */}
         <div className="ind-mobile-ecosystem">
-          {/* Central Hutomate Mobile Brand Node */}
-          <div className="ind-mobile-brand-node">
-            <div className="ind-mobile-brand-icon">
-              <Network size={22} className="ind-mobile-network-icon" />
+          {/* Refined Mobile Intelligence Mesh Introduction (Clean Editorial Header — No Bulky Box) */}
+          <div className="ind-mobile-mesh-header" aria-label="Hutomate Intelligence Mesh Overview">
+            <div className="ind-mobile-mesh-kicker-row">
+              <span className="ind-mobile-mesh-icon-badge" aria-hidden="true">
+                <Network size={15} />
+              </span>
+              <span className="ind-mobile-mesh-brand-name">Hutomate Intelligence Mesh</span>
             </div>
-            <div className="ind-mobile-brand-meta">
-              <div className="ind-mobile-brand-row">
-                <HutomateLogo variant="light" className="ind-mobile-logo" />
-                <span className="ind-mobile-mesh-badge">Intelligence Mesh</span>
-              </div>
-              <span className="ind-mobile-brand-count">12 Specialized Industries Connected</span>
-            </div>
+            <p className="ind-mobile-mesh-caption">
+              <span className="ind-mobile-mesh-count">12 Specialized Industries</span>
+              <span className="ind-mobile-mesh-bullet" aria-hidden="true">•</span>
+              <span className="ind-mobile-mesh-note">Connected Systems</span>
+            </p>
           </div>
 
           {/* 12 Mobile Cards Grid */}

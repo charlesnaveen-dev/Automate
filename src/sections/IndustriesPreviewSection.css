@@ -361,72 +361,67 @@
   display: none;
 }
 
-.ind-mobile-brand-node {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: var(--color-midnight-navy, #071923);
-  border: 1px solid rgba(131, 221, 226, 0.25);
-  border-radius: 16px;
-  padding: 14px 18px;
-  box-shadow: 0 8px 24px rgba(7, 25, 35, 0.18);
-  margin-bottom: 14px;
-}
-
-.ind-mobile-brand-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: rgba(131, 221, 226, 0.12);
-  color: var(--color-electric-cyan, #83DDE2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid rgba(131, 221, 226, 0.2);
-}
-
-.ind-mobile-network-icon {
-  animation: pulseMesh 3s ease-in-out infinite;
-}
-
-@keyframes pulseMesh {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.08); }
-}
-
-.ind-mobile-brand-meta {
+.ind-mobile-mesh-header {
   display: flex;
   flex-direction: column;
-  text-align: left;
-  gap: 4px;
+  align-items: flex-start;
+  padding: 0 0 14px 2px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 2px;
 }
 
-.ind-mobile-brand-row {
+.ind-mobile-mesh-kicker-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.ind-mobile-mesh-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(22, 124, 128, 0.1);
+  color: var(--color-deep-teal, #167C80);
+  border: 1px solid rgba(22, 124, 128, 0.15);
+}
+
+.ind-mobile-mesh-brand-name {
+  font-family: var(--font-family-headings, 'Inter', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-midnight-navy, #071923);
+}
+
+.ind-mobile-mesh-caption {
   display: flex;
   align-items: center;
-  gap: 10px;
-}
-
-.ind-mobile-mesh-badge {
+  gap: 7px;
   font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--color-electric-cyan, #83DDE2);
-  background: rgba(131, 221, 226, 0.12);
-  padding: 2px 8px;
-  border-radius: 9999px;
-  border: 1px solid rgba(131, 221, 226, 0.2);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--color-slate-grey, #40545C);
+  letter-spacing: 0.02em;
+  margin: 0;
 }
 
-.ind-mobile-brand-count {
-  font-family: var(--font-family-body, 'Inter', sans-serif);
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(226, 234, 236, 0.82);
-  letter-spacing: 0.01em;
+.ind-mobile-mesh-count {
+  color: var(--color-deep-teal, #167C80);
+  font-weight: 600;
+}
+
+.ind-mobile-mesh-bullet {
+  opacity: 0.4;
+  font-size: 0.65rem;
+}
+
+.ind-mobile-mesh-note {
+  color: var(--color-slate-grey, #40545C);
 }
 
 .ind-mobile-grid {

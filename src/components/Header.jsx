@@ -96,6 +96,13 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
+  // Default open mobile capabilities accordion if on a capabilities page
+  useEffect(() => {
+    if (currentPath === '/capabilities' || currentPath.startsWith('/capabilities/')) {
+      setIsMobileCapabilitiesOpen(true);
+    }
+  }, [currentPath]);
+
   const capabilitySublinks = [
     { label: 'AI Agents', href: '/capabilities/ai-agents', desc: 'Autonomous tasks & decision support', icon: Bot },
     { label: 'Workflow Automation', href: '/capabilities/workflow-automation', desc: 'End-to-end tool integration', icon: GitBranch },
@@ -106,12 +113,15 @@ export default function Header() {
   const handleLinkClick = () => {
     setIsMenuOpen(false);
     setIsCapabilitiesOpen(false);
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
+    }
   };
 
   const isCapabilitiesActive = currentPath === '/capabilities' || currentPath.startsWith('/capabilities/');
 
   return (
-    <header className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}>
+    <header className={`site-header ${isScrolled ? 'is-scrolled' : ''} ${isMenuOpen ? 'is-menu-open' : ''}`}>
       <div className="header-container">
         {/* Left: Exact Hutomate Brand Logo */}
         <Link to="/" className="header-brand" aria-label="Hutomate home" onClick={handleLinkClick}>
@@ -286,7 +296,7 @@ export default function Header() {
                 <div className="mobile-accordion-row">
                   <Link
                     to="/capabilities"
-                    className="mobile-nav-link"
+                    className={`mobile-nav-link ${isCapabilitiesActive ? 'mobile-nav-link--active' : ''}`}
                     onClick={handleLinkClick}
                   >
                     Capabilities
@@ -304,35 +314,58 @@ export default function Header() {
                 {isMobileCapabilitiesOpen && (
                   <ul className="mobile-sublinks-list">
                     <li>
-                      <Link to="/capabilities" className="mobile-sublink" onClick={handleLinkClick}>
+                      <Link
+                        to="/capabilities"
+                        className={`mobile-sublink ${currentPath === '/capabilities' ? 'mobile-sublink--active' : ''}`}
+                        onClick={handleLinkClick}
+                      >
                         Overview
                       </Link>
                     </li>
-                    {capabilitySublinks.map((sub) => (
-                      <li key={sub.href}>
-                        <Link to={sub.href} className="mobile-sublink" onClick={handleLinkClick}>
-                          {sub.label}
-                        </Link>
-                      </li>
-                    ))}
+                    {capabilitySublinks.map((sub) => {
+                      const isSubActive = currentPath === sub.href;
+                      return (
+                        <li key={sub.href}>
+                          <Link
+                            to={sub.href}
+                            className={`mobile-sublink ${isSubActive ? 'mobile-sublink--active' : ''}`}
+                            onClick={handleLinkClick}
+                          >
+                            {sub.label}
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 )}
               </li>
 
               <li className="mobile-link-item">
-                <Link to="/industries" className="mobile-nav-link" onClick={handleLinkClick}>
+                <Link
+                  to="/industries"
+                  className={`mobile-nav-link ${currentPath === '/industries' || currentPath.startsWith('/industries/') ? 'mobile-nav-link--active' : ''}`}
+                  onClick={handleLinkClick}
+                >
                   Industries
                 </Link>
               </li>
 
               <li className="mobile-link-item">
-                <Link to="/process" className="mobile-nav-link" onClick={handleLinkClick}>
+                <Link
+                  to="/process"
+                  className={`mobile-nav-link ${currentPath === '/process' ? 'mobile-nav-link--active' : ''}`}
+                  onClick={handleLinkClick}
+                >
                   Process
                 </Link>
               </li>
 
               <li className="mobile-link-item">
-                <Link to="/about" className="mobile-nav-link" onClick={handleLinkClick}>
+                <Link
+                  to="/about"
+                  className={`mobile-nav-link ${currentPath === '/about' ? 'mobile-nav-link--active' : ''}`}
+                  onClick={handleLinkClick}
+                >
                   About
                 </Link>
               </li>
